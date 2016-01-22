@@ -287,6 +287,9 @@ header {
 }
 .logo {
     float: left;
+    width:54px;
+    height:42px;
+    background-size:contain;
 }
 .nav-list {
     float: right;
@@ -440,13 +443,14 @@ header {
     width: 560px;
 }
 .godown {
-    background: url('../images/godown.png');
+    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/GoDown.png');
     width: 39px;
     height: 21px;
     position: absolute;
     bottom: 80px;
     left: 50%;
     font-weight: 200;
+    background-size:contain;
 
     /* 本身的一半
     -------------------------------------------------------------------------------*/
