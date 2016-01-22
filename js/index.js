@@ -10,7 +10,12 @@ function bootstrap() {
     godown.addEventListener('click', function(e){
         e.preventDefault();
         scrollToY(h, 1500, 'easeInOutQuint');
-    })
+    });
+
+    window.addEventListener('resize', function(){
+        h = window.innerHeight;
+        info.style.height = (h - 115) + 'px';
+    }, true);
 }
 
 // first add raf shim
