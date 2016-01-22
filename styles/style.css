@@ -458,21 +458,24 @@ header {
 }
 .icon-pen {
     display: inline-block;
-    background: url('../images/pen.png');
+    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon1.png');
     width: 33px;
     height: 46px;
+    background-size: contain;
 }
 .icon-terminal {
     display: inline-block;
-    background: url('../images/terminal.png');
+    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon2.png');
     width: 40px;
     height: 40px;
+    background-size: contain;
 }
 .icon-notebook {
     display: inline-block;
-    background: url('../images/moskine.png');
+    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon3.png');
     width: 24px;
     height: 37px;
+    background-size: contain;
 }
 .title {
     position: relative;
