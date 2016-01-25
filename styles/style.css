@@ -42,6 +42,7 @@ img, object, embed {
 }
 .portrait {
     margin-top: 76px;
+    z-index: -20;
 }
 .portrait img {
     vertical-align: bottom;
@@ -265,7 +266,9 @@ mark {
     font-style: italic;
     font-weight: bold;
 }
-
+button{
+  outline: none;
+}
 /* Mozilla dosen't style placeholders by default */
 input:-moz-placeholder {
     color: #a9a9a9;
@@ -528,24 +531,6 @@ header {
     border-bottom: 1px solid rgba(68, 68, 68, .15);
     position: relative;
 }
-.dribbble {
-    background: url('../images/dribbble_btn_hover.png');
-}
-.dribbble:hover {
-    background: url('../images/dribbble_btn.png');
-}
-.github {
-    background: url('../images/github_btn_hover.png');
-}
-.github:hover {
-    background: url('../images/github_btn.png');
-}
-.blog {
-    background: url('../images/read_btn_hover.png');
-}
-.blog:hover {
-    background: url('../images/read_btn.png');
-}
 .see-more {
     width: 273px;
     height: 68px;
@@ -630,15 +615,239 @@ header {
     margin-bottom: 20px;
 }
 
-@-webkit-keyframes smooth-entry-reverse {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(2em);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
+.shadowpower{
+  box-shadow:0px 1px 2px 1px rgba(68,68,68,.05);
+  transition:all 0.4s;
+}
+
+.shadowpower:hover{
+    box-shadow: 0px 22px 43px rgba(68,68,68,0.2);
+    -webkit-box-shadow:0 22px 43px rgba(68, 68, 68, 0.2);
+    webkit-transform:translateY(-15px);
+    transform:translateY(-15px);
+}
+
+.button-new {
+	float: left;
+  height:68px;
+	max-width: 273px;
+  min-width: 273px;
+	display: block;
+	margin: 1em;
+	padding: 1em 2em;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.button--border-thick {
+	border: 4px solid #444444;
+}
+
+.button--round-l {
+	border-radius: 100px;
+}
+
+.button--size-s {
+	font-size: 24px;
+}
+
+.button--inverted {
+  background: #fff;
+  color: #444444;
+}
+
+/* Nanuk */
+.button--nanuk {
+	padding: 0 2em;
+	overflow: hidden;
+	background: #7986cb;
+	-webkit-transition: background-color 0.4s;
+	transition: background-color 0.4s;
+}
+.button--nanuk {
+	background: #fff;
+	color: #444;
+}
+.button--nanuk > span {
+	display: inline-block;
+}
+.button--nanuk:hover {
+	background-color: #444;
+}
+.button--nanuk:hover > span:nth-child(odd) {
+	-webkit-animation: anim-nanuk-1 0.4s forwards;
+	animation: anim-nanuk-1 0.4s forwards;
+}
+.button--nanuk:hover > span:nth-child(even) {
+	-webkit-animation: anim-nanuk-2 0.4s forwards;
+	animation: anim-nanuk-2 0.4s forwards;
+}
+.button--nanuk:hover > span:nth-child(odd),
+.button--nanuk:hover > span:nth-child(even) {
+	-webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition-animation-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@-webkit-keyframes anim-nanuk-1 {
+	0%,
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+@keyframes anim-nanuk-1 {
+	0%,
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+@-webkit-keyframes anim-nanuk-2 {
+	0%,
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+@keyframes anim-nanuk-2 {
+	0%,
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+.button--nanuk:hover > span:nth-child(1) {
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+.button--nanuk:hover > span:nth-child(2) {
+	-webkit-animation-delay: 0.03s;
+	animation-delay: 0.03s;
+}
+.button--nanuk:hover > span:nth-child(3) {
+	-webkit-animation-delay: 0.06s;
+	animation-delay: 0.06s;
+}
+.button--nanuk:hover > span:nth-child(4) {
+	-webkit-animation-delay: 0.09s;
+	animation-delay: 0.09s;
+}
+.button--nanuk:hover > span:nth-child(5) {
+	-webkit-animation-delay: 0.12s;
+	animation-delay: 0.12s;
+}
+.button--nanuk:hover > span:nth-child(6) {
+	-webkit-animation-delay: 0.15s;
+	animation-delay: 0.15s;
+}
+.button--nanuk:hover > span:nth-child(7) {
+	-webkit-animation-delay: 0.18s;
+	animation-delay: 0.18s;
+}
+.button--nanuk:hover > span:nth-child(8) {
+	-webkit-animation-delay: 0.21s;
+	animation-delay: 0.21s;
+}
+.button--nanuk:hover > span:nth-child(9) {
+	-webkit-animation-delay: 0.24s;
+	animation-delay: 0.24s;
+}
+.button--nanuk:hover > span:nth-child(10) {
+	-webkit-animation-delay: 0.27s;
+	animation-delay: 0.27s;
+}
+.button--nanuk:hover > span:nth-child(11) {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
 }
 
 /* Animation Propertys
