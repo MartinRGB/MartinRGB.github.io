@@ -26,7 +26,7 @@
 .icon-Dribbble:before {
     content: "\e900";
     position: relative;
-    top: 2px;
+    top: 1px;
     right:6px;
 }
 .icon-GitHub:before {
