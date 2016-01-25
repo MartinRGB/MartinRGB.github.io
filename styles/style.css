@@ -41,14 +41,25 @@ img, object, embed {
     max-width: 100%;
 }
 .portrait {
-    margin-top: 76px;
+    margin-top: 86px;
     z-index: -20;
 }
 .portrait img {
+
     vertical-align: bottom;
 }
 .hand {
+    margin-top: 86px;
     margin-right: 250px;
+}
+
+.macbook {
+  margin-top: 86px;
+}
+
+.blogtitle{
+  margin-top: -40px;
+  text-align: center;
 }
 
 /*
@@ -674,22 +685,22 @@ header {
 	background: #fff;
 	color: #444;
 }
-.button--nanuk > span {
+.button--nanuk > div > span {
 	display: inline-block;
 }
 .button--nanuk:hover {
 	background-color: #444;
 }
-.button--nanuk:hover > span:nth-child(odd) {
+.button--nanuk:hover > div > span:nth-child(odd) {
 	-webkit-animation: anim-nanuk-1 0.4s forwards;
 	animation: anim-nanuk-1 0.4s forwards;
 }
-.button--nanuk:hover > span:nth-child(even) {
+.button--nanuk:hover > div > span:nth-child(even) {
 	-webkit-animation: anim-nanuk-2 0.4s forwards;
 	animation: anim-nanuk-2 0.4s forwards;
 }
-.button--nanuk:hover > span:nth-child(odd),
-.button--nanuk:hover > span:nth-child(even) {
+.button--nanuk:hover > div > span:nth-child(odd),
+.button--nanuk:hover > div > span:nth-child(even) {
 	-webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 	transition-animation-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -805,49 +816,61 @@ header {
 		color: #fff;
 	}
 }
-.button--nanuk:hover > span:nth-child(1) {
+.button--nanuk:hover > div > span:nth-child(1) {
 	-webkit-animation-delay: 0s;
 	animation-delay: 0s;
 }
-.button--nanuk:hover > span:nth-child(2) {
+.button--nanuk:hover > div > span:nth-child(2) {
 	-webkit-animation-delay: 0.03s;
 	animation-delay: 0.03s;
 }
-.button--nanuk:hover > span:nth-child(3) {
+.button--nanuk:hover > div > span:nth-child(3) {
 	-webkit-animation-delay: 0.06s;
 	animation-delay: 0.06s;
 }
-.button--nanuk:hover > span:nth-child(4) {
+.button--nanuk:hover > div > span:nth-child(4) {
 	-webkit-animation-delay: 0.09s;
 	animation-delay: 0.09s;
 }
-.button--nanuk:hover > span:nth-child(5) {
+.button--nanuk:hover > div > span:nth-child(5) {
 	-webkit-animation-delay: 0.12s;
 	animation-delay: 0.12s;
 }
-.button--nanuk:hover > span:nth-child(6) {
+.button--nanuk:hover > div > span:nth-child(6) {
 	-webkit-animation-delay: 0.15s;
 	animation-delay: 0.15s;
 }
-.button--nanuk:hover > span:nth-child(7) {
+.button--nanuk:hover > div > span:nth-child(7) {
 	-webkit-animation-delay: 0.18s;
 	animation-delay: 0.18s;
 }
-.button--nanuk:hover > span:nth-child(8) {
+.button--nanuk:hover > div > span:nth-child(8) {
 	-webkit-animation-delay: 0.21s;
 	animation-delay: 0.21s;
 }
-.button--nanuk:hover > span:nth-child(9) {
+.button--nanuk:hover > div > span:nth-child(9) {
 	-webkit-animation-delay: 0.24s;
 	animation-delay: 0.24s;
 }
-.button--nanuk:hover > span:nth-child(10) {
+.button--nanuk:hover > div > span:nth-child(10) {
 	-webkit-animation-delay: 0.27s;
 	animation-delay: 0.27s;
 }
-.button--nanuk:hover > span:nth-child(11) {
+.button--nanuk:hover > div > span:nth-child(11) {
 	-webkit-animation-delay: 0.3s;
 	animation-delay: 0.3s;
+}
+.dribbble-inner-title {
+  position:relative;
+  left:4px;
+}
+.github-inner-title {
+  position:relative;
+  left:4px;
+}
+.blog-inner-title {
+  position:relative;
+  left:0px;
 }
 
 /* Animation Propertys
