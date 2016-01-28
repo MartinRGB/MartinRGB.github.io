@@ -602,6 +602,7 @@ header {
     color: rgba(68, 68, 68, 1.0);
     line-height: 2.0em;
 }
+
 .expline2 {
     font-size: 22px;
     color: rgba(68, 68, 68, 0.8);
@@ -611,12 +612,16 @@ header {
     font-size: 22px;
     color: rgba(68, 68, 68, 0.8);
     line-height: 2.0em;
+    transition: all 0.3s;
+
 }
 .expline2 a:hover {
     font-size: 22px;
     color: rgba(52, 152, 219, 0.8);
     line-height: 2.0em;
 }
+
+
 .expline3 {
     font-size: 22px;
     color: rgba(68, 68, 68, 0.6);
@@ -690,193 +695,6 @@ header {
     -webkit-transform:translateY(-10px);
 }
 
-/* Nanuk */
-.button--nanuk {
-	padding: 0 2em;
-	overflow: hidden;
-	background: #7986cb;
-	-webkit-transition: background-color 0.4s;
-	transition: background-color 0.4s;
-}
-.button--nanuk {
-	background: #fff;
-	color: #444;
-}
-.button--nanuk > div > span {
-	display: inline-block;
-}
-.button--nanuk:hover {
-	background-color: #444;
-}
-.button--nanuk:hover > div > span:nth-child(odd) {
-	-webkit-animation: anim-nanuk-1 0.4s forwards;
-	animation: anim-nanuk-1 0.4s forwards;
-}
-.button--nanuk:hover > div > span:nth-child(even) {
-	-webkit-animation: anim-nanuk-2 0.4s forwards;
-	animation: anim-nanuk-2 0.4s forwards;
-}
-.button--nanuk:hover > div > span:nth-child(odd),
-.button--nanuk:hover > div > span:nth-child(even) {
-	-webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-	transition-animation-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-@-webkit-keyframes anim-nanuk-1 {
-	0%,
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	49% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-	}
-	50% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-		color: inherit;
-	}
-	51% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-		color: #fff;
-	}
-	100% {
-		color: #fff;
-	}
-}
-@keyframes anim-nanuk-1 {
-	0%,
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	49% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-	}
-	50% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-		color: inherit;
-	}
-	51% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-		color: #fff;
-	}
-	100% {
-		color: #fff;
-	}
-}
-@-webkit-keyframes anim-nanuk-2 {
-	0%,
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	49% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-	}
-	50% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-		color: inherit;
-	}
-	51% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-		color: #fff;
-	}
-	100% {
-		color: #fff;
-	}
-}
-@keyframes anim-nanuk-2 {
-	0%,
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	}
-	49% {
-		opacity: 1;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-	}
-	50% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, -100%, 0);
-		transform: translate3d(0, -100%, 0);
-		color: inherit;
-	}
-	51% {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
-		color: #fff;
-	}
-	100% {
-		color: #fff;
-	}
-}
-.button--nanuk:hover > div > span:nth-child(1) {
-	-webkit-animation-delay: 0s;
-	animation-delay: 0s;
-}
-.button--nanuk:hover > div > span:nth-child(2) {
-	-webkit-animation-delay: 0.03s;
-	animation-delay: 0.03s;
-}
-.button--nanuk:hover > div > span:nth-child(3) {
-	-webkit-animation-delay: 0.06s;
-	animation-delay: 0.06s;
-}
-.button--nanuk:hover > div > span:nth-child(4) {
-	-webkit-animation-delay: 0.09s;
-	animation-delay: 0.09s;
-}
-.button--nanuk:hover > div > span:nth-child(5) {
-	-webkit-animation-delay: 0.12s;
-	animation-delay: 0.12s;
-}
-.button--nanuk:hover > div > span:nth-child(6) {
-	-webkit-animation-delay: 0.15s;
-	animation-delay: 0.15s;
-}
-.button--nanuk:hover > div > span:nth-child(7) {
-	-webkit-animation-delay: 0.18s;
-	animation-delay: 0.18s;
-}
-.button--nanuk:hover > div > span:nth-child(8) {
-	-webkit-animation-delay: 0.21s;
-	animation-delay: 0.21s;
-}
-.button--nanuk:hover > div > span:nth-child(9) {
-	-webkit-animation-delay: 0.24s;
-	animation-delay: 0.24s;
-}
-.button--nanuk:hover > div > span:nth-child(10) {
-	-webkit-animation-delay: 0.27s;
-	animation-delay: 0.27s;
-}
-.button--nanuk:hover > div > span:nth-child(11) {
-	-webkit-animation-delay: 0.3s;
-	animation-delay: 0.3s;
-}
 .dribbble-inner-title {
   position:relative;
   left:4px;
@@ -889,6 +707,49 @@ header {
   position:relative;
   left:0px;
 }
+
+
+
+
+/* Effect 4: bottom border enlarge */
+.cl-effect-4 a {
+  display: inline-block;
+  position: relative;
+  transition: all 0.4s;
+}
+
+.cl-effect-4 a:hover {
+  -webkit-transform: translateY(-4px);
+	-moz-transform: translateY(-4px);
+	transform: translateY(-4px);
+}
+
+.cl-effect-4 a::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: rgba(52, 152, 219, 0.8);
+	content: '';
+	opacity: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+	transition: height 0.3s, opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+.cl-effect-4 a:hover::after,
+.cl-effect-4 a:focus::after {
+	height: 3px;
+	opacity: 1;
+	-webkit-transform: translateY(-4px);
+	-moz-transform: translateY(-4px);
+	transform: translateY(-4px);
+}
+
 
 /* Animation Propertys
 -------------------------------------------------------------------------------*/
