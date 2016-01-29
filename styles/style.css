@@ -449,6 +449,9 @@ header {
 [layout-align="start end"], [layout-align="center end"], [layout-align="end end"], [layout-align="space-between end"], [layout-align="space-around end"] {
     align-items: flex-end;
 }
+.info-section {
+  height:900px;
+}
 .info-section  p {
     font-size: 36px;
     margin-top: 86px;
