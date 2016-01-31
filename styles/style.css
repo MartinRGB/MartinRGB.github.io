@@ -307,6 +307,7 @@ header {
 }
 .nav-list {
     float: right;
+    margin-top: 9px;
 }
 .nav-list  li {
     float: left;
