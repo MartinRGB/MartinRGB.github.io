@@ -323,6 +323,10 @@ header {
 .nav-list  li a:hover {
     color: rgba(68, 68, 68, 1);
 }
+.nav-list li a.tagselected {
+    color: rgba(68, 68, 68, 1);
+}
+
 .martin-md-1, .martin-md-2, .martin-md-3, .martin-md-4, .martin-md-5, .martin-md-6, .martin-md-7, .martin-md-8, .martin-md-9, .martin-md-10, .martin-md-11, .martin-md-12 {
     float: left;
     position: relative;
