@@ -895,10 +895,7 @@ a.hamburger-icon.active .line-3 {
 }
 
 
-/* Media queries
--------------------------------------------------------------------------------*/
-
-@media screen and (min-width: 960px) {
+@media screen and (min-device-width: 960px) {
 
   .essential-illustration {
     width: 940px;
@@ -918,7 +915,7 @@ a.hamburger-icon.active .line-3 {
 
 }
 
-@media screen and (min-width: 680px) and (max-width: 960px) {
+@media screen and (min-device-width: 680px) and (max-device-width: 960px) {
 
   .martin-md-4 {
     width: 50%;
@@ -956,7 +953,7 @@ a.hamburger-icon.active .line-3 {
   }
 
 }
-@media screen and (max-width:680px) {
+@media screen and (max-device-width:680px) {
   body , .container, .white {
     width: 100%
   }
