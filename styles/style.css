@@ -958,6 +958,10 @@ a.hamburger-icon.active .line-3 {
     width: 100%
   }
 
+  .title {
+    display: none;
+  }
+
   .handcontainer {
     width: 50%;
     margin-left: -120px;
@@ -1120,6 +1124,7 @@ a.hamburger-icon.active .line-3 {
   }
   .sub-title {
     font-size: 24px;
+    margin-top: 33px;
     margin-bottom: -10px;
   }
   .info {
