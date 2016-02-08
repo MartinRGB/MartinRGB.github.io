@@ -186,6 +186,11 @@ pre, code, kbd, samp {
     cursor: pointer;
 }
 
+body {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+textarea, input { outline: none; }
+
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea {
     margin: 0;
@@ -364,9 +369,7 @@ header {
 .martin-md-10 {
     width: 780px;
 }
-.aboutmd {
-    margin-left: 40px;
-}
+
 .martin-md-11 {
     width: 860px;
 }
@@ -917,6 +920,14 @@ a.hamburger-icon.active .line-3 {
     height: 817px;
   }
 
+  .aboutmd {
+      margin-left: 40px;
+  }
+
+  .portrait {
+    width: 500px;
+    height: 658px;
+  }
 
 }
 
@@ -925,6 +936,23 @@ a.hamburger-icon.active .line-3 {
   .martin-md-4 {
     width: 50%;
   }
+
+  .martin-md-10 {
+    width: 100%;
+  }
+
+  .aboutrow {
+    width: 100%;
+  }
+
+  .aboutmd {
+      margin-left: 0px;
+  }
+
+  .exprow {
+    width: 100%;
+  }
+
 
   .illistrationcontainer{
     padding-left: 20px;
@@ -955,6 +983,11 @@ a.hamburger-icon.active .line-3 {
     width: 406px;
     height: 614px;
     margin-left: -260px
+  }
+
+  .portrait {
+    width: 500px;
+    height: 658px;
   }
 
 }
@@ -1169,6 +1202,40 @@ a.hamburger-icon.active .line-3 {
   .info {
     font-size: 16px;
   }
+
+  .martin-md-10 {
+    width: 100%;
+  }
+
+  .aboutrow {
+    width: 100%;
+  }
+
+  .aboutmd {
+      margin-left: 0px;
+  }
+
+  .exprow {
+    width: 100%;
+  }
+
+  .portrait {
+    max-width: 540px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .expline1, .expline2, .expline3, .expline2 a, .cl-effect-4 a:hover::after,
+  .cl-effect-4 a:focus::after, .cl-effect-4 a:hover, .cl-effect-4 a::after{
+    font-size: 16px;
+  }
+
+
+
+
+
+}
 
 
 }
