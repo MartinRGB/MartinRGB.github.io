@@ -894,8 +894,13 @@ a.hamburger-icon.active .line-3 {
   display: none;
 }
 
+.smileface {
+  width: 188px;
+  height: 188px;
+}
 
-@media screen and (min-device-width: 960px) {
+
+@media screen and (min-width: 960px) {
 
   .essential-illustration {
     width: 940px;
@@ -915,7 +920,7 @@ a.hamburger-icon.active .line-3 {
 
 }
 
-@media screen and (min-device-width: 680px) and (max-device-width: 960px) {
+@media screen and (min-width: 680px) and (max-width: 960px) {
 
   .martin-md-4 {
     width: 50%;
@@ -953,23 +958,29 @@ a.hamburger-icon.active .line-3 {
   }
 
 }
-@media screen and (max-device-width:680px) {
+@media screen and (max-width:680px) {
   body , .container, .white {
     width: 100%
   }
 
   .title {
-    display: none;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
+  .title .line {
+    width: 38%;
+  }
   .handcontainer {
     width: 50%;
     margin-left: -120px;
     padding-left: 20px;
+    margin-top: -50px;
   }
 
   .info-section{
-    height: auto;
+    height: 500px;
   }
 
   .footer {
@@ -979,6 +990,12 @@ a.hamburger-icon.active .line-3 {
   .touch-me {
     margin-top: 0pc;
     font-size: 16px;
+  }
+
+  .smileface {
+    width: 94px;
+    height: 94px;
+    margin-top: -120px;
   }
 
   .copyright {
@@ -1117,7 +1134,7 @@ a.hamburger-icon.active .line-3 {
   }
 
   .info-section p {
-    font-size: 24px;
+    font-size: 18px;
     width: auto;
     padding-left: 20px;
     padding-right: 20px;
