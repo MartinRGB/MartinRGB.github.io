@@ -995,7 +995,11 @@ a.hamburger-icon.active .line-3 {
   }
 
   .touch-me {
-    margin-top: 0pc;
+    margin-top: 0px;
+    font-size: 16px;
+  }
+
+  .aboutword{
     font-size: 16px;
   }
 
