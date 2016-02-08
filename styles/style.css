@@ -1034,6 +1034,8 @@ a.hamburger-icon.active .line-3 {
     font-size: 24px;
     margin-bottom: -9px;
     margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .social {
