@@ -14,7 +14,9 @@ function bootstrap() {
 
     window.addEventListener('resize', function(){
         h = window.innerHeight;
-        info.style.height = (h - 115) + 'px';
+        if (w >= 480) {
+            info.style.height = (h - 115) + 'px';
+        }
     }, true);
 }
 
