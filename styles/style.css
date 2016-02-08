@@ -1009,6 +1009,7 @@ a.hamburger-icon.active .line-3 {
     bottom: -15%;
     left: 0%;
     margin-left: 39.5px;
+    display: none;
 
   }
 
