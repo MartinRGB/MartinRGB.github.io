@@ -1230,7 +1230,7 @@ a.hamburger-icon.active .line-3 {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   .expline1, .expline2, .expline3, .expline2 a, .cl-effect-4 a:hover::after,
