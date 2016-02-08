@@ -1002,7 +1002,6 @@ a.hamburger-icon.active .line-3 {
   .smileface {
     width: 94px;
     height: 94px;
-    margin-top: -100px;
   }
 
   .godown {
@@ -1010,12 +1009,11 @@ a.hamburger-icon.active .line-3 {
     bottom: -15%;
     left: 0%;
     margin-left: 39.5px;
-    margin-top: 60px;
 
   }
 
   .copyright {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 14px;
   }
 
