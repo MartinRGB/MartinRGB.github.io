@@ -1227,14 +1227,7 @@ a.hamburger-icon.active .line-3 {
 
   .portrait {
     max-width: 540px;
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .portrait img {
-    vertical-align: none;
-    padding-bottom: 100px;
+    width: 90%;
   }
 
   .expline1, .expline2, .expline3, .expline2 a, .cl-effect-4 a:hover::after,
