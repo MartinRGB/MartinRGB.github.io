@@ -269,7 +269,7 @@ a:hover {
 
 /*  j.mp/webkit-tap-highlight-color */
 a:link {
-    -webkit-tap-highlight-color: none;
+    -webkit-tap-highlight-color: rgba(68, 68, 68, 0.2);
 }
 ins {
     background-color: #fcd700;
