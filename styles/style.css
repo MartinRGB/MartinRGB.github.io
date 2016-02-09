@@ -994,7 +994,6 @@ a.hamburger-icon.active .line-3 {
 @media screen and (max-width:680px) {
 
 
-
   body , .container, .white {
     width: 100%
   }
@@ -1203,6 +1202,7 @@ a.hamburger-icon.active .line-3 {
   }
   .info {
     font-size: 16px;
+    text-align: left;
   }
 
   .martin-md-10 {
@@ -1211,7 +1211,7 @@ a.hamburger-icon.active .line-3 {
 
   .aboutrow {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 50px;
   }
 
@@ -1221,8 +1221,12 @@ a.hamburger-icon.active .line-3 {
 
   .exprow {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 50px;
+  }
+
+  .expmobilefix {
+    margin-bottom: -10px;
   }
 
   .portrait {
@@ -1235,7 +1239,7 @@ a.hamburger-icon.active .line-3 {
 
   .expline1, .expline2, .expline3, .expline2 a, .cl-effect-4 a:hover::after,
   .cl-effect-4 a:focus::after, .cl-effect-4 a:hover, .cl-effect-4 a::after{
-    font-size: 16px;
+    font-size: 14px;
   }
 
 }
