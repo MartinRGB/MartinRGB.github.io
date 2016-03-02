@@ -6,9 +6,594 @@
     "children" : [
       {
         "maskFrame" : null,
+        "id" : "562056FE-9D2F-4F01-9E0E-2738A64C815F",
+        "visible" : true,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "95A024AD-884D-48AE-AB27-A08F055226F9",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-CDStatusBar-95A024AD-884D-48AE-AB27-A08F055226F9.png",
+              "frame" : {
+                "y" : 1,
+                "x" : 0,
+                "width" : 750,
+                "height" : 40
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 1,
+              "x" : 0,
+              "width" : 750,
+              "height" : 40
+            },
+            "name" : "CDStatusBar"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "F6AE730C-4CD1-42EB-9E99-470FFB4C7E88",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "4A6A9E25-76E0-45C1-8217-386C2B00391C",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-CDBack-4A6A9E25-76E0-45C1-8217-386C2B00391C.png",
+                  "frame" : {
+                    "y" : 72,
+                    "x" : 40,
+                    "width" : 35,
+                    "height" : 24
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 72,
+                  "x" : 40,
+                  "width" : 35,
+                  "height" : 24
+                },
+                "name" : "CDBack"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "98F0D046-0A97-4E9F-80F7-B8905570C65F",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-CDConfirm-98F0D046-0A97-4E9F-80F7-B8905570C65F.png",
+                  "frame" : {
+                    "y" : 72,
+                    "x" : 655,
+                    "width" : 54,
+                    "height" : 26
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "text",
+                "metadata" : {
+                  "css" : [
+                    "\/* 确认: *\/",
+                    "font-family: PingFangSC-Regular;",
+                    "font-size: 27.95px;",
+                    "color: #202020;",
+                    "line-height: 40px;"
+                  ],
+                  "string" : "确认"
+                },
+                "layerFrame" : {
+                  "y" : 72,
+                  "x" : 655,
+                  "width" : 54,
+                  "height" : 26
+                },
+                "name" : "CDConfirm"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "E105AE5F-6460-465C-BABE-E0C2BF8B46FF",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-CDNAVTitle-E105AE5F-6460-465C-BABE-E0C2BF8B46FF.png",
+                  "frame" : {
+                    "y" : 72,
+                    "x" : 305,
+                    "width" : 138,
+                    "height" : 26
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "text",
+                "metadata" : {
+                  "css" : [
+                    "\/* 设置倒计时: *\/",
+                    "font-family: PingFangSC-Regular;",
+                    "font-size: 27.95px;",
+                    "color: #202020;",
+                    "line-height: 40px;"
+                  ],
+                  "string" : "设置倒计时"
+                },
+                "layerFrame" : {
+                  "y" : 72,
+                  "x" : 305,
+                  "width" : 138,
+                  "height" : 26
+                },
+                "name" : "CDNAVTitle"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "DC49E710-97EA-4523-BB16-5A8DAE5F5BC5",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-CDNavBase-DC49E710-97EA-4523-BB16-5A8DAE5F5BC5.png",
+                  "frame" : {
+                    "y" : 0,
+                    "x" : 0,
+                    "width" : 750,
+                    "height" : 130
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 0,
+                  "x" : 0,
+                  "width" : 750,
+                  "height" : 130
+                },
+                "name" : "CDNavBase"
+              }
+            ],
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 750,
+              "height" : 130
+            },
+            "name" : "CDNavBar"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "66654CF9-7CA1-4AC3-ACD6-B9472D6A8780",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "3568811D-7B95-444C-8A57-D654F28500E8",
+                "visible" : false,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-BlackDin-3568811D-7B95-444C-8A57-D654F28500E8.png",
+                  "frame" : {
+                    "y" : 174,
+                    "x" : 174,
+                    "width" : 429,
+                    "height" : 223
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 174,
+                  "x" : 174,
+                  "width" : 429,
+                  "height" : 223
+                },
+                "name" : "BlackDin"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "92E0DAF8-E7B5-4492-87C6-439566D5B532",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-CDAreaBase-92E0DAF8-E7B5-4492-87C6-439566D5B532.png",
+                  "frame" : {
+                    "y" : 128,
+                    "x" : 0,
+                    "width" : 750,
+                    "height" : 331
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 128,
+                  "x" : 0,
+                  "width" : 750,
+                  "height" : 331
+                },
+                "name" : "CDAreaBase"
+              }
+            ],
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 128,
+              "x" : 0,
+              "width" : 750,
+              "height" : 331
+            },
+            "name" : "CDArea"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "01E2CF64-7E1F-457A-BDA4-32A2AC119B00",
+            "visible" : false,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-CDKeyboard-01E2CF64-7E1F-457A-BDA4-32A2AC119B00.png",
+              "frame" : {
+                "y" : 901,
+                "x" : 0,
+                "width" : 750,
+                "height" : 432
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 901,
+              "x" : 0,
+              "width" : 750,
+              "height" : 432
+            },
+            "name" : "CDKeyboard"
+          }
+        ],
+        "image" : {
+          "path" : "images\/Layer-CDPage-562056FE-9D2F-4F01-9E0E-2738A64C815F.png",
+          "frame" : {
+            "y" : 0,
+            "x" : 0,
+            "width" : 750,
+            "height" : 1334
+          }
+        },
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 0,
+          "x" : 0,
+          "width" : 750,
+          "height" : 1334
+        },
+        "name" : "CDPage"
+      },
+      {
+        "maskFrame" : null,
+        "id" : "D184F1B5-5C57-49FC-B1DA-4469565EF162",
+        "visible" : true,
+        "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "2EB9C7FC-F44A-4A66-8C45-5CC9F7EE4486",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-StatusBarTag-2EB9C7FC-F44A-4A66-8C45-5CC9F7EE4486.png",
+              "frame" : {
+                "y" : 0,
+                "x" : 0,
+                "width" : 750,
+                "height" : 40
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 750,
+              "height" : 40
+            },
+            "name" : "StatusBarTag"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "725BAE4D-E903-474D-826A-E634A5841326",
+            "visible" : true,
+            "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "BD458EEF-81FF-4693-B9A4-403258D8792E",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-TagBack-BD458EEF-81FF-4693-B9A4-403258D8792E.png",
+                  "frame" : {
+                    "y" : 72,
+                    "x" : 40,
+                    "width" : 35,
+                    "height" : 24
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 72,
+                  "x" : 40,
+                  "width" : 35,
+                  "height" : 24
+                },
+                "name" : "TagBack"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "4CFAB3DE-BEB7-4DCA-A58E-E5A72C5B558D",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-TagNavTitle-4CFAB3DE-BEB7-4DCA-A58E-E5A72C5B558D.png",
+                  "frame" : {
+                    "y" : 70,
+                    "x" : 321,
+                    "width" : 110,
+                    "height" : 27
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "text",
+                "metadata" : {
+                  "css" : [
+                    "\/* 新建标签: *\/",
+                    "font-family: PingFangSC-Regular;",
+                    "font-size: 28px;",
+                    "color: #202020;",
+                    "line-height: 40px;"
+                  ],
+                  "string" : "新建标签"
+                },
+                "layerFrame" : {
+                  "y" : 70,
+                  "x" : 321,
+                  "width" : 110,
+                  "height" : 27
+                },
+                "name" : "TagNavTitle"
+              }
+            ],
+            "image" : {
+              "path" : "images\/Layer-Nav_Bar-725BAE4D-E903-474D-826A-E634A5841326.png",
+              "frame" : {
+                "y" : 0,
+                "x" : 0,
+                "width" : 750,
+                "height" : 129
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 0,
+              "x" : 0,
+              "width" : 750,
+              "height" : 129
+            },
+            "name" : "Nav_Bar"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "C450FB91-1D70-490F-897B-D44D5ED649C6",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-Input-C450FB91-1D70-490F-897B-D44D5ED649C6.png",
+              "frame" : {
+                "y" : 127,
+                "x" : 0,
+                "width" : 750,
+                "height" : 102
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 127,
+              "x" : 0,
+              "width" : 750,
+              "height" : 102
+            },
+            "name" : "Input"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "C522B9C4-C8A9-43B5-85A0-D78D96685C45",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-TagTitle-C522B9C4-C8A9-43B5-85A0-D78D96685C45.png",
+              "frame" : {
+                "y" : 264,
+                "x" : 277,
+                "width" : 193,
+                "height" : 27
+              }
+            },
+            "imageType" : "png",
+            "kind" : "text",
+            "metadata" : {
+              "css" : [
+                "\/* 我仓库中的物品: *\/",
+                "font-family: PingFangSC-Regular;",
+                "font-size: 28px;",
+                "color: #A6A6A6;",
+                "line-height: 40px;"
+              ],
+              "string" : "我仓库中的物品"
+            },
+            "layerFrame" : {
+              "y" : 264,
+              "x" : 277,
+              "width" : 193,
+              "height" : 27
+            },
+            "name" : "TagTitle"
+          },
+          {
+            "maskFrame" : null,
+            "id" : "A2B8750C-5F5F-4123-A1E8-D5FA4C99B544",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-ParadaTag-A2B8750C-5F5F-4123-A1E8-D5FA4C99B544.png",
+              "frame" : {
+                "y" : 327,
+                "x" : 0,
+                "width" : 750,
+                "height" : 182
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 1
+            },
+            "layerFrame" : {
+              "y" : 327,
+              "x" : 0,
+              "width" : 750,
+              "height" : 182
+            },
+            "name" : "ParadaTag"
+          }
+        ],
+        "image" : {
+          "path" : "images\/Layer-TagPage-D184F1B5-5C57-49FC-B1DA-4469565EF162.png",
+          "frame" : {
+            "y" : 0,
+            "x" : 0,
+            "width" : 750,
+            "height" : 1334
+          }
+        },
+        "imageType" : "png",
+        "kind" : "group",
+        "metadata" : {
+          "opacity" : 1
+        },
+        "layerFrame" : {
+          "y" : 0,
+          "x" : 0,
+          "width" : 750,
+          "height" : 1334
+        },
+        "name" : "TagPage"
+      },
+      {
+        "maskFrame" : null,
         "id" : "A14DDDB6-D055-49B1-B8CF-B13C4E6ED66A",
         "visible" : true,
         "children" : [
+          {
+            "maskFrame" : null,
+            "id" : "45B66177-2CEE-401C-95F0-9B51D6B13733",
+            "visible" : true,
+            "children" : [
+
+            ],
+            "image" : {
+              "path" : "images\/Layer-SmallParada-45B66177-2CEE-401C-95F0-9B51D6B13733.png",
+              "frame" : {
+                "y" : 632,
+                "x" : 296,
+                "width" : 158,
+                "height" : 74
+              }
+            },
+            "imageType" : "png",
+            "kind" : "group",
+            "metadata" : {
+              "opacity" : 0.8
+            },
+            "layerFrame" : {
+              "y" : 632,
+              "x" : 296,
+              "width" : 158,
+              "height" : 74
+            },
+            "name" : "SmallParada"
+          },
           {
             "maskFrame" : null,
             "id" : "DB8325CB-A683-4C62-93A6-0B64A86C14E6",
@@ -100,17 +685,37 @@
                   "height" : 54
                 },
                 "name" : "TimeCode"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "70F01B9E-396B-40F2-8047-3BD6FB06EF1E",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-TimeCodeBase-70F01B9E-396B-40F2-8047-3BD6FB06EF1E.png",
+                  "frame" : {
+                    "y" : 479,
+                    "x" : 567,
+                    "width" : 183,
+                    "height" : 93
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 479,
+                  "x" : 567,
+                  "width" : 183,
+                  "height" : 93
+                },
+                "name" : "TimeCodeBase"
               }
             ],
-            "image" : {
-              "path" : "images\/Layer-TimeLabel-384DF0D6-024A-4A26-8589-16548BE853A1.png",
-              "frame" : {
-                "y" : 479,
-                "x" : 567,
-                "width" : 183,
-                "height" : 93
-              }
-            },
             "imageType" : "png",
             "kind" : "group",
             "metadata" : {
@@ -123,1504 +728,6 @@
               "height" : 93
             },
             "name" : "TimeLabel"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "0D78830E-F52D-4568-8A7C-544583243F5C",
-            "visible" : true,
-            "children" : [
-              {
-                "maskFrame" : null,
-                "id" : "4FB7688A-8BE5-4762-8690-A29F3AB01941",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-DiscText5-4FB7688A-8BE5-4762-8690-A29F3AB01941.png",
-                  "frame" : {
-                    "y" : 1152,
-                    "x" : 640,
-                    "width" : 46,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 深情: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "深情"
-                },
-                "layerFrame" : {
-                  "y" : 1152,
-                  "x" : 640,
-                  "width" : 46,
-                  "height" : 23
-                },
-                "name" : "DiscText5"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "6DD0B1A5-41F8-4383-859E-F0AEAA97E858",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-DiscText4-6DD0B1A5-41F8-4383-859E-F0AEAA97E858.png",
-                  "frame" : {
-                    "y" : 1152,
-                    "x" : 496,
-                    "width" : 47,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 科技: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "科技"
-                },
-                "layerFrame" : {
-                  "y" : 1152,
-                  "x" : 496,
-                  "width" : 47,
-                  "height" : 23
-                },
-                "name" : "DiscText4"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "88C84E1F-D23A-40DD-BD70-3BF9509CE9B3",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-DiscText3-88C84E1F-D23A-40DD-BD70-3BF9509CE9B3.png",
-                  "frame" : {
-                    "y" : 1152,
-                    "x" : 353,
-                    "width" : 46,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 流年: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "流年"
-                },
-                "layerFrame" : {
-                  "y" : 1152,
-                  "x" : 353,
-                  "width" : 46,
-                  "height" : 23
-                },
-                "name" : "DiscText3"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "93EEE055-E640-442A-9390-D654B0AD75A7",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-DiscText2-93EEE055-E640-442A-9390-D654B0AD75A7.png",
-                  "frame" : {
-                    "y" : 1152,
-                    "x" : 209,
-                    "width" : 47,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 摩登: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "摩登"
-                },
-                "layerFrame" : {
-                  "y" : 1152,
-                  "x" : 209,
-                  "width" : 47,
-                  "height" : 23
-                },
-                "name" : "DiscText2"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "837F71EE-B74A-4FF7-AA53-92DA7D9D3244",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-DiscText1-837F71EE-B74A-4FF7-AA53-92DA7D9D3244.png",
-                  "frame" : {
-                    "y" : 1153,
-                    "x" : 77,
-                    "width" : 23,
-                    "height" : 22
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 无: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "无"
-                },
-                "layerFrame" : {
-                  "y" : 1153,
-                  "x" : 77,
-                  "width" : 23,
-                  "height" : 22
-                },
-                "name" : "DiscText1"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "759C8CD1-6A42-45BB-A92A-E95213511F87",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "F1A92BF6-C157-4A36-8EF1-D3A9FADDD62A",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_6-F1A92BF6-C157-4A36-8EF1-D3A9FADDD62A.png",
-                      "frame" : {
-                        "y" : 1048,
-                        "x" : 70,
-                        "width" : 33,
-                        "height" : 33
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1048,
-                      "x" : 70,
-                      "width" : 33,
-                      "height" : 33
-                    },
-                    "name" : "Group_6"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "54B0F764-DC65-4C73-A385-6F3E21A3799E",
-                    "visible" : true,
-                    "children" : [
-                      {
-                        "maskFrame" : null,
-                        "id" : "523AC491-45E6-4EFE-84CA-05513AC6DB8A",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-Group_8-523AC491-45E6-4EFE-84CA-05513AC6DB8A.png",
-                          "frame" : {
-                            "y" : 1020,
-                            "x" : 42,
-                            "width" : 89,
-                            "height" : 89
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1020,
-                          "x" : 42,
-                          "width" : 89,
-                          "height" : 89
-                        },
-                        "name" : "Group_8"
-                      },
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 34,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "id" : "36AB2B4F-08BE-4B72-BD2A-DCBCF608BC2E",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-bg-36AB2B4F-08BE-4B72-BD2A-DCBCF608BC2E.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 34,
-                            "width" : 105,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 34,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "name" : "bg"
-                      },
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 34,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "id" : "7A8A7DEB-7B12-4CEA-AFF9-E20BEC3F5C4F",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-Group_9-7A8A7DEB-7B12-4CEA-AFF9-E20BEC3F5C4F.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 34,
-                            "width" : 105,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 34,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "name" : "Group_9"
-                      }
-                    ],
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1012,
-                      "x" : 34,
-                      "width" : 105,
-                      "height" : 105
-                    },
-                    "name" : "Group"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1012,
-                  "x" : 34,
-                  "width" : 105,
-                  "height" : 105
-                },
-                "name" : "Disc1"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "4197FFCA-6647-4ED7-9484-4EE97F4A26E8",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "C0632A79-7FB7-4C62-A08B-86984BF102B7",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_4-C0632A79-7FB7-4C62-A08B-86984BF102B7.png",
-                      "frame" : {
-                        "y" : 1048,
-                        "x" : 645,
-                        "width" : 33,
-                        "height" : 33
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1048,
-                      "x" : 645,
-                      "width" : 33,
-                      "height" : 33
-                    },
-                    "name" : "Group_4"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "A39CB93A-3472-4E21-B260-BDBF6743A51A",
-                    "visible" : true,
-                    "children" : [
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 609,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "id" : "5F389C31-6961-45EB-A192-385837D5C197",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-bg-5F389C31-6961-45EB-A192-385837D5C197.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 609,
-                            "width" : 105,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 609,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "name" : "bg"
-                      }
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group-A39CB93A-3472-4E21-B260-BDBF6743A51A.png",
-                      "frame" : {
-                        "y" : 1012,
-                        "x" : 609,
-                        "width" : 105,
-                        "height" : 105
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1012,
-                      "x" : 609,
-                      "width" : 105,
-                      "height" : 105
-                    },
-                    "name" : "Group"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1012,
-                  "x" : 609,
-                  "width" : 105,
-                  "height" : 105
-                },
-                "name" : "Disc5"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "78CBDE9B-5148-437E-9775-8AEAED8DFF4E",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "03F30D79-C796-47CC-B9AF-AB870C010A62",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_3-03F30D79-C796-47CC-B9AF-AB870C010A62.png",
-                      "frame" : {
-                        "y" : 1048,
-                        "x" : 501,
-                        "width" : 34,
-                        "height" : 33
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1048,
-                      "x" : 501,
-                      "width" : 34,
-                      "height" : 33
-                    },
-                    "name" : "Group_3"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "4EDFA012-018E-43D0-9A93-B93F5DD79068",
-                    "visible" : true,
-                    "children" : [
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 465,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "id" : "8D77F98C-CC7F-4812-9D4D-5DBE6194B116",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-bg-8D77F98C-CC7F-4812-9D4D-5DBE6194B116.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 465,
-                            "width" : 105,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 465,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "name" : "bg"
-                      }
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group-4EDFA012-018E-43D0-9A93-B93F5DD79068.png",
-                      "frame" : {
-                        "y" : 1012,
-                        "x" : 465,
-                        "width" : 105,
-                        "height" : 105
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1012,
-                      "x" : 465,
-                      "width" : 105,
-                      "height" : 105
-                    },
-                    "name" : "Group"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1012,
-                  "x" : 465,
-                  "width" : 105,
-                  "height" : 105
-                },
-                "name" : "Disc4"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "64036DA3-4113-4051-BEDA-BF4B65F72FE0",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "068CD472-1AB6-4C59-AA17-6A9D6DEADEF5",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_2-068CD472-1AB6-4C59-AA17-6A9D6DEADEF5.png",
-                      "frame" : {
-                        "y" : 1048,
-                        "x" : 213,
-                        "width" : 34,
-                        "height" : 33
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1048,
-                      "x" : 213,
-                      "width" : 34,
-                      "height" : 33
-                    },
-                    "name" : "Group_2"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "D72C2A13-F47B-4777-BB6A-26D94D649E0B",
-                    "visible" : true,
-                    "children" : [
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 178,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "id" : "BEF2FDD5-2254-4B6E-9186-2529F2787D86",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-bg-BEF2FDD5-2254-4B6E-9186-2529F2787D86.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 178,
-                            "width" : 105,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 178,
-                          "width" : 105,
-                          "height" : 105
-                        },
-                        "name" : "bg"
-                      }
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group-D72C2A13-F47B-4777-BB6A-26D94D649E0B.png",
-                      "frame" : {
-                        "y" : 1012,
-                        "x" : 178,
-                        "width" : 105,
-                        "height" : 105
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1012,
-                      "x" : 178,
-                      "width" : 105,
-                      "height" : 105
-                    },
-                    "name" : "Group"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1012,
-                  "x" : 178,
-                  "width" : 105,
-                  "height" : 105
-                },
-                "name" : "Disc2"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "0D9B0ED4-FC86-4BB0-938E-5C8BE3CCF593",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "90135CBE-D1FB-404D-B22E-6B30C685A6AD",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_7-90135CBE-D1FB-404D-B22E-6B30C685A6AD.png",
-                      "frame" : {
-                        "y" : 1047,
-                        "x" : 359,
-                        "width" : 34,
-                        "height" : 34
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1047,
-                      "x" : 359,
-                      "width" : 34,
-                      "height" : 34
-                    },
-                    "name" : "Group_7"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "BE188D85-DAE5-4A07-94E5-46042ABD1813",
-                    "visible" : true,
-                    "children" : [
-                      {
-                        "maskFrame" : {
-                          "y" : 1012,
-                          "x" : 323,
-                          "width" : 106,
-                          "height" : 105
-                        },
-                        "id" : "E988D4B7-F5F9-4FDD-8FD4-1C2966DE6BCA",
-                        "visible" : true,
-                        "children" : [
-
-                        ],
-                        "image" : {
-                          "path" : "images\/Layer-bg-E988D4B7-F5F9-4FDD-8FD4-1C2966DE6BCA.png",
-                          "frame" : {
-                            "y" : 1012,
-                            "x" : 323,
-                            "width" : 106,
-                            "height" : 105
-                          }
-                        },
-                        "imageType" : "png",
-                        "kind" : "group",
-                        "metadata" : {
-                          "opacity" : 1
-                        },
-                        "layerFrame" : {
-                          "y" : 1012,
-                          "x" : 323,
-                          "width" : 106,
-                          "height" : 105
-                        },
-                        "name" : "bg"
-                      }
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group-BE188D85-DAE5-4A07-94E5-46042ABD1813.png",
-                      "frame" : {
-                        "y" : 1012,
-                        "x" : 323,
-                        "width" : 106,
-                        "height" : 105
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1012,
-                      "x" : 323,
-                      "width" : 106,
-                      "height" : 105
-                    },
-                    "name" : "Group"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1012,
-                  "x" : 323,
-                  "width" : 106,
-                  "height" : 105
-                },
-                "name" : "Disc3"
-              }
-            ],
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1012,
-              "x" : 34,
-              "width" : 680,
-              "height" : 163
-            },
-            "name" : "DiscBar"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "2E19BC79-3D0D-4C8E-A423-E7433C480976",
-            "visible" : true,
-            "children" : [
-              {
-                "maskFrame" : null,
-                "id" : "0EC9AA27-5120-4260-9EB7-A2126A4D72D7",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Filter5-0EC9AA27-5120-4260-9EB7-A2126A4D72D7.png",
-                  "frame" : {
-                    "y" : 1014,
-                    "x" : 609,
-                    "width" : 109,
-                    "height" : 109
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1014,
-                  "x" : 609,
-                  "width" : 109,
-                  "height" : 109
-                },
-                "name" : "Filter5"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "0CFEA362-447B-47A3-9805-D4ADCA43B824",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Filter4-0CFEA362-447B-47A3-9805-D4ADCA43B824.png",
-                  "frame" : {
-                    "y" : 1014,
-                    "x" : 465,
-                    "width" : 109,
-                    "height" : 109
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1014,
-                  "x" : 465,
-                  "width" : 109,
-                  "height" : 109
-                },
-                "name" : "Filter4"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "8D9E6A6E-816D-48EE-88C9-946A1C54BAEF",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Filter3-8D9E6A6E-816D-48EE-88C9-946A1C54BAEF.png",
-                  "frame" : {
-                    "y" : 1013,
-                    "x" : 321,
-                    "width" : 110,
-                    "height" : 111
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1013,
-                  "x" : 321,
-                  "width" : 110,
-                  "height" : 111
-                },
-                "name" : "Filter3"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "930135C6-3A90-47D3-B3EA-416A3F772579",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Filter2-930135C6-3A90-47D3-B3EA-416A3F772579.png",
-                  "frame" : {
-                    "y" : 1014,
-                    "x" : 178,
-                    "width" : 109,
-                    "height" : 109
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1014,
-                  "x" : 178,
-                  "width" : 109,
-                  "height" : 109
-                },
-                "name" : "Filter2"
-              },
-              {
-                "maskFrame" : {
-                  "y" : 1014,
-                  "x" : 34,
-                  "width" : 109,
-                  "height" : 109
-                },
-                "id" : "79546840-FD46-442B-B888-DFE386E81674",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Filter1-79546840-FD46-442B-B888-DFE386E81674.png",
-                  "frame" : {
-                    "y" : 1014,
-                    "x" : 34,
-                    "width" : 109,
-                    "height" : 109
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1014,
-                  "x" : 34,
-                  "width" : 109,
-                  "height" : 109
-                },
-                "name" : "Filter1"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "B72A8448-8D35-4BA0-B1B8-A4221B887601",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-FilterText5-B72A8448-8D35-4BA0-B1B8-A4221B887601.png",
-                  "frame" : {
-                    "y" : 1154,
-                    "x" : 640,
-                    "width" : 47,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 色彩: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "色彩"
-                },
-                "layerFrame" : {
-                  "y" : 1154,
-                  "x" : 640,
-                  "width" : 47,
-                  "height" : 23
-                },
-                "name" : "FilterText5"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "947EBC51-9A50-489A-8A19-6327EEC64F2F",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-FilterText4-947EBC51-9A50-489A-8A19-6327EEC64F2F.png",
-                  "frame" : {
-                    "y" : 1154,
-                    "x" : 496,
-                    "width" : 46,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 怀旧: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "怀旧"
-                },
-                "layerFrame" : {
-                  "y" : 1154,
-                  "x" : 496,
-                  "width" : 46,
-                  "height" : 23
-                },
-                "name" : "FilterText4"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "D0C8FBC1-3A9F-46EA-84F0-11786A5FB7B1",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-FilterText3-D0C8FBC1-3A9F-46EA-84F0-11786A5FB7B1.png",
-                  "frame" : {
-                    "y" : 1154,
-                    "x" : 353,
-                    "width" : 46,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 流年: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "流年"
-                },
-                "layerFrame" : {
-                  "y" : 1154,
-                  "x" : 353,
-                  "width" : 46,
-                  "height" : 23
-                },
-                "name" : "FilterText3"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "BC11F0FB-98B2-46C2-A799-06AE0E6E38F3",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-FilterText2-BC11F0FB-98B2-46C2-A799-06AE0E6E38F3.png",
-                  "frame" : {
-                    "y" : 1154,
-                    "x" : 209,
-                    "width" : 44,
-                    "height" : 23
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 黑白: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "黑白"
-                },
-                "layerFrame" : {
-                  "y" : 1154,
-                  "x" : 209,
-                  "width" : 44,
-                  "height" : 23
-                },
-                "name" : "FilterText2"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "BA516E64-2B6C-45F0-8C38-D49C7C1072A5",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-FilterText1-BA516E64-2B6C-45F0-8C38-D49C7C1072A5.png",
-                  "frame" : {
-                    "y" : 1155,
-                    "x" : 77,
-                    "width" : 23,
-                    "height" : 22
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 无: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 23.95px;",
-                    "color: #202020;",
-                    "line-height: 33px;"
-                  ],
-                  "string" : "无"
-                },
-                "layerFrame" : {
-                  "y" : 1155,
-                  "x" : 77,
-                  "width" : 23,
-                  "height" : 22
-                },
-                "name" : "FilterText1"
-              }
-            ],
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1013,
-              "x" : 34,
-              "width" : 684,
-              "height" : 164
-            },
-            "name" : "FilterBar"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "951413F0-DCE9-4BBC-BC55-563C9E14DCC9",
-            "visible" : true,
-            "children" : [
-              {
-                "maskFrame" : null,
-                "id" : "A30A138C-8E4E-47D8-A908-9FF133784EF5",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "9E0885FB-BE5D-49F2-8306-DBB4CC6826EA",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_5-9E0885FB-BE5D-49F2-8306-DBB4CC6826EA.png",
-                      "frame" : {
-                        "y" : 1069,
-                        "x" : 618,
-                        "width" : 31,
-                        "height" : 19
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1069,
-                      "x" : 618,
-                      "width" : 31,
-                      "height" : 19
-                    },
-                    "name" : "Group_5"
-                  }
-                ],
-                "image" : {
-                  "path" : "images\/Layer-HandleRight-A30A138C-8E4E-47D8-A908-9FF133784EF5.png",
-                  "frame" : {
-                    "y" : 1069,
-                    "x" : 618,
-                    "width" : 31,
-                    "height" : 19
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1069,
-                  "x" : 618,
-                  "width" : 31,
-                  "height" : 19
-                },
-                "name" : "HandleRight"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "DCCC4114-E42E-40BA-9B7F-1D5246BBA325",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "6D6D0F3C-097C-49F0-BE4F-874A1BC037F6",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-Group_5-6D6D0F3C-097C-49F0-BE4F-874A1BC037F6.png",
-                      "frame" : {
-                        "y" : 1069,
-                        "x" : 29,
-                        "width" : 31,
-                        "height" : 19
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 1069,
-                      "x" : 29,
-                      "width" : 31,
-                      "height" : 19
-                    },
-                    "name" : "Group_5"
-                  }
-                ],
-                "image" : {
-                  "path" : "images\/Layer-HandleLeft-DCCC4114-E42E-40BA-9B7F-1D5246BBA325.png",
-                  "frame" : {
-                    "y" : 1069,
-                    "x" : 29,
-                    "width" : 31,
-                    "height" : 19
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1069,
-                  "x" : 29,
-                  "width" : 31,
-                  "height" : 19
-                },
-                "name" : "HandleLeft"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "E47F1256-F03D-41FF-99C8-97414189D4E8",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-PhotoLength-E47F1256-F03D-41FF-99C8-97414189D4E8.png",
-                  "frame" : {
-                    "y" : 1020,
-                    "x" : 0,
-                    "width" : 750,
-                    "height" : 117
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 1020,
-                  "x" : 0,
-                  "width" : 750,
-                  "height" : 117
-                },
-                "name" : "PhotoLength"
-              }
-            ],
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 1020,
-              "x" : 0,
-              "width" : 750,
-              "height" : 117
-            },
-            "name" : "ProgressBar"
-          },
-          {
-            "maskFrame" : null,
-            "id" : "31F75C03-D092-444E-AD04-99E129FF9EC6",
-            "visible" : true,
-            "children" : [
-              {
-                "maskFrame" : null,
-                "id" : "92D2417F-887A-4E3C-8DA4-BA076CF903A8",
-                "visible" : true,
-                "children" : [
-                  {
-                    "maskFrame" : null,
-                    "id" : "13095A37-92A9-4D59-B4F0-8C87484AA023",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-MusicSection-13095A37-92A9-4D59-B4F0-8C87484AA023.png",
-                      "frame" : {
-                        "y" : 881,
-                        "x" : 419,
-                        "width" : 53,
-                        "height" : 27
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "text",
-                    "metadata" : {
-                      "css" : [
-                        "\/* 音乐: *\/",
-                        "font-family: PingFangSC-Regular;",
-                        "font-size: 27.94px;",
-                        "color: #202020;",
-                        "line-height: 40px;"
-                      ],
-                      "string" : "音乐"
-                    },
-                    "layerFrame" : {
-                      "y" : 881,
-                      "x" : 419,
-                      "width" : 53,
-                      "height" : 27
-                    },
-                    "name" : "MusicSection"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "49651FB0-C2A2-4A64-AA85-3EB106FF0127",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-FilterSection-49651FB0-C2A2-4A64-AA85-3EB106FF0127.png",
-                      "frame" : {
-                        "y" : 881,
-                        "x" : 277,
-                        "width" : 54,
-                        "height" : 27
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "text",
-                    "metadata" : {
-                      "css" : [
-                        "\/* 滤镜: *\/",
-                        "font-family: PingFangSC-Regular;",
-                        "font-size: 27.94px;",
-                        "color: #202020;",
-                        "line-height: 40px;"
-                      ],
-                      "string" : "滤镜"
-                    },
-                    "layerFrame" : {
-                      "y" : 881,
-                      "x" : 277,
-                      "width" : 54,
-                      "height" : 27
-                    },
-                    "name" : "FilterSection"
-                  },
-                  {
-                    "maskFrame" : null,
-                    "id" : "D46702B3-07A2-4E19-9E7A-BFF10D58E681",
-                    "visible" : true,
-                    "children" : [
-
-                    ],
-                    "image" : {
-                      "path" : "images\/Layer-MFSlider-D46702B3-07A2-4E19-9E7A-BFF10D58E681.png",
-                      "frame" : {
-                        "y" : 914,
-                        "x" : 415,
-                        "width" : 61,
-                        "height" : 5
-                      }
-                    },
-                    "imageType" : "png",
-                    "kind" : "group",
-                    "metadata" : {
-                      "opacity" : 1
-                    },
-                    "layerFrame" : {
-                      "y" : 914,
-                      "x" : 415,
-                      "width" : 61,
-                      "height" : 5
-                    },
-                    "name" : "MFSlider"
-                  }
-                ],
-                "imageType" : "png",
-                "kind" : "group",
-                "metadata" : {
-                  "opacity" : 1
-                },
-                "layerFrame" : {
-                  "y" : 881,
-                  "x" : 277,
-                  "width" : 199,
-                  "height" : 38
-                },
-                "name" : "MusicFilter"
-              },
-              {
-                "maskFrame" : null,
-                "id" : "71204DF9-D97C-4565-AA5C-C05D666F9FAE",
-                "visible" : true,
-                "children" : [
-
-                ],
-                "image" : {
-                  "path" : "images\/Layer-Length-71204DF9-D97C-4565-AA5C-C05D666F9FAE.png",
-                  "frame" : {
-                    "y" : 884,
-                    "x" : 321,
-                    "width" : 110,
-                    "height" : 26
-                  }
-                },
-                "imageType" : "png",
-                "kind" : "text",
-                "metadata" : {
-                  "css" : [
-                    "\/* 调整长度: *\/",
-                    "font-family: PingFangSC-Regular;",
-                    "font-size: 27.94px;",
-                    "color: #202020;",
-                    "line-height: 40px;"
-                  ],
-                  "string" : "调整长度"
-                },
-                "layerFrame" : {
-                  "y" : 884,
-                  "x" : 321,
-                  "width" : 110,
-                  "height" : 26
-                },
-                "name" : "Length"
-              }
-            ],
-            "image" : {
-              "path" : "images\/Layer-PhotoUpBar-31F75C03-D092-444E-AD04-99E129FF9EC6.png",
-              "frame" : {
-                "y" : 846,
-                "x" : 0,
-                "width" : 750,
-                "height" : 102
-              }
-            },
-            "imageType" : "png",
-            "kind" : "group",
-            "metadata" : {
-              "opacity" : 1
-            },
-            "layerFrame" : {
-              "y" : 846,
-              "x" : 0,
-              "width" : 750,
-              "height" : 102
-            },
-            "name" : "PhotoUpBar"
           },
           {
             "maskFrame" : null,
@@ -1672,20 +779,1537 @@
           },
           {
             "maskFrame" : null,
-            "id" : "D6B84E17-AD86-49C7-B5D2-8997851A4DC8",
+            "id" : "78C12746-03A2-4B20-9F0D-D941F5F81F29",
             "visible" : true,
             "children" : [
+              {
+                "maskFrame" : null,
+                "id" : "0D78830E-F52D-4568-8A7C-544583243F5C",
+                "visible" : true,
+                "children" : [
+                  {
+                    "maskFrame" : null,
+                    "id" : "4FB7688A-8BE5-4762-8690-A29F3AB01941",
+                    "visible" : true,
+                    "children" : [
 
-            ],
-            "image" : {
-              "path" : "images\/Layer-PhotoMiddle-D6B84E17-AD86-49C7-B5D2-8997851A4DC8.png",
-              "frame" : {
-                "y" : 846,
-                "x" : 0,
-                "width" : 750,
-                "height" : 487
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-DiscText5-4FB7688A-8BE5-4762-8690-A29F3AB01941.png",
+                      "frame" : {
+                        "y" : 1152,
+                        "x" : 640,
+                        "width" : 46,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 深情: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "深情"
+                    },
+                    "layerFrame" : {
+                      "y" : 1152,
+                      "x" : 640,
+                      "width" : 46,
+                      "height" : 23
+                    },
+                    "name" : "DiscText5"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "6DD0B1A5-41F8-4383-859E-F0AEAA97E858",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-DiscText4-6DD0B1A5-41F8-4383-859E-F0AEAA97E858.png",
+                      "frame" : {
+                        "y" : 1152,
+                        "x" : 496,
+                        "width" : 47,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 科技: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "科技"
+                    },
+                    "layerFrame" : {
+                      "y" : 1152,
+                      "x" : 496,
+                      "width" : 47,
+                      "height" : 23
+                    },
+                    "name" : "DiscText4"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "88C84E1F-D23A-40DD-BD70-3BF9509CE9B3",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-DiscText3-88C84E1F-D23A-40DD-BD70-3BF9509CE9B3.png",
+                      "frame" : {
+                        "y" : 1152,
+                        "x" : 353,
+                        "width" : 46,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 流年: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "流年"
+                    },
+                    "layerFrame" : {
+                      "y" : 1152,
+                      "x" : 353,
+                      "width" : 46,
+                      "height" : 23
+                    },
+                    "name" : "DiscText3"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "93EEE055-E640-442A-9390-D654B0AD75A7",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-DiscText2-93EEE055-E640-442A-9390-D654B0AD75A7.png",
+                      "frame" : {
+                        "y" : 1152,
+                        "x" : 209,
+                        "width" : 47,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 摩登: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "摩登"
+                    },
+                    "layerFrame" : {
+                      "y" : 1152,
+                      "x" : 209,
+                      "width" : 47,
+                      "height" : 23
+                    },
+                    "name" : "DiscText2"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "837F71EE-B74A-4FF7-AA53-92DA7D9D3244",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-DiscText1-837F71EE-B74A-4FF7-AA53-92DA7D9D3244.png",
+                      "frame" : {
+                        "y" : 1153,
+                        "x" : 77,
+                        "width" : 23,
+                        "height" : 22
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 无: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "无"
+                    },
+                    "layerFrame" : {
+                      "y" : 1153,
+                      "x" : 77,
+                      "width" : 23,
+                      "height" : 22
+                    },
+                    "name" : "DiscText1"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "759C8CD1-6A42-45BB-A92A-E95213511F87",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "F1A92BF6-C157-4A36-8EF1-D3A9FADDD62A",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_6-F1A92BF6-C157-4A36-8EF1-D3A9FADDD62A.png",
+                          "frame" : {
+                            "y" : 1048,
+                            "x" : 70,
+                            "width" : 33,
+                            "height" : 33
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1048,
+                          "x" : 70,
+                          "width" : 33,
+                          "height" : 33
+                        },
+                        "name" : "Group_6"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "54B0F764-DC65-4C73-A385-6F3E21A3799E",
+                        "visible" : true,
+                        "children" : [
+                          {
+                            "maskFrame" : null,
+                            "id" : "523AC491-45E6-4EFE-84CA-05513AC6DB8A",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-Group_8-523AC491-45E6-4EFE-84CA-05513AC6DB8A.png",
+                              "frame" : {
+                                "y" : 1020,
+                                "x" : 42,
+                                "width" : 89,
+                                "height" : 89
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1020,
+                              "x" : 42,
+                              "width" : 89,
+                              "height" : 89
+                            },
+                            "name" : "Group_8"
+                          },
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 34,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "id" : "36AB2B4F-08BE-4B72-BD2A-DCBCF608BC2E",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-bg-36AB2B4F-08BE-4B72-BD2A-DCBCF608BC2E.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 34,
+                                "width" : 105,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 34,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "name" : "bg"
+                          },
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 34,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "id" : "7A8A7DEB-7B12-4CEA-AFF9-E20BEC3F5C4F",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-Group_9-7A8A7DEB-7B12-4CEA-AFF9-E20BEC3F5C4F.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 34,
+                                "width" : 105,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 34,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "name" : "Group_9"
+                          }
+                        ],
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1012,
+                          "x" : 34,
+                          "width" : 105,
+                          "height" : 105
+                        },
+                        "name" : "Group"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1012,
+                      "x" : 34,
+                      "width" : 105,
+                      "height" : 105
+                    },
+                    "name" : "Disc1"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "4197FFCA-6647-4ED7-9484-4EE97F4A26E8",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "C0632A79-7FB7-4C62-A08B-86984BF102B7",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_4-C0632A79-7FB7-4C62-A08B-86984BF102B7.png",
+                          "frame" : {
+                            "y" : 1048,
+                            "x" : 645,
+                            "width" : 33,
+                            "height" : 33
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1048,
+                          "x" : 645,
+                          "width" : 33,
+                          "height" : 33
+                        },
+                        "name" : "Group_4"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "A39CB93A-3472-4E21-B260-BDBF6743A51A",
+                        "visible" : true,
+                        "children" : [
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 609,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "id" : "5F389C31-6961-45EB-A192-385837D5C197",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-bg-5F389C31-6961-45EB-A192-385837D5C197.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 609,
+                                "width" : 105,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 609,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "name" : "bg"
+                          }
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group-A39CB93A-3472-4E21-B260-BDBF6743A51A.png",
+                          "frame" : {
+                            "y" : 1012,
+                            "x" : 609,
+                            "width" : 105,
+                            "height" : 105
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1012,
+                          "x" : 609,
+                          "width" : 105,
+                          "height" : 105
+                        },
+                        "name" : "Group"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1012,
+                      "x" : 609,
+                      "width" : 105,
+                      "height" : 105
+                    },
+                    "name" : "Disc5"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "78CBDE9B-5148-437E-9775-8AEAED8DFF4E",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "03F30D79-C796-47CC-B9AF-AB870C010A62",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_3-03F30D79-C796-47CC-B9AF-AB870C010A62.png",
+                          "frame" : {
+                            "y" : 1048,
+                            "x" : 501,
+                            "width" : 34,
+                            "height" : 33
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1048,
+                          "x" : 501,
+                          "width" : 34,
+                          "height" : 33
+                        },
+                        "name" : "Group_3"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "4EDFA012-018E-43D0-9A93-B93F5DD79068",
+                        "visible" : true,
+                        "children" : [
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 465,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "id" : "8D77F98C-CC7F-4812-9D4D-5DBE6194B116",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-bg-8D77F98C-CC7F-4812-9D4D-5DBE6194B116.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 465,
+                                "width" : 105,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 465,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "name" : "bg"
+                          }
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group-4EDFA012-018E-43D0-9A93-B93F5DD79068.png",
+                          "frame" : {
+                            "y" : 1012,
+                            "x" : 465,
+                            "width" : 105,
+                            "height" : 105
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1012,
+                          "x" : 465,
+                          "width" : 105,
+                          "height" : 105
+                        },
+                        "name" : "Group"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1012,
+                      "x" : 465,
+                      "width" : 105,
+                      "height" : 105
+                    },
+                    "name" : "Disc4"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "64036DA3-4113-4051-BEDA-BF4B65F72FE0",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "068CD472-1AB6-4C59-AA17-6A9D6DEADEF5",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_2-068CD472-1AB6-4C59-AA17-6A9D6DEADEF5.png",
+                          "frame" : {
+                            "y" : 1048,
+                            "x" : 213,
+                            "width" : 34,
+                            "height" : 33
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1048,
+                          "x" : 213,
+                          "width" : 34,
+                          "height" : 33
+                        },
+                        "name" : "Group_2"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "D72C2A13-F47B-4777-BB6A-26D94D649E0B",
+                        "visible" : true,
+                        "children" : [
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 178,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "id" : "BEF2FDD5-2254-4B6E-9186-2529F2787D86",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-bg-BEF2FDD5-2254-4B6E-9186-2529F2787D86.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 178,
+                                "width" : 105,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 178,
+                              "width" : 105,
+                              "height" : 105
+                            },
+                            "name" : "bg"
+                          }
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group-D72C2A13-F47B-4777-BB6A-26D94D649E0B.png",
+                          "frame" : {
+                            "y" : 1012,
+                            "x" : 178,
+                            "width" : 105,
+                            "height" : 105
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1012,
+                          "x" : 178,
+                          "width" : 105,
+                          "height" : 105
+                        },
+                        "name" : "Group"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1012,
+                      "x" : 178,
+                      "width" : 105,
+                      "height" : 105
+                    },
+                    "name" : "Disc2"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "0D9B0ED4-FC86-4BB0-938E-5C8BE3CCF593",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "90135CBE-D1FB-404D-B22E-6B30C685A6AD",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_7-90135CBE-D1FB-404D-B22E-6B30C685A6AD.png",
+                          "frame" : {
+                            "y" : 1047,
+                            "x" : 359,
+                            "width" : 34,
+                            "height" : 34
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1047,
+                          "x" : 359,
+                          "width" : 34,
+                          "height" : 34
+                        },
+                        "name" : "Group_7"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "BE188D85-DAE5-4A07-94E5-46042ABD1813",
+                        "visible" : true,
+                        "children" : [
+                          {
+                            "maskFrame" : {
+                              "y" : 1012,
+                              "x" : 323,
+                              "width" : 106,
+                              "height" : 105
+                            },
+                            "id" : "E988D4B7-F5F9-4FDD-8FD4-1C2966DE6BCA",
+                            "visible" : true,
+                            "children" : [
+
+                            ],
+                            "image" : {
+                              "path" : "images\/Layer-bg-E988D4B7-F5F9-4FDD-8FD4-1C2966DE6BCA.png",
+                              "frame" : {
+                                "y" : 1012,
+                                "x" : 323,
+                                "width" : 106,
+                                "height" : 105
+                              }
+                            },
+                            "imageType" : "png",
+                            "kind" : "group",
+                            "metadata" : {
+                              "opacity" : 1
+                            },
+                            "layerFrame" : {
+                              "y" : 1012,
+                              "x" : 323,
+                              "width" : 106,
+                              "height" : 105
+                            },
+                            "name" : "bg"
+                          }
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group-BE188D85-DAE5-4A07-94E5-46042ABD1813.png",
+                          "frame" : {
+                            "y" : 1012,
+                            "x" : 323,
+                            "width" : 106,
+                            "height" : 105
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1012,
+                          "x" : 323,
+                          "width" : 106,
+                          "height" : 105
+                        },
+                        "name" : "Group"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1012,
+                      "x" : 323,
+                      "width" : 106,
+                      "height" : 105
+                    },
+                    "name" : "Disc3"
+                  }
+                ],
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 1012,
+                  "x" : 34,
+                  "width" : 680,
+                  "height" : 163
+                },
+                "name" : "DiscBar"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "2E19BC79-3D0D-4C8E-A423-E7433C480976",
+                "visible" : true,
+                "children" : [
+                  {
+                    "maskFrame" : null,
+                    "id" : "0EC9AA27-5120-4260-9EB7-A2126A4D72D7",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Filter5-0EC9AA27-5120-4260-9EB7-A2126A4D72D7.png",
+                      "frame" : {
+                        "y" : 1014,
+                        "x" : 609,
+                        "width" : 109,
+                        "height" : 109
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1014,
+                      "x" : 609,
+                      "width" : 109,
+                      "height" : 109
+                    },
+                    "name" : "Filter5"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "0CFEA362-447B-47A3-9805-D4ADCA43B824",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Filter4-0CFEA362-447B-47A3-9805-D4ADCA43B824.png",
+                      "frame" : {
+                        "y" : 1014,
+                        "x" : 465,
+                        "width" : 109,
+                        "height" : 109
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1014,
+                      "x" : 465,
+                      "width" : 109,
+                      "height" : 109
+                    },
+                    "name" : "Filter4"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "8D9E6A6E-816D-48EE-88C9-946A1C54BAEF",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Filter3-8D9E6A6E-816D-48EE-88C9-946A1C54BAEF.png",
+                      "frame" : {
+                        "y" : 1013,
+                        "x" : 321,
+                        "width" : 110,
+                        "height" : 111
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1013,
+                      "x" : 321,
+                      "width" : 110,
+                      "height" : 111
+                    },
+                    "name" : "Filter3"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "930135C6-3A90-47D3-B3EA-416A3F772579",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Filter2-930135C6-3A90-47D3-B3EA-416A3F772579.png",
+                      "frame" : {
+                        "y" : 1014,
+                        "x" : 178,
+                        "width" : 109,
+                        "height" : 109
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1014,
+                      "x" : 178,
+                      "width" : 109,
+                      "height" : 109
+                    },
+                    "name" : "Filter2"
+                  },
+                  {
+                    "maskFrame" : {
+                      "y" : 1014,
+                      "x" : 34,
+                      "width" : 109,
+                      "height" : 109
+                    },
+                    "id" : "79546840-FD46-442B-B888-DFE386E81674",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Filter1-79546840-FD46-442B-B888-DFE386E81674.png",
+                      "frame" : {
+                        "y" : 1014,
+                        "x" : 34,
+                        "width" : 109,
+                        "height" : 109
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1014,
+                      "x" : 34,
+                      "width" : 109,
+                      "height" : 109
+                    },
+                    "name" : "Filter1"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "B72A8448-8D35-4BA0-B1B8-A4221B887601",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-FilterText5-B72A8448-8D35-4BA0-B1B8-A4221B887601.png",
+                      "frame" : {
+                        "y" : 1154,
+                        "x" : 640,
+                        "width" : 47,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 色彩: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "色彩"
+                    },
+                    "layerFrame" : {
+                      "y" : 1154,
+                      "x" : 640,
+                      "width" : 47,
+                      "height" : 23
+                    },
+                    "name" : "FilterText5"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "947EBC51-9A50-489A-8A19-6327EEC64F2F",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-FilterText4-947EBC51-9A50-489A-8A19-6327EEC64F2F.png",
+                      "frame" : {
+                        "y" : 1154,
+                        "x" : 496,
+                        "width" : 46,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 怀旧: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "怀旧"
+                    },
+                    "layerFrame" : {
+                      "y" : 1154,
+                      "x" : 496,
+                      "width" : 46,
+                      "height" : 23
+                    },
+                    "name" : "FilterText4"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "D0C8FBC1-3A9F-46EA-84F0-11786A5FB7B1",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-FilterText3-D0C8FBC1-3A9F-46EA-84F0-11786A5FB7B1.png",
+                      "frame" : {
+                        "y" : 1154,
+                        "x" : 353,
+                        "width" : 46,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 流年: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "流年"
+                    },
+                    "layerFrame" : {
+                      "y" : 1154,
+                      "x" : 353,
+                      "width" : 46,
+                      "height" : 23
+                    },
+                    "name" : "FilterText3"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "BC11F0FB-98B2-46C2-A799-06AE0E6E38F3",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-FilterText2-BC11F0FB-98B2-46C2-A799-06AE0E6E38F3.png",
+                      "frame" : {
+                        "y" : 1154,
+                        "x" : 209,
+                        "width" : 44,
+                        "height" : 23
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 黑白: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "黑白"
+                    },
+                    "layerFrame" : {
+                      "y" : 1154,
+                      "x" : 209,
+                      "width" : 44,
+                      "height" : 23
+                    },
+                    "name" : "FilterText2"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "BA516E64-2B6C-45F0-8C38-D49C7C1072A5",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-FilterText1-BA516E64-2B6C-45F0-8C38-D49C7C1072A5.png",
+                      "frame" : {
+                        "y" : 1155,
+                        "x" : 77,
+                        "width" : 23,
+                        "height" : 22
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 无: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 23.95px;",
+                        "color: #202020;",
+                        "line-height: 33px;"
+                      ],
+                      "string" : "无"
+                    },
+                    "layerFrame" : {
+                      "y" : 1155,
+                      "x" : 77,
+                      "width" : 23,
+                      "height" : 22
+                    },
+                    "name" : "FilterText1"
+                  }
+                ],
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 1013,
+                  "x" : 34,
+                  "width" : 684,
+                  "height" : 164
+                },
+                "name" : "FilterBar"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "951413F0-DCE9-4BBC-BC55-563C9E14DCC9",
+                "visible" : true,
+                "children" : [
+                  {
+                    "maskFrame" : null,
+                    "id" : "A30A138C-8E4E-47D8-A908-9FF133784EF5",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "9E0885FB-BE5D-49F2-8306-DBB4CC6826EA",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_5-9E0885FB-BE5D-49F2-8306-DBB4CC6826EA.png",
+                          "frame" : {
+                            "y" : 1069,
+                            "x" : 618,
+                            "width" : 31,
+                            "height" : 19
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1069,
+                          "x" : 618,
+                          "width" : 31,
+                          "height" : 19
+                        },
+                        "name" : "Group_5"
+                      }
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-HandleRight-A30A138C-8E4E-47D8-A908-9FF133784EF5.png",
+                      "frame" : {
+                        "y" : 1069,
+                        "x" : 618,
+                        "width" : 31,
+                        "height" : 19
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1069,
+                      "x" : 618,
+                      "width" : 31,
+                      "height" : 19
+                    },
+                    "name" : "HandleRight"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "DCCC4114-E42E-40BA-9B7F-1D5246BBA325",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "6D6D0F3C-097C-49F0-BE4F-874A1BC037F6",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-Group_5-6D6D0F3C-097C-49F0-BE4F-874A1BC037F6.png",
+                          "frame" : {
+                            "y" : 1069,
+                            "x" : 29,
+                            "width" : 31,
+                            "height" : 19
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 1069,
+                          "x" : 29,
+                          "width" : 31,
+                          "height" : 19
+                        },
+                        "name" : "Group_5"
+                      }
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-HandleLeft-DCCC4114-E42E-40BA-9B7F-1D5246BBA325.png",
+                      "frame" : {
+                        "y" : 1069,
+                        "x" : 29,
+                        "width" : 31,
+                        "height" : 19
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1069,
+                      "x" : 29,
+                      "width" : 31,
+                      "height" : 19
+                    },
+                    "name" : "HandleLeft"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "E47F1256-F03D-41FF-99C8-97414189D4E8",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-PhotoLength-E47F1256-F03D-41FF-99C8-97414189D4E8.png",
+                      "frame" : {
+                        "y" : 1020,
+                        "x" : 0,
+                        "width" : 750,
+                        "height" : 117
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 1020,
+                      "x" : 0,
+                      "width" : 750,
+                      "height" : 117
+                    },
+                    "name" : "PhotoLength"
+                  }
+                ],
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 1020,
+                  "x" : 0,
+                  "width" : 750,
+                  "height" : 117
+                },
+                "name" : "ProgressBar"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "31F75C03-D092-444E-AD04-99E129FF9EC6",
+                "visible" : true,
+                "children" : [
+                  {
+                    "maskFrame" : null,
+                    "id" : "92D2417F-887A-4E3C-8DA4-BA076CF903A8",
+                    "visible" : true,
+                    "children" : [
+                      {
+                        "maskFrame" : null,
+                        "id" : "13095A37-92A9-4D59-B4F0-8C87484AA023",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-MusicSection-13095A37-92A9-4D59-B4F0-8C87484AA023.png",
+                          "frame" : {
+                            "y" : 881,
+                            "x" : 419,
+                            "width" : 53,
+                            "height" : 27
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "text",
+                        "metadata" : {
+                          "css" : [
+                            "\/* 音乐: *\/",
+                            "font-family: PingFangSC-Regular;",
+                            "font-size: 27.94px;",
+                            "color: #202020;",
+                            "line-height: 40px;"
+                          ],
+                          "string" : "音乐"
+                        },
+                        "layerFrame" : {
+                          "y" : 881,
+                          "x" : 419,
+                          "width" : 53,
+                          "height" : 27
+                        },
+                        "name" : "MusicSection"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "49651FB0-C2A2-4A64-AA85-3EB106FF0127",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-FilterSection-49651FB0-C2A2-4A64-AA85-3EB106FF0127.png",
+                          "frame" : {
+                            "y" : 881,
+                            "x" : 277,
+                            "width" : 54,
+                            "height" : 27
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "text",
+                        "metadata" : {
+                          "css" : [
+                            "\/* 滤镜: *\/",
+                            "font-family: PingFangSC-Regular;",
+                            "font-size: 27.94px;",
+                            "color: #202020;",
+                            "line-height: 40px;"
+                          ],
+                          "string" : "滤镜"
+                        },
+                        "layerFrame" : {
+                          "y" : 881,
+                          "x" : 277,
+                          "width" : 54,
+                          "height" : 27
+                        },
+                        "name" : "FilterSection"
+                      },
+                      {
+                        "maskFrame" : null,
+                        "id" : "D46702B3-07A2-4E19-9E7A-BFF10D58E681",
+                        "visible" : true,
+                        "children" : [
+
+                        ],
+                        "image" : {
+                          "path" : "images\/Layer-MFSlider-D46702B3-07A2-4E19-9E7A-BFF10D58E681.png",
+                          "frame" : {
+                            "y" : 914,
+                            "x" : 415,
+                            "width" : 61,
+                            "height" : 5
+                          }
+                        },
+                        "imageType" : "png",
+                        "kind" : "group",
+                        "metadata" : {
+                          "opacity" : 1
+                        },
+                        "layerFrame" : {
+                          "y" : 914,
+                          "x" : 415,
+                          "width" : 61,
+                          "height" : 5
+                        },
+                        "name" : "MFSlider"
+                      }
+                    ],
+                    "imageType" : "png",
+                    "kind" : "group",
+                    "metadata" : {
+                      "opacity" : 1
+                    },
+                    "layerFrame" : {
+                      "y" : 881,
+                      "x" : 277,
+                      "width" : 199,
+                      "height" : 38
+                    },
+                    "name" : "MusicFilter"
+                  },
+                  {
+                    "maskFrame" : null,
+                    "id" : "71204DF9-D97C-4565-AA5C-C05D666F9FAE",
+                    "visible" : true,
+                    "children" : [
+
+                    ],
+                    "image" : {
+                      "path" : "images\/Layer-Length-71204DF9-D97C-4565-AA5C-C05D666F9FAE.png",
+                      "frame" : {
+                        "y" : 884,
+                        "x" : 321,
+                        "width" : 110,
+                        "height" : 26
+                      }
+                    },
+                    "imageType" : "png",
+                    "kind" : "text",
+                    "metadata" : {
+                      "css" : [
+                        "\/* 调整长度: *\/",
+                        "font-family: PingFangSC-Regular;",
+                        "font-size: 27.94px;",
+                        "color: #202020;",
+                        "line-height: 40px;"
+                      ],
+                      "string" : "调整长度"
+                    },
+                    "layerFrame" : {
+                      "y" : 884,
+                      "x" : 321,
+                      "width" : 110,
+                      "height" : 26
+                    },
+                    "name" : "Length"
+                  }
+                ],
+                "image" : {
+                  "path" : "images\/Layer-PhotoUpBar-31F75C03-D092-444E-AD04-99E129FF9EC6.png",
+                  "frame" : {
+                    "y" : 846,
+                    "x" : 0,
+                    "width" : 750,
+                    "height" : 102
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 846,
+                  "x" : 0,
+                  "width" : 750,
+                  "height" : 102
+                },
+                "name" : "PhotoUpBar"
+              },
+              {
+                "maskFrame" : null,
+                "id" : "D6B84E17-AD86-49C7-B5D2-8997851A4DC8",
+                "visible" : true,
+                "children" : [
+
+                ],
+                "image" : {
+                  "path" : "images\/Layer-PhotoMiddle-D6B84E17-AD86-49C7-B5D2-8997851A4DC8.png",
+                  "frame" : {
+                    "y" : 846,
+                    "x" : 0,
+                    "width" : 750,
+                    "height" : 487
+                  }
+                },
+                "imageType" : "png",
+                "kind" : "group",
+                "metadata" : {
+                  "opacity" : 1
+                },
+                "layerFrame" : {
+                  "y" : 846,
+                  "x" : 0,
+                  "width" : 750,
+                  "height" : 487
+                },
+                "name" : "PhotoMiddle"
               }
-            },
+            ],
             "imageType" : "png",
             "kind" : "group",
             "metadata" : {
@@ -1697,7 +2321,7 @@
               "width" : 750,
               "height" : 487
             },
-            "name" : "PhotoMiddle"
+            "name" : "WillMoveBar"
           },
           {
             "maskFrame" : null,

@@ -1,8 +1,8 @@
-##Asset Import
+#####################################################  Asset Import ##################################################### 
 sketch = Framer.Importer.load "imported/FramerJS"
 Utils.globalLayers(sketch)
 
-##Audio Test
+#####################################################  Audio Test ##################################################### 
 disc2Music = new VideoLayer
 	video: "images/Disc2HBFS.mp3"
 	backgroundColor: "transparent"
@@ -23,7 +23,7 @@ disc5Music = new VideoLayer
 	backgroundColor: "transparent"
 disc5Music.opacity = 0
 
-##Video Function & Use	
+#####################################################  Video Function & Use ##################################################### 	
 videoLayer1 = new VideoLayer
 	video: "images/唐嫣HTM.mp4"
 	width: 1000, height: 780
@@ -83,6 +83,7 @@ videoLayer3 = new VideoLayer
 	width: 1000, height: 740
 	y: -100,x: -140
 videoLayer3Container.addSubLayer(videoLayer3)
+TimeLabel.placeBehind(WillMoveBar)
 videoLayer3Container.placeBehind(TimeLabel)
 
 videoLayer3.player.play()
@@ -128,7 +129,7 @@ sketch.Pause.on Events.Click, -> showPlay()
 videoLayer3.player.onplaying = -> showPause()
 videoLayer3.player.onended = -> showPlay()
 
-#Simple Slider Control
+#####################################################  Simple Slider Control ##################################################### 
 slider = new SliderComponent
 slider.x = 0
 slider.y = 9
@@ -206,7 +207,7 @@ slider2.knob.on "change:x", ->
 	sliderinput2.html ="00:0"+"#{Math.round((Math.round(this.x)+32)/375*4) + 4}"
 
 
-#Filter Effect
+#####################################################  Filter Click Effect ##################################################### 
 Filter1.on Events.Click, ->
 	Filter1.animate
 		properties:
@@ -404,7 +405,7 @@ Filter5.on Events.Click, ->
 			opacity: 1
 		curve: "spring(300, 40, 20)"
 
-#Music Function
+#####################################################  Music Function ##################################################### 
 MusicPauseZero = (layer) ->
 	layer.player.pause()
 	layer.player.currentTime = 0
@@ -415,7 +416,7 @@ StopAllMusic = ->
 	MusicPauseZero(disc4Music)
 	MusicPauseZero(disc5Music)
 	
-#Music Effect
+##################################################### Disc Click Effect #####################################################
 Disc1.on Events.Click, ->
 	
 	StopAllMusic()
@@ -601,13 +602,15 @@ Disc5.on Events.Click, ->
 
 
 
-##Movie Setting Init
+##################################################### Movie Page Setting Init #####################################################
 MoviePage.x = 1334
 MoviePage.clip = true
 TimeLabel.opacity = 0
 MusicFilter.opacity = 1
 MusicFilter.x = 277+750
 MFSlider.x = -4
+TimeLabel.y = 479+487
+FinishText.y = 1027+487
 Disc1.opacity = 0.4
 MusicSection.opacity = 0.4
 
@@ -626,7 +629,7 @@ DiscText3.opacity = 0.4
 DiscText4.opacity = 0.4
 DiscText5.opacity = 0.4
 
-##Element Property Init
+##################################################### Element Property Init #####################################################
 bg = new BackgroundLayer backgroundColor: "#202020"
 PhotoPage.y = 1334
 PhotoPage.clip = true
@@ -676,7 +679,7 @@ PhotoPage.originY = 0.25
 Camera.opacity = 0.4
 Capture.opacity = 0.4
 
-##State Setting
+##################################################### Launch State Setting #####################################################
 Utils.delay .5, ->
 	Tag2.animate
 	 	properties:
@@ -692,9 +695,12 @@ Utils.delay .7, ->
 	 	properties:
 				scale: 1
 		curve:OpenStateanimation
-##Animation Setting
+##################################################### Animation Setting #####################################################
 Framer.Defaults.Animation = curve: "spring(300,35,5)"
 OpenStateanimation = "spring(400,20,0)"
+
+
+##################################################### MainPage Scroll Animaimon Setting #####################################################
 
 ##MainPage Scroll Event Setting
 scroll = ScrollComponent.wrap(Feed)
@@ -703,7 +709,7 @@ scroll.contentInset = top: 140, left: 0
 scroll.scrollHorizontal = false
 scroll.on Events.Move, ->
 	scrolltoY(scroll.scrollY)	
-#MainPage Scroll Animaimon Setting
+##MainPage Scroll Event
 scrolltoY = (y) ->
 	NavTitle.opacity = Utils.modulate(y, [0, 50], [1, 0], true)
 	NavTitle.y = Utils.modulate(y, [0, 200], [72, -128], true)
@@ -737,7 +743,7 @@ scrolltoY = (y) ->
 		videoLayer2.player.pause()
 		
 		
-##Open Camera
+##################################################### Open Camera #####################################################
 Photo.on Events.Click, ->
 	
 	for i in [1...30]
@@ -765,7 +771,7 @@ Photo.on Events.Click, ->
 	
 	
 
-##Close Camera
+##################################################### Close Camera #####################################################
 closePhoto.on Events.Click, ->
 	
 	for i in [1...30]
@@ -824,7 +830,7 @@ closePhoto.on Events.Click, ->
 		time: 0.45
 		
 
-##PhotoPage Scroll Event Setting
+##################################################### PhotoPage Scroll Event Setting #####################################################
 scroll2 = ScrollComponent.wrap(Photo_Feed)
 scroll2.frame = Screen.frame
 scroll2.contentInset = top: 140, left: 0
@@ -839,8 +845,9 @@ scrollto2Y = (y) ->
 	icon_close.y = Utils.modulate(y, [0, 200], [46, -154], true)
 	NavBar.y = Utils.modulate(y, [0, 200], [0, -200], true)
 	
-#Click Pic1
+##################################################### Click Pic1 #####################################################
 Pic1.on Events.Click, ->
+	videoLayer3.player.currentTime = 1
 	Pic1.animate
 		properties:
 			scale:0.8
@@ -861,7 +868,7 @@ Pic1.on Events.Click, ->
 			x: 0
 		curve: "spring(300, 40, 20)"
 
-#Next State Machine
+##################################################### Filter & Disc State Machine #####################################################
 for count in [1..5]
 		  filters = sketch["Filter" + count]
 		  filters.states.add
@@ -895,7 +902,7 @@ for count in [1..5]
 		  disctexts.animationOptions = curve: "bezier-curve(.95,0,.38,.68)"
 		  disctexts.states.switchInstant "start"
 
-##Canel/Prev & Next Control Setting
+##################################################### Canel/Prev & Next Control Setting #####################################################
 PhotoCancel = new Layer
 	x:144,y:37
 	backgroundColor: "transparent"
@@ -912,97 +919,148 @@ PhotoNext.style =
 PhotoNext.html = "下一步"
 PhotoTab.addSubLayer(PhotoNext)
 
-#Click Cancel
+##################################################### Click Cancel&Prev #####################################################
 PhotoCancel.on Events.Click, ->
-	
-	if ProgressBar.x == 0
-		Pic1.animate
+					
+	if WillMoveBar.y == 846+487
+		ParadaTag.brightness = 100
+		SmallParada.animate
 			properties:
-				scale:1
-				brightness: 100
+				y:632-240
+				scale:0
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+			
+		videoLayer3.player.pause()
+		videoLayer3.player.currentTime = 1
+		PhotoNext.animate
+			properties: 
 				opacity: 1
-			curve: "spring(250, 40, 20)"
-		PhotoPage.animate
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		WillMoveBar.animate
 			properties:
-				x: 0
-				brightness:100
-				opacity: 1
-				scale: 1
-			curve: "spring(250, 40, 20)"
-		MoviePage.animate
+				y:846
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		FinishText.animate
 			properties:
-				x: 1334
-			curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+				y:1027+487
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		TimeLabel.animate
+			properties:
+				y:479+487
+				opacity:0
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		videoLayer3Container.animate
+			properties:
+				y:180
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		Play.animate
+			properties:
+				opacity:1
+				y:385
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		Pause.animate
+			properties:
+				opacity:1
+				y:385
+			curve:"bezier-curve(.95,0,.38,.68)"
 			time: 0.6
 	else
-		ProgressBar.animate
-			properties:
-				x: 0
-			curve: "bezier-curve(.95,0,.38,.68)"
-			time: 0.5
-			delay: 0.05
-		Length.animate
-			properties:
-				x: 321
-			curve: "bezier-curve(.95,0,.38,.68)"
-			time: 0.5
-			delay: 0.05
-		MusicFilter.animate
-			properties:
-				x: 277+750
-			curve:"bezier-curve(.95,0,.38,.68)"
-			time: 0.5
-			delay: 0.05
-
-
-		if MFSlider.x == -4
-			Utils.delay 0, ->
-				timeFactor = 0.05
-				Utils.delay 4 * timeFactor, -> sketch.Filter1.states.switch("start")
-				Utils.delay 3 * timeFactor, -> sketch.Filter2.states.switch("start")
-				Utils.delay 2* timeFactor, -> sketch.Filter3.states.switch("start")
-				Utils.delay 1 * timeFactor, -> sketch.Filter4.states.switch("start")
-				Utils.delay 0 * timeFactor, -> sketch.Filter5.states.switch("start")
-				Utils.delay 4 * timeFactor, -> sketch.FilterText1.states.switch("start")
-				Utils.delay 3 * timeFactor, -> sketch.FilterText2.states.switch("start")
-				Utils.delay 2 * timeFactor, -> sketch.FilterText3.states.switch("start")
-				Utils.delay 1 * timeFactor, -> sketch.FilterText4.states.switch("start")
-				Utils.delay 0 * timeFactor, -> sketch.FilterText5.states.switch("start")
-			Utils.delay 0.35, ->
-				PhotoCancel.html = "取消"	 
-			Utils.delay 1.0, ->
-				 FilterBar.visible = true
-		else if MFSlider.x == 136
-			StopAllMusic()
-			sketch.Filter1.states.switchInstant("start")
-			sketch.Filter2.states.switchInstant("start")
-			sketch.Filter3.states.switchInstant("start")
-			sketch.Filter4.states.switchInstant("start")
-			sketch.Filter5.states.switchInstant("start")
-			sketch.FilterText1.states.switchInstant("start")
-			sketch.FilterText2.states.switchInstant("start")
-			sketch.FilterText3.states.switchInstant("start")
-			sketch.FilterText4.states.switchInstant("start")
-			sketch.FilterText5.states.switchInstant("start")
-			Utils.delay 0, ->
-				timeFactor = 0.05
-				Utils.delay 4 * timeFactor, -> sketch.Disc1.states.switch("start")
-				Utils.delay 3 * timeFactor, -> sketch.Disc2.states.switch("start")
-				Utils.delay 2 * timeFactor, -> sketch.Disc3.states.switch("start")
-				Utils.delay 1 * timeFactor, -> sketch.Disc4.states.switch("start")
-				Utils.delay 0 * timeFactor, -> sketch.Disc5.states.switch("start")
-				Utils.delay 4 * timeFactor, -> sketch.DiscText1.states.switch("start")
-				Utils.delay 3 * timeFactor, -> sketch.DiscText2.states.switch("start")
-				Utils.delay 2 * timeFactor, -> sketch.DiscText3.states.switch("start")
-				Utils.delay 1 * timeFactor, -> sketch.DiscText4.states.switch("start")
-				Utils.delay 0 * timeFactor, -> sketch.DiscText5.states.switch("start")	
-			Utils.delay 0.35, ->
-				PhotoCancel.html = "取消"	
-				Disc3.scale = 1
-				DiscText3.opacity = 0.4
-				Disc1.scale = 1.2
-				DiscText1.opacity = 1	
-#Click Next Filter
+		if ProgressBar.x == 0
+			Pic1.animate
+				properties:
+					scale:1
+					brightness: 100
+					opacity: 1
+				curve: "spring(250, 40, 20)"
+			PhotoPage.animate
+				properties:
+					x: 0
+					brightness:100
+					opacity: 1
+					scale: 1
+				curve: "spring(250, 40, 20)"
+			MoviePage.animate
+				properties:
+					x: 1334
+				curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+				time: 0.6
+		else
+			ProgressBar.animate
+				properties:
+					x: 0
+				curve: "bezier-curve(.95,0,.38,.68)"
+				time: 0.5
+				delay: 0.05
+			Length.animate
+				properties:
+					x: 321
+				curve: "bezier-curve(.95,0,.38,.68)"
+				time: 0.5
+				delay: 0.05
+			MusicFilter.animate
+				properties:
+					x: 277+750
+				curve:"bezier-curve(.95,0,.38,.68)"
+				time: 0.5
+				delay: 0.05
+	
+	
+			if MFSlider.x == -4
+				Utils.delay 0, ->
+					timeFactor = 0.05
+					Utils.delay 4 * timeFactor, -> sketch.Filter1.states.switch("start")
+					Utils.delay 3 * timeFactor, -> sketch.Filter2.states.switch("start")
+					Utils.delay 2* timeFactor, -> sketch.Filter3.states.switch("start")
+					Utils.delay 1 * timeFactor, -> sketch.Filter4.states.switch("start")
+					Utils.delay 0 * timeFactor, -> sketch.Filter5.states.switch("start")
+					Utils.delay 4 * timeFactor, -> sketch.FilterText1.states.switch("start")
+					Utils.delay 3 * timeFactor, -> sketch.FilterText2.states.switch("start")
+					Utils.delay 2 * timeFactor, -> sketch.FilterText3.states.switch("start")
+					Utils.delay 1 * timeFactor, -> sketch.FilterText4.states.switch("start")
+					Utils.delay 0 * timeFactor, -> sketch.FilterText5.states.switch("start")
+				Utils.delay 0.35, ->
+					PhotoCancel.html = "取消"	 
+				Utils.delay 1.0, ->
+					 FilterBar.visible = true
+			else if MFSlider.x == 136
+				StopAllMusic()
+				sketch.Filter1.states.switchInstant("start")
+				sketch.Filter2.states.switchInstant("start")
+				sketch.Filter3.states.switchInstant("start")
+				sketch.Filter4.states.switchInstant("start")
+				sketch.Filter5.states.switchInstant("start")
+				sketch.FilterText1.states.switchInstant("start")
+				sketch.FilterText2.states.switchInstant("start")
+				sketch.FilterText3.states.switchInstant("start")
+				sketch.FilterText4.states.switchInstant("start")
+				sketch.FilterText5.states.switchInstant("start")
+				Utils.delay 0, ->
+					timeFactor = 0.05
+					Utils.delay 4 * timeFactor, -> sketch.Disc1.states.switch("start")
+					Utils.delay 3 * timeFactor, -> sketch.Disc2.states.switch("start")
+					Utils.delay 2 * timeFactor, -> sketch.Disc3.states.switch("start")
+					Utils.delay 1 * timeFactor, -> sketch.Disc4.states.switch("start")
+					Utils.delay 0 * timeFactor, -> sketch.Disc5.states.switch("start")
+					Utils.delay 4 * timeFactor, -> sketch.DiscText1.states.switch("start")
+					Utils.delay 3 * timeFactor, -> sketch.DiscText2.states.switch("start")
+					Utils.delay 2 * timeFactor, -> sketch.DiscText3.states.switch("start")
+					Utils.delay 1 * timeFactor, -> sketch.DiscText4.states.switch("start")
+					Utils.delay 0 * timeFactor, -> sketch.DiscText5.states.switch("start")	
+				Utils.delay 0.35, ->
+					PhotoCancel.html = "取消"	
+					Disc3.scale = 1
+					DiscText3.opacity = 0.4
+					Disc1.scale = 1.2
+					DiscText1.opacity = 1		
+		
+##################################################### Click Next #####################################################
 PhotoNext.on Events.Click, ->
 	if ProgressBar.x == 0
 		FilterBar.visible = true
@@ -1062,9 +1120,58 @@ PhotoNext.on Events.Click, ->
 				Utils.delay 4 * timeFactor, -> sketch.DiscText5.states.switch("end")	
 			Utils.delay 0.35, ->
 				PhotoCancel.html = "上一步"	
+	else
+		videoLayer3.player.pause()
+		videoLayer3.player.currentTime = 1
+		PhotoNext.animate
+			properties: 
+				opacity: 0.4
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		WillMoveBar.animate
+			properties:
+				y:846+487
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		FinishText.animate
+			properties:
+				y:1027
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		TimeLabel.animate
+			properties:
+				y:479
+				opacity:1
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		videoLayer3Container.animate
+			properties:
+				y:420
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		Play.animate
+			properties:
+				opacity:0
+				y: 625
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+		Pause.animate
+			properties:
+				opacity:0
+				y: 625
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.6
+			
+		SmallParada.animate
+			properties:
+				y:632
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.6		
+		
+		
 		
 			
-#Click Music & Filter
+#####################################################Click Music & Filter#####################################################
 MusicSection.on Events.Click, ->
 	MusicSection.animate
 		properties:
@@ -1158,5 +1265,248 @@ FilterSection.on Events.Click, ->
 		Utils.delay 1 * timeFactor, -> sketch.DiscText4.states.switch("start")
 		Utils.delay 0 * timeFactor, -> sketch.DiscText5.states.switch("start")
 			
-		
+
+videoLayer3.on Events.Click, ->
+	if FinishText.y == 1027
+		MoviePage.animate
+			properties:
+				x: -750/3
+				brightness:80
+				scale: 0.81
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.3
+		TagPage.animate
+			properties:
+				x: 0
+			curve: "spring(250, 40, 20)"
+			
+		ParadaTag.animate
+			properties:
+				brightness:100
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0
+			
+TagBack.on Events.Click, ->
+	MoviePage.animate
+		properties:
+			x: 0
+			brightness:100
+			scale: 1
+		curve: "spring(250, 40, 20)"
+	TagPage.animate
+		properties:
+			x: 1334
+		curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+		time: 0.6	
+
+ParadaTag.on Events.Click, ->
+	ParadaTag.animate
+		properties:
+			brightness:60
+		curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		time: 0.05
+	MoviePage.animate
+		properties:
+			x: 0
+			brightness:100
+			scale: 1
+		curve: "spring(250, 40, 20)"
+	TagPage.animate
+		properties:
+			x: 1334
+		curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+		time: 0.6
+	SmallParada.animate
+		properties:
+			scale:1
+		curve: "spring(500, 25, 20)"
+		delay: 0.6
 	
+	
+##################################################### Keyboard #####################################################
+TagPage.opacity = 1
+TagPage.x = 1334
+SmallParada.scale = 0
+SmallParada.originX = 1
+# our text layer 
+myLayer = new Layer width:750,height:60,backgroundColor:'transparent'
+myLayer.html = '输入品牌名称'	
+myLayer.style = color:'#202020',fontSize:'28px',textAlign:'left',lineHeight:'60px'
+myLayer.center()
+myLayer.y = 150
+myLayer.x = 40
+myLayer.opacity = 0.4
+TagTitle.y = 264+900
+TagTitle.opacity = 0
+ParadaTag.y = 327+900
+ParadaTag.opacity =0
+
+# animate button on click and start typing
+myLayer.on Events.Click, ->
+	@.scale = 1
+	@.animate
+		properties:
+			scale:1
+			opacity: 1
+		curve:'spring(240,10,0)'
+	
+	# call this function to start typing
+	# all you need to do is give it two params... 
+	# the layer you want text to apear in and the string you want typed out
+	type(myLayer,'Parada')
+	
+	Utils.delay 0.9, ->
+		TagTitle.animate
+			properties:
+				y:264
+				opacity:1
+			curve:"spring(250, 40, 20)"
+		ParadaTag.animate
+			properties:
+				y:327
+				opacity:1
+			curve:"spring(250, 40, 20)"
+
+# THE FOLLOWING CODE DOES ALL THE WORK
+# COPY THIS INTO YOU PROJECT AND RUN type(yourLayer,'string you want typed out')
+
+# keyboard layer
+keyboard = new Layer width:750,height:432,y:1334 - 432,image:"images/keyboard.png",clip:false
+TagPage.addSubLayer(keyboard)
+TagPage.addSubLayer(myLayer)
+keyboard.placeBefore(StatusBarTag)
+
+
+# set some variables
+typeSpeed = .12
+row1 = -114
+row2 = -6
+row3 = 102
+space = 'images/space.png'
+middle = 'images/key_middle.png'
+left = 'images/key_left.png'
+right = 'images/key_right.png'
+
+# create the key layer
+key = new Layer width:163,height:222,image:'images/key_middle.png',superLayer:keyboard,visible:false
+key.html = ''	
+key.style = color:'#000',textAlign:'center',fontSize:'82px',fontWeight:'100',paddingTop:'24px',lineHeight:'82px',textTransform:'uppercase'
+		
+# states for key positions		
+key.states.add
+	' ':{x:237,y:210,image:space}
+	'.':{visible:false},',':{visible:false}
+	':':{visible:false},';':{visible:false}
+	'!':{visible:false},'?':{visible:false}
+	'/':{visible:false},'@':{visible:false}
+	'(':{visible:false},')':{visible:false}
+	'{':{visible:false},'}':{visible:false}
+	'[':{visible:false},']':{visible:false}
+	# row 1
+	q:{x:-18,y:row1,image:left},Q:{x:-18,y:row1,image:left}
+	w:{x:31,y:row1,image:middle},W:{x:31,y:row1,image:middle}
+	e:{x:106,y:row1,image:middle},E:{x:106,y:row1,image:middle}
+	r:{x:181,y:row1,image:middle},R:{x:181,y:row1,image:middle}
+	t:{x:256,y:row1,image:middle},T:{x:256,y:row1,image:middle}
+	y:{x:331,y:row1,image:middle},Y:{x:331,y:row1,image:middle}
+	u:{x:406,y:row1,image:middle},U:{x:406,y:row1,image:middle}
+	i:{x:481,y:row1,image:middle},I:{x:481,y:row1,image:middle}
+	o:{x:556,y:row1,image:middle},O:{x:556,y:row1,image:middle}
+	p:{x:605,y:row1,image:right},P:{x:605,y:row1,image:right}
+	# row 2
+	a:{x:-7,y:row2,image:middle},A:{x:-7,y:row2,image:middle}
+	s:{x:68,y:row2,image:middle},S:{x:68,y:row2,image:middle}
+	d:{x:143,y:row2,image:middle},D:{x:143,y:row2,image:middle}
+	f:{x:218,y:row2,image:middle},F:{x:218,y:row2,image:middle}
+	g:{x:293,y:row2,image:middle},G:{x:293,y:row2,image:middle}
+	h:{x:368,y:row2,image:middle},H:{x:368,y:row2,image:middle}
+	j:{x:443,y:row2,image:middle},J:{x:443,y:row2,image:middle}
+	k:{x:518,y:row2,image:middle},K:{x:518,y:row2,image:middle}
+	l:{x:593,y:row2,image:middle},L:{x:593,y:row2,image:middle}
+	# row 3
+	z:{x:68,y:row3,image:middle},Z:{x:68,y:row3,image:middle}
+	x:{x:143,y:row3,image:middle},X:{x:143,y:row3,image:middle}
+	c:{x:218,y:row3,image:middle},C:{x:218,y:row3,image:middle}
+	v:{x:293,y:row3,image:middle},V:{x:293,y:row3,image:middle}
+	b:{x:368,y:row3,image:middle},B:{x:368,y:row3,image:middle}
+	n:{x:443,y:row3,image:middle},N:{x:443,y:row3,image:middle}
+	m:{x:518,y:row3,image:middle},M:{x:518,y:row3,image:middle}
+			
+type = (textField,filler_text) ->		
+	filler_text = filler_text.split('')
+	totalDelay = 0
+	counter = 0
+	textField.html = ''
+	textField.style = color:'#333'
+
+	typeLetter = (letter, delay) ->
+		totalDelay += typeSpeed
+		Utils.delay totalDelay, ->
+			counter += 1 
+			key.visible = true
+			textField.html += letter
+			key.html = letter
+			key.states.switchInstant(letter)
+			if counter == filler_text.length
+				Utils.delay typeSpeed, ->
+					key.visible = false
+					
+	for letter,i in filler_text
+		typeLetter letter, i
+		total = i
+		
+##################################################### CountDown Input #####################################################
+
+text = new Layer 
+  width: 140, height: 280, x: 144, y: 161
+  backgroundColor: "transparent"
+
+text.input = document.createElement("input")
+text._element.appendChild(text.input)
+text.input.maxlength = "2"
+text.input.type = "tel"
+text.input.style.fontSize = "171px"
+text.input.style.fontFamily = "DINCond-Light"
+text.input.style.backgroundColor = "transparent"
+text.input.style.height = "#{text.height}px"
+text.input.style.width = "#{text.width}px"
+text.input.style.textAlign = "center"
+text.input.style.color = "#fff"
+text.input.value = "00"
+text.input.onfocus = -> document.body.scrollTop = 0
+
+text1 = new Layer 
+  width: 140, height: 280, x: 303, y: 161
+  backgroundColor: "transparent"
+
+text1.input = document.createElement("input")
+text1._element.appendChild(text1.input)
+text1.input.maxlength = "2"
+text1.input.type = "tel"
+text1.input.style.fontSize = "171px"
+text1.input.style.fontFamily = "DINCond-Light"
+text1.input.style.backgroundColor = "transparent"
+text1.input.style.height = "#{text.height}px"
+text1.input.style.width = "#{text.width}px"
+text1.input.style.textAlign = "center"
+text1.input.style.color = "#fff"
+text1.input.value = "00"
+text1.input.onfocus = -> document.body.scrollTop = 0
+
+text2 = new Layer 
+  width: 140, height: 280, x: 459, y: 161
+  backgroundColor: "transparent"
+
+text2.input = document.createElement("input")
+text2._element.appendChild(text2.input)
+text2.input.maxlength = "2"
+text2.input.type = "tel"
+text2.input.style.fontSize = "171px"
+text2.input.style.fontFamily = "DINCond-Light"
+text2.input.style.backgroundColor = "transparent"
+text2.input.style.height = "#{text.height}px"
+text2.input.style.width = "#{text.width}px"
+text2.input.style.textAlign = "center"
+text2.input.style.color = "#fff"
+text2.input.value = "00"
+text2.input.onfocus = -> document.body.scrollTop = 0
