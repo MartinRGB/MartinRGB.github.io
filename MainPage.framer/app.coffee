@@ -1454,7 +1454,8 @@ type = (textField,filler_text) ->
 	for letter,i in filler_text
 		typeLetter letter, i
 		total = i
-		
+
+CDPage.opacity = 0
 ##################################################### CountDown Input #####################################################
 
 text = new Layer 
@@ -1510,3 +1511,7 @@ text2.input.style.textAlign = "center"
 text2.input.style.color = "#fff"
 text2.input.value = "00"
 text2.input.onfocus = -> document.body.scrollTop = 0
+
+CDPage.addSubLayer(text)
+CDPage.addSubLayer(text1)
+CDPage.addSubLayer(text2)
