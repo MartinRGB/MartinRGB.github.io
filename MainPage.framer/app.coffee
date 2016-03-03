@@ -2073,7 +2073,7 @@ oneTime = ->
 			curve:"bezier-curve(.95,0,.38,.68)"
 			time: 0.45
 			delay:0.35
-		###无限Loop
+		
 		Utils.delay 1.5, ->
 			Cool.destroy()
 			oneTime()
