@@ -1745,6 +1745,10 @@ oneTime = ->
 	numkeyboard = require "iPhone6Keyboard"
 	numkeyboard.create()
 	
+	numkeyboardlayer = new Layer
+		width: 750,height: 432,image:"images/iPhone6Keyboard.png",y:1334-432,backgroundColor: "transparent"
+	LaunchPage.addSubLayer(numkeyboardlayer)
+	
 	BASES.opacity = 0
 	AddBtn.on Events.Click, ->
 		if AddSmallBtn.rotationZ ==0
@@ -1839,6 +1843,11 @@ oneTime = ->
 						curve:"bezier-curve(.95,0,.38,.68)"
 						time:0.4
 					numkeyboard.hide()
+					numkeyboardlayer.animate
+						properties: 
+							y: 1334
+						curve:"bezier-curve(.95,0,.38,.68)"
+						time:0.4 
 				else
 	
 				
@@ -1954,6 +1963,11 @@ oneTime = ->
 			delay:0.25
 	
 		numkeyboard.show() 
+		numkeyboardlayer.animate
+			properties: 
+				y: 1334-432
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.4 
 		
 		Utils.delay 0.5, ->
 			Utils.delay 0.2, ->
@@ -2018,6 +2032,11 @@ oneTime = ->
 		
 		### 清零 😄😄 ####	
 		numkeyboard.hide()
+		numkeyboardlayer.animate
+			properties: 
+				y: 1334
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.4 
 		Utils.delay 0.35,->
 			LaunchDetail.y = 128
 			user1.y = 332
