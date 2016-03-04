@@ -31,6 +31,16 @@ oneTime = ->
 		backgroundColor: "transparent"
 	disc5Music.opacity = 0
 	
+	positiveeffect = new VideoLayer
+		video: "images/positive.mp3"
+		backgroundColor: "transparent"
+	positiveeffect.opacity = 0
+	
+	negativeeffect = new VideoLayer
+		video: "images/negative.mp3"
+		backgroundColor: "transparent"
+	negativeeffect.opacity = 0
+	
 	#####################################################  Video Function & Use ##################################################### 	
 	videoLayer1 = new VideoLayer
 		video: "images/唐嫣HTM.mp4"
@@ -2059,7 +2069,7 @@ oneTime = ->
 			
 			moneyShare.html = "00"
 	LaunchBtn.on Events.Click, ->
-		New_Feed.scale = 0.75
+		New_Feed.scale = 0.5
 		New_Feed.brightness = 60
 		New_Feed.opacity = 0
 		MoviePage.opacity = 0
@@ -2089,14 +2099,893 @@ oneTime = ->
 				scale:1
 				brightness: 100
 				opacity: 1
-			curve:"bezier-curve(.95,0,.38,.68)"
-			time: 0.45
-			delay:0.35
+				y:0
+			curve:"spring(380, 30, 0)"
+			delay:0.6
 		
-		Utils.delay 1.5, ->
+		Utils.delay 3, ->
 			Cool.destroy()
 			oneTime()
+	
+	
+
+	###################################CardPage Details##########################################
+	##Init
+	CardMask = new Layer
+		width:750,height: 1334,backgroundColor: "#202020",opacity:0
+	CardMaskBTN = new Layer
+		width:750,height: 500,backgroundColor: "transparent",opacity:0
+	CardMaskBTN.visible = false
+	CardMask.addSubLayer(CardMaskBTN)
+	CardPage.addSubLayer(CardMask)
+	CardMask.placeBehind(CardBuyBoard)
+	CardBuyBoard.y = 1334
+	CancelRED.opacity = 0
+	LikeGREEN.opacity = 0
+	#############BuyBoard#############
+	CardMaskBTN.on Events.Click, ->
+		CardBuyBoard.animate
+			properties:
+				y:1334
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+		CardMask.animate
+			properties:
+				opacity:0
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.4
+		Utils.delay 0.4, ->
+			CardMaskBTN.visible = false
+	
+	BuyBTN1.on Events.Click, ->
+		CardMaskBTN.visible = true
+		CardBuyBoard.animate
+			properties:
+				y:482
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+		CardMask.animate
+			properties:
+				opacity:0.6
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.3
 			
+	BuyBTN2.on Events.Click, ->
+		CardMaskBTN.visible = true
+		CardBuyBoard.animate
+			properties:
+				y:482
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+		CardMask.animate
+			properties:
+				opacity:0.6
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.3
+	
+	BuyBTN3.on Events.Click, ->
+		CardMaskBTN.visible = true
+		CardBuyBoard.animate
+			properties:
+				y:482
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+		CardMask.animate
+			properties:
+				opacity:0.6
+			curve:"bezier-curve(.95,0,.38,.68)"
+			time:0.3
+			
+	Size1.on Events.Click, ->
+		Slider.animate
+			properties:
+				x:Size1.x+11
+			curve:"spring(250, 30, 20)"
+			
+	Size2.on Events.Click, ->
+		Slider.animate
+			properties:
+				x:Size2.x+12
+			curve:"spring(250, 30, 20)"
+			
+	Size3.on Events.Click, ->
+		Slider.animate
+			properties:
+				x:Size3.x+12
+			curve:"spring(250, 30, 20)"
+	
+	Size4.on Events.Click, ->
+		Slider.animate
+			properties:
+				x:Size4.x+12
+			curve:"spring(250, 30, 20)"
+			
+	Color1.on Events.Click, ->
+		Ripple.animate
+			properties:
+				x:Color1.x - 14
+				y:29
+			curve:"spring(250, 30, 20)"
+			
+	Color2.on Events.Click, ->
+		Ripple.animate
+			properties:
+				x:Color2.x - 14
+				y:28
+			curve:"spring(250, 30, 20)"
+	
+	Color3.on Events.Click, ->
+		Ripple.animate
+			properties:
+				x:Color3.x - 14
+				y:29
+			curve:"spring(250, 30, 20)"
+	
+	#####Card Swipe Init Setting
+	springCurve = "spring(200,20,10)"
+	CardPage.perspective = 100
+	CARDBG.z = -200
+	CARDBG.scale = 3.005
+	for cardcount in [1..3]
+		cards = sketch["Card"+cardcount]
+		cards.states.add
+			zoom:
+			    scale: 1.2
+			    shadowSpread: 16
+			    shadowBlur: 50
+			drag:
+			    scale: 1.1
+			defaultone:
+				scale: 1
+	for cardcontainercount in [1..3]
+		cardcontainers = sketch["CardContainer"+cardcontainercount]
+		
+		cardcontainers.style = borderRadius: "6px"
+		cardcontainers.shadowColor = "rgba(255,255,255,0.1)"
+		cardcontainers.shadowBlur = 20
+		cardcontainers.shadowY = 0
+		cardcontainers.shadowX = 0
+		cardcontainers.shadowSpread = 4
+		cardcontainers.states.add
+			row1:{x:137,y:189,z:0}
+			row2:{x:137,y:100,z:-15}
+			row3:{x:137,y:11,z:-30}
+		cardcontainers.states.switchInstant("row"+cardcontainercount)
+	
+	CardContainer1.draggable.enabled = true
+	CardContainer2.draggable.enabled = false
+	CardContainer3.draggable.enabled = false
+	
+	############### Card1 ###############
+	CardContainer1.on Events.DragStart, ->
+		if CardMask.opacity == 0
+			Card1.states.switch("zoom")
+			CardContainer1.dragStartY = CardContainer1.y
+			CardContainer1.dragStartX = CardContainer1.x
+			
+	CardContainer1.on Events.DragMove, (event) ->
+		Card1.states.switch("drag")
+		velocity = CardContainer1.draggable.calculateVelocity()
+		Cardcontainer1RotationY = Utils.modulate(velocity.x, [-5,5], [-15,15], true)
+		Cardcontainer1RotationX = Utils.modulate(velocity.y, [-5,5], [-15,15], true)
+		CardContainer1.shadowX = (CardContainer1.x - CardContainer1.dragStartX) * -0.125
+		CardContainer1.shadowY = (CardContainer1.y - CardContainer1.dragStartY) * -0.125
+		CardContainer1.animate
+			properties:
+				#rotationX:-Card1RotationX
+				rotationY:Cardcontainer1RotationY
+			curve:"spring(900,80,0)"
+		
+	CardContainer1.on Events.DragEnd, ->
+		Card1.states.switch("defaultone")
+		if CardContainer1.x < 450 && CardContainer1.x > -180
+			CardContainer1.animate
+				properties:
+					x:137
+					y:189
+					rotationX:0
+					rotationY:0
+					shadowX:0
+					shadowY:0
+				curve:springCurve
+			
+		else
+			sketch.CardContainer2.states.switch("row1")
+			sketch.CardContainer3.states.next("row2")
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer2.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer1.placeBehind(CardContainer3)
+			if CardContainer1.x >= 450
+				positiveeffect.player.currentTime = 0
+				positiveeffect.player.play()
+				CardContainer1.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer1.scale = 0
+					sketch.CardContainer1.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer1.animate
+							properties:
+								scale:1
+								shadowX:0
+								shadowY:0
+								rotationX : 0
+								rotationY : 0
+							curve:springCurve							
+			else if CardContainer1.x <= -180
+				negativeeffect.player.currentTime = 0.6
+				negativeeffect.player.play()
+				CardContainer1.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer1.scale = 0
+					CardContainer1.rotationX = 0
+					CardContainer1.rotationY = 0
+					sketch.CardContainer1.states.next("row3")
+					Utils.delay 0.1, ->
+						CardContainer1.animate
+							properties:
+								scale:1
+								shadowX:0
+								shadowY:0
+								rotationX : 0
+								rotationY : 0
+							curve:springCurve
+	
+	############### Card2 ###############
+	CardContainer2.on Events.DragStart, ->
+		if CardMask.opacity == 0
+			Card2.states.switch("zoom")
+			CardContainer2.dragStartY = CardContainer2.y
+			CardContainer2.dragStartX = CardContainer2.x
+			
+	CardContainer2.on Events.DragMove, (event) ->
+		Card2.states.switch("drag")
+		velocity = CardContainer2.draggable.calculateVelocity()
+		Cardcontainer2RotationY = Utils.modulate(velocity.x, [-5,5], [-15,15], true)
+		Cardcontainer2RotationX = Utils.modulate(velocity.y, [-5,5], [-15,15], true)
+		CardContainer2.shadowX = (CardContainer2.x - CardContainer2.dragStartX) * -0.125
+		CardContainer2.shadowY = (CardContainer2.y - CardContainer2.dragStartY) * -0.125
+		CardContainer2.animate
+			properties:
+				#rotationX:-Card1RotationX
+				rotationY:Cardcontainer2RotationY
+			curve:"spring(900,80,0)"
+		
+	CardContainer2.on Events.DragEnd, ->
+		Card2.states.switch("defaultone")
+		if CardContainer2.x < 450 && CardContainer2.x > -180
+			CardContainer2.animate
+				properties:
+					x:137
+					y:189
+					rotationX:0
+					rotationY:0
+					shadowX:0
+					shadowY:0
+				curve:springCurve
+			
+		else
+			sketch.CardContainer3.states.switch("row1")
+			sketch.CardContainer1.states.next("row2")
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer3.draggable.enabled = true
+			CardContainer2.draggable.enabled = false
+			CardContainer2.placeBehind(CardContainer1)
+			if CardContainer2.x >= 450
+				positiveeffect.player.currentTime = 0
+				positiveeffect.player.play()
+				CardContainer2.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer2.scale = 0
+					sketch.CardContainer2.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer2.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+							
+			else if CardContainer2.x <= -180
+				negativeeffect.player.currentTime = 0.6
+				negativeeffect.player.play()
+				CardContainer2.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer2.scale = 0
+					sketch.CardContainer2.states.next("row3")
+					Utils.delay 0.1, ->
+						CardContainer2.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+	
+	############### Card3 ###############
+	CardContainer3.on Events.DragStart, ->
+		if CardMask.opacity == 0
+			Card3.states.switch("zoom")
+			CardContainer3.dragStartY = CardContainer3.y
+			CardContainer3.dragStartX = CardContainer3.x
+			
+	CardContainer3.on Events.DragMove, (event) ->
+		Card3.states.switch("drag")
+		velocity = CardContainer3.draggable.calculateVelocity()
+		Cardcontainer3RotationY = Utils.modulate(velocity.x, [-5,5], [-15,15], true)
+		Cardcontainer3RotationX = Utils.modulate(velocity.y, [-5,5], [-15,15], true)
+		CardContainer3.shadowX = (CardContainer3.x - CardContainer3.dragStartX) * -0.125
+		CardContainer3.shadowY = (CardContainer3.y - CardContainer3.dragStartY) * -0.125
+		CardContainer3.animate
+			properties:
+				#rotationX:-Card1RotationX
+				rotationY:Cardcontainer3RotationY
+			curve:"spring(900,80,0)"
+		
+	CardContainer3.on Events.DragEnd, ->
+		Card3.states.switch("defaultone")
+		if CardContainer3.x < 450 && CardContainer3.x > -180
+			CardContainer3.animate
+				properties:
+					x:137
+					y:189
+					rotationX:0
+					rotationY:0
+					shadowX:0
+					shadowY:0
+				curve:springCurve
+			
+		else
+			sketch.CardContainer1.states.switch("row1")
+			sketch.CardContainer2.states.next("row2")
+			
+			CardContainer1.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer2.draggable.enabled = false
+			CardContainer3.placeBehind(CardContainer2)
+			if CardContainer3.x >= 450
+				positiveeffect.player.currentTime = 0
+				positiveeffect.player.play()
+				CardContainer3.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer3.scale = 0
+					sketch.CardContainer3.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer3.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+							
+			else if CardContainer3.x <= -180
+				negativeeffect.player.currentTime = 0.6
+				negativeeffect.player.play()
+				CardContainer3.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer3.scale = 0
+					sketch.CardContainer3.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer3.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+							
+	########## Card Button Animation ##########
+	CardLike.on Events.Click, ->
+		if Math.round(CardContainer1.z) == 0
+			sketch.CardContainer2.states.switch("row1")
+			sketch.CardContainer3.states.next("row2")
+			
+			positiveeffect.player.currentTime = 0
+			positiveeffect.player.play()
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer2.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer1.placeBehind(CardContainer3)
+			CardContainer1.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer1.scale = 0
+					sketch.CardContainer1.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer1.animate
+							properties:
+								scale:1
+								shadowX:0
+								shadowY:0
+								rotationX : 0
+								rotationY : 0
+							curve:springCurve
+											
+		else if Math.round(CardContainer2.z) == 0
+			sketch.CardContainer3.states.switch("row1")
+			sketch.CardContainer1.states.next("row2")
+			
+			positiveeffect.player.currentTime = 0
+			positiveeffect.player.play()
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer3.draggable.enabled = true
+			CardContainer2.draggable.enabled = false
+			CardContainer2.placeBehind(CardContainer1)
+			CardContainer2.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer2.scale = 0
+					sketch.CardContainer2.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer2.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+				
+		else if Math.round(CardContainer3.z) == 0
+			sketch.CardContainer1.states.switch("row1")
+			sketch.CardContainer2.states.next("row2")
+			
+			positiveeffect.player.currentTime = 0
+			positiveeffect.player.play()
+			
+			CardContainer1.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer2.draggable.enabled = false
+			CardContainer3.placeBehind(CardContainer2)
+			CardContainer3.animate
+					properties:
+						x:800
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardLike.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				LikeGREEN.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardLike.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					LikeGREEN.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer3.scale = 0
+					sketch.CardContainer3.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer3.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+				
+			
+	CardCancel.on Events.Click, ->
+		if Math.round(CardContainer1.z) == 0
+			sketch.CardContainer2.states.switch("row1")
+			sketch.CardContainer3.states.next("row2")
+			
+			negativeeffect.player.currentTime = 0.6
+			negativeeffect.player.play()
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer2.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer1.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer1.scale = 0
+					CardContainer1.rotationX = 0
+					CardContainer1.rotationY = 0
+					sketch.CardContainer1.states.next("row3")
+					Utils.delay 0.1, ->
+						CardContainer1.animate
+							properties:
+								scale:1
+								shadowX:0
+								shadowY:0
+								rotationX : 0
+								rotationY : 0
+							curve:springCurve
+		else if Math.round(CardContainer2.z) == 0
+			sketch.CardContainer3.states.switch("row1")
+			sketch.CardContainer1.states.next("row2")
+			
+			negativeeffect.player.currentTime = 0.6
+			negativeeffect.player.play()
+			
+			CardContainer1.draggable.enabled = false
+			CardContainer3.draggable.enabled = true
+			CardContainer2.draggable.enabled = false
+			CardContainer2.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer2.scale = 0
+					sketch.CardContainer2.states.next("row3")
+					Utils.delay 0.1, ->
+						CardContainer2.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+		else if Math.round(CardContainer3.z) == 0
+			sketch.CardContainer1.states.switch("row1")
+			sketch.CardContainer2.states.next("row2")
+			
+			negativeeffect.player.currentTime = 0.6
+			negativeeffect.player.play()
+			
+			CardContainer1.draggable.enabled = true
+			CardContainer3.draggable.enabled = false
+			CardContainer2.draggable.enabled = false
+			CardContainer3.animate
+					properties:
+						x:-600
+						rotationX:0
+						rotationY:0
+						shadowX:0
+						shadowY:0
+					curve:springCurve
+				CardCancel.animate
+					properties:
+						scale:1.2
+					cuve:springCurve
+				CancelRED.animate
+					properties:
+						opacity:1
+					curve:springCurve
+				Utils.delay 0.3, ->
+					CardCancel.animate
+						properties:
+							scale:1
+						cuve:springCurve
+					CancelRED.animate
+						properties:
+							opacity: 0
+						curve:springCurve
+				Utils.delay 0.2, ->
+					CardContainer3.scale = 0
+					sketch.CardContainer3.states.switch("row3")
+					Utils.delay 0.1, ->
+						CardContainer3.animate
+							properties:
+								scale:1
+								rotationX:0
+								rotationY:0
+								shadowX:0
+								shadowY:0
+							curve:springCurve
+	########## MainPage & CardPage Transition
+	CardPage.opacity = 0
+	CardPage.visible = false
+	Card.on Events.Click, ->
+		CardPage.opacity = 1
+		CardPage.visible = true
+		MainPage.opacity = 0
+		MainPage.visible = false
+		Card.animate
+			properties:
+				opacity:1
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		Home.animate
+			properties:
+				opacity:0.4
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		CTBCard.animate
+			properties:
+				opacity:1
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		CTBHome.animate
+			properties:
+				opacity:0.4
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		CardContainer1.animate
+			properties:
+				scale:1
+			curve:"spring(250, 30, 20)"
+			delay: 0.2
+		CardContainer2.animate
+			properties:
+				scale:1
+			curve:"spring(250, 30, 20)"
+			delay: 0.2
+		CardContainer3.animate
+			properties:
+				scale:1
+			curve:"spring(250, 30, 20)"
+			delay: 0.2
+		
+	CTBHome.on Events.Click, ->
+		CardPage.opacity = 0
+		CardPage.visible = false
+		MainPage.opacity = 1
+		MainPage.visible = true
+		Home.animate
+			properties:
+				opacity:1
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		Card.animate
+			properties:
+				opacity:0.4
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		CTBCard.animate
+			properties:
+				opacity:0.4
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		CTBHome.animate
+			properties:
+				opacity:1
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+		Utils.delay 0.2, ->
+			CardContainer1.scale = 0.8
+			CardContainer2.scale = 0.8
+			CardContainer3.scale = 0.8
+	
 oneTime()
 
 			
