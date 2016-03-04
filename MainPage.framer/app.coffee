@@ -1746,7 +1746,7 @@ oneTime = ->
 	numkeyboard.create()
 	
 	numkeyboardlayer = new Layer
-		width: 750,height: 432,image:"images/iPhone6Keyboard.png",y:1334-432,backgroundColor: "transparent"
+		width: 750,height: 432,image:"images/iPhone6Keyboard.png",y:1334,backgroundColor: "transparent"
 	LaunchPage.addSubLayer(numkeyboardlayer)
 	
 	BASES.opacity = 0
