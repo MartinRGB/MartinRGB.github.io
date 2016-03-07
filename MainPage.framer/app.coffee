@@ -1,3 +1,4 @@
+
 ########################### 教训 ###########################
 #1.在大工程中，元素尽量多写状态，以便复用
 #2.尽量使用 for in 减少重复代码
@@ -2985,6 +2986,304 @@ oneTime = ->
 			CardContainer1.scale = 0.8
 			CardContainer2.scale = 0.8
 			CardContainer3.scale = 0.8
+	######################################## ParadaPage & ParadaPage Detail ####################
+	
+
+	ParadaPage.x = 0
+	
+	scrollparada = ScrollComponent.wrap(ParadaContent)
+	scrollparada.frame = Screen.frame
+	scrollparada.contentInset = top: 140, left: 0
+	scrollparada.scrollHorizontal = false
+	
+	paradacomponent = new PageComponent
+		  width: Screen.width, height: 900
+		  x:-80,y: 0,scrollVertical: false
+		  
+	paradacomponent.addPage(D1, "right")
+	paradacomponent.addPage(D2, "right")
+	paradacomponent.addPage(D3, "right")
+	paradacomponent.addPage(D4, "right")
+	paradacomponent.addPage(D5, "right")
+	paradacomponent.addPage(D6, "right")
+	paradacomponent.addPage(D7, "right")
+	D7.placeBehind(D6)
+
+	D1.x = 50
+	D2.x = 685
+	D3.x = 1315
+	D4.x = 1945
+	D5.x = 2575
+	D6.x = 2575+630
+	D7.x = 2575+630
+	
+	ParadaHozImg.addSubLayer(paradacomponent)
+	
+	paradacomponent.on Events.TouchStart,->
+		scrollparada.scrollVertical = false
+	paradacomponent.on Events.TouchEnd,->
+		scrollparada.scrollVertical = true
+		
+	
+	ParadaMiddlePart = new Layer
+		height:574,width: 750,y:275,backgroundColor: "#FAFAFA"
+	ParadaBuyBoard.addSubLayer(ParadaMiddlePart)
+	ParadaMiddlePart.placeBehind(ParadaBottom)
+	ParadaMiddlePart.border = 1
+	
+	Opensizehelper = new Layer
+		x:40,y:517,width:400,opacity:0.6,backgroundColor:"transparent"
+	Opensizehelper.html = "启用尺码助手"
+	Opensizehelper.color = "#202020"
+	Opensizehelper.style.fontSize = "24px"
+	
+	ParadaMiddlePart.addSubLayer(Opensizehelper)
+	ParadaMiddlePart.addSubLayer(Value_Slider1)
+	ParadaMiddlePart.addSubLayer(Value_Slider2)
+	Value_Slider1.y = 292
+	Value_Slider2.y = 30
+	##########SLider#########
+	slider5 = new SliderComponent
+	slider5.x = 40
+	slider5.y = 106
+	slider5.backgroundColor = "transparent"
+	slider5.fill.backgroundColor = "transparent"
+	slider5.height = 100
+	slider5.width = 670
+	slider5.borderRadius = 0
+	slider5.knob.shadowY = 2
+	slider5.knob.shadowBlur = 4
+	slider5.knob.borderRadius = 32
+	slider5.knobSize = 64
+	slider5.knob.draggable.momentum = false
+	Value_Slider2.addSubLayer(slider5)
+	slider5.placeBefore(ValueProgress2)
+	
+	humanheight = new Layer
+	humanheight.html = "100cm"
+	humanheight.backgroundColor = "transparent"
+	humanheight.color = "#202020"
+	humanheight.style.fontSize = "22px"
+	humanheight.x = 24
+	humanheight.y = 10
+	ValueBoard_2.addSubLayer(humanheight)
+	
+	ValueBoard_2.x = 20
+	ValueKnob2.x = 25
+	slider5.knob.on "change:x", ->
+		ValueBoard_2.x = (20 + 32 + slider5.knob.x)* 0.9
+		ValueKnob2.x = 25 + 32 + slider5.knob.x
+		humanheight.html = (Math.round((slider5.knob.x + 32)/670 * 90)+100) + "cm"
+		
+	
+	slider6 = new SliderComponent
+	slider6.x = 40
+	slider6.y = 106
+	slider6.backgroundColor = "transparent"
+	slider6.fill.backgroundColor = "transparent"
+	slider6.height = 100
+	slider6.width = 670
+	slider6.borderRadius = 0
+	slider6.knob.shadowY = 2
+	slider6.knob.shadowBlur = 4
+	slider6.knob.borderRadius = 32
+	slider6.knobSize = 64
+	slider6.knob.draggable.momentum = false
+	Value_Slider1.addSubLayer(slider6)
+	slider6.placeBefore(ValueProgress2_Copy)
+	
+	humanheight2 = new Layer
+	humanheight2.html = "30kg"
+	humanheight2.backgroundColor = "transparent"
+	humanheight2.color = "#202020"
+	humanheight2.style.fontSize = "22px"
+	humanheight2.x = 34
+	humanheight2.y = 10
+	ValueBoard1.addSubLayer(humanheight2)
+	
+	ValueBoard1.x = 20
+	ValueKnob1.x = 25
+	slider6.knob.on "change:x", ->
+		ValueBoard1.x = (20 + 32 + slider6.knob.x)* 0.9
+		ValueKnob1.x = 25 + 32 + slider6.knob.x
+		humanheight2.html = (Math.round((slider6.knob.x + 32)/670 * 30)+30) + "kg"
+	##################Mask#############	
+	ParadaMask = new Layer
+	ParadaMask.backgroundColor = "#202020"
+	ParadaMask.height = 1334
+	ParadaMask.width = 750
+	ParadaMask.opacity = 0
+	ParadaPage.addSubLayer(ParadaMask)
+	ParadaMask.placeBefore(ParadaNav)
+	ParadaMask.visible = false
+	
+	ParadaMaskBTN = new Layer
+	ParadaMaskBTN.backgroundColor = "transparent"
+	ParadaMaskBTN.height = 400
+	ParadaMaskBTN.width = 750
+	ParadaPage.addSubLayer(ParadaMaskBTN)
+	ParadaMaskBTN.placeBefore(ParadaMask)
+	ParadaMaskBTN.x = 750
+	
+	
+	ParadaBuyBoard.y = 1334
+	Opensizehelper.on Events.Click, ->
+		if ParadaTop.y == 270
+			ParadaTop.animate
+				properties:
+					y:-215
+				curve:"bezier-curve(.95,0,.38,.68)"
+				time:0.5
+			Utils.delay 0.4 ,->
+				Opensizehelper.html = "关闭尺码助手"
+		else
+			ParadaTop.animate
+				properties:
+					y:270
+				curve:"bezier-curve(.95,0,.38,.68)"
+				time:0.5
+			Utils.delay 0.4 ,->	
+				Opensizehelper.html = "启用尺码助手"
+			
+	BuynowBtn.on Events.Click, ->
+		ParadaMask.visible = true
+		ParadaMask.animate
+			properties:
+				opacity: 0.6
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.5
+			
+		ParadaBuyBoard.animate
+			properties:
+				y: 126
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.5
+		
+		ParadaMaskBTN.animate
+			properties:
+				x: 0
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.5
+			
+	
+	ParadaMaskBTN.on Events.Click, ->
+		ParadaMask.visible = false
+		ParadaMask.animate
+			properties:
+				opacity: 0
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+			
+		ParadaBuyBoard.animate
+			properties:
+				y: 1334
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.3
+			
+		ParadaMaskBTN.animate
+			properties:
+				x: 750
+			curve: "bezier-curve(.95,0,.38,.68)"
+			time: 0.5
+		
+	
+	ParadaSize1.on Events.Click, ->
+		ParadaSlider.animate
+			properties:
+				x:ParadaSize1.x+11
+			curve:"spring(250, 30, 20)"
+			
+	ParadaSize2.on Events.Click, ->
+		ParadaSlider.animate
+			properties:
+				x:ParadaSize2.x+12
+			curve:"spring(250, 30, 20)"
+			
+	ParadaSize3.on Events.Click, ->
+		ParadaSlider.animate
+			properties:
+				x:ParadaSize3.x+14
+			curve:"spring(250, 30, 20)"
+	
+	ParadaSize4.on Events.Click, ->
+		ParadaSlider.animate
+			properties:
+				x:ParadaSize4.x+14
+			curve:"spring(250, 30, 20)"
+	
+	
+	############# PardaPage Transition #############
+	ParadaPage.x = 1334
+	BG2.on Events.Click, ->
+		videoLayer1.player.pause()
+		BG2.animate
+			properties:
+				scale:0.8
+				brightness: 80
+				opacity: 0.8
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.3
+		MainPage.animate
+			properties:
+				x: -750/3
+				brightness:80
+				opacity: 0.8
+				scale: 0.8
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.3
+		ParadaPage.animate
+			properties:
+				x: 0
+			curve: "spring(300, 40, 20)"
+			
+	ParadaBack.on Events.Click, ->
+		BG2.animate
+			properties:
+				scale:1
+				brightness: 100
+				opacity: 1
+			curve: "spring(250, 40, 20)"
+		MainPage.animate
+			properties:
+				x: 0
+				brightness:100
+				opacity: 1
+				scale: 1
+			curve: "spring(250, 40, 20)"
+		ParadaPage.animate
+			properties:
+				x: 1334
+			curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.6
+			
+	PaymentPage.x = 1334
+	ParadaPaymentBTN.on Events.Click, ->
+		ParadaPage.animate
+			properties:
+				x: -750/3
+				brightness:80
+				scale: 0.9
+			curve:"bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.3
+		PaymentPage.animate
+			properties:
+				x: 0
+			curve: "spring(300, 40, 20)"
+	PaymenPageBack.on Events.Click, ->
+		ParadaPage.animate
+			properties:
+				x: 0
+				brightness:100
+				opacity: 1
+				scale: 1
+			curve: "spring(250, 40, 20)"
+		PaymentPage.animate
+			properties:
+				x: 1334
+			curve: "bezier-curve(0.215, 0.61, 0.355, 1)"
+			time: 0.6
+	
+	
 	
 oneTime()
 
