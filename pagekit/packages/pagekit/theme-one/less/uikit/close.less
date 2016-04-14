@@ -1,0 +1,46 @@
+//
+// Component: Close
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@close-size:                                    18px;
+
+@close-alt-padding:                             6px;
+@close-alt-background:                          @global-background;
+
+
+// Component
+// ========================================================================
+
+.hook-close() {
+    opacity: 0.5;
+    color: @global-contrast-color;
+}
+
+
+// Modifier: `uk-close-alt`
+// ========================================================================
+
+.hook-close-alt() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-close-misc() {
+
+    .uk-close:after {
+        content: "";
+        width: @close-size;
+        height: @close-size;
+        background: url("@{global-image-path}/close.svg") 50% 50% no-repeat;
+    }
+
+    .uk-close:hover,
+    .uk-close:focus { opacity: 1; }
+
+}

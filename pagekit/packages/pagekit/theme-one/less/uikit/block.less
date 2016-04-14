@@ -1,0 +1,62 @@
+//
+// Component: Block
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@block-padding-vertical:                        50px;
+@block-padding-vertical-large:                  100px;
+
+@block-large-padding-vertical-large:            150px;
+
+@block-default-background:                      @global-background;
+
+@block-secondary-background:                    #1f1915;
+
+
+// Component
+// ========================================================================
+
+.hook-block() {}
+
+
+// Color modifier
+// ========================================================================
+
+.hook-block-default() {}
+
+.hook-block-muted() {}
+
+.hook-block-secondary() {}
+
+.hook-block-primary() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-block-misc() {
+
+    /* Desktop and bigger */
+    @media (min-width: 2000px) {
+
+        .uk-block-large {
+            padding-top: 200px;
+            padding-bottom: 200px;
+        }
+
+    }
+
+    /*
+     * Adjust padding between equal colored blocks
+     */
+
+    .uk-block-default + .uk-block-default,
+    .uk-block-muted + .uk-block-muted,
+    .uk-block-primary + .uk-block-primary,
+    .uk-block-secondary + .uk-block-secondary { padding-top: 0; }
+
+}

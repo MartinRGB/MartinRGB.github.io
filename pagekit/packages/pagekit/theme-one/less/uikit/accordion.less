@@ -1,0 +1,68 @@
+//
+// Component: Accordion
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@accordion-title-margin-bottom:                 0;
+@accordion-title-padding-vertical:              15px;
+@accordion-title-padding-horizontal:            40px;
+@accordion-title-font-size:                     round((@global-font-size * 1.14)); // 16px / 18px
+@accordion-title-line-height:                   round((@accordion-title-font-size * 1.36)); // 22px / 24px
+@accordion-title-background:                    transparent;
+
+//
+// New
+//
+
+@accordion-border:                              @global-border;
+
+
+// Component
+// ========================================================================
+
+.hook-accordion() {}
+
+
+// Modifier: `uk-accordion-title`
+// ========================================================================
+
+.hook-accordion-title() {
+    position: relative;
+    padding-left: 0;
+}
+
+
+// Modifier: `uk-accordion-content`
+// ========================================================================
+
+.hook-accordion-content() { padding-left: 0; }
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-accordion-misc() {
+
+    .uk-accordion-title:not(:first-child) { border-top: 1px solid @accordion-border; }
+
+    // Toggle Icon
+    .uk-accordion-title:before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: @accordion-title-padding-vertical;
+        height: 13px;
+        width: 13px;
+        background: url("@{global-image-path}/plus.svg") 0 0 no-repeat;
+    }
+
+    .uk-accordion-title:hover,
+    .uk-accordion-title:hover:before { opacity: 0.7; }
+
+    .uk-accordion-title.uk-active:before  { background: url("@{global-image-path}/minus.svg") 0 0 no-repeat; }
+
+}

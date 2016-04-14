@@ -1,0 +1,4 @@
+<div v-for="field in fields">
+    <label v-if="field.type != 'checkbox'">{{ field.label }}</label>
+    <field :config="field" :values.sync="values"></field>
+</div>
