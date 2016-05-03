@@ -1,5 +1,3 @@
-# Import file "CustomTransition"
-sketch = Framer.Importer.load("imported/CustomTransition@1x")
 Rebirth = ->
 	# Import file "CustomTransition" (sizes and positions are scaled 1:2)
 	sketch = Framer.Importer.load("imported/CustomTransition@2x")
@@ -34,7 +32,34 @@ Rebirth = ->
 	newGroup.addSubLayer(EditHitArea)
 	BG1.addSubLayer(Card2)
 	cardOne.clip = true
-
+	
+	leftcollapsed = new Layer
+		width: 15
+		height: 3
+		backgroundColor: "#fff"
+		rotation: 20
+		x:5
+		y:20
+		borderRadius: 10
+	rightcollapsed = new Layer
+		width: 15
+		height: 3
+		backgroundColor: "#fff"
+		rotation: -20
+		x:17
+		y:20
+		borderRadius: 10
+		
+	collapsedBtn = new Layer
+		width: 16
+		height: 6.4
+		y:-44
+		x:102
+		backgroundColor: "#clear"
+	collapsedBtn.addSubLayer(leftcollapsed)
+	collapsedBtn.addSubLayer(rightcollapsed)
+	cardOne.addSubLayer(collapsedBtn)
+	
 	keyBoard.visible = false
 	EditBG2.visible = false
 	keyBoard.y = 1334
@@ -409,13 +434,24 @@ Rebirth = ->
 				navBar.y = Utils.modulate(y, [0, -400], [0, 400], true)
 				BG1.scale = Utils.modulate(y, [0, -200], [0.8, 0.9], true)
 				BlackMask.opacity = Utils.modulate(y, [0, -200], [0.5, 0.1], true)
+				collapsedBtn.y = statusBar.y - 34
+				collapsedBtn.opacity = (statusBar.y - 20)/20
 			else
 				newGroup.y = Utils.modulate(y, [0, -400], [0, 800], true)
 				statusBar.y = Utils.modulate(y, [0, -400], [0, 400], true)
 				navBar.y = Utils.modulate(y, [0, -400], [0, 400], true)
 				BG1.scale = Utils.modulate(y, [0, -200], [0.8, 0.9], true)
 				BlackMask.opacity = Utils.modulate(y, [0, -200], [0.5, 0.1], true)
+				collapsedBtn.y = statusBar.y - 34
+				collapsedBtn.opacity = (statusBar.y - 20)/20
+				collapsedBtn.opacity = 0
 				cardOne.backgroundColor = "clear"
 				closeTheCard()
+
+
+	
 				
+
+	
 Rebirth()
+

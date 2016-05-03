@@ -16,6 +16,32 @@ window.__imported__["CustomTransition@1x/layers.json.js"] = [
 		"backgroundColor": "rgba(239, 239, 244, 1)",
 		"children": [
 			{
+				"objectId": "990D6204-6BB8-4ACA-B6D7-5E8326CAB3D0",
+				"kind": "group",
+				"name": "collapsedBtn",
+				"maskFrame": null,
+				"layerFrame": {
+					"x": 178,
+					"y": 32,
+					"width": 20,
+					"height": 8
+				},
+				"visible": true,
+				"metadata": {
+					"opacity": 1
+				},
+				"image": {
+					"path": "images/Layer-collapsedBtn-otkwrdyy.png",
+					"frame": {
+						"x": 178,
+						"y": 32,
+						"width": 20,
+						"height": 8
+					}
+				},
+				"children": []
+			},
+			{
 				"objectId": "80A3A9C5-918C-4ED1-9952-16BEC50E96C6",
 				"kind": "group",
 				"name": "PublishView",
