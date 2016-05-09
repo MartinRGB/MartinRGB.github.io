@@ -123,6 +123,13 @@ countDownbeigin = ->
 		else
 			timenumber.x = 36
 			timenumber.html = "0:0"+"#{60-(Math.round(Cam_Video.player.currentTime-24))}"
+	#3.6 Video Replay
+rePlay = ->
+	Cam_Video.currentTime = 0
+	timenumber.html = "1:24"
+	Cam_Video.player.play()
+	
+Cam_Video.player.onended = -> rePlay()
 
 #4. State Machine Setting
 
