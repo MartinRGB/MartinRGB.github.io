@@ -1633,11 +1633,11 @@ window.__imported__["CustomTransition@2x/layers.json.js"] = [
 	}
 ]
 if (typeof(DeviceComponent) !== "undefined") {DeviceComponent.Devices["iphone-6-silver"].deviceImageJP2 = false};
-window.Framer.Defaults.DeviceView = {"deviceScale":0.5,"selectedHand":"iphone-hands-2","deviceType":"apple-iphone-6s-silver","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceView = {"deviceScale":"fit","selectedHand":"iphone-hands-2","deviceType":"apple-iphone-6s-silver","contentScale":1,"orientation":0};
 
-window.Framer.Defaults.DeviceComponent = {"deviceScale":0.5,"selectedHand":"iphone-hands-2","deviceType":"apple-iphone-6s-silver","contentScale":1,"orientation":0};
+window.Framer.Defaults.DeviceComponent = {"deviceScale":"fit","selectedHand":"iphone-hands-2","deviceType":"apple-iphone-6s-silver","contentScale":1,"orientation":0};
 
-window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"CustomTransition.framer"};
+window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"Card_CustomTransition.framer"};
 
 Framer.Device = new Framer.DeviceView();
 Framer.Device.setupContext();
