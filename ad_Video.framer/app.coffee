@@ -15,6 +15,10 @@ hitarea1 = new Layer
 	x: 85,y:979,width: 128,height: 36, borderRadius: 2,opacity: 0, backgroundColor: "rgba(123,123,123,1)"
 Video.addSubLayer(hitarea1)
 
+hitarea2= new Layer
+	x: 320,y:510,width: 100,height: 100, borderRadius: 2,opacity: 0, backgroundColor: "rgba(123,123,123,1)"
+adBoard.addSubLayer(hitarea2)
+
 	#3.1font Insert
 Utils.insertCSS('@import url(https://fonts.googleapis.com/css?family=Montserrat:700);')
 
@@ -364,7 +368,7 @@ Play_Button.onClick ->
 	Cam_Video.player.play()
 	countDownbeigin()
 
-collapsedBtn.onClick ->
+hitarea2.onClick ->
 	# Must be clean instantly
 	Star.animateStop()
 	Spinner.animateStop()
