@@ -6,7 +6,7 @@
   "sharedPrototype" : 0,
   "contentScale" : 1,
   "deviceType" : "apple-iphone-6s-silver",
-  "selectedHand" : "iphone-hands-2",
+  "selectedHand" : "",
   "updateDelay" : 0.3,
   "deviceScale" : "fit",
   "codeFolds" : [
