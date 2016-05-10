@@ -170,7 +170,7 @@ Page1.states.switchInstant("closed")
 Page2 = new Layer
 	width: 750
 	height: 1334
-	image: "images/IMG_0098.png"
+	image: "images/Page2.PNG"
 Page2.originX = 0
 Page2.originY = 0
 
