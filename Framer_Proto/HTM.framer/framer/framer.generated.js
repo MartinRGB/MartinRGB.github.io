@@ -11816,7 +11816,7 @@ window.Framer.Defaults.DeviceView = {"deviceScale":-1,"selectedHand":"","deviceT
 
 window.Framer.Defaults.DeviceComponent = {"deviceScale":-1,"selectedHand":"","deviceType":"iphone-6-silver","contentScale":1,"orientation":0};
 
-window.FramerStudioInfo = {"deviceImagesUrl":"\/\/resources.framerjs.com\/static\/DeviceResources","documentTitle":"MainPage.framer"};
+window.FramerStudioInfo = {"deviceImagesUrl":"\/\/resources.framerjs.com\/static\/DeviceResources","documentTitle":"HTM.framer"};
 
 Framer.Device = new Framer.DeviceView();
 Framer.Device.setupContext();
