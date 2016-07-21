@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<script src="scripts/jquery.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".level1 > a").next().hide();
+				// alert("Hello World!");
+				// alert("Fuck the World!");
+				$('#firstfather').css('border-top', 'none');
+
+				var sumHeight2 = 43 * $(".menu > li").length
+				var totalScreenHeight = $("body").innerHeight();
+				var boxTop = (totalScreenHeight - sumHeight2)/2;
+				$(".box").css('top', boxTop);
+
+				$(".level1 > a").click(function(){
+					if($(this).hasClass("current")){
+						$(this).removeClass("current").parent().siblings().children("a").removeClass("current");
+						$(this).removeClass("dropdown-is-active").parent().siblings().children("a").removeClass("dropdown-is-active");
+						$(this).removeClass("dropdown-bottom").parent().siblings().children("a").removeClass("dropdown-bottom");
+						$(this).siblings().removeClass("slider-on").parent().siblings().children("ul").removeClass("slider-on");
+						$(this).siblings().css('height', 0).parent().siblings().children("ul").css('height', 0);
+
+						var sumHeight2 = 43 * $(".menu > li").length
+						var totalScreenHeight = $("body").innerHeight();
+						var boxTop = (totalScreenHeight - sumHeight2)/2;
+						$(".box").css('top', boxTop);
+
+						return false;
+					}
+					else {
+						$(this).addClass("current").next().show().parent().siblings().children("a").removeClass("current");
+						$(this).addClass("dropdown-is-active").parent().siblings().children("a").removeClass("dropdown-is-active");
+						$(this).addClass("dropdown-bottom").parent().siblings().children("a").removeClass("dropdown-bottom");
+						$(this).siblings().addClass("slider-on").parent().siblings().children("ul").removeClass("slider-on");
+
+						var sumHeight = 0;
+						$(this).siblings().children("li").each(function(i){
+							sumHeight = sumHeight + parseInt($(this).innerHeight());
+						});
+						$(this).siblings().css('height', sumHeight).parent().siblings().children("ul").css('height', 0);
+
+						var sumHeight2 = 43 * $(".menu > li").length + sumHeight
+						var totalScreenHeight = $("body").innerHeight();
+						var boxTop = (totalScreenHeight - sumHeight2)/2;
+						$(".box").css('top', boxTop);
+
+						return false;
+					}
+				});
+				$(".level1 > a").on('mousedown',function(){
+					// father 即是材质面
+					var surface = $(this);
+					// 看看 .material-ink Class 是否存在
+					if (surface.find(".material-ink").length == 0) {
+						surface.prepend("<div class='material-ink'></div>");
+					}
+					// ink 即是 .material-ink
+					var ink = surface.find(".material-ink");
+
+					// 防止二次点击
+					ink.removeClass("animate");
+
+					// set size of .ink
+					if (!ink.height() && !ink.width()) {
+						// 用长度量更大的，以便做覆盖全局的圆
+						var diameter = Math.max(surface.outerWidth(), surface.outerHeight());
+						ink.css({height: diameter, width: diameter});
+					}
+
+					// 点击点(Page)的绝对位置 - 材质面的上左绝对位置 ＝ 相对卡片中位置，因为生成的圆要按左上定位，所以卡片中相对位置－高宽/2 实现圆的定位。
+					var xPos = event.pageX - surface.offset().left - (ink.width() / 2);
+					var yPos = event.pageY - surface.offset().top - (ink.height() / 2);
+
+					var rippleColor = surface.data("ripple-color");
+
+					//set the position and add class .animate
+					ink.css({
+						top: yPos + 'px',
+						left: xPos + 'px',
+						background: rippleColor,
+					}).addClass("animate");
+				});
+
+			});
+
+		</script>
+		<style type="text/css">
+			.box {
+				float: left;
+				left: 45%;
+				position: relative;
+				transition: all 0.8s cubic-bezier(.23,1,.32,1);
+				-webkit-transition: all 0.8s cubic-bezier(.23,1,.32,1);
+			}
+
+			.material-ink {
+				position: absolute;
+				background: #b4dfff;
+				border-radius: 50%;
+				transform: scale(0);
+				opacity: 0.4;
+			}
+
+			/* animation effect */
+			.material-ink.animate {
+				animation: ripple 1.0s cubic-bezier(.23,1,.32,1);
+			}
+
+			@keyframes ripple {
+				100% {
+					transform: scale(2.5);
+					opacity: 0;
+				}
+			}
+
+			body {
+				height: 100%;
+		    width: 100%;
+		    position: absolute;
+			}
+
+			.level1 > ul {
+				transition: height 0.45s cubic-bezier(.23,1,.32,1),opacity 225ms ease;
+				-webkit-transition: height 0.45s cubic-bezier(.23,1,.32,1),opacity 225ms ease;
+
+			}
+
+			.level2 {
+				height: 0px;
+				opacity: 0;
+		    padding-left: 0px;
+				list-style: none;
+			}
+
+
+			.level2 > li {
+				padding: 15px 30px 15px 35px;
+
+			}
+
+			.level2 > li > a {
+				font-family: 'PingFang SC';
+				font-weight: 400;
+				text-decoration: none;
+				color: #6c6d68;
+			}
+
+			.slider-on {
+				opacity: 1;
+			}
+
+			.menu {
+		    list-style: none;
+				width: 142px;
+				height: auto;
+				padding-left: 0px;
+				/*border: 1px solid #ebebeb;*/
+				border-radius: 3px;
+				overflow: hidden;
+		    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.12);
+				transition: all 1.0s cubic-bezier(.23,1,.32,1);
+			}
+			.menu:hover {
+			  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.12);
+			}
+			.menu > li {
+				width: auto;
+				height: auto;
+		    list-style: none;
+			}
+			.father{
+				position: relative;
+				overflow: hidden;
+				background-color: #fff;
+        padding: 5px 90px 5px 20px;
+		    line-height: 32px;
+		    font-size: 16px;
+		    display: block;
+				font-family: 'PingFang SC';
+    		font-weight: 600;
+				border-top: 1px solid #ebebeb;
+				border-bottom: 1px solid rgba(235,235,235,0);
+				text-decoration: none;
+				color: #3f403b;
+				transition: border-bottom 0s;
+				-webkit-transition: border-bottom 0s;
+			}
+			.father::before {
+				content: '';
+		    position: absolute;
+				border-radius: 50px;
+		    margin-top: 15px;
+		    left: 112px;
+		    background: #3f403b;
+		    -webkit-transform: rotate(45deg);
+		    -moz-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    -o-transform: rotate(45deg);
+		    transform: rotate(45deg);
+		    height: 2px;
+		    width: 7px;
+				transition: all 0.3s;
+				-webkit-transition: all 0.3s;
+			}
+			.father::after {
+				content: '';
+				position: absolute;
+				border-radius: 50px;
+				margin-top: 15px;
+				left: 116px;
+				background: #3f403b;
+				-webkit-transform: rotate(-45deg);
+				-moz-transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				-o-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+				height: 2px;
+				width: 7px;
+				transition: all 0.3s;
+				-webkit-transition: all 0.3s;
+			}
+
+			.dropdown-is-active {
+				/*background-color: #e4e4e4;*/
+			}
+
+			.dropdown-is-active::before {
+				-webkit-transform: rotate(-225deg);
+		    -moz-transform: rotate(-225deg);
+		    -ms-transform: rotate(-225deg);
+		    -o-transform: rotate(-225deg);
+		    transform: rotate(-225deg);
+				left: 112px;
+				width: 10px;
+			}
+			.dropdown-is-active::after {
+				-webkit-transform: rotate(225deg);
+		    -moz-transform: rotate(225deg);
+		    -ms-transform: rotate(225deg);
+		    -o-transform: rotate(225deg);
+		    transform: rotate(225deg);
+				left: 112px;
+				width: 10px;
+			}
+			/*.hide {
+				display: none;
+			}*/
+			.hidedivide {
+				border-top:none;
+			}
+			.dropdown-bottom{
+				border-bottom:1px solid rgba(235,235,235,1);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="menu">
+				<li class="level1">
+					<a class="father hidedivide" href="#none" id="firstfather">衬衫</a>
+					<ul class="level2 hide">
+						<li><a href="#none">衬衫A</a></li>
+						<li><a href="#none">衬衫B</a></li>
+						<li><a href="#none">衬衫C</a></li>
+						<li><a href="#none">衬衫D</a></li>
+						<li><a href="#none">衬衫E</a></li>
+						<li><a href="#none">衬衫F</a></li>
+						<li><a href="#none">衬衫G</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a class="father" href="#none">卫衣</a>
+					<ul class="level2 hide">
+						<li><a href="#none">卫衣A</a></li>
+						<li><a href="#none">卫衣B</a></li>
+						<li><a href="#none">卫衣C</a></li>
+						<li><a href="#none">卫衣D</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a class="father" href="#none">裤子</a>
+					<ul class="level2 hide">
+						<li><a href="#none">裤子A</a></li>
+						<li><a href="#none">裤子B</a></li>
+					</ul>
+				</li>
+	</body>
+</html>

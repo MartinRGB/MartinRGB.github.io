@@ -1,0 +1,194 @@
+body {
+	font-size: 100%;
+	font-family: "Lato","PingFang SC", sans-serif;
+	color: #34495e;
+	background-color: #3498db;
+}
+header {
+	width: 100%;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	color: #fff;
+	background-color: #34495e;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 20px;
+}
+
+body,header,h1 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.slider {
+	width: 120px;
+	height: 50px;
+	background: #34495e;
+	margin: 6em auto;
+	position: relative;
+	border-radius: 50px;
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+.slider::before {
+	content: 'ON';
+	color: #27ae60;
+	position: absolute;
+	left: 15px;
+	z-index: 0;
+	font: 16px/50px "Lato", sans-serif;
+	/*font-weight: bold;*/
+}
+
+.slider::after {
+	content: 'OFF';
+	color: #000;
+	position: absolute;
+	right: 15px;
+	z-index: 0;
+	font: 16px/50px "Lato", sans-serif;
+	/*font-weight: bold;*/
+	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.slider > input[type=checkbox] {
+		visibility: hidden;
+}
+
+input:checked + label {
+	left: 74px;
+}
+
+.slider > label {
+	display: block;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 1;
+	background: #fcfff4;
+	/*background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);*/
+	border-radius: 50px;
+	transition: left 0.4s cubic-bezier(0.68, -0.2, 0.265, 1.2),margin-left 0.4s cubic-bezier(0.68, -0.2, 0.265, 1.2),padding-left 0.4s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+}
+
+.cd-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(94, 110, 141, 0.9);
+    opacity: 0;
+		z-index: 200;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    transition: opacity 0.3s 0s, visibility 0s 0.3s;
+}
+
+.is-visible {
+	opacity: 1;
+	visibility: visible;
+	z-index: 200;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0.0s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0.0s;
+	transition: opacity 0.3s 0s, visibility 0s 0.0s;
+}
+
+.cd-popup > .cd-popup-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: 8em auto;
+    background: #FFF;
+    border-radius: .25em .25em .4em .4em;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+    transform: translateY(-40px);
+    -webkit-backface-visibility: hidden;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+		overflow: hidden;
+}
+
+.is-visible > .cd-popup-container {
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+}
+
+
+.cd-popup-container > p {
+	padding: 3em 1em;
+	opacity: 0.7;
+  font-weight: 300;
+}
+
+.cd-popup-container > ul {
+	list-style: none;
+	width: 100%;
+	padding-left: 0;
+  margin-bottom: 0px;
+  height: 60px;
+}
+
+.cd-popup-container > ul > li {
+		float: left;
+    width: 50%;
+}
+
+.cd-popup-container > ul > li:first-child {
+		background-color: #e74c3c;
+}
+.cd-popup-container > ul > li:last-child {
+		background-color: #bdc3c7;
+}
+
+.cd-popup-close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 10px;
+	height: 10px;
+}
+
+.img-replace {
+	background: url(close.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.morph {
+	padding-left: 10px;
+	margin-left: -10px;
+}
+.morph2 {
+	padding-left: 10px;
+}
+
+.cd-popup-container > ul > li > a {
+  display: block;
+	height:60px;
+	line-height: 60px;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 300;
+}

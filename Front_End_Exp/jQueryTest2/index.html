@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<script src="scripts/jquery.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="style.css">
+		<script type=text/javascript>
+			$(document).ready(function(){
+				var $cr = $("#cr");
+				var $cdpop = $(".cd-popup");
+				var $cdpopclose = $(".cd-popup-close");
+				var cr = $cr[0];
+
+				function showalert(){
+					$(".cd-popup").addClass("is-visible")
+				}
+
+				// $cdpop.click(function(){
+				// 	$(".cd-popup").removeClass("is-visible")
+				//  	setTimeout(function(){$(".slider").children("input").prop('checked',true)},550);
+				// })
+				//
+				// $cdpopclose.click(function(){
+				// 	$(".cd-popup").removeClass("is-visible")
+				// 	setTimeout(function(){$(".slider").children("input").prop('checked',true)},550);
+				// })
+
+				$('.cd-popup').on('click', function(event){
+					if(  $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
+						$(this).removeClass('is-visible');
+						setTimeout(function(){
+							$(".slider").children("input").prop('checked',true);
+							$('.slider').children("label").addClass("morph2")
+						},300);
+						setTimeout(function(){
+							$('.slider').children("label").removeClass("morph2")
+						},450);
+						return false;
+					}
+				});
+
+				$('.nope').on('click', function(event){
+					$('.cd-popup').removeClass('is-visible');
+					setTimeout(function(){
+						$(".slider").children("input").prop('checked',true);
+						$('.slider').children("label").addClass("morph2");
+					},300);
+					setTimeout(function(){
+						$('.slider').children("label").removeClass("morph2")
+					},500);
+					// 等同于 event.stopPropagation() + event.preventDefault();
+					return false;
+				});
+
+				$('.slider').children("label").on('mousedown', function(event){
+					$('.slider').children("label").addClass("morph")
+					return false;
+
+				});
+				$('.slider').children("label").on('mouseup', function(event){
+					$('.slider').children("label").removeClass("morph")
+					return false;
+				});
+
+				$cr.click(function(){
+					if(!cr.checked){
+						setTimeout(function(){showalert()},300);
+						$(".slider").children("input").prop('checked',false);
+					}
+				})
+			})
+		</script>
+		<title></title>
+	</head>
+	<body>
+			<header>
+				<h1>Simple Modal Exp</h1>
+			</header>
+			<div class="slider">
+				<input type="checkbox" value="None" id="cr" name="check" checked />
+				<label for="cr"></label>
+			</div>
+
+			<div class="cd-popup" role="alert">
+				<div class="cd-popup-container">
+					<p>Are you sure wanna do this?</p>
+					<ul class="cd-buttons">
+						<li><a href="#0">Yes</a></li>
+						<li class="nope"><a href="#0">No</a></li>
+					</ul>
+					<a href="#0" class="cd-popup-close img-replace"></a>
+				</div>
+			</div>
+			<!-- <input type="checkbox" style="display:none" id="cr"/><label style="display:none" for="cr">我已经阅读了上面的制度</label> -->
+	</body>
+</html>

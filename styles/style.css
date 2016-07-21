@@ -506,6 +506,37 @@ header {
     height: 37px;
     background-size: contain;
 }
+
+.icon-chart {
+    display: inline-block;
+    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon42.png');
+    margin-top: 3px;
+    margin-left: 5px;
+    width: 61px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*
+.iframe-preview {
+  margin-top: -68px;
+  margin-bottom: -24px;
+  width: 125%;
+  height: 680px;
+  background-color: #242B3A;
+  background-size: contain;
+  transform: scale(0.8);
+  box-shadow: 0px 1px 20px 1px rgba(68,68,68,0.5);
+  -webkit-box-shadow: 0px 1px 20px 1px rgba(68,68,68,0.5);
+  transition: all 0.4s;
+
+}
+.iframe-preview:hover {
+  box-shadow: 0px 1px 20px 1px rgba(68,68,68,0.75);
+  -webkit-box-shadow: 0px 1px 20px 1px rgba(68,68,68,0.75);
+  transform: translateY(-15px) scale(0.8);;
+  -webkit-transform: translateY(-15px) scale(0.8);;
+}*/
 .title {
     position: relative;
     width: 578px;
