@@ -61,7 +61,7 @@ $(document).ready(function(){
 
 		for (i=0; i<arraynumbers; i++){
 			var a = i+1
-			var imgName = "url(/asset/img" + a + ".jpg)"
+			var imgName = "url(asset/img" + a + ".jpg)"
 			$(".SubCategoryBox > ul :nth-child(" + a + ")").children("a").append(namearrays[i])
 			$(".SubCategoryBox > ul :nth-child(" + a + ")").children("i").append(numberarrays[i])
 			$(".SubCategoryBox > ul :nth-child(" + a + ")").children("span").append(pricearrays[i])

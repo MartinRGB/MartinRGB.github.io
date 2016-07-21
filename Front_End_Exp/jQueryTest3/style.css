@@ -176,7 +176,7 @@ span {
 }
 
 .showmore-trigger {
-	background: url(/asset/filter.svg) no-repeat left center;
+	background: url(asset/filter.svg) no-repeat left center;
 	padding-left: 20px;
 	padding-top: -1px;
 	text-decoration: none;
