@@ -28,21 +28,21 @@ body,header,h1 {
 .iphone-container {
 	width: 451px;
   height: 912px;
-	background-image: url("../Asset/iPhone_6s.png");
+	background-image: url("Asset/iPhone_6s.png");
   background-size: cover;
 }
 
-.template-canvas {
+iframe {
 	width: 375px;
-  height: 667px;
-  margin-left: auto;
-  left: 2px;
-  margin-right: auto;
-  margin-top: -783px;
-  position: relative;
-  background-color: #fff;
-	/*background-image: url("../Asset/123.jpg");*/
-	background-size: cover;
+	height: 667px;
+	border: none;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: -783px;
+	left: 2px;
+	position: relative;
+	background-color: #fff;
 }
 
 @media only screen and (max-width:751px) {
@@ -52,7 +52,7 @@ body,header,h1 {
 	.total-container {
 		display: none;
 	}
-	.template-canvas{
+	iframe{
 		position: absolute;
 		left:0px;
 		top:0px;
