@@ -1,0 +1,62 @@
+body {
+	font-size: 100%;
+	font-family: "PingFang SC", sans-serif;
+	background-color: #fff;
+}
+header {
+	width: 100%;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	color: #fff;
+	background-color: #fff;
+	border-bottom: 1px solid #212121;
+}
+
+body,header,h1 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.total-container {
+	width: 447px;
+	height: 912px;
+	margin:0 auto;
+}
+
+.iphone-container {
+	width: 451px;
+  height: 912px;
+	background-image: url("../Asset/iPhone_6s.png");
+  background-size: cover;
+}
+
+.template-canvas {
+	width: 375px;
+  height: 667px;
+  margin-left: auto;
+  left: 2px;
+  margin-right: auto;
+  margin-top: -783px;
+  position: relative;
+  background-color: #fff;
+	/*background-image: url("../Asset/123.jpg");*/
+	background-size: cover;
+}
+
+@media only screen and (max-width:751px) {
+	.iphone-container {
+		display: none;
+	}
+	.total-container {
+		display: none;
+	}
+	.template-canvas{
+		position: absolute;
+		left:0px;
+		top:0px;
+		margin:0;
+		background-color: #000;
+	}
+}

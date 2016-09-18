@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+/*基础*/
+
+html {
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: 100%;
+	-ms-touch-action: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body {
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+	min-width: 320px;
+	font-size: 62.5%;
+	margin: 0;
+	text-align: center;
+}
+div, ul, ol, li, dl, dt, dd, h1, h2, h3, h6, p, b, i, a, header, mark, sup, sub, hr, br, video, audio, blockquote, time, figure, figcaption, img, footer {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+img, p, figure, h2, h3 {
+	display: block;
+	overflow: hidden;
+}
+img {
+	width: 100%;
+	border: 0;
+	margin: 0px;
+}
+p+p {
+	padding-top: 16px;
+}
+h1, h2, h3, h6, b {
+	font-weight: normal;
+}
+
+/*字体设置*/
+
+body {
+	font-family: 'PingFang SC';
+	max-width: 100%;
+	padding: 0px 0px 20px 0px;
+	color: #575757;
+	background: #fff;
+}
+h1, h2, h3, blockquote {
+	font-family: 'PingFang SC';
+}
+b {
+	font-family: 'PingFang SC';
+}
+figcaption {
+	font-family: 'PingFang SC';
+}
+
+/*两端对齐*/
+
+p {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+/*左右边距*/
+
+p, h2, h3, ul, ol, figure {
+	margin: 0px 24px;
+}
+
+/*h1&h2,建议用 Javascript 把 nth-of-type 重写，把 index 转换成罗马数字*/
+
+h1 {
+	color: #212121;
+  font-size: 2.0em;
+  line-height: 34px;
+	padding: 16px 24px 16px 24px;
+  margin: 40px 24px 8px 24px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid #DEDEDE;
+}
+
+h1:nth-of-type(1)::before{
+	content: 'I.';
+}
+h1:nth-of-type(2)::before{
+	content: 'II.';
+}
+h1:nth-of-type(3)::before{
+	content: 'III.';
+}
+h1:nth-of-type(4)::before{
+	content: 'IV.';
+}
+h1:nth-of-type(5)::before{
+	content: 'V.';
+}
+h1:nth-of-type(6)::before{
+	content: 'VI.';
+}
+
+h1:before {
+	position: relative;
+	width: 60px;
+	height: 32px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -33px;
+	display: block;
+	background: #fff;
+	font-family: "Whitney HTF";
+	font-weight:900;
+	font-size: 28px;
+	line-height: 32px;
+	color: #FE4070;
+}
+
+h2 {
+	font-size: 1.6em;
+	line-height: 27px;
+	text-align: left;
+	padding: 12px 0px 4px 0px;
+	letter-spacing: 1.6px;
+	color: #3E3E3E;
+	font-weight: bold;
+}
+
+/*正文|正文首字放大|图片描述*/
+
+p {
+	padding: 8px 0px;
+	font-size: 1.3em;
+	line-height: 24px;
+	letter-spacing: 1px;
+	font-weight: 400;
+}
+
+
+p:first-of-type {
+	padding-top: 20px;
+}
+
+p:first-of-type:first-letter {
+	float: left;
+	color: #FE4070;
+	font-size: 42px;
+	line-height: 24px;
+	padding-top: 11px;
+	padding-right: 6px;
+	font-weight: 700
+}
+
+p a {
+	border-bottom: #404040 1px solid;
+}
+figure {
+	padding: 22px 0px 22px 0px;
+}
+
+figure img {
+	padding: 6px 0px 6px 0px;
+}
+figcaption {
+	display: block;
+	color: #818181;
+	padding: 2px 16px 6px 16px;
+	line-height: 21px;
+	font-size: 1.1em;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
+figcaption:last-of-type::after {
+	background-color: #FE4070;
+	width: 9px;
+	height: 9px;
+	position: absolute;
+	margin-left: 2px;
+	margin-top: 6px;
+	content: '';
+}
+
+/*头图*/
+
+header {
+	margin: 0px auto;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+header img {
+	width: 100%;
+	padding: 0;
+}
+
+/*导语引用*/
+
+blockquote {
+	position: relative;
+	padding: 52px 68px 82px 68px;
+	letter-spacing: 3.3px;
+	margin: 0px auto;
+	font-size: 1.3em;
+	color: #818181;
+	line-height: 24px;
+	display: block;
+}
+blockquote:before {
+	content: '';
+	width: 36px;
+	height: 1px;
+	position: absolute;
+	margin: 0px;
+	background-color: #BDBDBD;
+}
+blockquote:after {
+	content: '◇';
+	text-indent: 3px;
+	color: #FE4070;
+	font-weight: bolder;
+	width: 36px;
+	height: 39px;
+	position: absolute;
+	margin: 0px;
+	border-bottom: 1px solid #BDBDBD;
+}
+blockquote:before {
+	left: 169px;
+  top: 28px;
+}
+blockquote:after {
+	left: 169px;
+	bottom: 28px;
+}
+
+/*无序有序列表*/
+
+ol, ul {
+	text-align: left;
+	line-height: 26px;
+	font-size: 1.5em;
+	position: relative;
+	list-style-type: none;
+}
+ul li:before {
+	background: #f99f75;
+	content: '';
+	width: 6px;
+	height: 6px;
+	border-radius: 6px;
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	margin-top: 9px;
+}
+ul li, ol li {
+	padding: 8px 0px;
+}
+ul {
+	padding: 20px 0px 20px 16px;
+}
+ol {
+	counter-reset: sectioncounter;
+	padding: 20px 0px 20px 20px;
+}
+ol li:before {
+	content: counter(sectioncounter) ".";
+	counter-increment: sectioncounter;
+	color: #f99F75;
+	position: absolute;
+	left: 0px;
+}
+
+/*分割线*/
+
+hr {
+	height: 1px;
+	overflow: hidden;
+	border: none;
+	background: #e1e1e1;
+	margin: 40px 28px;
+}
