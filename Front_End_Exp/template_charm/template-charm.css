@@ -231,11 +231,13 @@ blockquote:after {
 	border-bottom: 1px solid #BDBDBD;
 }
 blockquote:before {
-	left: 169px;
+	left: 50%;
+	margin-left: -18px;
   top: 28px;
 }
 blockquote:after {
-	left: 169px;
+	left: 50%;
+	margin-left: -18px;
 	bottom: 28px;
 }
 
