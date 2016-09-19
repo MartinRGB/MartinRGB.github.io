@@ -38,6 +38,7 @@ iframe {
 	border: none;
 	margin-left: auto;
 	margin-right: auto;
+	overflow: hidden;
 	display: block;
 	margin-top: -783px;
 	left: 2px;
