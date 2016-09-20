@@ -45,9 +45,10 @@ h1, h2, h3, h6, b {
 body {
 	font-family: 'PingFang SC';
 	max-width: 100%;
-	padding: 0px 0px 20px 0px;
+	padding: 0px 0px 0px 0px;
 	color: #575757;
 	background: #fff;
+	counter-reset:romancounter;
 }
 h1, h2, h3, blockquote {
 	font-family: 'PingFang SC';
@@ -85,25 +86,6 @@ h1 {
   border: 1px solid #DEDEDE;
 }
 
-h1:nth-of-type(1)::before{
-	content: 'I.';
-}
-h1:nth-of-type(2)::before{
-	content: 'II.';
-}
-h1:nth-of-type(3)::before{
-	content: 'III.';
-}
-h1:nth-of-type(4)::before{
-	content: 'IV.';
-}
-h1:nth-of-type(5)::before{
-	content: 'V.';
-}
-h1:nth-of-type(6)::before{
-	content: 'VI.';
-}
-
 h1:before {
 	position: relative;
 	width: 60px;
@@ -113,11 +95,12 @@ h1:before {
 	margin-top: -33px;
 	display: block;
 	background: #fff;
-	font-family: "Whitney HTF";
-	font-weight:900;
+	font-family: 'WhitneyHTF-Black';
 	font-size: 28px;
 	line-height: 32px;
 	color: #FE4070;
+	counter-increment:romancounter;
+	content: counter(romancounter, upper-roman) ". ";
 }
 
 h2 {
@@ -130,7 +113,7 @@ h2 {
 	font-weight: bold;
 }
 
-/*正文|正文首字放大|图片描述*/
+/*正文&首字放大*/
 
 p {
 	padding: 8px 0px;
@@ -156,8 +139,16 @@ p:first-of-type:first-letter {
 }
 
 p a {
-	border-bottom: #404040 1px solid;
+	border-bottom: #FE4070 1px solid;
+	text-decoration: none;
+	color: #212121;
+	font-weight: bold;
+	margin-left: 8px;
+	margin-right: 8px;
 }
+
+/*图片&描述*/
+
 figure {
 	padding: 22px 0px 22px 0px;
 }
@@ -185,21 +176,7 @@ figcaption:last-of-type::after {
 	content: '';
 }
 
-/*头图*/
-
-header {
-	margin: 0px auto;
-	width: 100%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
-header img {
-	width: 100%;
-	padding: 0;
-}
-
-/*导语引用*/
+/*引用*/
 
 blockquote {
 	position: relative;
@@ -245,38 +222,45 @@ blockquote:after {
 
 ol, ul {
 	text-align: left;
-	line-height: 26px;
-	font-size: 1.5em;
+	line-height: 24px;
+  font-size: 1.3em;
+  letter-spacing: 1.38px;
 	position: relative;
 	list-style-type: none;
 }
 ul li:before {
-	background: #f99f75;
+	background: #FE4070;
 	content: '';
-	width: 6px;
-	height: 6px;
-	border-radius: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
 	overflow: hidden;
 	position: absolute;
-	left: 0px;
-	margin-top: 9px;
+	left: 15px;
+	margin-top: 8px;
 }
 ul li, ol li {
 	padding: 8px 0px;
 }
 ul {
-	padding: 20px 0px 20px 16px;
+	padding: 12px 12px 12px 38px;
 }
 ol {
 	counter-reset: sectioncounter;
-	padding: 20px 0px 20px 20px;
+	padding: 12px 12px 12px 38px;
 }
 ol li:before {
 	content: counter(sectioncounter) ".";
 	counter-increment: sectioncounter;
-	color: #f99F75;
+	color: #FE4070;
 	position: absolute;
-	left: 0px;
+}
+
+li:before{
+  left: 12px;
+  font-size: 12px;
+  font-style: italic;
+  font-family: 'WhitneyHTF-BlackItalic';
 }
 
 /*分割线*/
@@ -285,6 +269,115 @@ hr {
 	height: 1px;
 	overflow: hidden;
 	border: none;
-	background: #e1e1e1;
-	margin: 40px 28px;
+	background: #DADADA;
+	margin: 40px 36px;
+}
+
+/*Audio & Video*/
+
+.audio-container {
+	border: 0;
+	margin: 0px;
+	display: block;
+	overflow: hidden;
+	padding: 20px 0 20px 0;
+  margin: 0 24px 0 24px;
+}
+
+.video-container {
+	border: 0;
+	margin: 0px;
+	display: block;
+	overflow: hidden;
+	padding: 20px 0 20px 0;
+	margin: 0 24px 0 24px;
+}
+
+/*作者信息，可用 address 替换*/
+.user-container{
+	margin: 0px 24px;
+	border:1px solid #DEDEDE;
+	border-radius: 2px;
+	margin-top: 8px;
+	margin-bottom: 40px;
+}
+
+.fin-container {
+	height: 1px;
+	border: none;
+	background: #DADADA;
+	margin: 40px 36px;
+}
+
+.fin-container:before {
+	z-index: 100;
+	position: relative;;
+	width: 93px;
+	height: 32px;
+	top: -16px;
+	margin-left: -46px;
+	display: block;
+	background: #fff;
+	font-family: 'WhitneyHTF-SemiBoldItalic';
+	font-size: 32px;
+	line-height: 32px;
+	letter-spacing: 4px;
+	color: #FE4070;
+	content: 'FIN';
+	left: 50%;
+}
+
+.user-avatar {
+	width:64px;
+	height: 64px;
+	overflow: hidden;
+	border-radius: 100%;
+	margin: 32px auto 0 auto;
+}
+
+.user-name {
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 3.11px;
+	font-weight: bold;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	color: #212121;
+}
+
+.user-desc {
+	font-size: 12px;
+	line-height: 24px;
+	letter-spacing: 1px;
+	margin-bottom: 19px;
+	margin-left: 16px;
+	margin-right: 16px;
+	color: #818181;
+}
+.add-btn {
+	background-color: #FE4070;
+  color: #fff;
+	cursor: pointer;
+	outline:none;
+  border: 0;
+  margin-bottom: 32px;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 18px;
+  letter-spacing: 2.17px;
+  border-radius: 50px;
+  padding: 7px 28px 7px 30px;
+}
+/*字体*/
+@font-face {
+    font-family: 'WhitneyHTF-Black';
+    src: url("/asset/WhitneyHTF-Black.otf");
+}
+@font-face {
+    font-family: 'WhitneyHTF-BlackItalic';
+    src: url("/asset/WhitneyHTF-BlackItalic.otf");
+}
+@font-face {
+    font-family: 'WhitneyHTF-SemiBoldItalic';
+    src: url("/asset/WhitneyHTF-SemiBoldItalic.otf");
 }
