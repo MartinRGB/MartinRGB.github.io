@@ -283,7 +283,7 @@ ol li:before {
 
 li:before{
   left: 12px;
-  font-size: 14px
+  font-size: 14px;
   font-style: italic;
   font-family: 'WHTF-BlackItalic';
 }
