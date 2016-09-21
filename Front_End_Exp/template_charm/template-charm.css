@@ -17,7 +17,6 @@ body {
 	font-size: 62.5%;
 	margin: 0;
 	text-align: center;
-  padding-bottom: 40px;
 }
 div, ul, ol, li, dl, dt, dd, h1, h2, h3, h6, p, b, i, a, header, mark, sup, sub, hr, br, video, audio, blockquote, time, figure, figcaption, img, footer {
 	box-sizing: border-box;
@@ -46,7 +45,7 @@ h1, h2, h3, h6, b {
 body {
 	font-family: 'PingFang SC';
 	max-width: 100%;
-	padding: 0px 0px 0px 0px;
+	padding: 0px 0px 40px 0px;
 	color: #575757;
 	background: #fff;
 	counter-reset:romancounter;
