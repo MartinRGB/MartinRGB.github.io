@@ -178,9 +178,21 @@ figcaption:last-of-type::after {
 
 /*引用*/
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('iconfonts/icomoon.eot?77cjbp');
+  src:  url('iconfonts/icomoon.eot?77cjbp#iefix') format('embedded-opentype'),
+    url('iconfonts/icomoon.ttf?77cjbp') format('truetype'),
+    url('iconfonts/icomoon.woff?77cjbp') format('woff'),
+    url('iconfonts/icomoon.svg?77cjbp#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 blockquote {
 	position: relative;
-	padding: 52px 68px 82px 68px;
+	padding: 52px 68px 91px 68px;
 	letter-spacing: 3.3px;
 	margin: 0px auto;
 	font-size: 1.3em;
@@ -197,12 +209,25 @@ blockquote:before {
 	background-color: #BDBDBD;
 }
 blockquote:after {
-	content: '◇';
-	text-indent: 3px;
+	content: "\e900";
+	font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+	text-indent: 5px;
+  font-size: 9px;
 	color: #FE4070;
 	font-weight: bolder;
 	width: 36px;
-	height: 39px;
+	height: 34px;
 	position: absolute;
 	margin: 0px;
 	border-bottom: 1px solid #BDBDBD;
@@ -215,7 +240,7 @@ blockquote:before {
 blockquote:after {
 	left: 50%;
 	margin-left: -18px;
-	bottom: 28px;
+	bottom: 33px;
 }
 
 /*无序有序列表*/
@@ -258,7 +283,7 @@ ol li:before {
 
 li:before{
   left: 12px;
-  font-size: 12px;
+  font-size: 14px
   font-style: italic;
   font-family: 'WHTF-BlackItalic';
 }
@@ -270,7 +295,7 @@ hr {
 	overflow: hidden;
 	border: none;
 	background: #DADADA;
-	margin: 40px 36px;
+	margin: 40px 24px;
 }
 
 /*Audio & Video*/
@@ -306,7 +331,7 @@ hr {
 	height: 1px;
 	border: none;
 	background: #DADADA;
-	margin: 40px 36px;
+	margin: 40px 24px;
 }
 
 .fin-container:before {
