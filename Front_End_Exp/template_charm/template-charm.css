@@ -95,7 +95,7 @@ h1:before {
 	margin-top: -33px;
 	display: block;
 	background: #fff;
-	font-family: 'WhitneyHTF-Black';
+	font-family: 'WHTF-Black';
 	font-size: 28px;
 	line-height: 32px;
 	color: #FE4070;
@@ -260,7 +260,7 @@ li:before{
   left: 12px;
   font-size: 12px;
   font-style: italic;
-  font-family: 'WhitneyHTF-BlackItalic';
+  font-family: 'WHTF-BlackItalic';
 }
 
 /*分割线*/
@@ -299,7 +299,7 @@ hr {
 	border:1px solid #DEDEDE;
 	border-radius: 2px;
 	margin-top: 8px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 }
 
 .fin-container {
@@ -318,7 +318,7 @@ hr {
 	margin-left: -46px;
 	display: block;
 	background: #fff;
-	font-family: 'WhitneyHTF-SemiBoldItalic';
+	font-family: 'WHTF-SemiBoldItalic';
 	font-size: 32px;
 	line-height: 32px;
 	letter-spacing: 4px;
@@ -370,14 +370,14 @@ hr {
 }
 /*字体*/
 @font-face {
-    font-family: 'WhitneyHTF-Black';
-    src: url("/asset/WhitneyHTF-Black.otf");
+    font-family: 'WHTF-Black';
+    src: url("asset/WhitneyHTF-Black.otf");
 }
 @font-face {
-    font-family: 'WhitneyHTF-BlackItalic';
-    src: url("/asset/WhitneyHTF-BlackItalic.otf");
+    font-family: 'WHTF-BlackItalic';
+    src: url("asset/WhitneyHTF-BlackItalic.otf");
 }
 @font-face {
-    font-family: 'WhitneyHTF-SemiBoldItalic';
-    src: url("/asset/WhitneyHTF-SemiBoldItalic.otf");
+    font-family: 'WHTF-SemiBoldItalic';
+    src: url("asset/WhitneyHTF-SemiBoldItalic.otf");
 }
