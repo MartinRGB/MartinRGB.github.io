@@ -17,7 +17,7 @@ body {
 	font-size: 62.5%;
 	margin: 0;
 	text-align: center;
-	margin-bottom: 60px;
+  padding-bottom: 40px;
 }
 div, ul, ol, li, dl, dt, dd, h1, h2, h3, h6, p, b, i, a, header, mark, sup, sub, hr, br, video, audio, blockquote, time, figure, figcaption, img, footer {
 	box-sizing: border-box;
