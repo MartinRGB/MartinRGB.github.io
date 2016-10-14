@@ -86,7 +86,7 @@ wechat_screen2 = new Layer
 	image: "images/wechat_screen2.png"
 
 bgColor = new Layer
-	width: 2160
+	width: 1080
 	height: 1920
 	parent: Screenone
 	image: "images/bgColor.jpg"
