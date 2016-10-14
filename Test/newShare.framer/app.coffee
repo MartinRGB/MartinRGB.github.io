@@ -569,6 +569,8 @@ selection_copy.on Events.Tap, (event) ->
 		selection_copy.states.switch("showed")
 		selection_copy.draggable.enabled = true
 		selection_copy.draggable.constraints = constraintsB.frame
+		lighter_image.opacity = 0
+		darker_image.opacity = 0.5
 		
 selection_copy.on Events.DragStart, (event) ->
 	point = Utils.convertPointFromContext(event.touchCenter, selection_copy, true, false)
