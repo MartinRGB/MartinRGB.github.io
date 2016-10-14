@@ -269,7 +269,7 @@ weibo_Page.on Events.Swipe, (event) ->
 			delay:0.18
 			curve: "spring(250, 25, 0)"
 			
-		Utils.delay 1, ->
+		Utils.delay 0.2, ->
 			lighter_image.ignoreEvents = false
 			selection_copy.ignoreEvents = false
 
@@ -278,7 +278,7 @@ weibo_Page.on Events.Swipe, (event) ->
 bgColor.on Events.Tap, (event) ->
 	if scaled == 1
 		scaled = 0
-		Utils.delay 1, ->
+		Utils.delay 0.2, ->
 			lighter_image.ignoreEvents = true
 			selection_copy.ignoreEvents = true
 		weibo_Page.animate
