@@ -73,7 +73,7 @@ wechat_hitarea_cancel = new Layer
 wechat_hitarea2 = new Layer
 	width: 1080
 	height: 120
-	parent: Screenthree
+	parent: wechat_screen3
 	x:0
 	y:1234
 	opacity: 0
@@ -666,7 +666,7 @@ wechat_hitarea2.onTap ->
 			x:0
 		time: 0.3
 		curve: 'spring(250,25,0)'
-		
+	
 	lighter_image.states.switchInstant("disappeared")
 	edit_border.states.switchInstant("disappeared")
 	black_mask.states.switchInstant("disappeared")
@@ -675,7 +675,7 @@ wechat_hitarea2.onTap ->
 	
 
 						
-wechat_screen3.onTap ->
+wechat_screen4.onTap ->
 	Screenone.animate
 		properties: 
 			opacity:1
