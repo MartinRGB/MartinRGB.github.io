@@ -176,7 +176,7 @@ darker_image = new Layer
 	y:690
 	width: 1014
 	height: 1095
-	image: "images/lighter_image.png"
+	image: "images/lighter_image.jpg"
 
 lighter_image = new Layer
 	x:33
@@ -184,7 +184,7 @@ lighter_image = new Layer
 	width: 1014
 	height: 1095
 	opacity: 0
-	image: "images/lighter_image.png"
+	image: "images/lighter_image.jpg"
 
 weibo_Page.addSubLayer(black_mask)
 weibo_Page.addSubLayer(edit_border)
@@ -194,8 +194,8 @@ weibo_Page.addSubLayer(lighter_image)
 
 
 selection = new Layer
-	width: 919
-	height: 213
+	width: 914
+	height: 359
 	opacity: 0
 	parent: Screenone
 	x:54
@@ -203,12 +203,11 @@ selection = new Layer
 	image: "images/selection.png"
 
 selection_copy = new Layer
-	width: 862
-	height: 124
+	width: 852
+	height: 264
 	parent: Screenone
 	x:110
 	y:376
-	opacity: 0
 	image: "images/selection_copy.png"
 	
 scaled = 0
@@ -272,8 +271,11 @@ weibo_Page.on Events.Swipe, (event) ->
 		Utils.delay 0.2, ->
 			lighter_image.ignoreEvents = false
 			selection_copy.ignoreEvents = false
-
 			
+			lighter_image.states.switch("showed")
+			edit_border.states.switch("showed")
+			black_mask.states.switch("showed")
+
 
 bgColor.on Events.Tap, (event) ->
 	if scaled == 1
@@ -335,6 +337,7 @@ bgColor.on Events.Tap, (event) ->
 lighter_image.states.add
 	showed:
 		opacity: 1
+		style: boxShadow: "0px 8px 12px 0px rgba(0,0,0,0.5)"
 	disappeared:
 		opacity: 0
 		x:33
@@ -349,12 +352,12 @@ edit_border.states.add
 		opacity: 1
 		x:19
 		y:675
+		scale:1
 	disappeared:
 		opacity: 0
-		x:1500
-edit_border.states.animationOptions = 
-	curve: "ease" 
-	time: 0
+		scale:0.95
+edit_border.states.animationOptions =		
+	curve: "spring(450, 18, 0)"
 edit_border.states.switchInstant("disappeared")
 
 black_mask.states.add
@@ -369,13 +372,14 @@ black_mask.states.switchInstant("disappeared")
 selection_copy.states.add
 	showed:
 		opacity: 1
+		scale:1
 	disappeared:
 		opacity: 0
 		x:110
 		y:376
-		scale: 1
+		scale: 0.95
 selection_copy.states.animationOptions =
-    curve: spring1
+	curve:"spring(250, 25, 0)"
 selection_copy.states.switchInstant("disappeared")
 
 selection.states.add
@@ -383,12 +387,12 @@ selection.states.add
 		opacity: 1
 		x:54
 		y:376
+		scale:1
 	disappeared:
 		opacity: 0
-		x:1500
-selection_copy.states.animationOptions =		
-	curve: "ease" 
-	time: 0
+		scale:0.95
+selection.states.animationOptions =		
+	curve:"spring(250, 25, 0)"
 selection.states.switchInstant("disappeared")
 
 
@@ -590,6 +594,13 @@ wechat_screen2.onTap ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
 		
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
+		
 wechat_hitarea_cancel.onTap ->
 	
 	Screenone.animate
@@ -612,6 +623,13 @@ wechat_hitarea_cancel.onTap ->
 		black_mask.states.switchInstant("disappeared")
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
+	
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
 		
 		
 #############
@@ -813,6 +831,13 @@ wechat_screen4.onTap ->
 			y:1920
 		time: .4
 		curve: "ease-out"
+		
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
 	
 	Utils.delay 0.4, ->
 		wechat_screen3.x = 0
