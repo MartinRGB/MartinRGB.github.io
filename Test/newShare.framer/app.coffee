@@ -690,6 +690,12 @@ wechat_screen3.onTap ->
 		wechat_screen3.x = 0
 		wechat_screen4.x = 1080
 
+black_mask.onTap ->
+	lighter_image.states.switchInstant("disappeared")
+	edit_border.states.switchInstant("disappeared")
+	black_mask.states.switchInstant("disappeared")
+	selection.states.switch("disappeared")
+	selection_copy.states.switch("disappeared")
 
 
 
