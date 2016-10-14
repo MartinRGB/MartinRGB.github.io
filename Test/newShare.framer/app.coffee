@@ -588,7 +588,6 @@ selection_copy.on Events.DragEnd, (event) ->
 	av_icon4A.animate
 		properties:
 			scale: 1
-			opacity: 0.6
 		time: .2
 			
 	if scaled == 1
