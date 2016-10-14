@@ -347,10 +347,14 @@ lighter_image.states.switchInstant("disappeared")
 edit_border.states.add
 	showed:
 		opacity: 1
+		x:19
+		y:675
 	disappeared:
 		opacity: 0
-edit_border.states.animationOptions =
-    curve: spring1
+		x:1500
+edit_border.states.animationOptions = 
+	curve: "ease" 
+	time: 0
 edit_border.states.switchInstant("disappeared")
 
 black_mask.states.add
@@ -377,10 +381,14 @@ selection_copy.states.switchInstant("disappeared")
 selection.states.add
 	showed:
 		opacity: 1
+		x:54
+		y:376
 	disappeared:
 		opacity: 0
-selection.states.animationOptions =
-    curve: spring1
+		x:1500
+selection_copy.states.animationOptions =		
+	curve: "ease" 
+	time: 0
 selection.states.switchInstant("disappeared")
 
 
@@ -423,14 +431,14 @@ lighter_image.on Events.DragStart, (event) ->
 
 
 lighter_image.on Events.DragEnd, (event) ->
-	
+  	
 	av_icon1A.animate
 		properties:
 			scale: 1
 		time: .2
 			
 	if scaled == 1
-		if lighter_image.midY > av_icon1A.y 
+		if lighter_image.midY > av_icon1A.y && lighter_image.midX < av_icon1A.maxX + 10
 			lighter_image.animate
 				properties:
 					midX: av_icon1A.midX-100
@@ -471,19 +479,78 @@ lighter_image.on Events.DragMove, (event)->
 	lighter_image.midX = point.x
 	lighter_image.midY = point.y
 	
-	if lighter_image.midY - 200 > av_icon1A.y
+	if lighter_image.midY - 200 > av_icon1A.y && lighter_image.midX < av_icon1A.maxX + 10
 
 		av_icon1A.animate
 			properties:
 				scale: 1.2
 			time: .2
 			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon4A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
 	else
-
 		av_icon1A.animate
 			properties:
 				scale: 1
-			time: .2
+			time: .1
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon4A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 1
+			time: .1
 			curve: "ease-out"
 			
 wechat_hitarea.onTap ->
@@ -591,7 +658,7 @@ selection_copy.on Events.DragEnd, (event) ->
 		time: .2
 			
 	if scaled == 1
-		if selection_copy.midY > av_icon4A.y
+		if selection_copy.midY > av_icon4A.y && selection_copy.midX < av_icon4A.maxX + 10 && selection_copy.midX > av_icon4A.x - 10
 			selection_copy.animate
 				properties:
 					midX: av_icon4A.midX
@@ -640,18 +707,78 @@ selection_copy.on Events.DragMove, (event)->
 	selection_copy.midY = point.y
 	selection.states.switchInstant("disappeared")
 	
-	if selection_copy.midY > av_icon4A.y
+	if selection_copy.midY > av_icon4A.y && selection_copy.midX < av_icon4A.maxX + 10 && selection_copy.midX > av_icon4A.x - 10
 
 		av_icon4A.animate
 			properties:
 				scale: 1.2
 			time: .2
 			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon1A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
 	else
 		av_icon4A.animate
 			properties:
 				scale: 1
 			time: .2
+			curve: "ease-out"
+			
+		av_icon1A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 1
+			time: .1
 			curve: "ease-out"
 
 wechat_hitarea2.onTap ->
