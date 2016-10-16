@@ -11,6 +11,9 @@ Framer.Info =
 Cool = new Layer
 	width: 1080
 	height: 1920
+	
+Framer.Extras.Hints.disable()
+
 
 spring1 = 'spring(250,25,0)'	
 
@@ -162,6 +165,16 @@ black_mask = new Layer
 	scale: 1
 	backgroundColor: "#000"
 	
+<<<<<<< HEAD
+=======
+edit_border = new Layer
+	width: 1046
+	height: 1129
+	x:19
+	y:675
+	scale:1
+	image: "images/edit_border.png"
+>>>>>>> origin/master
 
 darker_image = new Layer
 	x:33
@@ -175,6 +188,7 @@ lighter_image = new Layer
 	y:690
 	width: 1014
 	height: 1095
+<<<<<<< HEAD
 	image: "images/lighter_image.jpg"
 	
 edit_border = new Layer
@@ -191,6 +205,25 @@ selection = new Layer
 	parent: Screenone
 	x:46
 	y:402
+=======
+	opacity: 0
+	image: "images/lighter_image.jpg"
+
+weibo_Page.addSubLayer(black_mask)
+weibo_Page.addSubLayer(edit_border)
+weibo_Page.addSubLayer(darker_image)
+weibo_Page.addSubLayer(lighter_image)
+
+
+
+selection = new Layer
+	width: 914
+	height: 359
+	opacity: 0
+	parent: Screenone
+	x:54
+	y:376
+>>>>>>> origin/master
 	image: "images/selection.png"
 	scale: 1.25
 
@@ -198,11 +231,17 @@ selection_copy = new Layer
 	width: 852
 	height: 264
 	parent: Screenone
+<<<<<<< HEAD
 	x:107
 	y:390
+=======
+	x:110
+	y:376
+>>>>>>> origin/master
 	image: "images/selection_copy.png"
 	scale: 1.25
 	
+<<<<<<< HEAD
 darker_image.states.add
 	blacked:
 		opacity: 0.5
@@ -216,6 +255,135 @@ lighter_image.states.add
 		scale: 1
 		x:33
 		y:690
+=======
+scaled = 0
+spring1 = 'spring(250,25,0)'
+lighter_image.ignoreEvents = true
+selection_copy.ignoreEvents = true
+
+weibo_Page.on Events.Swipe, (event) ->
+	if scaled == 0
+		scaled = 1
+		weibo_Page.animate
+			properties:
+				scale: 0.8
+				y: -100
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		tips_text.animate
+			properties:
+				scale:1
+				y: 30
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+			
+		av_icon1A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.03
+			curve: "spring(250, 25, 0)"
+		av_icon2A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.06
+			curve: "spring(250, 25, 0)"
+		av_icon3A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.09
+			curve: "spring(250, 25, 0)"
+		av_icon4A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.12
+			curve: "spring(250, 25, 0)"
+		av_icon5A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.15
+			curve: "spring(250, 25, 0)"
+		av_icon6A.animate
+			properties:
+				y:1707
+			time: 0.3
+			delay:0.18
+			curve: "spring(250, 25, 0)"
+			
+		Utils.delay 0.2, ->
+			lighter_image.ignoreEvents = false
+			selection_copy.ignoreEvents = false
+			
+			lighter_image.states.switch("showed")
+			edit_border.states.switch("showed")
+			black_mask.states.switch("showed")
+
+
+bgColor.on Events.Tap, (event) ->
+	if scaled == 1
+		scaled = 0
+		Utils.delay 0.2, ->
+			lighter_image.ignoreEvents = true
+			selection_copy.ignoreEvents = true
+		weibo_Page.animate
+				properties:
+					scale: 1
+					y: 0
+				time: 0.3
+				curve: "spring(250, 25, 0)"
+		tips_text.animate
+			properties:
+				scale:1.25
+				y: -70
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+			
+		av_icon1A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		av_icon2A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		av_icon3A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		av_icon4A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		av_icon5A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		av_icon6A.animate
+			properties:
+				y:2007
+			time: 0.3
+			curve: "spring(250, 25, 0)"
+		edit_border.states.switch("disappeared")
+		lighter_image.states.switch("disappeared")
+		black_mask.states.switch("disappeared")
+		selection.states.switch("disappeared")
+		selection_copy.states.switch("disappeared")
+		lighter_image.draggable.enabled = false
+		selection_copy.draggable.enabled = false
+			
+lighter_image.states.add
+	showed:
+		opacity: 1
+>>>>>>> origin/master
 		style: boxShadow: "0px 8px 12px 0px rgba(0,0,0,0.5)"
 	disappeared:
 		opacity: 0
@@ -251,12 +419,21 @@ black_mask.states.switchInstant("disappeared")
 selection_copy.states.add
 	showed:
 		opacity: 1
+<<<<<<< HEAD
 		scale:1.25
 	disappeared:
 		opacity: 0
 		x:107
 		y:390
 		scale: 1.2
+=======
+		scale:1
+	disappeared:
+		opacity: 0
+		x:110
+		y:376
+		scale: 0.95
+>>>>>>> origin/master
 selection_copy.states.animationOptions =
 	curve:"spring(250, 25, 0)"
 selection_copy.states.switchInstant("disappeared")
@@ -264,12 +441,21 @@ selection_copy.states.switchInstant("disappeared")
 selection.states.add
 	showed:
 		opacity: 1
+<<<<<<< HEAD
 		x:46
 		y:402
 		scale:1.25
 	disappeared:
 		opacity: 0
 		scale:1.2
+=======
+		x:54
+		y:376
+		scale:1
+	disappeared:
+		opacity: 0
+		scale:0.95
+>>>>>>> origin/master
 selection.states.animationOptions =		
 	curve:"spring(250, 25, 0)"
 selection.states.switchInstant("disappeared")
@@ -396,9 +582,15 @@ lighter_image.on Events.Tap, (event) ->
 		edit_border.states.switch("showed")
 		lighter_image.states.switch("showed")
 		black_mask.states.switch("showed")
+<<<<<<< HEAD
 		darker_image.states.switchInstant("whited")
 		lighter_image.draggable.enabled = true
 		lighter_image.draggable.constraints = constraintsA.frame
+=======
+		lighter_image.draggable.enabled = true
+		lighter_image.draggable.constraints = constraintsA.frame
+		
+>>>>>>> origin/master
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
 		selection_copy.draggable.enabled = false
@@ -406,19 +598,37 @@ lighter_image.on Events.Tap, (event) ->
 
 lighter_image.on Events.DragStart, (event) ->
 	if scaled == 1
+<<<<<<< HEAD
 		edit_border.states.switchInstant("disappeared")
 		darker_image.states.switchInstant("blacked")
 		lighter_image.states.switchInstant("showed")
+=======
+		lighter_image.animate
+			properties:
+				scale: 0.3
+				opacity: 0.5
+			curve: "ease-out"
+			time: .2
+	edit_border.states.switchInstant("disappeared")
+	darker_image.opacity = 0.5
+>>>>>>> origin/master
 
 
 lighter_image.on Events.DragEnd, (event) ->
   	
+<<<<<<< HEAD
 	for layers in layerArrays
 		layers.animate
 			properties:
 				scale: 1
 				opacity: 1
 			time: .2
+=======
+	av_icon1A.animate
+		properties:
+			scale: 1
+		time: .2
+>>>>>>> origin/master
 			
 	if scaled == 1
 		if lighter_image.midY > av_icon1A.y && lighter_image.midX < av_icon1A.maxX + 10
@@ -450,21 +660,27 @@ lighter_image.on Events.DragEnd, (event) ->
 
 				
 		else
+<<<<<<< HEAD
 			edit_border.scale = 1
 			darker_image.opacity = 0.5
 			
+=======
+>>>>>>> origin/master
 			lighter_image.animate
 				properties:
 					scale:1
 					opacity:1
 				time:0.3
 				curve: "ease-out"
+<<<<<<< HEAD
 			edit_border.animate
 				properties:
 					opacity:1
 				time:0.3
 				delay:1
 				curve: "ease-out"
+=======
+>>>>>>> origin/master
 				
 lighter_image.on Events.DragMove, (event)->
 	point = Utils.convertPointFromContext(event.touchCenter, lighter_image, true, false)
@@ -472,6 +688,7 @@ lighter_image.on Events.DragMove, (event)->
 	lighter_image.midY = point.y
 	edit_border.states.switchInstant("disappeared")
 	
+<<<<<<< HEAD
 	for layers,i in layerArrays
 		if lighter_image.midY > 1800
 			lighter_image.animate
@@ -512,6 +729,82 @@ lighter_image.on Events.DragMove, (event)->
 				curve: "ease-out"
 		
 				
+=======
+	if lighter_image.midY - 200 > av_icon1A.y && lighter_image.midX < av_icon1A.maxX + 10
+
+		av_icon1A.animate
+			properties:
+				scale: 1.2
+			time: .2
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon4A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+	else
+		av_icon1A.animate
+			properties:
+				scale: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon4A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+>>>>>>> origin/master
 wechat_hitarea.onTap ->
 	wechat_screen1.animate
 		properties: 
@@ -550,12 +843,25 @@ wechat_screen2.onTap ->
 	Utils.delay 0.4, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
+<<<<<<< HEAD
 	
 	for layers in layerArrays
 		layers.opacity = 1 
 		
 wechat_hitarea_cancel.onTap ->
 	
+=======
+		
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
+		
+wechat_hitarea_cancel.onTap ->
+	
+>>>>>>> origin/master
 	Screenone.animate
 		properties: 
 			opacity:1
@@ -571,6 +877,7 @@ wechat_hitarea_cancel.onTap ->
 	Utils.delay 0.4, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
+<<<<<<< HEAD
 		lighter_image.states.switchInstant("showed")
 		edit_border.states.switchInstant("showed")
 		darker_image.states.switchInstant("whited")
@@ -580,6 +887,20 @@ wechat_hitarea_cancel.onTap ->
 	
 	for layers in layerArrays
 		layers.opacity = 1 
+=======
+		lighter_image.states.switchInstant("disappeared")
+		edit_border.states.switchInstant("disappeared")
+		black_mask.states.switchInstant("disappeared")
+		selection.states.switch("disappeared")
+		selection_copy.states.switch("disappeared")
+	
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
+>>>>>>> origin/master
 		
 		
 #############
@@ -590,12 +911,17 @@ selection_copy.on Events.Tap, (event) ->
 		edit_border.states.switch("disappeared")
 		lighter_image.states.switch("disappeared")
 		lighter_image.draggable.enabled = false
+<<<<<<< HEAD
 		darker_image.states.switchInstant("blacked")
+=======
+>>>>>>> origin/master
 		black_mask.states.switch("showed")
 		selection.states.switch("showed")
 		selection_copy.states.switch("showed")
 		selection_copy.draggable.enabled = true
 		selection_copy.draggable.constraints = constraintsB.frame
+		lighter_image.opacity = 0
+		darker_image.opacity = 0.5
 		
 selection_copy.on Events.DragStart, (event) ->
 	point = Utils.convertPointFromContext(event.touchCenter, selection_copy, true, false)
@@ -610,12 +936,19 @@ selection_copy.on Events.DragStart, (event) ->
 
 selection_copy.on Events.DragEnd, (event) ->
 
+<<<<<<< HEAD
 	for layers in layerArrays
 		layers.animate
 			properties:
 				scale: 1
 				opacity: 1
 			time: .2
+=======
+	av_icon4A.animate
+		properties:
+			scale: 1
+		time: .2
+>>>>>>> origin/master
 			
 	if scaled == 1
 		if selection_copy.midY > av_icon4A.y && selection_copy.midX < av_icon4A.maxX + 10 && selection_copy.midX > av_icon4A.x - 10
@@ -651,14 +984,20 @@ selection_copy.on Events.DragEnd, (event) ->
 			selection_copy.animate
 				properties:
 					opacity:1
+<<<<<<< HEAD
 					scale:1.25
+=======
+>>>>>>> origin/master
 				time:0.4
 				curve: "ease-out"
 				
 			selection.animate
 				properties:
 					opacity:1
+<<<<<<< HEAD
 					scale:1.25
+=======
+>>>>>>> origin/master
 				time:0.4
 				delay:1
 				curve: "ease-out"
@@ -669,6 +1008,7 @@ selection_copy.on Events.DragMove, (event)->
 	selection_copy.midY = point.y
 	selection.states.switchInstant("disappeared")
 	
+<<<<<<< HEAD
 	for layers,i in layerArrays
 		if selection_copy.midY > 1800
 			selection_copy.animate
@@ -708,6 +1048,81 @@ selection_copy.on Events.DragMove, (event)->
 				time: .1
 				curve: "ease-out"
 				
+=======
+	if selection_copy.midY > av_icon4A.y && selection_copy.midX < av_icon4A.maxX + 10 && selection_copy.midX > av_icon4A.x - 10
+
+		av_icon4A.animate
+			properties:
+				scale: 1.2
+			time: .2
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon1A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 0.5
+			time: .1
+			curve: "ease-out"
+	else
+		av_icon4A.animate
+			properties:
+				scale: 1
+			time: .2
+			curve: "ease-out"
+			
+		av_icon1A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon2A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon3A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon5A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+			
+		av_icon6A.animate
+			properties:
+				opacity: 1
+			time: .1
+			curve: "ease-out"
+>>>>>>> origin/master
 
 wechat_hitarea2.onTap ->
 	wechat_screen3.animate
@@ -741,13 +1156,30 @@ wechat_screen4.onTap ->
 			y:1920
 		time: .4
 		curve: "ease-out"
+<<<<<<< HEAD
 	
 	for layers in layerArrays
 		layers.opacity = 1 
 	
+=======
+		
+	av_icon1A.opacity = 1 
+	av_icon2A.opacity = 1 
+	av_icon3A.opacity = 1 
+	av_icon4A.opacity = 1 
+	av_icon5A.opacity = 1 
+	av_icon6A.opacity = 1 
+	
+>>>>>>> origin/master
 	Utils.delay 0.4, ->
 		wechat_screen3.x = 0
 		wechat_screen4.x = 1080
 
+black_mask.onTap ->
+	lighter_image.states.switchInstant("disappeared")
+	edit_border.states.switchInstant("disappeared")
+	black_mask.states.switchInstant("disappeared")
+	selection.states.switch("disappeared")
+	selection_copy.states.switch("disappeared")
 
 
