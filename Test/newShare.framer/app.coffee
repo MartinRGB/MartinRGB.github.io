@@ -423,8 +423,8 @@ weibo_Page.on Events.SwipeEnd, (event) ->
 			b = Math.abs(event.offset.x)	
 			
 		progress = Math.sqrt(a*a + b*b)/1101
-	
-		if Math.abs(event.velocity.x) > 0.5 && Math.abs(event.velocity.y) > 0.5 && progress > 0.6
+		
+		if Math.abs(event.velocity.x) > 0.25 && Math.abs(event.velocity.y) > 0.25 && progress > 0.15
 			weibo_Page.ignoreEvents = true
 			weibo_Page.states.switch("scaledown")
 			tips_text.states.switch("scaledown")
@@ -772,7 +772,7 @@ selection_copy.on Events.DragMove, (event)->
 		if selection_copy.midY > 1800
 			selection_copy.animate
 				properties:
-					scale:0.3
+					scale:0.7
 					opacity:0.3
 				time:0.08
 				curve: "ease-out"
