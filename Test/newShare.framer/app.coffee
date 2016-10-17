@@ -8,17 +8,6 @@ Framer.Info =
 	twitter: ""
 	description: ""
 
-
-###### Make a responsive
-default_w = 1080
-default_h = 1920
-screen_width = Framer.Device.screen.width 
-screen_height = Framer.Device.screen.height
-ratio = screen_width / default_w
-Framer.Device.contentScale = ratio
-Framer.Defaults.Layer.force2d = true
-
-###### Init Layer
 Cool = new Layer
 	width: 1080
 	height: 1920
@@ -214,7 +203,6 @@ selection_copy = new Layer
 	image: "images/selection_copy.png"
 	scale: 1.25
 	
-
 wechat_diaglog = new Layer
 	width: 860
 	height: 654
@@ -269,7 +257,7 @@ wechat_black.states.add
 wechat_black.states.animationOptions =		
 	curve:"spring(250, 25, 0)"
 wechat_black.states.switchInstant("disappeared")
-
+	
 darker_image.states.add
 	blacked:
 		opacity: 0.5
@@ -321,7 +309,7 @@ selection_copy.states.add
 		scale:1.25
 	disappeared:
 		opacity: 0
-		x:107
+		x:115
 		y:390
 		scale: 1.2
 selection_copy.states.animationOptions =
@@ -402,8 +390,7 @@ selection_copy.ignoreEvents = true
 
 #######################################
 
-		
-weibo_Page.on Events.Pan, (event) ->
+weibo_Page.on Events.Swipe, (event) ->
 	if scaled == 0 
 		if Math.abs(event.offset.y) >= 960
 			a = 960
@@ -416,9 +403,6 @@ weibo_Page.on Events.Pan, (event) ->
 			b = Math.abs(event.offset.x)	
 			
 		progress = Math.sqrt(a*a + b*b)/1101
-# 		
-# 		print Math.abs(event.velocity.x)
-# 		print Math.abs(event.velocity.y)
 		
 		if Math.abs(event.velocity.x) > 0.5 && Math.abs(event.velocity.y) > 0.5
 			weibo_Page.scale = Utils.modulate(progress, [0, 1], [1, 0.8], true)
@@ -426,7 +410,7 @@ weibo_Page.on Events.Pan, (event) ->
 			tips_text.y = Utils.modulate(progress, [0, 1], [-70, 30],true)
 			tips_text.scale = Utils.modulate(progress, [0, 1], [1.25, 1],1)
 			
-weibo_Page.on Events.PanEnd, (event) ->
+weibo_Page.on Events.SwipeEnd, (event) ->
 	if scaled == 0 
 		if Math.abs(event.offset.y) >= 960
 			a = 960
@@ -473,8 +457,6 @@ weibo_Page.on Events.PanEnd, (event) ->
 			tips_text.states.switch("scaleup")
 					
 				
-				
-			
 
 
 bgColor.on Events.Tap, (event) ->
@@ -483,6 +465,7 @@ bgColor.on Events.Tap, (event) ->
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
 		weibo_Page.ignoreEvents = false
+		
 		for layers,i in layerArrays
 			layers.animate
 				properties:
@@ -667,28 +650,25 @@ wechat_screen2.onTap ->
 		layers.opacity = 1 
 		
 wechat_hitarea_cancel.onTap ->
-	weibo_Page.states.switchInstant("scaledown")
 	
-	Utils.delay 0.2, ->
-		Screenone.animate
-			properties: 
-				opacity:1
-				scale:1
-			time: .4
-			curve: "ease-out"
-		Screentwo.animate
-			properties: 
-				y:1920
-			time: .4
-			curve: "ease-out"
-	
-	Utils.delay 0.6, ->
+	Screenone.animate
+		properties: 
+			opacity:1
+			scale:1
+		time: .4
+		curve: "ease-out"
+	Screentwo.animate
+		properties: 
+			y:1920
+		time: .4
+		curve: "ease-out"
+
+	Utils.delay 0.4, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
 		lighter_image.states.switchInstant("showed")
 		edit_border.states.switchInstant("showed")
 		darker_image.states.switchInstant("whited")
-		
 		black_mask.states.switchInstant("showed")
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
@@ -851,7 +831,6 @@ wechat_diaglog_h2.onTap ->
 	darker_image.states.switchInstant("blacked")
 	selection.states.switch("showed")
 	selection_copy.states.switch("showed")
-	
 
 						
 wechat_screen4.onTap ->
@@ -873,6 +852,6 @@ wechat_screen4.onTap ->
 	Utils.delay 0.4, ->
 		wechat_screen3.x = 0
 		wechat_screen4.x = 1080
-		wechat_black.states.switchInstant("disappeared")
-		wechat_diaglog.states.switchInstant("disappeared")
+
+
 
