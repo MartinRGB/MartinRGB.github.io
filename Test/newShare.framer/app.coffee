@@ -464,6 +464,10 @@ bgColor.on Events.Tap, (event) ->
 		scaled = 0
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
+		edit_border.states.switchInstant("disappeared")
+		lighter_image.states.switchInstant("disappeared")
+		selection.states.switchInstant("disappeared")
+		selection_copy.states.switchInstant("disappeared")
 		weibo_Page.ignoreEvents = false
 		
 		for layers,i in layerArrays
@@ -473,11 +477,8 @@ bgColor.on Events.Tap, (event) ->
 				time: 0.3
 				curve: "spring(250, 25, 0)"
 		Utils.delay 0.2, ->
-			edit_border.states.switch("disappeared")
-			lighter_image.states.switch("disappeared")
+
 			black_mask.states.switch("disappeared")
-			selection.states.switch("disappeared")
-			selection_copy.states.switch("disappeared")
 		Utils.delay 0.6, ->
 			lighter_image.ignoreEvents = true
 			selection_copy.ignoreEvents = true
