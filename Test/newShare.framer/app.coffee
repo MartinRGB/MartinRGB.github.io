@@ -89,6 +89,7 @@ bgColor = new Layer
 	height: 1920
 	parent: Screenone
 	image: "images/bgColor.jpg"
+	
 
 tips_text = new Layer
 	width: 190
@@ -155,6 +156,7 @@ weibo_Page = new Layer
 	parent: Screenone
 	image: "images/weibo_Page.jpg"
 
+
 black_mask = new Layer
 	width: 1080
 	height: 1920
@@ -170,21 +172,6 @@ darker_image = new Layer
 	height: 1095
 	image: "images/lighter_image.jpg"
 
-lighter_image = new Layer
-	x:33
-	y:690
-	width: 1014
-	height: 1095
-	image: "images/lighter_image.jpg"
-	
-edit_border = new Layer
-	width: 1046
-	height: 1129
-	x:19
-	y:675
-	scale:1
-	image: "images/edit_border.png"
-	
 selection = new Layer
 	width: 914
 	height: 359
@@ -203,41 +190,67 @@ selection_copy = new Layer
 	image: "images/selection_copy.png"
 	scale: 1.25
 	
+wechat_diaglog = new Layer
+	width: 860
+	height: 654
+	x:110
+	y:633
+	image: "images/wechat_diaglog.png"
+	
+wechat_diaglog_h1 = new Layer
+	width: 160
+	height: 100
+	x:440
+	y:520
+	opacity: 0.0
+
+wechat_diaglog_h2 = new Layer
+	width: 200
+	height: 100
+	x:630
+	y:520
+	opacity: 0
+
+wechat_black = new Layer
+	width: 1080
+	height: 1920
+	image: "images/wechat_black.png"
+	
+wechat_screen3.addSubLayer(wechat_black)
+wechat_screen3.addSubLayer(wechat_diaglog)
+wechat_diaglog.addSubLayer(wechat_diaglog_h1)
+wechat_diaglog.addSubLayer(wechat_diaglog_h2)
+
+wechat_diaglog.states.add
+	showed:
+		ignoreEvents:false
+		opacity:1
+		scale:1
+	disappeared:
+		ignoreEvents:true
+		opacity:0
+		scale:0.8
+wechat_diaglog.states.animationOptions =		
+	curve:"spring(250, 25, 0)"
+wechat_diaglog.states.switchInstant("disappeared")
+
+wechat_black.states.add
+	showed:
+		ignoreEvents:false
+		opacity:1
+	disappeared:
+		ignoreEvents:true
+		opacity:0
+wechat_black.states.animationOptions =		
+	curve:"spring(250, 25, 0)"
+wechat_black.states.switchInstant("disappeared")
+	
 darker_image.states.add
 	blacked:
 		opacity: 0.5
 	whited:
 		opacity: 1
 darker_image.states.switchInstant("whited")
-
-lighter_image.states.add
-	showed:
-		opacity: 1
-		scale: 1
-		x:33
-		y:690
-		style: boxShadow: "0px 8px 12px 0px rgba(0,0,0,0.5)"
-	disappeared:
-		opacity: 0
-		x:33
-		y:690
-		scale: 1
-lighter_image.states.animationOptions =
-    curve: spring1
-lighter_image.states.switchInstant("disappeared")
-
-edit_border.states.add
-	showed:
-		opacity: 1
-		x:19
-		y:675
-		scale:1
-	disappeared:
-		opacity: 0
-		scale:0.95
-edit_border.states.animationOptions =		
-	curve: "spring(450, 18, 0)"
-edit_border.states.switchInstant("disappeared")
 
 black_mask.states.add
 	showed:
@@ -254,7 +267,7 @@ selection_copy.states.add
 		scale:1.25
 	disappeared:
 		opacity: 0
-		x:107
+		x:115
 		y:390
 		scale: 1.2
 selection_copy.states.animationOptions =
@@ -300,17 +313,15 @@ tips_text.states.switchInstant("scaleup")
 
 weibo_Page.addSubLayer(black_mask)
 weibo_Page.addSubLayer(darker_image)
-weibo_Page.addSubLayer(lighter_image)
-weibo_Page.addSubLayer(edit_border)
 weibo_Page.addSubLayer(selection)
 weibo_Page.addSubLayer(selection_copy)
 
 constraintsA = new Layer
 	width: 812
-	height: 900
+	height: 876
 	parent: Screenone
-	x: 34
-	y: 690
+	x: 134
+	y: 644
 	opacity: 0
 	backgroundColor: "#000"
 	ignoreEvents: true
@@ -330,47 +341,501 @@ scaled = 0
 Framer.Extras.Hints.disable()
 layerArrays = [av_icon1A,av_icon2A,av_icon3A,av_icon4A,av_icon5A,av_icon6A]
 
-lighter_image.ignoreEvents = true
-selection_copy.ignoreEvents = true
+######################## Crop Image
+##容器&画布&图像素材
+container = new Layer
+	width: 812
+	height: 876
+	x:134
+	y:644
+	backgroundColor: "transparent"
+	shadowSpread: 5
+	shadowColor: "rgba(255,255,255,1)"
+	opacity: 1.00
+	
+dragger_container = new Layer
+	width: 846
+	height: 914
+	x:118
+	y:630
+	backgroundColor: "transparent"
+
+
+Cool.addSubLayer(dragger_container)
+Cool.addSubLayer(container)
+container.placeBefore(Screenone)
+dragger_container.placeBefore(container)
+
+myCanvas = document.createElement "canvas"
+myCanvas.setAttribute("width","812px")
+myCanvas.setAttribute("height","876px")
+myCanvas.setAttribute("style","border: 0px solid white;background:transparent")
+myCanvas.style.backgroundSize = "cover";
+
+imageObj = new Image
+imageObj.src = "images/lighter_image.jpg"
+
+container._element.appendChild(myCanvas)
+
+##源头的裁剪位置
+sourceX = 0;
+sourceY = 0;
+sourceWidth = 812;
+sourceHeight = 876;
+
+##目的地的裁剪位置
+destWidth = sourceWidth;
+destHeight = sourceHeight;
+destX = myCanvas.width / 2 - destWidth / 2;
+destY = myCanvas.height / 2 - destHeight / 2;
+
+ctx = myCanvas.getContext "2d"
+ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1.247, sourceHeight*1.247, destX, destY, destWidth, destHeight)
+
+selection_dragger_tl = new Layer
+	width: 40
+	height: 40
+	scale:2
+	backgroundColor: "transparent"
+	borderRadius: 100
+	x: 0
+	y: 0
+	
+selection_dragger_tr = new Layer
+	width: 40
+	height: 40
+	scale:2
+	backgroundColor: "transparent"
+	borderRadius: 100
+	x: 812
+	y: 0
+	
+selection_dragger_bl = new Layer
+	width: 40
+	height: 40
+	scale:2
+	backgroundColor: "transparent"
+	borderRadius: 100
+	x: 0
+	y: 876
+	
+selection_dragger_br = new Layer
+	width: 40
+	height: 40
+	scale:2
+	backgroundColor: "transparent"
+	borderRadius: 100
+	x: 812
+	y: 876
+	
+selectb_1 = new Layer
+	width: 72
+	height: 72
+	scale: 0.4
+	image: "images/selectb_1.png"
+	x: -13
+	y: -14
+
+selectb_2 = new Layer
+	width: 72
+	height: 72
+	scale: 0.4
+	x: -23
+	y: -14
+	image: "images/selectb_2.png"
+	
+selectb_3 = new Layer
+	width: 72
+	height: 72
+	scale: 0.4
+	x: -13
+	y: -24
+	image: "images/selectb_3.png"
+
+selectb_4 = new Layer
+	width: 72
+	height: 72
+	scale: 0.4
+	image: "images/selectb_4.png"
+	x: -23
+	y: -24
+	
+selection_dragger_tl.addSubLayer(selectb_1)
+selection_dragger_tr.addSubLayer(selectb_2)
+selection_dragger_bl.addSubLayer(selectb_3)
+selection_dragger_br.addSubLayer(selectb_4)
+	
+selectiondragger_frame = new Layer
+	width: 852
+	height: 916
+	x:0
+	y:0
+	backgroundColor: "transparent"
+	opacity: 0
+	
+dragger_container.addSubLayer(selectiondragger_frame)
+dragger_container.addSubLayer(selection_dragger_br)
+dragger_container.addSubLayer(selection_dragger_bl)
+dragger_container.addSubLayer(selection_dragger_tl)
+dragger_container.addSubLayer(selection_dragger_tr)
+	
+	
+#bl
+selection_dragger_bl.draggable.constraints = selectiondragger_frame.frame
+selection_dragger_bl.draggable.overdrag = false
+selection_dragger_bl.draggable.momentum = false
+selection_dragger_bl.draggable.bounce = false
+
+selection_dragger_bl.on Events.Swipe, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+
+		selection_dragger_br.y = selection_dragger_bl.y
+		selection_dragger_tl.x = selection_dragger_bl.x
+
+		ReRender()
+		
+selection_dragger_bl.on Events.SwipeStart, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+
+		selection_dragger_br.y = selection_dragger_bl.y
+		selection_dragger_tl.x = selection_dragger_bl.x
+		
+		ReRender()
+		
+selection_dragger_bl.on Events.SwipeEnd, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		container.draggable.enabled = true
+
+		selection_dragger_br.y = selection_dragger_bl.y
+		selection_dragger_tl.x = selection_dragger_bl.x
+		
+		ReRender()
+
+#br
+selection_dragger_br.draggable.constraints = selectiondragger_frame.frame
+selection_dragger_br.draggable.overdrag = false
+selection_dragger_br.draggable.momentum = false
+selection_dragger_br.draggable.bounce = false
+
+selection_dragger_br.on Events.Swipe, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		container.draggable.enabled = false
+		
+		selection_dragger_bl.y = selection_dragger_br.y
+		selection_dragger_tr.x = selection_dragger_br.x
+		
+		ReRender()
+		
+selection_dragger_br.on Events.SwipeStart, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		container.draggable.enabled = false
+
+		selection_dragger_bl.y = selection_dragger_br.y
+		selection_dragger_tr.x = selection_dragger_br.x
+		
+		ReRender()
+		
+selection_dragger_br.on Events.SwipeEnd, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		container.draggable.enabled = true
+
+		selection_dragger_bl.y = selection_dragger_br.y
+		selection_dragger_tr.x = selection_dragger_br.x
+		
+		ReRender()
+
+
+##tl
+selection_dragger_tl.draggable.constraints = selectiondragger_frame.frame
+selection_dragger_tl.draggable.overdrag = false
+selection_dragger_tl.draggable.momentum = false
+selection_dragger_tl.draggable.bounce = false
+
+selection_dragger_tl.on Events.Swipe, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+		
+		selection_dragger_tr.y = selection_dragger_tl.y
+		selection_dragger_bl.x = selection_dragger_tl.x
+		
+		ReRender()
+		
+selection_dragger_tl.on Events.SwipeStart, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+
+		selection_dragger_tr.y = selection_dragger_tl.y
+		selection_dragger_bl.x = selection_dragger_tl.x
+		
+		ReRender()
+		
+selection_dragger_tl.on Events.SwipeEnd, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		container.draggable.enabled = true
+		
+		selection_dragger_tr.y = selection_dragger_tl.y
+		selection_dragger_bl.x = selection_dragger_tl.x
+		
+		ReRender()
+
+
+##tr
+
+selection_dragger_tr.draggable.constraints = selectiondragger_frame.frame
+selection_dragger_tr.draggable.overdrag = false
+selection_dragger_tr.draggable.momentum = false
+selection_dragger_tr.draggable.bounce = false
+
+
+selection_dragger_tr.on Events.Swipe, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+		
+		selection_dragger_tl.y = selection_dragger_tr.y
+		selection_dragger_br.x = selection_dragger_tr.x
+		
+		ReRender()
+
+		
+selection_dragger_tr.on Events.SwipeStart, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+		
+		selection_dragger_tl.y = selection_dragger_tr.y
+		selection_dragger_br.x = selection_dragger_tr.x
+		
+		ReRender()
+		
+
+		
+selection_dragger_tr.on Events.SwipeEnd, (event) ->
+		##禁止其他手柄拖动
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		container.draggable.enabled = true
+		
+		selection_dragger_tl.y = selection_dragger_tr.y
+		selection_dragger_br.x = selection_dragger_tr.x
+		
+		ReRender()
+
+ReSize = ->
+		ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+		
+		selection_dragger_tl.x = 0
+		selection_dragger_tl.y = 0
+		
+		selection_dragger_tr.x = 812
+		selection_dragger_tr.y = 0
+		
+		selection_dragger_bl.x = 0
+		selection_dragger_bl.y = 876
+		
+		selection_dragger_br.x = 812
+		selection_dragger_br.y = 876
+		
+		ctx.drawImage(imageObj, 0, 0, 812*1.247, 876*1.247, 0, 0, 812, 876)
+		
+		container.x = 134
+		container.y = 644
+		container.width = 812
+		container.height = 876
+		constraintsA.x = 134
+		constraintsA.y = 644
+		constraintsA.width = 812 
+		constraintsA.height = 876
+		
+ReRender = ->
+			
+		ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
+		sourceX = (selection_dragger_bl.x)
+		destX = 0
+		destWidth = (selection_dragger_br.x - selection_dragger_bl.x)
+		sourceWidth = (selection_dragger_br.x - selection_dragger_bl.x)
+		
+		sourceY = selection_dragger_tl.y
+		destY = 0
+		destHeight = selection_dragger_bl.y - selection_dragger_tl.y
+		sourceHeight = selection_dragger_bl.y - selection_dragger_tl.y
+				
+		ctx.drawImage(imageObj, sourceX*1.247, sourceY*1.247, sourceWidth*1.247, sourceHeight*1.247, destX, destY, destWidth, destHeight)
+		
+		container.x = selection_dragger_tl.x + 134
+		container.y = selection_dragger_tl.y + 644
+		container.width = destWidth
+		container.height = destHeight
+		constraintsA.x = selection_dragger_tl.x + 134
+		constraintsA.y = selection_dragger_tl.y + 644
+		constraintsA.width = destWidth 
+		constraintsA.height = destHeight
+		
+		
+container.states.add
+	showed:
+		opacity: 1.00
+		scale: 1
+		
+	disappeared:
+		opacity: 0
+		scale: 1
+	
+	shadowblack:
+		shadowSpread:0
+		shadowColor:"rgba(0,0,0,0.5)"
+		shadowY:8
+		shadowBlur:12
+	shadowwhite:
+		shadowSpread: 5
+		shadowY:0
+		shadowBlur:0
+		shadowColor: "rgba(255,255,255,1)"
+container.states.animationOptions =
+    curve: spring1
+container.states.switchInstant("disappeared")
+
+dragger_container.states.add
+	showed:
+		opacity: 1
+		x:118
+		y:630
+		scale:1
+	disappeared:
+		opacity: 0
+		scale:0.95
+dragger_container.states.animationOptions =		
+	curve: "spring(450, 18, 0)"
+dragger_container.states.switchInstant("disappeared")
+
+
 
 #######################################
 
-weibo_Page.on Events.Swipe, (event) ->
-	if scaled == 0
-		scaled = 1
-		weibo_Page.states.switch("scaledown")
-		tips_text.states.switch("scaledown")
+container.ignoreEvents = true
+selection_copy.ignoreEvents = true
+
+
+
+
+
+weibo_Page.on Events.Pan, (event) ->
+	if scaled == 0 
+		if Math.abs(event.offset.y) >= 960
+			a = 960
+		else 
+			a = Math.abs(event.offset.y)
 		
-		for layers,i in layerArrays
-			layers.animate
-				properties:
-					y:1707
-				time: 0.3
-				delay:0.03*i
-				curve: "spring(250, 25, 0)"
+		if Math.abs(event.offset.x) >= 540
+			b = 540
+		else 
+			b = Math.abs(event.offset.x)	
+			
+		progress = Math.sqrt(a*a + b*b)/1101
 		
-		Utils.delay 0.2, ->
-			selection.states.switch("showed")
-			selection_copy.states.switch("showed")
-			black_mask.states.switch("showed")
-
+		if Math.abs(event.velocity.x) > 0.25 && Math.abs(event.velocity.y) > 0.25
+			weibo_Page.scale = Utils.modulate(progress, [0, 0.33], [1, 0.8], true)
+			weibo_Page.y = Utils.modulate(progress, [0, 0.33], [0, -100], true)
+			tips_text.y = Utils.modulate(progress, [0, 0.33], [-70, 30],true)
+			tips_text.scale = Utils.modulate(progress, [0, 0.33], [1.25, 1],1)
 			
-		Utils.delay 0.6, ->
-			lighter_image.ignoreEvents = false
-			selection_copy.ignoreEvents = false
+weibo_Page.on Events.PanEnd, (event) ->
+	if scaled == 0 
+		if Math.abs(event.offset.y) >= 960
+			a = 960
+		else 
+			a = Math.abs(event.offset.y)
+		
+		if Math.abs(event.offset.x) >= 540
+			b = 540
+		else 
+			b = Math.abs(event.offset.x)	
 			
-		lighter_image.states.switchInstant("disappeared")
-		edit_border.states.switchInstant("disappeared")
-		darker_image.states.switchInstant("blacked")
+		progress = Math.sqrt(a*a + b*b)/1101
+		
+		if Math.abs(event.velocity.x) > 0.2 && Math.abs(event.velocity.y) > 0.2 && progress > 0.15
+			ReRender()
+			weibo_Page.ignoreEvents = true
+			weibo_Page.states.switch("scaledown")
+			tips_text.states.switch("scaledown")
+			scaled = 1
+			for layers,i in layerArrays
+				layers.animate
+					properties:
+						y:1707
+					time: 0.3
+					delay:0.03*i
+					curve: "spring(250, 25, 0)"
 			
+			Utils.delay 0.2, ->
+				selection.states.switch("showed")
+				selection_copy.states.switch("showed")
+				black_mask.states.switch("showed")
+				selection_copy.draggable.enabled = true
+				
+			Utils.delay 0.6, ->
+				container.ignoreEvents = false
+				selection_copy.ignoreEvents = false
+				
+			container.states.switchInstant("disappeared")
+			dragger_container.states.switchInstant("disappeared")
+			darker_image.states.switchInstant("blacked")
+		else 
+			scaled = 0
+			weibo_Page.ignoreEvents = false
+			weibo_Page.states.switch("scaleup")
+			tips_text.states.switch("scaleup")
+					
 
+black_mask.onTap ->
 
-bgColor.on Events.Tap, (event) ->
+bgColor.onTap ->
 	if scaled == 1
 		scaled = 0
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
-			
+		dragger_container.states.switchInstant("disappeared")
+		container.states.switchInstant("disappeared")
+		selection.states.switchInstant("disappeared")
+		selection_copy.states.switchInstant("disappeared")
+		weibo_Page.ignoreEvents = false
+		
 		for layers,i in layerArrays
 			layers.animate
 				properties:
@@ -378,41 +843,40 @@ bgColor.on Events.Tap, (event) ->
 				time: 0.3
 				curve: "spring(250, 25, 0)"
 		Utils.delay 0.2, ->
-			edit_border.states.switch("disappeared")
-			lighter_image.states.switch("disappeared")
 			black_mask.states.switch("disappeared")
-			selection.states.switch("disappeared")
-			selection_copy.states.switch("disappeared")
+			ReSize()
 		Utils.delay 0.6, ->
-			lighter_image.ignoreEvents = true
+			container.ignoreEvents = true
 			selection_copy.ignoreEvents = true
-			lighter_image.draggable.enabled = false
+			container.draggable.enabled = false
 			selection_copy.draggable.enabled = false
+			
+		
 			
 ##############
 
-lighter_image.on Events.Tap, (event) ->
+container.on Events.Tap, (event) ->
 	if scaled == 1
-		edit_border.states.switch("showed")
-		lighter_image.states.switch("showed")
+		dragger_container.states.switch("showed")
+		container.states.switch("showed")
 		black_mask.states.switch("showed")
-		darker_image.states.switchInstant("whited")
-		lighter_image.draggable.enabled = true
-		lighter_image.draggable.constraints = constraintsA.frame
+		darker_image.states.switchInstant("blacked")
+		container.draggable.enabled = true
+		container.draggable.constraints = constraintsA.frame
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
 		selection_copy.draggable.enabled = false
+			
 
 
-lighter_image.on Events.DragStart, (event) ->
+container.on Events.DragStart, (event) ->
 	if scaled == 1
-		edit_border.states.switchInstant("disappeared")
+		dragger_container.states.switchInstant("disappeared")
 		darker_image.states.switchInstant("blacked")
-		lighter_image.states.switchInstant("showed")
+		container.states.switchInstant("showed")
+		container.states.switchInstant("shadowblack")
 
-
-lighter_image.on Events.DragEnd, (event) ->
-  	
+container.on Events.DragEnd, (event) ->
 	for layers in layerArrays
 		layers.animate
 			properties:
@@ -421,8 +885,9 @@ lighter_image.on Events.DragEnd, (event) ->
 			time: .2
 			
 	if scaled == 1
-		if lighter_image.midY > av_icon1A.y && lighter_image.midX < av_icon1A.maxX + 10
-			lighter_image.animate
+		if container.midY > av_icon1A.y  && container.midX < av_icon1A.maxX + 10
+			
+			container.animate
 				properties:
 					midX: av_icon1A.midX-100
 					midY: av_icon1A.midY+300
@@ -434,7 +899,7 @@ lighter_image.on Events.DragEnd, (event) ->
 			Utils.delay 0.2, -> Transition()
 			
 			Transition = ->
-				edit_border.states.switchInstant("disappeared")
+				dragger_container.states.switchInstant("disappeared")
 				darker_image.opacity = 0.5
 				Screenone.animate
 					properties: 
@@ -447,41 +912,42 @@ lighter_image.on Events.DragEnd, (event) ->
 						y:0
 					time: .4
 					curve: "ease-out"
-
+				container.states.switch("shadowwhite")
 				
 		else
-			edit_border.scale = 1
+			dragger_container.scale = 1
 			darker_image.opacity = 0.5
 			
-			lighter_image.animate
+			container.animate
 				properties:
 					scale:1
 					opacity:1
 				time:0.3
 				curve: "ease-out"
-			edit_border.animate
+			dragger_container.animate
 				properties:
 					opacity:1
 				time:0.3
 				delay:1
 				curve: "ease-out"
+			Utils.delay 0.9, ->
+				container.states.switch("shadowwhite")
 				
-lighter_image.on Events.DragMove, (event)->
-	point = Utils.convertPointFromContext(event.touchCenter, lighter_image, true, false)
-	lighter_image.midX = point.x
-	lighter_image.midY = point.y
-	edit_border.states.switchInstant("disappeared")
-	
+container.on Events.DragMove, (event)->
+	point = Utils.convertPointFromContext(event.touchCenter, container, true, false)
+	container.midX = point.x
+	container.midY = point.y
+	dragger_container.states.switchInstant("disappeared")
 	for layers,i in layerArrays
-		if lighter_image.midY > 1800
-			lighter_image.animate
+		if container.midY > 1550
+			container.animate
 				properties:
 					scale:0.3
 					opacity:0.3
 				time:0.08
 				curve: "ease-out"
 				
-			if lighter_image.midX < layers.maxX + 30 && lighter_image.midX > layers.minX - 30
+			if container.midX < layers.maxX + 30 && container.midX > layers.minX - 30
 				layers.animate
 					properties:
 						scale: 1.2
@@ -497,7 +963,7 @@ lighter_image.on Events.DragMove, (event)->
 					time: .1
 					curve: "ease-out"
 		else 
-			lighter_image.animate
+			container.animate
 				properties:
 					scale:1
 					opacity:1
@@ -524,12 +990,12 @@ wechat_hitarea.onTap ->
 		time: 0.3
 		curve: 'spring(250,25,0)'
 		
-	lighter_image.states.switchInstant("showed")
-	edit_border.states.switchInstant("showed")
-	darker_image.states.switchInstant("whited")
+	darker_image.states.switchInstant("blacked")
 	black_mask.states.switchInstant("showed")
 	selection.states.switch("disappeared")
 	selection_copy.states.switch("disappeared")
+	
+
 	
 	
 
@@ -553,27 +1019,34 @@ wechat_screen2.onTap ->
 	
 	for layers in layerArrays
 		layers.opacity = 1 
+	
+	Utils.delay 0.25, ->
+		container.scale = 1
+		container.states.switch("showed")
+		dragger_container.states.switch("showed")
+		ReSize()
 		
 wechat_hitarea_cancel.onTap ->
+	weibo_Page.states.switchInstant("scaledown")
 	
-	Screenone.animate
-		properties: 
-			opacity:1
-			scale:1
-		time: .4
-		curve: "ease-out"
-	Screentwo.animate
-		properties: 
-			y:1920
-		time: .4
-		curve: "ease-out"
-
-	Utils.delay 0.4, ->
+	Utils.delay 0.2, ->
+		Screenone.animate
+			properties: 
+				opacity:1
+				scale:1
+			time: .4
+			curve: "ease-out"
+		Screentwo.animate
+			properties: 
+				y:1920
+			time: .4
+			curve: "ease-out"
+	
+	Utils.delay 0.6, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
-		lighter_image.states.switchInstant("showed")
-		edit_border.states.switchInstant("showed")
 		darker_image.states.switchInstant("whited")
+		
 		black_mask.states.switchInstant("showed")
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
@@ -581,15 +1054,23 @@ wechat_hitarea_cancel.onTap ->
 	for layers in layerArrays
 		layers.opacity = 1 
 		
+	Utils.delay 0.6, ->
+		container.scale = 1
+		container.states.switch("showed")
+		dragger_container.states.switch("showed")
+		ReSize()
+		
 		
 #############
 
 
 selection_copy.on Events.Tap, (event) ->
 	if scaled == 1
-		edit_border.states.switch("disappeared")
-		lighter_image.states.switch("disappeared")
-		lighter_image.draggable.enabled = false
+		Utils.delay 0.2,->
+			ReSize()
+		dragger_container.states.switch("disappeared")
+		container.states.switch("disappeared")
+		container.draggable.enabled = false
 		darker_image.states.switchInstant("blacked")
 		black_mask.states.switch("showed")
 		selection.states.switch("showed")
@@ -673,7 +1154,7 @@ selection_copy.on Events.DragMove, (event)->
 		if selection_copy.midY > 1800
 			selection_copy.animate
 				properties:
-					scale:0.3
+					scale:0.7
 					opacity:0.3
 				time:0.08
 				curve: "ease-out"
@@ -710,6 +1191,14 @@ selection_copy.on Events.DragMove, (event)->
 				
 
 wechat_hitarea2.onTap ->
+	wechat_black.states.switch("showed")
+	wechat_diaglog.states.switch("showed")
+
+wechat_diaglog_h1.onTap ->
+	wechat_black.states.switch("disappeared")
+	wechat_diaglog.states.switch("disappeared")
+	
+wechat_diaglog_h2.onTap ->
 	wechat_screen3.animate
 		properties: 
 			x:-360
@@ -721,12 +1210,13 @@ wechat_hitarea2.onTap ->
 		time: 0.3
 		curve: 'spring(250,25,0)'
 	
-	lighter_image.states.switchInstant("disappeared")
-	edit_border.states.switchInstant("disappeared")
+	container.states.switchInstant("disappeared")
+	dragger_container.states.switchInstant("disappeared")
+	wechat_black.states.switch("disappeared")
+	wechat_diaglog.states.switch("disappeared")
 	darker_image.states.switchInstant("blacked")
 	selection.states.switch("showed")
 	selection_copy.states.switch("showed")
-	
 
 						
 wechat_screen4.onTap ->

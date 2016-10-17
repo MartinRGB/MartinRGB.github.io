@@ -8,7 +8,7 @@
   "deviceType" : "google-nexus-5x",
   "selectedHand" : "",
   "updateDelay" : 0.3,
-  "deviceScale" : "fit",
+  "deviceScale" : 0.25,
   "foldedCodeRanges" : [
     "{0, 185}"
   ],
