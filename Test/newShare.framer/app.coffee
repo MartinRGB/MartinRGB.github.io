@@ -390,7 +390,7 @@ selection_copy.ignoreEvents = true
 
 #######################################
 
-weibo_Page.on Events.Swipe, (event) ->
+weibo_Page.on Events.Pan, (event) ->
 	if scaled == 0 
 		if Math.abs(event.offset.y) >= 960
 			a = 960
@@ -404,13 +404,13 @@ weibo_Page.on Events.Swipe, (event) ->
 			
 		progress = Math.sqrt(a*a + b*b)/1101
 		
-		if Math.abs(event.velocity.x) > 0.5 && Math.abs(event.velocity.y) > 0.5
-			weibo_Page.scale = Utils.modulate(progress, [0, 1], [1, 0.8], true)
-			weibo_Page.y = Utils.modulate(progress, [0, 1], [0, -100], true)
-			tips_text.y = Utils.modulate(progress, [0, 1], [-70, 30],true)
-			tips_text.scale = Utils.modulate(progress, [0, 1], [1.25, 1],1)
+		if Math.abs(event.velocity.x) > 0.25 && Math.abs(event.velocity.y) > 0.25
+			weibo_Page.scale = Utils.modulate(progress, [0, 0.33], [1, 0.8], true)
+			weibo_Page.y = Utils.modulate(progress, [0, 0.33], [0, -100], true)
+			tips_text.y = Utils.modulate(progress, [0, 0.33], [-70, 30],true)
+			tips_text.scale = Utils.modulate(progress, [0, 0.33], [1.25, 1],1)
 			
-weibo_Page.on Events.SwipeEnd, (event) ->
+weibo_Page.on Events.PanEnd, (event) ->
 	if scaled == 0 
 		if Math.abs(event.offset.y) >= 960
 			a = 960
