@@ -335,33 +335,78 @@ selection_copy.ignoreEvents = true
 
 #######################################
 
-weibo_Page.on Events.Swipe, (event) ->
-	if scaled == 0
-		scaled = 1
-		weibo_Page.states.switch("scaledown")
-		tips_text.states.switch("scaledown")
 		
-		for layers,i in layerArrays
-			layers.animate
-				properties:
-					y:1707
-				time: 0.3
-				delay:0.03*i
-				curve: "spring(250, 25, 0)"
+weibo_Page.on Events.Pan, (event) ->
+	if scaled == 0 
+		if Math.abs(event.offset.y) >= 960
+			a = 960
+		else 
+			a = Math.abs(event.offset.y)
 		
-		Utils.delay 0.2, ->
-			selection.states.switch("showed")
-			selection_copy.states.switch("showed")
-			black_mask.states.switch("showed")
-
+		if Math.abs(event.offset.x) >= 540
+			b = 540
+		else 
+			b = Math.abs(event.offset.x)	
 			
-		Utils.delay 0.6, ->
-			lighter_image.ignoreEvents = false
-			selection_copy.ignoreEvents = false
+		progress = Math.sqrt(a*a + b*b)/1101
+# 		
+# 		print Math.abs(event.velocity.x)
+# 		print Math.abs(event.velocity.y)
+		
+		if Math.abs(event.velocity.x) > 0.5 && Math.abs(event.velocity.y) > 0.5
+			weibo_Page.scale = Utils.modulate(progress, [0, 1], [1, 0.8], true)
+			weibo_Page.y = Utils.modulate(progress, [0, 1], [0, -100], true)
+			tips_text.y = Utils.modulate(progress, [0, 1], [-70, 30],true)
+			tips_text.scale = Utils.modulate(progress, [0, 1], [1.25, 1],1)
 			
-		lighter_image.states.switchInstant("disappeared")
-		edit_border.states.switchInstant("disappeared")
-		darker_image.states.switchInstant("blacked")
+weibo_Page.on Events.PanEnd, (event) ->
+	if scaled == 0 
+		if Math.abs(event.offset.y) >= 960
+			a = 960
+		else 
+			a = Math.abs(event.offset.y)
+		
+		if Math.abs(event.offset.x) >= 540
+			b = 540
+		else 
+			b = Math.abs(event.offset.x)	
+			
+		progress = Math.sqrt(a*a + b*b)/1101
+	
+		if Math.abs(event.velocity.x) > 0.5 && Math.abs(event.velocity.y) > 0.5 && progress > 0.6
+			weibo_Page.ignoreEvents = true
+			weibo_Page.states.switch("scaledown")
+			tips_text.states.switch("scaledown")
+			scaled = 1
+			for layers,i in layerArrays
+				layers.animate
+					properties:
+						y:1707
+					time: 0.3
+					delay:0.03*i
+					curve: "spring(250, 25, 0)"
+			
+			Utils.delay 0.2, ->
+				selection.states.switch("showed")
+				selection_copy.states.switch("showed")
+				black_mask.states.switch("showed")
+	
+				
+			Utils.delay 0.6, ->
+				lighter_image.ignoreEvents = false
+				selection_copy.ignoreEvents = false
+				
+			lighter_image.states.switchInstant("disappeared")
+			edit_border.states.switchInstant("disappeared")
+			darker_image.states.switchInstant("blacked")
+		else 
+			scaled = 0
+			weibo_Page.ignoreEvents = false
+			weibo_Page.states.switch("scaleup")
+			tips_text.states.switch("scaleup")
+					
+				
+				
 			
 
 
@@ -370,7 +415,7 @@ bgColor.on Events.Tap, (event) ->
 		scaled = 0
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
-			
+		weibo_Page.ignoreEvents = false
 		for layers,i in layerArrays
 			layers.animate
 				properties:
@@ -555,25 +600,28 @@ wechat_screen2.onTap ->
 		layers.opacity = 1 
 		
 wechat_hitarea_cancel.onTap ->
+	weibo_Page.states.switchInstant("scaledown")
 	
-	Screenone.animate
-		properties: 
-			opacity:1
-			scale:1
-		time: .4
-		curve: "ease-out"
-	Screentwo.animate
-		properties: 
-			y:1920
-		time: .4
-		curve: "ease-out"
-
-	Utils.delay 0.4, ->
+	Utils.delay 0.2, ->
+		Screenone.animate
+			properties: 
+				opacity:1
+				scale:1
+			time: .4
+			curve: "ease-out"
+		Screentwo.animate
+			properties: 
+				y:1920
+			time: .4
+			curve: "ease-out"
+	
+	Utils.delay 0.6, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
 		lighter_image.states.switchInstant("showed")
 		edit_border.states.switchInstant("showed")
 		darker_image.states.switchInstant("whited")
+		
 		black_mask.states.switchInstant("showed")
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
