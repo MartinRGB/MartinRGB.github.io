@@ -218,8 +218,8 @@ selection_copy = new Layer
 wechat_diaglog = new Layer
 	width: 860
 	height: 654
-	x:Align.center
-	y:Align.center
+	x:110
+	y:633
 	image: "images/wechat_diaglog.png"
 	
 wechat_diaglog_h1 = new Layer
