@@ -8,6 +8,17 @@ Framer.Info =
 	twitter: ""
 	description: ""
 
+
+###### Make a responsive
+default_w = 1080
+default_h = 1920
+screen_width = Framer.Device.screen.width 
+screen_height = Framer.Device.screen.height
+ratio = screen_width / default_w
+Framer.Device.contentScale = ratio
+Framer.Defaults.Layer.force2d = true
+
+###### Init Layer
 Cool = new Layer
 	width: 1080
 	height: 1920
