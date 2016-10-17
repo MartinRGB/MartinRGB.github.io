@@ -370,7 +370,7 @@ myCanvas = document.createElement "canvas"
 myCanvas.setAttribute("width","812px")
 myCanvas.setAttribute("height","876px")
 myCanvas.setAttribute("style","border: 0px solid white;background:transparent")
-myCanvas.style.backgroundSize = "cover";
+myCanvas.style.backgroundSize = "contain";
 
 imageObj = new Image
 imageObj.src = "images/lighter_image.jpg"
@@ -391,7 +391,7 @@ destY = myCanvas.height / 2 - destHeight / 2;
 
 ctx = myCanvas.getContext "2d"
 ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1.247, sourceHeight*1.247, destX, destY, destWidth, destHeight)
+ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1.000, sourceHeight*1.000, destX, destY, destWidth, destHeight)
 
 selection_dragger_tl = new Layer
 	width: 40
@@ -671,7 +671,7 @@ ReSize = ->
 		selection_dragger_br.x = 812
 		selection_dragger_br.y = 876
 		
-		ctx.drawImage(imageObj, 0, 0, 812*1.247, 876*1.247, 0, 0, 812, 876)
+		ctx.drawImage(imageObj, 0, 0, 812*1.000, 876*1.000, 0, 0, 812, 876)
 		
 		container.x = 134
 		container.y = 644
@@ -696,7 +696,7 @@ ReRender = ->
 		destHeight = selection_dragger_bl.y - selection_dragger_tl.y
 		sourceHeight = selection_dragger_bl.y - selection_dragger_tl.y
 				
-		ctx.drawImage(imageObj, sourceX*1.247, sourceY*1.247, sourceWidth*1.247, sourceHeight*1.247, destX, destY, destWidth, destHeight)
+		ctx.drawImage(imageObj, sourceX*1.000, sourceY*1.000, sourceWidth*1.000, sourceHeight*1.000, destX, destY, destWidth, destHeight)
 		
 		container.x = selection_dragger_tl.x + 134
 		container.y = selection_dragger_tl.y + 644
