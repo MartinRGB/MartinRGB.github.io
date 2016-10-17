@@ -650,25 +650,28 @@ wechat_screen2.onTap ->
 		layers.opacity = 1 
 		
 wechat_hitarea_cancel.onTap ->
+	weibo_Page.states.switchInstant("scaledown")
 	
-	Screenone.animate
-		properties: 
-			opacity:1
-			scale:1
-		time: .4
-		curve: "ease-out"
-	Screentwo.animate
-		properties: 
-			y:1920
-		time: .4
-		curve: "ease-out"
-
-	Utils.delay 0.4, ->
+	Utils.delay 0.2, ->
+		Screenone.animate
+			properties: 
+				opacity:1
+				scale:1
+			time: .4
+			curve: "ease-out"
+		Screentwo.animate
+			properties: 
+				y:1920
+			time: .4
+			curve: "ease-out"
+	
+	Utils.delay 0.6, ->
 		wechat_screen1.x = 0
 		wechat_screen2.x = 1080
 		lighter_image.states.switchInstant("showed")
 		edit_border.states.switchInstant("showed")
 		darker_image.states.switchInstant("whited")
+		
 		black_mask.states.switchInstant("showed")
 		selection.states.switch("disappeared")
 		selection_copy.states.switch("disappeared")
