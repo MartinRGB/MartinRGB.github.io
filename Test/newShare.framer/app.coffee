@@ -441,7 +441,7 @@ weibo_Page.on Events.SwipeEnd, (event) ->
 				selection.states.switch("showed")
 				selection_copy.states.switch("showed")
 				black_mask.states.switch("showed")
-	
+				selection_copy.draggable.enabled = true
 				
 			Utils.delay 0.6, ->
 				lighter_image.ignoreEvents = false
