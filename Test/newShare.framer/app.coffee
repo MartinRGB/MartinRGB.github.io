@@ -424,7 +424,7 @@ weibo_Page.on Events.PanEnd, (event) ->
 			
 		progress = Math.sqrt(a*a + b*b)/1101
 		
-		if Math.abs(event.velocity.x) > 0.25 && Math.abs(event.velocity.y) > 0.25 && progress > 0.15
+		if Math.abs(event.velocity.x) > 0.2 && Math.abs(event.velocity.y) > 0.2 && progress > 0.15
 			weibo_Page.ignoreEvents = true
 			weibo_Page.states.switch("scaledown")
 			tips_text.states.switch("scaledown")
