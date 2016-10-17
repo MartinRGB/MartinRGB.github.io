@@ -203,6 +203,62 @@ selection_copy = new Layer
 	image: "images/selection_copy.png"
 	scale: 1.25
 	
+
+wechat_diaglog = new Layer
+	width: 860
+	height: 654
+	x:Align.center
+	y:Align.center
+	image: "images/wechat_diaglog.png"
+	
+wechat_diaglog_h1 = new Layer
+	width: 160
+	height: 100
+	x:440
+	y:520
+	opacity: 0.0
+
+wechat_diaglog_h2 = new Layer
+	width: 200
+	height: 100
+	x:630
+	y:520
+	opacity: 0
+
+wechat_black = new Layer
+	width: 1080
+	height: 1920
+	image: "images/wechat_black.png"
+	
+wechat_screen3.addSubLayer(wechat_black)
+wechat_screen3.addSubLayer(wechat_diaglog)
+wechat_diaglog.addSubLayer(wechat_diaglog_h1)
+wechat_diaglog.addSubLayer(wechat_diaglog_h2)
+
+wechat_diaglog.states.add
+	showed:
+		ignoreEvents:false
+		opacity:1
+		scale:1
+	disappeared:
+		ignoreEvents:true
+		opacity:0
+		scale:0.8
+wechat_diaglog.states.animationOptions =		
+	curve:"spring(250, 25, 0)"
+wechat_diaglog.states.switchInstant("disappeared")
+
+wechat_black.states.add
+	showed:
+		ignoreEvents:false
+		opacity:1
+	disappeared:
+		ignoreEvents:true
+		opacity:0
+wechat_black.states.animationOptions =		
+	curve:"spring(250, 25, 0)"
+wechat_black.states.switchInstant("disappeared")
+
 darker_image.states.add
 	blacked:
 		opacity: 0.5
@@ -758,6 +814,14 @@ selection_copy.on Events.DragMove, (event)->
 				
 
 wechat_hitarea2.onTap ->
+	wechat_black.states.switch("showed")
+	wechat_diaglog.states.switch("showed")
+
+wechat_diaglog_h1.onTap ->
+	wechat_black.states.switch("disappeared")
+	wechat_diaglog.states.switch("disappeared")
+	
+wechat_diaglog_h2.onTap ->
 	wechat_screen3.animate
 		properties: 
 			x:-360
@@ -771,6 +835,8 @@ wechat_hitarea2.onTap ->
 	
 	lighter_image.states.switchInstant("disappeared")
 	edit_border.states.switchInstant("disappeared")
+	wechat_black.states.switch("disappeared")
+	wechat_diaglog.states.switch("disappeared")
 	darker_image.states.switchInstant("blacked")
 	selection.states.switch("showed")
 	selection_copy.states.switch("showed")
@@ -796,6 +862,6 @@ wechat_screen4.onTap ->
 	Utils.delay 0.4, ->
 		wechat_screen3.x = 0
 		wechat_screen4.x = 1080
-
-
+		wechat_black.states.switchInstant("disappeared")
+		wechat_diaglog.states.switchInstant("disappeared")
 
