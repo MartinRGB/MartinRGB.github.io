@@ -506,13 +506,21 @@ selection_dragger_bl.on Events.SwipeStart, (event) ->
 		blrr()
 		
 selection_dragger_bl.on Events.SwipeEnd, (event) ->
-		blrr()
-		
-blrr = ->
 		selection_dragger_tr.draggable.enabled = true
 		selection_dragger_tl.draggable.enabled = true
 		selection_dragger_br.draggable.enabled = true
 		container.draggable.enabled = true
+
+		selection_dragger_br.y = selection_dragger_bl.y
+		selection_dragger_tl.x = selection_dragger_bl.x
+		
+		ReRender()
+		
+blrr = ->
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
 
 		selection_dragger_br.y = selection_dragger_bl.y
 		selection_dragger_tl.x = selection_dragger_bl.x
@@ -528,7 +536,15 @@ selection_dragger_br.on Events.SwipeStart, (event) ->
 		brrr()
 		
 selection_dragger_br.on Events.SwipeEnd, (event) ->
-		brrr()
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		container.draggable.enabled = true
+		
+		selection_dragger_bl.y = selection_dragger_br.y
+		selection_dragger_tr.x = selection_dragger_br.x
+		
+		ReRender()
 		
 brrr = ->
 		##禁止其他手柄拖动
@@ -551,14 +567,23 @@ selection_dragger_tl.on Events.SwipeStart, (event) ->
 		tlrr()
 		
 selection_dragger_tl.on Events.SwipeEnd, (event) ->
-		tlrr()
-
-tlrr = ->
-		##禁止其他手柄拖动
+	
 		selection_dragger_tr.draggable.enabled = true
 		selection_dragger_bl.draggable.enabled = true
 		selection_dragger_br.draggable.enabled = true
 		container.draggable.enabled = true
+		
+		selection_dragger_tr.y = selection_dragger_tl.y
+		selection_dragger_bl.x = selection_dragger_tl.x
+		
+		ReRender()
+
+tlrr = ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
 		
 		selection_dragger_tr.y = selection_dragger_tl.y
 		selection_dragger_bl.x = selection_dragger_tl.x
@@ -574,7 +599,15 @@ selection_dragger_tr.on Events.SwipeStart, (event) ->
 		trrr()
 		
 selection_dragger_tr.on Events.SwipeEnd, (event) ->
-		trrr()
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		container.draggable.enabled = true
+		
+		selection_dragger_tl.y = selection_dragger_tr.y
+		selection_dragger_br.x = selection_dragger_tr.x
+		
+		ReRender()
 		
 trrr = ->
 		##禁止其他手柄拖动
