@@ -450,6 +450,8 @@ Cool.addSubLayer(selection)
 
 ########################### some variable ###########################
 
+########################### some variable ###########################
+
 constraintsA = new Layer
 	width: 812
 	height: 876
@@ -996,7 +998,10 @@ selB.on Events.Drag, (event)->
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 ########################### diagnoal swipe part ###########################
 
 weibo_Page.on Events.Pan, (event) ->
@@ -1116,9 +1121,12 @@ container.on Events.Tap, (event) ->
 		selection.states.switchInstant("disappeared")
 		selection_copy.states.switchInstant("disappeared")
 		selection_copy.draggable.enabled = false
+<<<<<<< HEAD
 		
 		Utils.delay 0.2, ->
 			selReSize()
+=======
+>>>>>>> origin/master
 
 
 container.on Events.DragStart, (event) ->
@@ -1399,14 +1407,22 @@ selection_copy.on Events.DragEnd, (event) ->
 			selection_copy.animate
 				properties:
 					opacity:1
+<<<<<<< HEAD
 					scale:1
+=======
+					scale:1.25
+>>>>>>> origin/master
 				time:0.3
 				curve: "ease-out"
 				
 			selection.animate
 				properties:
 					opacity:1
+<<<<<<< HEAD
 					scale:1
+=======
+					scale:1.25
+>>>>>>> origin/master
 				time:0.3
 				delay:1
 				curve: "ease-out"
