@@ -851,6 +851,8 @@ container.on Events.DragEnd, (event) ->
 					curve: "ease-out"
 				container.states.switch("shadowwhite")
 				
+				selection_copy.ignoreEvents = false
+				
 		else
 			
 			dragger_container.scale = 1
@@ -1070,6 +1072,8 @@ selection_copy.on Events.DragEnd, (event) ->
 						y:0
 					time: .4
 					curve: "ease-out"
+					
+				container.ignoreEvents = false
 
 				
 		else
