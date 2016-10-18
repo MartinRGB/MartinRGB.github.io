@@ -8,6 +8,9 @@ Framer.Info =
 	twitter: ""
 	description: ""
 
+
+########################### init layer ###########################
+
 Cool = new Layer
 	width: 1080
 	height: 1920
@@ -172,23 +175,147 @@ darker_image = new Layer
 	height: 1095
 	image: "images/lighter_image.jpg"
 
-selection = new Layer
-	width: 914
-	height: 359
-	parent: Screenone
-	x:46
-	y:402
-	image: "images/selection.png"
-	scale: 1.25
+
 
 selection_copy = new Layer
 	width: 852
 	height: 264
-	parent: Screenone
-	x:107
-	y:390
-	image: "images/selection_copy.png"
-	scale: 1.25
+	x:115
+	y:380
+	backgroundColor: "transparent"
+	scale: 1
+	opacity: 0.26
+	
+mask1 = new Layer
+	width: 853
+	height: 53
+	x:0
+	y:-1
+	clip: true
+	backgroundColor: "transparent"
+	
+mask2 = new Layer
+	width: 853
+	height: 53
+	x:0
+	y:50
+	clip: true
+	backgroundColor: "transparent"
+	
+mask3 = new Layer
+	width: 853
+	height: 53
+	x:0
+	y:100
+	clip: true
+	backgroundColor: "transparent"
+	
+mask4 = new Layer
+	width: 853
+	height: 53
+	x:0
+	y:150
+	clip: true
+	backgroundColor: "transparent"
+	
+mask5 = new Layer
+	width: 853
+	height: 53
+	x:0
+	y:200
+	clip: true
+	backgroundColor: "transparent"
+	
+l2 = new Layer
+	width: 853
+	height: 53
+	image: "images/l2.png"
+
+l3 = new Layer
+	width: 853
+	height: 53
+	image: "images/l3.png"
+
+l1 = new Layer
+	width: 853
+	height: 52
+	image: "images/l1.png"
+
+l4 = new Layer
+	width: 853
+	height: 53
+	image: "images/l4.png"
+
+l5 = new Layer
+	width: 696
+	height: 64
+	image: "images/l5.png"
+
+selection_copy.addSubLayer(mask1)
+selection_copy.addSubLayer(mask2)
+selection_copy.addSubLayer(mask3)
+selection_copy.addSubLayer(mask4)
+selection_copy.addSubLayer(mask5)
+
+mask1.addSubLayer(l1)
+mask2.addSubLayer(l2)
+mask3.addSubLayer(l3)
+mask4.addSubLayer(l4)
+mask5.addSubLayer(l5)
+
+##Selection_bar
+selB = new Layer
+	width: 61
+	height: 138
+	image: "images/Selb.png"
+	x: 757
+	y: 204
+	opacity:  0 
+
+
+	
+selB_real = new Layer
+	width: 61
+	height: 138
+	image: "images/Selb.png"
+	x: 757
+	y: 204
+
+selD_real = new Layer
+	width: 61
+	height: 138
+	image: "images/Seld.png"
+	x: 0
+	y: 0
+	
+	
+selBConstraint = new Layer
+	width: 1000
+	height: 350
+	backgroundColor: "transparent"
+	x: 61
+	y: 20
+	
+selB.draggable.enabled = true
+selB.draggable.momentum = false
+selB.draggable.overdrag = false
+selB.draggable.bounce = false
+selB.draggable.constraints = selBConstraint.frame
+
+selection = new Layer 
+	width: 1000
+	height: 359
+	x:54
+	y:380
+	backgroundColor: "transparent"
+	scale: 1
+	opacity: 1.00
+
+selection.addSubLayer(selBConstraint)
+selection.addSubLayer(selD_real)
+selection.addSubLayer(selB_real)
+selection.addSubLayer(selB)
+
 	
 wechat_diaglog = new Layer
 	width: 860
@@ -220,6 +347,8 @@ wechat_screen3.addSubLayer(wechat_black)
 wechat_screen3.addSubLayer(wechat_diaglog)
 wechat_diaglog.addSubLayer(wechat_diaglog_h1)
 wechat_diaglog.addSubLayer(wechat_diaglog_h2)
+
+########################### state machine ###########################
 
 wechat_diaglog.states.add
 	showed:
@@ -264,12 +393,12 @@ black_mask.states.switchInstant("disappeared")
 selection_copy.states.add
 	showed:
 		opacity: 1
-		scale:1.25
+		scale:1
 	disappeared:
 		opacity: 0
 		x:115
-		y:390
-		scale: 1.2
+		y:380
+		scale: 0.95
 selection_copy.states.animationOptions =
 	curve:"spring(250, 25, 0)"
 selection_copy.states.switchInstant("disappeared")
@@ -277,12 +406,12 @@ selection_copy.states.switchInstant("disappeared")
 selection.states.add
 	showed:
 		opacity: 1
-		x:46
-		y:402
-		scale:1.25
+		x:54
+		y:380
+		scale:1
 	disappeared:
 		opacity: 0
-		scale:1.2
+		scale:0.95
 selection.states.animationOptions =		
 	curve:"spring(250, 25, 0)"
 selection.states.switchInstant("disappeared")
@@ -313,8 +442,13 @@ tips_text.states.switchInstant("scaleup")
 
 weibo_Page.addSubLayer(black_mask)
 weibo_Page.addSubLayer(darker_image)
-weibo_Page.addSubLayer(selection)
-weibo_Page.addSubLayer(selection_copy)
+# weibo_Page.addSubLayer(selection_copy)
+# weibo_Page.addSubLayer(selection)
+
+Cool.addSubLayer(selection_copy)
+Cool.addSubLayer(selection)
+
+########################### some variable ###########################
 
 constraintsA = new Layer
 	width: 812
@@ -328,20 +462,21 @@ constraintsA = new Layer
 	
 constraintsB = new Layer
 	width: 852
-	height: 124
+	height: 24
 	parent: Screenone
 	x: 115
-	y: 388
+	y: 380
 	opacity: 0
 	backgroundColor: "#000"
 	ignoreEvents: true
 
-isDropped = false;
+topisOnTapped = 0
 scaled = 0
 Framer.Extras.Hints.disable()
 layerArrays = [av_icon1A,av_icon2A,av_icon3A,av_icon4A,av_icon5A,av_icon6A]
 
-######################## Crop Image
+########################### crop image ###########################
+
 ##容器&画布&图像素材
 container = new Layer
 	width: 812
@@ -370,13 +505,14 @@ myCanvas = document.createElement "canvas"
 myCanvas.setAttribute("width","812px")
 myCanvas.setAttribute("height","876px")
 myCanvas.setAttribute("style","border: 0px solid white;background:transparent")
-myCanvas.style.backgroundSize = "contain";
+myCanvas.style.backgroundSize = "cover";
 
 imageObj = new Image
 imageObj.src = "images/lighter_image.jpg"
 
 container._element.appendChild(myCanvas)
 
+#########1st ReRender()
 ##源头的裁剪位置
 sourceX = 0;
 sourceY = 0;
@@ -391,7 +527,9 @@ destY = myCanvas.height / 2 - destHeight / 2;
 
 ctx = myCanvas.getContext "2d"
 ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1.000, sourceHeight*1.000, destX, destY, destWidth, destHeight)
+ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1, sourceHeight*1, destX, destY, destWidth, destHeight)
+
+#########
 
 selection_dragger_tl = new Layer
 	width: 40
@@ -461,6 +599,8 @@ selectb_4 = new Layer
 	x: -23
 	y: -24
 	
+selectionbarArrays = [selection_dragger_bl,selection_dragger_br,selection_dragger_tl,selection_dragger_tr]
+	
 selection_dragger_tl.addSubLayer(selectb_1)
 selection_dragger_tr.addSubLayer(selectb_2)
 selection_dragger_bl.addSubLayer(selectb_3)
@@ -475,48 +615,39 @@ selectiondragger_frame = new Layer
 	opacity: 0
 	
 dragger_container.addSubLayer(selectiondragger_frame)
-dragger_container.addSubLayer(selection_dragger_br)
-dragger_container.addSubLayer(selection_dragger_bl)
-dragger_container.addSubLayer(selection_dragger_tl)
-dragger_container.addSubLayer(selection_dragger_tr)
-	
-	
+
+for imgselectLayers in selectionbarArrays
+	dragger_container.addSubLayer(imgselectLayers)
+	imgselectLayers.draggable.constraints = selectiondragger_frame.frame
+	imgselectLayers.draggable.overdrag = false
+	imgselectLayers.draggable.momentum = false
+	imgselectLayers.draggable.bounce = false
+
+
 #bl
-selection_dragger_bl.draggable.constraints = selectiondragger_frame.frame
-selection_dragger_bl.draggable.overdrag = false
-selection_dragger_bl.draggable.momentum = false
-selection_dragger_bl.draggable.bounce = false
 
 selection_dragger_bl.on Events.Swipe, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-
-		selection_dragger_br.y = selection_dragger_bl.y
-		selection_dragger_tl.x = selection_dragger_bl.x
-
-		ReRender()
+		blrr()
 		
 selection_dragger_bl.on Events.SwipeStart, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-
-		selection_dragger_br.y = selection_dragger_bl.y
-		selection_dragger_tl.x = selection_dragger_bl.x
-		
-		ReRender()
+		blrr()
 		
 selection_dragger_bl.on Events.SwipeEnd, (event) ->
-		##禁止其他手柄拖动
 		selection_dragger_tr.draggable.enabled = true
 		selection_dragger_tl.draggable.enabled = true
 		selection_dragger_br.draggable.enabled = true
 		container.draggable.enabled = true
+
+		selection_dragger_br.y = selection_dragger_bl.y
+		selection_dragger_tl.x = selection_dragger_bl.x
+		
+		ReRender()
+		
+blrr = ->
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
 
 		selection_dragger_br.y = selection_dragger_bl.y
 		selection_dragger_tl.x = selection_dragger_bl.x
@@ -524,80 +655,46 @@ selection_dragger_bl.on Events.SwipeEnd, (event) ->
 		ReRender()
 
 #br
-selection_dragger_br.draggable.constraints = selectiondragger_frame.frame
-selection_dragger_br.draggable.overdrag = false
-selection_dragger_br.draggable.momentum = false
-selection_dragger_br.draggable.bounce = false
 
 selection_dragger_br.on Events.Swipe, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		container.draggable.enabled = false
-		
-		selection_dragger_bl.y = selection_dragger_br.y
-		selection_dragger_tr.x = selection_dragger_br.x
-		
-		ReRender()
+		brrr()
 		
 selection_dragger_br.on Events.SwipeStart, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		container.draggable.enabled = false
-
-		selection_dragger_bl.y = selection_dragger_br.y
-		selection_dragger_tr.x = selection_dragger_br.x
-		
-		ReRender()
+		brrr()
 		
 selection_dragger_br.on Events.SwipeEnd, (event) ->
-		##禁止其他手柄拖动
 		selection_dragger_tr.draggable.enabled = true
 		selection_dragger_tl.draggable.enabled = true
 		selection_dragger_bl.draggable.enabled = true
 		container.draggable.enabled = true
-
+		
+		selection_dragger_bl.y = selection_dragger_br.y
+		selection_dragger_tr.x = selection_dragger_br.x
+		
+		ReRender()
+		
+brrr = ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		container.draggable.enabled = false
+		
 		selection_dragger_bl.y = selection_dragger_br.y
 		selection_dragger_tr.x = selection_dragger_br.x
 		
 		ReRender()
 
-
 ##tl
-selection_dragger_tl.draggable.constraints = selectiondragger_frame.frame
-selection_dragger_tl.draggable.overdrag = false
-selection_dragger_tl.draggable.momentum = false
-selection_dragger_tl.draggable.bounce = false
 
 selection_dragger_tl.on Events.Swipe, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-		
-		selection_dragger_tr.y = selection_dragger_tl.y
-		selection_dragger_bl.x = selection_dragger_tl.x
-		
-		ReRender()
+		tlrr()
 		
 selection_dragger_tl.on Events.SwipeStart, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tr.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-
-		selection_dragger_tr.y = selection_dragger_tl.y
-		selection_dragger_bl.x = selection_dragger_tl.x
-		
-		ReRender()
+		tlrr()
 		
 selection_dragger_tl.on Events.SwipeEnd, (event) ->
-		##禁止其他手柄拖动
+	
 		selection_dragger_tr.draggable.enabled = true
 		selection_dragger_bl.draggable.enabled = true
 		selection_dragger_br.draggable.enabled = true
@@ -608,48 +705,43 @@ selection_dragger_tl.on Events.SwipeEnd, (event) ->
 		
 		ReRender()
 
+tlrr = ->
+		##禁止其他手柄拖动
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
+		
+		selection_dragger_tr.y = selection_dragger_tl.y
+		selection_dragger_bl.x = selection_dragger_tl.x
+		
+		ReRender()
 
 ##tr
 
-selection_dragger_tr.draggable.constraints = selectiondragger_frame.frame
-selection_dragger_tr.draggable.overdrag = false
-selection_dragger_tr.draggable.momentum = false
-selection_dragger_tr.draggable.bounce = false
-
-
 selection_dragger_tr.on Events.Swipe, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-		
-		selection_dragger_tl.y = selection_dragger_tr.y
-		selection_dragger_br.x = selection_dragger_tr.x
-		
-		ReRender()
+		trrr()
 
-		
 selection_dragger_tr.on Events.SwipeStart, (event) ->
-		##禁止其他手柄拖动
-		selection_dragger_tl.draggable.enabled = false
-		selection_dragger_bl.draggable.enabled = false
-		selection_dragger_br.draggable.enabled = false
-		container.draggable.enabled = false
-		
-		selection_dragger_tl.y = selection_dragger_tr.y
-		selection_dragger_br.x = selection_dragger_tr.x
-		
-		ReRender()
-		
-
+		trrr()
 		
 selection_dragger_tr.on Events.SwipeEnd, (event) ->
-		##禁止其他手柄拖动
 		selection_dragger_tl.draggable.enabled = true
 		selection_dragger_bl.draggable.enabled = true
 		selection_dragger_br.draggable.enabled = true
 		container.draggable.enabled = true
+		
+		selection_dragger_tl.y = selection_dragger_tr.y
+		selection_dragger_br.x = selection_dragger_tr.x
+		
+		ReRender()
+		
+trrr = ->
+		##禁止其他手柄拖动
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		container.draggable.enabled = false
 		
 		selection_dragger_tl.y = selection_dragger_tr.y
 		selection_dragger_br.x = selection_dragger_tr.x
@@ -671,7 +763,7 @@ ReSize = ->
 		selection_dragger_br.x = 812
 		selection_dragger_br.y = 876
 		
-		ctx.drawImage(imageObj, 0, 0, 812*1.000, 876*1.000, 0, 0, 812, 876)
+		ctx.drawImage(imageObj, 0, 0, 812*1, 876*1, 0, 0, 812, 876)
 		
 		container.x = 134
 		container.y = 644
@@ -696,7 +788,7 @@ ReRender = ->
 		destHeight = selection_dragger_bl.y - selection_dragger_tl.y
 		sourceHeight = selection_dragger_bl.y - selection_dragger_tl.y
 				
-		ctx.drawImage(imageObj, sourceX*1.000, sourceY*1.000, sourceWidth*1.000, sourceHeight*1.000, destX, destY, destWidth, destHeight)
+		ctx.drawImage(imageObj, sourceX*1, sourceY*1, sourceWidth*1, sourceHeight*1, destX, destY, destWidth, destHeight)
 		
 		container.x = selection_dragger_tl.x + 134
 		container.y = selection_dragger_tl.y + 644
@@ -751,9 +843,161 @@ dragger_container.states.switchInstant("disappeared")
 container.ignoreEvents = true
 selection_copy.ignoreEvents = true
 
+###################### crop text ##########################
+	
+##selection_copy
+
+selReSize = ->
+	selB.x = 757
+	selB_real.x = 757
+	selB.y = 204
+	selB_real.y = 204
+	mask1.width = 853
+	mask2.width = 853
+	mask3.width = 853
+	mask4.width = 853
+	mask5.width = 696
+	selection_copy.height = 264
+
+
+selB.on Events.DragEnd, (event)->
+	selB.y  = selB_real.y
+	selB.x  = selB_real.x
+	
+selB.on Events.Drag, (event)->
+
+	## l5
+	if selB.y > 204
+		selB_real.y = 204
+		selection_copy.height = 253
+		#其他行
+		mask1.width = 853
+		mask2.width = 853
+		mask3.width = 853
+		mask4.width = 853
+		mask5.width = 0
+		
+		## 限定范围
+		if selB.x >= 757
+			selB.x = 757
+			mask5.width = 696
+			selB_real.x = 757
+		
+		if selB.x <= 61
+			selB.x = 61
+			mask5.width = 0
+			selB_real.x = 61
+			
+		## 按字号递进
+		else 
+			selB_real.x = Math.round(selB.x/32.4)*32.4
+			mask5.width = selB_real.x - 61
+			
+	## l4
+	if selB.y < 204 && selB.y > 154
+		selB_real.y = 154
+		selection_copy.height = 203
+		#其他行
+		mask1.width = 853
+		mask2.width = 853
+		mask3.width = 853
+		mask5.width = 0
+		
+		if selB.x >= 900
+			selB.x = 904
+			mask4.width = 853
+			selB_real.x = 904
+		
+		if selB.x <= 61
+			selB.x = 61
+			mask4.width = 0
+			selB_real.x = 61
+			
+		## 按字号递进
+		else 
+			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			mask4.width = selB_real.x - 61
+			
+	## l3
+	if selB.y < 154 && selB.y > 104
+		selB_real.y = 104
+		selection_copy.height = 153
+		#其他行
+		mask1.width = 853
+		mask2.width = 853
+		mask4.width = 0
+		mask5.width = 0
+		
+		if selB.x >= 900
+			selB.x = 904
+			mask3.width = 853
+			selB_real.x = 904
+		
+		if selB.x <= 61
+			selB.x = 61
+			mask3.width = 0
+			selB_real.x = 61
+			
+		## 按字号递进
+		else 
+			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			mask3.width = selB_real.x - 61
+	
+	## l2
+	if selB.y < 104 && selB.y > 54
+		selB_real.y = 54
+		selection_copy.height = 103
+		#其他行
+		mask1.width = 853
+		mask3.width = 0
+		mask4.width = 0
+		mask5.width = 0
+		
+		if selB.x >= 900
+			selB.x = 904
+			mask2.width = 853
+			selB_real.x = 894
+		
+		if selB.x <= 61
+			selB.x = 61
+			mask2.width = 0
+			selB_real.x = 61
+			
+		## 按字号递进
+		else 
+			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			mask2.width = selB_real.x - 61
+	
+	## l1
+	if selB.y < 54 && selB.y > 0
+		selB_real.y = 0
+		selection_copy.height = 53
+		#其他行
+		mask2.width = 0
+		mask3.width = 0
+		mask4.width = 0
+		mask5.width = 0
+		
+		if selB.x >= 900
+			selB.x = 904
+			mask1.width = 853
+			selB_real.x = 904
+		
+		if selB.x <= 61
+			selB.x = 61
+			mask1.width = 0
+			selB_real.x = 61
+			
+		## 按字号递进
+		else 
+			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			mask1.width = selB_real.x - 61
+			
 
 
 
+
+########################### diagnoal swipe part ###########################
 
 weibo_Page.on Events.Pan, (event) ->
 	if scaled == 0 
@@ -845,6 +1089,7 @@ bgColor.onTap ->
 		Utils.delay 0.2, ->
 			black_mask.states.switch("disappeared")
 			ReSize()
+			selReSize()
 		Utils.delay 0.6, ->
 			container.ignoreEvents = true
 			selection_copy.ignoreEvents = true
@@ -853,20 +1098,27 @@ bgColor.onTap ->
 			
 		
 			
-##############
+########################### image selection part ###########################
 
 container.on Events.Tap, (event) ->
 	if scaled == 1
+		topisOnTapped = 0
 		dragger_container.states.switch("showed")
 		container.states.switch("showed")
+		
 		black_mask.states.switch("showed")
+		
 		darker_image.states.switchInstant("blacked")
+		
 		container.draggable.enabled = true
 		container.draggable.constraints = constraintsA.frame
-		selection.states.switch("disappeared")
-		selection_copy.states.switch("disappeared")
+		
+		selection.states.switchInstant("disappeared")
+		selection_copy.states.switchInstant("disappeared")
 		selection_copy.draggable.enabled = false
-			
+		
+		Utils.delay 0.2, ->
+			selReSize()
 
 
 container.on Events.DragStart, (event) ->
@@ -875,6 +1127,7 @@ container.on Events.DragStart, (event) ->
 		darker_image.states.switchInstant("blacked")
 		container.states.switchInstant("showed")
 		container.states.switchInstant("shadowblack")
+		selection_copy.ignoreEvents = true
 
 container.on Events.DragEnd, (event) ->
 	for layers in layerArrays
@@ -914,7 +1167,10 @@ container.on Events.DragEnd, (event) ->
 					curve: "ease-out"
 				container.states.switch("shadowwhite")
 				
+				selection_copy.ignoreEvents = false
+				
 		else
+			
 			dragger_container.scale = 1
 			darker_image.opacity = 0.5
 			
@@ -924,14 +1180,18 @@ container.on Events.DragEnd, (event) ->
 					opacity:1
 				time:0.3
 				curve: "ease-out"
+				
+			Utils.delay 0.9, ->
+				container.states.switch("shadowwhite")
+				selection_copy.ignoreEvents = false
+			
 			dragger_container.animate
 				properties:
 					opacity:1
 				time:0.3
-				delay:1
+				delay: 1
 				curve: "ease-out"
-			Utils.delay 0.9, ->
-				container.states.switch("shadowwhite")
+
 				
 container.on Events.DragMove, (event)->
 	point = Utils.convertPointFromContext(event.touchCenter, container, true, false)
@@ -1061,25 +1321,29 @@ wechat_hitarea_cancel.onTap ->
 		ReSize()
 		
 		
-#############
+########################### text selection part ###########################
 
 
 selection_copy.on Events.Tap, (event) ->
 	if scaled == 1
-		Utils.delay 0.2,->
-			ReSize()
-		dragger_container.states.switch("disappeared")
-		container.states.switch("disappeared")
+		topisOnTapped = 1
+		dragger_container.states.switchInstant("disappeared")
+		container.states.switchInstant("disappeared")
 		container.draggable.enabled = false
 		darker_image.states.switchInstant("blacked")
+		
 		black_mask.states.switch("showed")
+		
 		selection.states.switch("showed")
 		selection_copy.states.switch("showed")
 		selection_copy.draggable.enabled = true
 		selection_copy.draggable.constraints = constraintsB.frame
 		
+		Utils.delay 0.2, ->
+			ReSize()
+		
+		
 selection_copy.on Events.DragStart, (event) ->
-	point = Utils.convertPointFromContext(event.touchCenter, selection_copy, true, false)
 	if scaled == 1
 		selection_copy.animate
 			properties:
@@ -1087,6 +1351,7 @@ selection_copy.on Events.DragStart, (event) ->
 			curve: "ease-in"
 			time: .2
 		selection.states.switchInstant("disappeared")
+		container.ignoreEvents = true
 
 
 selection_copy.on Events.DragEnd, (event) ->
@@ -1126,23 +1391,28 @@ selection_copy.on Events.DragEnd, (event) ->
 						y:0
 					time: .4
 					curve: "ease-out"
+					
+				container.ignoreEvents = false
 
 				
 		else
 			selection_copy.animate
 				properties:
 					opacity:1
-					scale:1.25
-				time:0.4
+					scale:1
+				time:0.3
 				curve: "ease-out"
 				
 			selection.animate
 				properties:
 					opacity:1
-					scale:1.25
-				time:0.4
+					scale:1
+				time:0.3
 				delay:1
 				curve: "ease-out"
+				
+			Utils.delay 1.2, ->
+				container.ignoreEvents = false
 				
 selection_copy.on Events.DragMove, (event)->
 	point = Utils.convertPointFromContext(event.touchCenter, selection_copy, true, false)
@@ -1177,7 +1447,7 @@ selection_copy.on Events.DragMove, (event)->
 		else 
 			selection_copy.animate
 				properties:
-					scale:1.25
+					scale:1
 					opacity:1
 				time:0.08
 				curve: "ease-out"
@@ -1215,8 +1485,7 @@ wechat_diaglog_h2.onTap ->
 	wechat_black.states.switch("disappeared")
 	wechat_diaglog.states.switch("disappeared")
 	darker_image.states.switchInstant("blacked")
-	selection.states.switch("showed")
-	selection_copy.states.switch("showed")
+
 
 						
 wechat_screen4.onTap ->
@@ -1238,6 +1507,10 @@ wechat_screen4.onTap ->
 	Utils.delay 0.4, ->
 		wechat_screen3.x = 0
 		wechat_screen4.x = 1080
-
+	
+	Utils.delay 0.35, ->
+		selection.states.switch("showed")
+		selection_copy.states.switch("showed")
+		selReSize()
 
 
