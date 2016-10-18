@@ -1056,6 +1056,9 @@ selection_copy.on Events.Tap, (event) ->
 		selection_copy.draggable.enabled = true
 		selection_copy.draggable.constraints = constraintsB.frame
 		
+		Utils.delay 0.2, ->
+			ReSize()
+		
 		
 selection_copy.on Events.DragStart, (event) ->
 	if scaled == 1
