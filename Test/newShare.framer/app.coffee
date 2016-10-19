@@ -2,18 +2,23 @@
 # This info is presented in a widget when you share.
 # http://framerjs.com/docs/#info.info
 
-Framer.Info =
-	title: ""
-	author: "KingMartin"
-	twitter: ""
-	description: ""
-
-
 ########################### init layer ###########################
+
+## Window Responsive
+# default_w = 1080
+# default_h = 1920
+# screen_width = Framer.Device.screen.width 
+# screen_height = Framer.Device.screen.height
+ratio = Screen.width / 1080
+# Framer.Device.contentScale = ratio
+
 
 Cool = new Layer
 	width: 1080
 	height: 1920
+	originX: 0.00
+	originY: 0.00
+	scale: ratio
 
 spring1 = 'spring(250,25,0)'	
 
@@ -179,47 +184,58 @@ darker_image = new Layer
 
 selection_copy = new Layer
 	width: 852
-	height: 264
+	height: 250
 	x:115
 	y:380
 	backgroundColor: "transparent"
 	scale: 1
-	opacity: 0.26
 	
 mask1 = new Layer
 	width: 853
-	height: 53
+	height: 52
 	x:0
 	y:-1
 	clip: true
 	backgroundColor: "transparent"
+	originX: 0.00
+	originY: 0.00
+	scaleY: 1.01
 	
 mask2 = new Layer
 	width: 853
-	height: 53
+	height: 49
 	x:0
-	y:50
+	y:51
 	clip: true
 	backgroundColor: "transparent"
+	originX: 0.00
+	originY: 0.00
+	scaleY: 1.01
 	
 mask3 = new Layer
 	width: 853
-	height: 53
+	height: 50
 	x:0
 	y:100
 	clip: true
 	backgroundColor: "transparent"
+	originX: 0.00
+	originY: 0.00
+	scaleY: 1.01
 	
 mask4 = new Layer
 	width: 853
-	height: 53
+	height: 50
 	x:0
 	y:150
 	clip: true
 	backgroundColor: "transparent"
+	scaleY: 1.01
+	originX: 0.00
+	originY: 0.00
 	
 mask5 = new Layer
-	width: 853
+	width: 682
 	height: 53
 	x:0
 	y:200
@@ -267,7 +283,7 @@ mask5.addSubLayer(l5)
 selB = new Layer
 	width: 122
 	height: 138
-	x: 757
+	x: 743
 	y: 204
 	opacity:  0 
 
@@ -277,8 +293,10 @@ selB_real = new Layer
 	width: 61
 	height: 138
 	image: "images/Selb.png"
-	x: 757
+	x: 743
 	y: 204
+
+selB.midX  = selB_real.midX
 
 selD_real = new Layer
 	width: 61
@@ -295,7 +313,7 @@ selBConstraint = new Layer
 	x: 61
 	y: 20
 	
-selB.draggable.enabled = true
+selB.draggable.enabled = false
 selB.draggable.momentum = false
 selB.draggable.overdrag = false
 selB.draggable.bounce = false
@@ -303,7 +321,7 @@ selB.draggable.constraints = selBConstraint.frame
 
 selection = new Layer 
 	width: 1000
-	height: 359
+	height: 250
 	x:54
 	y:380
 	backgroundColor: "transparent"
@@ -471,6 +489,8 @@ constraintsB = new Layer
 
 topisOnTapped = 0
 scaled = 0
+prevent1 = 0
+prevent2 = 0
 Framer.Extras.Hints.disable()
 layerArrays = [av_icon1A,av_icon2A,av_icon3A,av_icon4A,av_icon5A,av_icon6A]
 
@@ -533,7 +553,7 @@ ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1, sourceHeight*1, destX, 
 selection_dragger_tl = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 0
@@ -542,7 +562,7 @@ selection_dragger_tl = new Layer
 selection_dragger_tr = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 812
@@ -551,7 +571,7 @@ selection_dragger_tr = new Layer
 selection_dragger_bl = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 0
@@ -560,7 +580,7 @@ selection_dragger_bl = new Layer
 selection_dragger_br = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 812
@@ -569,34 +589,42 @@ selection_dragger_br = new Layer
 selectb_1 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
+	scale: 0.23
 	image: "images/selectb_1.png"
-	x: -13
+	x: -14
 	y: -14
+	scaleY: 1.05
+	scaleX: 0.97
 
 selectb_2 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
-	x: -23
+	scale: 0.23
+	x: -20
 	y: -14
+	scaleY: 1.05
+	scaleX: 0.97
 	image: "images/selectb_2.png"
 	
 selectb_3 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
-	x: -13
-	y: -24
+	scale: 0.23
+	scaleY: 1.05
+	scaleX: 0.97
+	x: -14
+	y: -21
 	image: "images/selectb_3.png"
 
 selectb_4 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
+	scale: 0.23
+	scaleY: 1.05
+	scaleX: 0.97
 	image: "images/selectb_4.png"
-	x: -23
-	y: -24
+	x: -20
+	y: -21
 	
 selectionbarArrays = [selection_dragger_bl,selection_dragger_br,selection_dragger_tl,selection_dragger_tr]
 	
@@ -772,6 +800,7 @@ ReSize = ->
 		constraintsA.y = 644
 		constraintsA.width = 812 
 		constraintsA.height = 876
+		darker_image.opacity = 0.5
 		
 ReRender = ->
 			
@@ -831,6 +860,9 @@ dragger_container.states.add
 	disappeared:
 		opacity: 0
 		scale:0.95
+	none:
+		opacity: 0
+		scale:0.95
 dragger_container.states.animationOptions =		
 	curve: "spring(450, 18, 0)"
 dragger_container.states.switchInstant("disappeared")
@@ -842,21 +874,26 @@ dragger_container.states.switchInstant("disappeared")
 container.ignoreEvents = true
 selection_copy.ignoreEvents = true
 
+selection_dragger_tr.draggable.enabled = false
+selection_dragger_tl.draggable.enabled = false
+selection_dragger_br.draggable.enabled = false
+selection_dragger_bl.draggable.enabled = false
+
 ###################### crop text ##########################
 	
 ##selection_copy
 
 selReSize = ->
-	selB.x = 757
-	selB_real.x = 757
+	selB.x = 743
+	selB_real.x = 743
 	selB.y = 204
 	selB_real.y = 204
 	mask1.width = 853
 	mask2.width = 853
 	mask3.width = 853
 	mask4.width = 853
-	mask5.width = 696
-	selection_copy.height = 264
+	mask5.width = 682
+	selection_copy.height = 250
 
 
 selB.on Events.DragEnd, (event)->
@@ -868,7 +905,7 @@ selB.on Events.Drag, (event)->
 	## l5
 	if selB.y > 204
 		selB_real.y = 204
-		selection_copy.height = 253
+		selection_copy.height = 250
 		#其他行
 		mask1.width = 853
 		mask2.width = 853
@@ -879,17 +916,17 @@ selB.on Events.Drag, (event)->
 		## 限定范围
 		if selB.x >= 757
 			selB.x = 757
-			mask5.width = 696
+			mask5.width = 682
 			selB_real.x = 757
 		
-		if selB.x <= 61
-			selB.x = 61
+		if selB.x <= 90
+			selB.x = 90
 			mask5.width = 0
 			selB_real.x = 61
 			
 		## 按字号递进
 		else 
-			selB_real.x = Math.round(selB.x/32.4)*32.4
+			selB_real.x = Math.round(selB.x/32.4)*32.4 + (21 - Math.round(selB.x/32.4)) * 1.08
 			mask5.width = selB_real.x - 61
 			
 	## l4
@@ -907,14 +944,14 @@ selB.on Events.Drag, (event)->
 			mask4.width = 853
 			selB_real.x = 904
 		
-		if selB.x <= 61
-			selB.x = 61
+		if selB.x <= 110
+			selB.x = 110
 			mask4.width = 0
 			selB_real.x = 61
 			
 		## 按字号递进
 		else 
-			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			selB_real.x = Math.round(selB.x/32.4)*32.4 - (25 - Math.round(selB.x/32.4)) * 1.25 + 4
 			mask4.width = selB_real.x - 61
 			
 	## l3
@@ -932,14 +969,14 @@ selB.on Events.Drag, (event)->
 			mask3.width = 853
 			selB_real.x = 904
 		
-		if selB.x <= 61
-			selB.x = 61
+		if selB.x <= 110
+			selB.x = 110
 			mask3.width = 0
 			selB_real.x = 61
 			
 		## 按字号递进
 		else 
-			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			selB_real.x = Math.round(selB.x/32.4)*32.4 - (25 - Math.round(selB.x/32.4)) * 1.25 + 4
 			mask3.width = selB_real.x - 61
 	
 	## l2
@@ -957,14 +994,14 @@ selB.on Events.Drag, (event)->
 			mask2.width = 853
 			selB_real.x = 894
 		
-		if selB.x <= 61
-			selB.x = 61
+		if selB.x <= 110
+			selB.x = 110
 			mask2.width = 0
 			selB_real.x = 61
 			
 		## 按字号递进
 		else 
-			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			selB_real.x = Math.round(selB.x/32.4)*32.4 - (25 - Math.round(selB.x/32.4)) * 1.25 + 4
 			mask2.width = selB_real.x - 61
 	
 	## l1
@@ -982,14 +1019,14 @@ selB.on Events.Drag, (event)->
 			mask1.width = 853
 			selB_real.x = 904
 		
-		if selB.x <= 61
-			selB.x = 61
+		if selB.x <= 110
+			selB.x = 110
 			mask1.width = 0
 			selB_real.x = 61
 			
 		## 按字号递进
 		else 
-			selB_real.x = Math.round(selB.x/32.4)*32.4 + 8
+			selB_real.x = Math.round(selB.x/32.4)*32.4 - (25 - Math.round(selB.x/32.4)) * 1.25 + 4
 			mask1.width = selB_real.x - 61
 			
 
@@ -1035,9 +1072,11 @@ weibo_Page.on Events.PanEnd, (event) ->
 		if Math.abs(event.velocity.x) > 0.2 && Math.abs(event.velocity.y) > 0.2 && progress > 0.15
 			ReRender()
 			weibo_Page.ignoreEvents = true
+			
 			weibo_Page.states.switch("scaledown")
 			tips_text.states.switch("scaledown")
 			scaled = 1
+			selB.draggable.enabled = true
 			for layers,i in layerArrays
 				layers.animate
 					properties:
@@ -1071,6 +1110,11 @@ black_mask.onTap ->
 bgColor.onTap ->
 	if scaled == 1
 		scaled = 0
+		selB.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = false
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
 		dragger_container.states.switchInstant("disappeared")
@@ -1078,6 +1122,10 @@ bgColor.onTap ->
 		selection.states.switchInstant("disappeared")
 		selection_copy.states.switchInstant("disappeared")
 		weibo_Page.ignoreEvents = false
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
 		
 		for layers,i in layerArrays
 			layers.animate
@@ -1105,6 +1153,12 @@ container.on Events.Tap, (event) ->
 		dragger_container.states.switch("showed")
 		container.states.switch("showed")
 		
+		selB.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
+		
 		black_mask.states.switch("showed")
 		
 		darker_image.states.switchInstant("blacked")
@@ -1128,6 +1182,7 @@ container.on Events.DragStart, (event) ->
 		container.states.switchInstant("shadowblack")
 		selection_copy.ignoreEvents = true
 
+
 container.on Events.DragEnd, (event) ->
 	for layers in layerArrays
 		layers.animate
@@ -1135,10 +1190,8 @@ container.on Events.DragEnd, (event) ->
 				scale: 1
 				opacity: 1
 			time: .2
-			
 	if scaled == 1
 		if container.midY > av_icon1A.y  && container.midX < av_icon1A.maxX + 10
-			
 			container.animate
 				properties:
 					midX: av_icon1A.midX-100
@@ -1147,8 +1200,9 @@ container.on Events.DragEnd, (event) ->
 					opacity: 0
 				time:0.2
 				curve: "ease-out"
-				
 			Utils.delay 0.2, -> Transition()
+			
+			dragger_container.visible = false
 			
 			Transition = ->
 				dragger_container.states.switchInstant("disappeared")
@@ -1169,7 +1223,6 @@ container.on Events.DragEnd, (event) ->
 				selection_copy.ignoreEvents = false
 				
 		else
-			
 			dragger_container.scale = 1
 			darker_image.opacity = 0.5
 			
@@ -1283,6 +1336,7 @@ wechat_screen2.onTap ->
 		container.scale = 1
 		container.states.switch("showed")
 		dragger_container.states.switch("showed")
+		dragger_container.visible = true
 		ReSize()
 		
 wechat_hitarea_cancel.onTap ->
@@ -1317,6 +1371,7 @@ wechat_hitarea_cancel.onTap ->
 		container.scale = 1
 		container.states.switch("showed")
 		dragger_container.states.switch("showed")
+		dragger_container.visible = true
 		ReSize()
 		
 		
@@ -1330,6 +1385,13 @@ selection_copy.on Events.Tap, (event) ->
 		container.states.switchInstant("disappeared")
 		container.draggable.enabled = false
 		darker_image.states.switchInstant("blacked")
+		
+		selB.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = false
+		
 		
 		black_mask.states.switch("showed")
 		
@@ -1372,6 +1434,7 @@ selection_copy.on Events.DragEnd, (event) ->
 					opacity: 0
 				curve: "spring( 300, 20, 0 )"
 				
+			selection.visible = false
 			
 			Utils.delay 0.2, -> Transition2()
 			
@@ -1420,7 +1483,7 @@ selection_copy.on Events.DragMove, (event)->
 	selection.states.switchInstant("disappeared")
 	
 	for layers,i in layerArrays
-		if selection_copy.midY > 1800
+		if selection_copy.midY > 1550
 			selection_copy.animate
 				properties:
 					scale:0.7
@@ -1510,6 +1573,7 @@ wechat_screen4.onTap ->
 	Utils.delay 0.35, ->
 		selection.states.switch("showed")
 		selection_copy.states.switch("showed")
+		selection.visible = true
 		selReSize()
 
 
