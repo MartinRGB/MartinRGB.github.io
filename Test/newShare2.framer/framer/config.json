@@ -5,12 +5,12 @@
   "deviceOrientation" : 0,
   "sharedPrototype" : 0,
   "contentScale" : 1,
-  "deviceType" : "apple-iphone-6s-silver",
+  "deviceType" : "google-nexus-5x",
   "selectedHand" : "",
   "updateDelay" : 0.3,
   "deviceScale" : "fit",
-  "codeFolds" : [
-
+  "foldedCodeRanges" : [
+    "{0, 185}"
   ],
   "orientation" : 0,
   "fullScreen" : false
