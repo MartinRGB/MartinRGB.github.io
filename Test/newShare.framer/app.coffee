@@ -265,9 +265,8 @@ mask5.addSubLayer(l5)
 
 ##Selection_bar
 selB = new Layer
-	width: 61
+	width: 122
 	height: 138
-	image: "images/Selb.png"
 	x: 757
 	y: 204
 	opacity:  0 
@@ -862,7 +861,7 @@ selReSize = ->
 
 selB.on Events.DragEnd, (event)->
 	selB.y  = selB_real.y
-	selB.x  = selB_real.x
+	selB.midX  = selB_real.midX
 	
 selB.on Events.Drag, (event)->
 
