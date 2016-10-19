@@ -18,19 +18,19 @@ screen_width = Framer.Device.screen.width
 screen_height = Framer.Device.screen.height
 ratio = screen_width / default_w
 Framer.Device.contentScale = ratio
-Framer.Defaults.Layer.force2d = true
 
 all = new Layer
   width: default_w  # <-- The width will be 750 
   height: default_h # <-- The height will be 1334
-  scale: ratio      # <-- The ratio we got from the equation
+  scale: ratio
   originY: 0        # <-- This moves the origin of scale to top left
+  originX: 0
   y: 0              # <-- Make this layer to the top
-all.centerX()       # <-- And we center the X position 
+  x:0
 
 Cool = new Layer
-	width: 1080
-	height: 1920
+	width: default_w
+	height: default_h
 	parent: all
 
 spring1 = 'spring(250,25,0)'	
