@@ -296,6 +296,8 @@ selB_real = new Layer
 	x: 743
 	y: 204
 
+selB.midX  = selB_real.midX
+
 selD_real = new Layer
 	width: 61
 	height: 138
