@@ -171,16 +171,26 @@ black_mask = new Layer
 	opacity: 1
 	scale: 1
 	backgroundColor: "#000"
-	
+
+imageObj = new Image
+imageObj.src = "https://source.unsplash.com/random/812x876"
 
 darker_image = new Layer
 	x:33
 	y:690
 	width: 1014
 	height: 1095
-	image: "images/lighter_image.jpg"
+	image: imageObj.src
 
+darker_image_base = new Layer
+	x:33
+	y:690
+	width: 1014
+	height: 1095
+	image: imageObj.src
 
+weibo_Page.addSubLayer(darker_image_base)
+darker_image_base.placeBehind(black_mask)
 
 selection_copy = new Layer
 	width: 852
@@ -526,8 +536,6 @@ myCanvas.setAttribute("height","876px")
 myCanvas.setAttribute("style","border: 0px solid white;background:transparent")
 myCanvas.style.backgroundSize = "cover";
 
-imageObj = new Image
-imageObj.src = "images/lighter_image.jpg"
 
 container._element.appendChild(myCanvas)
 
