@@ -487,6 +487,8 @@ constraintsB = new Layer
 
 topisOnTapped = 0
 scaled = 0
+prevent1 = 0
+prevent2 = 0
 Framer.Extras.Hints.disable()
 layerArrays = [av_icon1A,av_icon2A,av_icon3A,av_icon4A,av_icon5A,av_icon6A]
 
@@ -1178,6 +1180,7 @@ container.on Events.DragStart, (event) ->
 		container.states.switchInstant("shadowblack")
 		selection_copy.ignoreEvents = true
 
+
 container.on Events.DragEnd, (event) ->
 	for layers in layerArrays
 		layers.animate
@@ -1185,10 +1188,8 @@ container.on Events.DragEnd, (event) ->
 				scale: 1
 				opacity: 1
 			time: .2
-			
 	if scaled == 1
 		if container.midY > av_icon1A.y  && container.midX < av_icon1A.maxX + 10
-
 			container.animate
 				properties:
 					midX: av_icon1A.midX-100
@@ -1197,8 +1198,9 @@ container.on Events.DragEnd, (event) ->
 					opacity: 0
 				time:0.2
 				curve: "ease-out"
-			
 			Utils.delay 0.2, -> Transition()
+			
+			dragger_container.visible = false
 			
 			Transition = ->
 				dragger_container.states.switchInstant("disappeared")
@@ -1332,6 +1334,7 @@ wechat_screen2.onTap ->
 		container.scale = 1
 		container.states.switch("showed")
 		dragger_container.states.switch("showed")
+		dragger_container.visible = true
 		ReSize()
 		
 wechat_hitarea_cancel.onTap ->
@@ -1366,6 +1369,7 @@ wechat_hitarea_cancel.onTap ->
 		container.scale = 1
 		container.states.switch("showed")
 		dragger_container.states.switch("showed")
+		dragger_container.visible = true
 		ReSize()
 		
 		
@@ -1428,6 +1432,7 @@ selection_copy.on Events.DragEnd, (event) ->
 					opacity: 0
 				curve: "spring( 300, 20, 0 )"
 				
+			selection.visible = false
 			
 			Utils.delay 0.2, -> Transition2()
 			
@@ -1566,6 +1571,7 @@ wechat_screen4.onTap ->
 	Utils.delay 0.35, ->
 		selection.states.switch("showed")
 		selection_copy.states.switch("showed")
+		selection.visible = true
 		selReSize()
 
 
