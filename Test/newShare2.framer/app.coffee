@@ -2,36 +2,23 @@
 # This info is presented in a widget when you share.
 # http://framerjs.com/docs/#info.info
 
-Framer.Info =
-	title: ""
-	author: "KingMartin"
-	twitter: ""
-	description: ""
-
-
 ########################### init layer ###########################
 
 ## Window Responsive
-default_w = 1080
-default_h = 1920
-screen_width = Framer.Device.screen.width 
-screen_height = Framer.Device.screen.height
-ratio = screen_width / default_w
-Framer.Device.contentScale = ratio
+# default_w = 1080
+# default_h = 1920
+# screen_width = Framer.Device.screen.width 
+# screen_height = Framer.Device.screen.height
+ratio = Screen.width / 1080
+# Framer.Device.contentScale = ratio
 
-all = new Layer
-  width: default_w  # <-- The width will be 750 
-  height: default_h # <-- The height will be 1334
-  scale: ratio
-  originY: 0        # <-- This moves the origin of scale to top left
-  originX: 0
-  y: 0              # <-- Make this layer to the top
-  x:0
 
 Cool = new Layer
-	width: default_w
-	height: default_h
-	parent: all
+	width: 1080
+	height: 1920
+	originX: 0.00
+	originY: 0.00
+	scale: ratio
 
 spring1 = 'spring(250,25,0)'	
 
