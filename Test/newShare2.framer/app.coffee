@@ -184,7 +184,7 @@ darker_image = new Layer
 
 selection_copy = new Layer
 	width: 852
-	height: 264
+	height: 250
 	x:115
 	y:380
 	backgroundColor: "transparent"
@@ -311,7 +311,7 @@ selBConstraint = new Layer
 	x: 61
 	y: 20
 	
-selB.draggable.enabled = true
+selB.draggable.enabled = false
 selB.draggable.momentum = false
 selB.draggable.overdrag = false
 selB.draggable.bounce = false
@@ -319,7 +319,7 @@ selB.draggable.constraints = selBConstraint.frame
 
 selection = new Layer 
 	width: 1000
-	height: 359
+	height: 250
 	x:54
 	y:380
 	backgroundColor: "transparent"
@@ -549,7 +549,7 @@ ctx.drawImage(imageObj, sourceX, sourceY, sourceWidth*1, sourceHeight*1, destX, 
 selection_dragger_tl = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 0
@@ -558,7 +558,7 @@ selection_dragger_tl = new Layer
 selection_dragger_tr = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 812
@@ -567,7 +567,7 @@ selection_dragger_tr = new Layer
 selection_dragger_bl = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 0
@@ -576,7 +576,7 @@ selection_dragger_bl = new Layer
 selection_dragger_br = new Layer
 	width: 40
 	height: 40
-	scale:2
+	scale:4
 	backgroundColor: "transparent"
 	borderRadius: 100
 	x: 812
@@ -585,34 +585,42 @@ selection_dragger_br = new Layer
 selectb_1 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
+	scale: 0.23
 	image: "images/selectb_1.png"
-	x: -13
+	x: -14
 	y: -14
+	scaleY: 1.05
+	scaleX: 0.97
 
 selectb_2 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
-	x: -23
+	scale: 0.23
+	x: -20
 	y: -14
+	scaleY: 1.05
+	scaleX: 0.97
 	image: "images/selectb_2.png"
 	
 selectb_3 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
-	x: -13
-	y: -24
+	scale: 0.23
+	scaleY: 1.05
+	scaleX: 0.97
+	x: -14
+	y: -21
 	image: "images/selectb_3.png"
 
 selectb_4 = new Layer
 	width: 72
 	height: 72
-	scale: 0.4
+	scale: 0.23
+	scaleY: 1.05
+	scaleX: 0.97
 	image: "images/selectb_4.png"
-	x: -23
-	y: -24
+	x: -20
+	y: -21
 	
 selectionbarArrays = [selection_dragger_bl,selection_dragger_br,selection_dragger_tl,selection_dragger_tr]
 	
@@ -788,6 +796,7 @@ ReSize = ->
 		constraintsA.y = 644
 		constraintsA.width = 812 
 		constraintsA.height = 876
+		darker_image.opacity = 0.5
 		
 ReRender = ->
 			
@@ -847,6 +856,9 @@ dragger_container.states.add
 	disappeared:
 		opacity: 0
 		scale:0.95
+	none:
+		opacity: 0
+		scale:0.95
 dragger_container.states.animationOptions =		
 	curve: "spring(450, 18, 0)"
 dragger_container.states.switchInstant("disappeared")
@@ -857,6 +869,11 @@ dragger_container.states.switchInstant("disappeared")
 
 container.ignoreEvents = true
 selection_copy.ignoreEvents = true
+
+selection_dragger_tr.draggable.enabled = false
+selection_dragger_tl.draggable.enabled = false
+selection_dragger_br.draggable.enabled = false
+selection_dragger_bl.draggable.enabled = false
 
 ###################### crop text ##########################
 	
@@ -872,7 +889,7 @@ selReSize = ->
 	mask3.width = 853
 	mask4.width = 853
 	mask5.width = 682
-	selection_copy.height = 264
+	selection_copy.height = 250
 
 
 selB.on Events.DragEnd, (event)->
@@ -884,7 +901,7 @@ selB.on Events.Drag, (event)->
 	## l5
 	if selB.y > 204
 		selB_real.y = 204
-		selection_copy.height = 253
+		selection_copy.height = 250
 		#其他行
 		mask1.width = 853
 		mask2.width = 853
@@ -1051,9 +1068,11 @@ weibo_Page.on Events.PanEnd, (event) ->
 		if Math.abs(event.velocity.x) > 0.2 && Math.abs(event.velocity.y) > 0.2 && progress > 0.15
 			ReRender()
 			weibo_Page.ignoreEvents = true
+			
 			weibo_Page.states.switch("scaledown")
 			tips_text.states.switch("scaledown")
 			scaled = 1
+			selB.draggable.enabled = true
 			for layers,i in layerArrays
 				layers.animate
 					properties:
@@ -1087,6 +1106,11 @@ black_mask.onTap ->
 bgColor.onTap ->
 	if scaled == 1
 		scaled = 0
+		selB.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = false
 		weibo_Page.states.switch("scaleup")
 		tips_text.states.switch("scaleup")
 		dragger_container.states.switchInstant("disappeared")
@@ -1094,6 +1118,10 @@ bgColor.onTap ->
 		selection.states.switchInstant("disappeared")
 		selection_copy.states.switchInstant("disappeared")
 		weibo_Page.ignoreEvents = false
+		selection_dragger_tr.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_bl.draggable.enabled = false
 		
 		for layers,i in layerArrays
 			layers.animate
@@ -1120,6 +1148,12 @@ container.on Events.Tap, (event) ->
 		topisOnTapped = 0
 		dragger_container.states.switch("showed")
 		container.states.switch("showed")
+		
+		selB.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = true
+		selection_dragger_tl.draggable.enabled = true
+		selection_dragger_br.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = true
 		
 		black_mask.states.switch("showed")
 		
@@ -1154,7 +1188,7 @@ container.on Events.DragEnd, (event) ->
 			
 	if scaled == 1
 		if container.midY > av_icon1A.y  && container.midX < av_icon1A.maxX + 10
-			
+
 			container.animate
 				properties:
 					midX: av_icon1A.midX-100
@@ -1163,7 +1197,7 @@ container.on Events.DragEnd, (event) ->
 					opacity: 0
 				time:0.2
 				curve: "ease-out"
-				
+			
 			Utils.delay 0.2, -> Transition()
 			
 			Transition = ->
@@ -1185,7 +1219,6 @@ container.on Events.DragEnd, (event) ->
 				selection_copy.ignoreEvents = false
 				
 		else
-			
 			dragger_container.scale = 1
 			darker_image.opacity = 0.5
 			
@@ -1346,6 +1379,13 @@ selection_copy.on Events.Tap, (event) ->
 		container.states.switchInstant("disappeared")
 		container.draggable.enabled = false
 		darker_image.states.switchInstant("blacked")
+		
+		selB.draggable.enabled = true
+		selection_dragger_bl.draggable.enabled = false
+		selection_dragger_tl.draggable.enabled = false
+		selection_dragger_br.draggable.enabled = false
+		selection_dragger_tr.draggable.enabled = false
+		
 		
 		black_mask.states.switch("showed")
 		
