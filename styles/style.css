@@ -292,29 +292,6 @@ input:-moz-placeholder {
 textarea:-moz-placeholder {
     color: #a9a9a9;
 }
-.canvasContainer{
-    display: block;
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-}
-.glslCanvas{
-    /*height: 800px;
-    width: 800px;*/
-    z-index: -1;
-    height: 560px;
-    width: 560px;
-    display: block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-
-/*    height: 800px;
-    width: 960px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;*/
-}
 
 .container {
     width: 960px;

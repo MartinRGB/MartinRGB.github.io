@@ -60,9 +60,9 @@
                         uniform float u_time;
 
                         const bool GlowEnabled = true;
-                        const float Circumradius = 0.05;
+                        const float Circumradius = 0.08;
                         const float WallDistance = 0.01;
-                        const float GlowDistance = 0.16974;
+                        const float GlowDistance = 0.11974;
 
                         const bool Jitter = true;
                         const float MarchDumping = 0.658;
@@ -274,7 +274,7 @@
                                 if (t > tmax) {
                                     break;
                                 }
-                                glowFactor += pow(1.0 - smoothstep(0.0, GlowDistance, d), 14.0)
+                                glowFactor += pow(1.0 - smoothstep(-0.001, GlowDistance, d), 14.0)
                                         * step(0.0, d);
                                 float f = absd * (1.0 - smoothstep(0.0, WallDistance, absd));
                                 accu += vec3(f);
@@ -296,6 +296,7 @@
 
                         vec3 mainImage(vec2 fragCoord) {
                             vec2 p = fragCoord.xy / u_resolution.xy;
+                            p.y -= 0.15;
                             vec2 uv = 2.0 * p - 1.0;
                             uv.x *= u_resolution.x / u_resolution.y;
 
@@ -325,7 +326,7 @@
                         }
 
                     "
-                    >
+                    style="background-color: rgba(1, 1, 1, 0);z-index: -1;height: 800px;width: 800px;display: block;position: absolute;margin-left: auto;margin-right: auto;" width="1120" height="1120">
                 </canvas>
                 <a class="smileface firstimpression">
                 <!-- <img src="http://7xqdw6.com1.z0.glb.clouddn.com/RedFace.png" alt=""> -->
