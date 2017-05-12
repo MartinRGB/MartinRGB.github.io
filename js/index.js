@@ -22,6 +22,11 @@ function bootstrap() {
             info.style.height = (h - 115) + 'px';
             //glslcanvas.style.height = (h/3) + 'px';
         }
+
+        // if (w <=680){
+        //     msmileface.style.s = 'none';
+        // }
+
     }, true);
 }
 
