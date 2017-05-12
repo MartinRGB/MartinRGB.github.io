@@ -944,6 +944,7 @@ a.hamburger-icon.active .line-3 {
     height: 854px;
   }
 
+
   .handcontainer {
     width: 406px;
     height: 614px;
@@ -1031,6 +1032,7 @@ a.hamburger-icon.active .line-3 {
   body , .container, .white {
     width: 100%
   }
+
 
   .contactoverflowfix{
     overflow: hidden;
