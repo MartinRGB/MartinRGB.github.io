@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="http://7xqdw6.com1.z0.glb.clouddn.com/iconfont.css">
     <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?986a4ac9a0ea1cdd9f8c45583d736c8a";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?986a4ac9a0ea1cdd9f8c45583d736c8a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
+
+  
     <div class="container">
         <header class="clearfix">
             <nav>
@@ -47,7 +49,288 @@ var _hmt = _hmt || [];
             </div>
         </header>
             <section class="info-section" layout="column" layout-align="center center">
-                <a class="smileface firstimpression"><img src="http://7xqdw6.com1.z0.glb.clouddn.com/RedFace.png" alt=""></a>
+                <canvas class="glslCanvas" data-fragment=
+                    "
+                        #ifdef GL_ES
+                        precision highp float;
+                        #endif
+
+                        uniform vec2 u_resolution;
+                        uniform vec2 u_mouse;
+                        uniform float u_time;
+
+                        const bool GlowEnabled = true;
+                        const float Circumradius = 0.05;
+                        const float WallDistance = 0.01;
+                        const float GlowDistance = 0.16974;
+
+                        const bool Jitter = true;
+                        const float MarchDumping = 0.658;
+                        const float Far = 5.0;
+                        const int MaxSteps = 56;
+
+                        #define PI 3.141592
+                        #define RADIANS(x) ((x) * (PI / 180.0))
+
+                        #define TETRAHEDRON_DIHEDRAL_ANGLE RADIANS(70.53)
+                        #define HEXAHEDRON_DIHEDRAL_ANGLE RADIANS(90.0)
+                        #define OCTAHEDRON_DIHEDRAL_ANGLE RADIANS(109.47)
+                        #define DODECAHEDRON_DIHEDRAL_ANGLE RADIANS(116.57)
+                        #define ICOSAHEDRON_DIHEDRAL_ANGLE RADIANS(138.19)
+
+                        #define TETRAHEDRON_SCHLAFLI_SYMBOL vec2(3.0, 3.0)
+                        #define HEXAHEDRON_SCHLAFLI_SYMBOL vec2(4.0, 3.0)
+                        #define OCTAHEDRON_SCHLAFLI_SYMBOL vec2(3.0, 4.0)
+                        #define DODECAHEDRON_SCHLAFLI_SYMBOL vec2(5.0, 3.0)
+                        #define ICOSAHEDRON_SCHLAFLI_SYMBOL vec2(3.0, 5.0)
+
+                        // Hash by iq
+                        float hash(float h) {
+                            return fract(sin(h) * 43758.5453123);
+                        }
+
+                        vec3 rotx(vec3 p, float a) {
+                            float s = sin(a), c = cos(a);
+                            return vec3(p.x, c * p.y - s * p.z, s * p.y + c * p.z);
+                        }
+                        vec3 roty(vec3 p, float a) {
+                            float s = sin(a), c = cos(a);
+                            return vec3(c * p.x + s * p.z, p.y, -s * p.x + c * p.z);
+                        }
+                        vec3 rotz(vec3 p, float a) {
+                            float s = sin(a), c = cos(a);
+                            return vec3(c * p.x - s * p.y, s * p.x + c * p.y, p.z);
+                        }
+
+                        float cot(float x) {
+                            return 1.0 / tan(x);
+                        }
+
+                        float getInradius(vec2 pq, float diha) {
+                            float tn = tan(diha * 0.5);
+                            float a = 2.0 * Circumradius / (tan(PI / pq.y) * tn);
+                            float r = 0.5 * a * cot(PI / pq.x) * tn;
+
+                            return r;
+                        }
+
+                        float tetrahedron(vec3 p) {
+                            float diha = -RADIANS(180.0 - 70.53); 
+                            float tria = -RADIANS(60.0); 
+                            float inra = getInradius(TETRAHEDRON_SCHLAFLI_SYMBOL, TETRAHEDRON_DIHEDRAL_ANGLE);
+
+                            float d = p.x - inra;
+
+                            p = rotz(p, diha);
+                            d = max(d, p.x - inra);
+
+                            p = rotx(p, tria);
+                            p = rotz(p, diha);
+
+                            d = max(d, p.x - inra);
+
+                            p = rotx(p, -tria);
+                            p = rotz(p, diha);
+                            d = max(d, p.x - inra);
+
+                            return d;
+                        }
+
+                        // cube
+                        float hexahedron(vec3 p) {
+                            float inra = getInradius(HEXAHEDRON_SCHLAFLI_SYMBOL, HEXAHEDRON_DIHEDRAL_ANGLE);
+
+                            float d = abs(p.x) - inra;
+
+                            p = rotz(p, 1.5708); // 90 degrees
+                            d = max(d, abs(p.x) - inra);
+
+                            p = roty(p, 1.5708); // 90 degrees
+                            d = max(d, abs(p.x) - inra);
+
+                            return d;
+                        }
+
+                        float octahedron(vec3 p) {
+                            float d = -1e5;
+
+                            float inra = getInradius(OCTAHEDRON_SCHLAFLI_SYMBOL, OCTAHEDRON_DIHEDRAL_ANGLE);
+
+                            for (float i = 0.0; i < 4.0; i++) {
+                                p = rotz(p, 1.231); // 70.53110 degrees
+                                p = rotx(p, 1.047); // 60 degrees
+
+                                d = max(d, max(p.x - inra, -p.x - inra));
+                            }
+                            return d;
+                        }
+
+                        float dodecahedron(vec3 p) {
+                            float d = -1e5;
+
+                            float inra = getInradius(DODECAHEDRON_SCHLAFLI_SYMBOL, DODECAHEDRON_DIHEDRAL_ANGLE);
+
+                            for (float i = 0.0; i <= 4.0; i++) {
+                                p = roty(p, 0.81); // 46.40958 degrees
+                                p = rotx(p, 0.759); // 43.48750 degrees
+                                p = rotz(p, 0.3915); // 22.43130 degrees
+
+                                d = max(d, max(p.x - inra, -p.x - inra));
+                            }
+
+                            p = roty(p, 0.577); // 33.05966 degrees
+                            p = rotx(p, -0.266); // -15.24068 degrees
+                            p = rotz(p, -0.848); // -48.58682 degrees
+
+                            d = max(d, max(p.x - inra, -p.x - inra));
+
+                            return d;
+                        }
+
+                        float icosahedron(vec3 p) {
+                            float d = -1e5;
+
+                            //center band
+                            const float n1 = 0.7297; // 41.80873 degrees
+                            const float n2 = 1.0472; // 60 degrees
+
+                            float inra = getInradius(ICOSAHEDRON_SCHLAFLI_SYMBOL, ICOSAHEDRON_DIHEDRAL_ANGLE);
+
+                            for (float i = 0.0; i < 5.0; i++) {
+
+                                if (mod(i, 2.0) == 0.0) {
+                                    p = rotz(p, n1);
+                                    p = rotx(p, n2);
+                                } else {
+                                    p = rotz(p, n1);
+                                    p = rotx(p, -n2);
+                                }
+                                d = max(d, max(p.x - inra, -p.x - inra));
+                            }
+
+                            p = roty(p, 1.048); // 60.04598 degrees
+                            p = rotz(p, 0.8416); // 48.22013 degrees
+                            p = rotx(p, 0.7772); // 44.53028 degrees
+
+                            //top caps
+                            for (float i = 0.0; i < 5.0; i++) {
+                                p = rotz(p, n1);
+                                p = rotx(p, n2);
+
+                                d = max(d, max(p.x - inra, -p.x - inra));
+                            }
+                            return d;
+                        }
+
+                        float mapShape(vec3 p, float x) {
+                            if (x > 4.0) {
+                                return mix(icosahedron(p), tetrahedron(p), smoothstep(4.0, 5.0, x));
+                            } else if (x > 3.0) {
+                                return mix(octahedron(p), icosahedron(p), smoothstep(3.0, 4.0, x));
+                            } else if (x > 2.0) {
+                                return mix(dodecahedron(p), octahedron(p), smoothstep(2.0, 3.0, x));
+                            } else if (x > 1.0) {
+                                return mix(hexahedron(p), dodecahedron(p), smoothstep(1.0, 2.0, x));
+                            }
+                            return mix(tetrahedron(p), hexahedron(p), smoothstep(0.0, 1.0, x));
+                        }
+
+                        float shapeProgress(float t) {
+                            t = mod(t, 15.0);
+
+                            float prog = 0.0;
+                            prog += smoothstep(2.0, 3.0, t);
+                            prog += smoothstep(5.0, 6.0, t);
+                            prog += smoothstep(8.0, 9.0, t);
+                            prog += smoothstep(11.0, 12.0, t);
+                            prog += smoothstep(14.0, 15.0, t);
+
+                            return prog;
+                        }
+
+                        float map(vec3 p) {
+                            return mapShape(p, shapeProgress(u_time));
+                        }
+
+                        vec3 render(vec3 ro, vec3 rd) {
+                            float tmin = 0.0;
+                            float tmax = Far;
+
+                            float precis = 0.002;
+                            float t = tmin;
+
+                            vec3 accu = vec3(0.0);
+                            float steps = 0.0;
+                            float glowFactor = 0.0;
+
+                            for (int i = 0; i < MaxSteps; i++) {
+                                steps = float(i);
+                                float d = map(ro + rd * t);
+                                float absd = abs(d);
+
+                                if (Jitter) {
+                                    absd *= 0.8 + hash(absd) * 0.2;
+                                }
+                                if (t > tmax) {
+                                    break;
+                                }
+                                glowFactor += pow(1.0 - smoothstep(0.0, GlowDistance, d), 14.0)
+                                        * step(0.0, d);
+                                float f = absd * (1.0 - smoothstep(0.0, WallDistance, absd));
+                                accu += vec3(f);
+
+                                t += max(0.0002, absd * MarchDumping);
+                            }
+                            glowFactor /= steps;
+
+                            if (GlowEnabled) {
+                                accu += 0.7 * pow(glowFactor, 1.2) * vec3(sin(u_time), cos(u_time), 0.);
+                            }
+                            return accu;
+                        }
+
+                        mat2 mm2(in float a) {
+                            float c = cos(a), s = sin(a);
+                            return mat2(c, -s, s, c);
+                        }
+
+                        vec3 mainImage(vec2 fragCoord) {
+                            vec2 p = fragCoord.xy / u_resolution.xy;
+                            vec2 uv = 2.0 * p - 1.0;
+                            uv.x *= u_resolution.x / u_resolution.y;
+
+                            vec3 ro = vec3(0.0, 0.0, -1.0);
+                            vec3 rd = normalize(vec3(uv, 3.5));
+
+                            vec2 um = u_mouse.xy / u_resolution.xy - 0.5;
+                            um.x *= u_resolution.x / u_resolution.y;
+
+                            mat2 mx = mm2(u_time * 0.75 + um.x * 6.0);
+                            mat2 my = mm2(u_time * 0.77 + um.y * 6.0);
+                            ro.xz *= mx;
+                            rd.xz *= mx;
+                            ro.xy *= my;
+                            rd.xy *= my;
+
+                            //vec3 col = vec3(0.);
+                            //col = mix(col,render(ro,rd),vec3(uv,1.));
+                            vec3 col = render(ro,rd);
+                            col = pow(col, vec3(0.4545));
+                            col = vec3(.98) - col.xyz;
+                            return col;
+                        }
+
+                        void main(){
+                            gl_FragColor = vec4(mainImage(gl_FragCoord.xy),1.);
+                        }
+
+                    "
+                    >
+                </canvas>
+                <a class="smileface firstimpression">
+                <!-- <img src="http://7xqdw6.com1.z0.glb.clouddn.com/RedFace.png" alt=""> -->
+
+                </a>
                 <a class="secondimpression"><p>Hi, my friend! My name is Martin. <br>
             I’m a Designer, Code Lover and <br>
             Lifelong-learner</p></a>
@@ -124,6 +407,7 @@ var _hmt = _hmt || [];
 
 
     <div class="divider"></div>
+
     <!-- <div class="container">
         <section class=" section" layout="column" layout-align="center center">
             <div class="title"><div class="line"></div><span class="icon-chart"></span><div class="line line-r"></div></div>
@@ -163,6 +447,6 @@ var _hmt = _hmt || [];
     <script id="hamburgerjs" src="http://7xqdw6.com1.z0.glb.clouddn.com/hamburger.js"></script>
     <script src="js/index.js"></script>
     <script src="js/loudlinks-1.0.js"></script>
-
+    <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/build/GlslCanvas.js"></script>
 </body>
 </html>

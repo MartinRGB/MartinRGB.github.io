@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', bootstrap);
+
 function bootstrap() {
     var info = document.querySelector('.info-section');
     var w = window.innerWidth,
         h = window.innerHeight;
         info.style.height = (h - 115) + 'px';
+
+    //var glslcanvas = document.querySelector('.glslCanvas');
+        //glslcanvas.style.height = (h/3) + 'px';
 
     var godown = document.querySelector('.godown');
 
@@ -16,6 +20,7 @@ function bootstrap() {
         h = window.innerHeight;
         if (w >= 480) {
             info.style.height = (h - 115) + 'px';
+            //glslcanvas.style.height = (h/3) + 'px';
         }
     }, true);
 }
