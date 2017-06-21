@@ -228,7 +228,7 @@ button, input[type=button] {
 
 /* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
 body {
-    font-family: "Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: "Ak-Regular","Lato", "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
     color: #444;
     background: #FBFBFB;
 }
@@ -240,6 +240,35 @@ body {
     font-family: 'Lato-Bold';
     src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Lato-Bold.ttf');
 }
+
+@font-face {
+    font-family: 'Ak-Regular';
+    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat.ttf');
+}
+
+@font-face {
+    font-family: 'Ak-Bold';
+    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Ak-BoldItalic';
+    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Ak-Light';
+    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'DIN-LightItalic';
+    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/DIN-LightItalic.otf');
+}
+
+
+
+
 
 /* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
 
@@ -266,6 +295,7 @@ a:hover {
     color: #fff;
     text-shadow: none;
 }
+
 
 /*  j.mp/webkit-tap-highlight-color */
 a:link {
@@ -317,22 +347,29 @@ header {
     float: right;
     margin-top: 9px;
 }
+
+.nav-list li a.indexacolor{
+	color: #FFF;
+}
+
 .nav-list  li {
     float: left;
     margin-left: 35px;
 }
 .nav-list  li.active a {
-    color: rgba(68, 68, 68, 1);
+    opacity: 1;
 }
 .nav-list  li a {
-    color: rgba(68, 68, 68, 0.5);
+	color: rgba(68, 68, 68, 1);
+	opacity: 0.5;
     font-size: 20px;
+    font-family: Ak-Light;
 }
 .nav-list  li a:hover {
-    color: rgba(68, 68, 68, 1);
+    opacity: 1;
 }
 .nav-list li a.tagselected {
-    color: rgba(68, 68, 68, 1);
+    opacity: 1;
 }
 
 .martin-md-1, .martin-md-2, .martin-md-3, .martin-md-4, .martin-md-5, .martin-md-6, .martin-md-7, .martin-md-8, .martin-md-9, .martin-md-10, .martin-md-11, .martin-md-12 {
@@ -460,15 +497,112 @@ header {
 [layout-align="start end"], [layout-align="center end"], [layout-align="end end"], [layout-align="space-between end"], [layout-align="space-around end"] {
     align-items: flex-end;
 }
+
+.wrappervideo {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.wrappervideo:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 10px;
+	height: 100%;
+	background-color: #fbfbfb;
+	left: -9px;
+}
+
+.wrappervideo:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 10px;
+	height: 100%;
+	background-color: #fbfbfb;
+	right: -5px;
+}
+
+.mvideo {
+width: 100%; 
+}
+
+.msvg { 
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.mtext {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+
+.mrect {
+
+  fill: #fbfbfb;
+}
+
+.mrect2 {
+
+  fill:#fbfbfb;
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+}
+
+.fullscreenvideo {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    b/*ackground: url(//demosthenes.info/assets/images/polina.jpg) cover;*/
+    -webkit-transition: 1s opacity;
+    transition: 1s opacity;
+}
+
+.videocontainer{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;	
+}
+
+.videocontainer:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: rgba(25,29,34,.75);
+}
+}
+
+
 .info-section {
   height:900px;
 }
 .info-section  p {
-    font-size: 36px;
-    margin-top: 86px;
-    color: #444444;
+    /*font-size: 36px;*/
+    /*margin-top: 60px;*/
+    /*color: #444444;*/
     line-height: 1.5em;
-    width: 560px;
+    /*width: 560px;*/
 }
 .godown {
     background: url('http://7xqdw6.com1.z0.glb.clouddn.com/GoDown.png');
@@ -484,6 +618,8 @@ header {
     -------------------------------------------------------------------------------*/
     transform: translate3d(-50%, 0, 0);
 }
+
+
 .row {
     margin-right: -20px;
     margin-left: -20px;
@@ -563,11 +699,11 @@ header {
     margin-bottom: 47px;
 }
 .info {
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
-    line-height: 1.5em;
-    color: rgba(68, 68, 68, .6);
-    margin-top: 40px;
+    line-height: 2em;
+    color: rgba(68, 68, 68, .87);
+    margin-top: 24px;
     margin-bottom: 40px;
 }
 .sub-title {
@@ -576,15 +712,15 @@ header {
 }
 .divider {
     margin: 0 0 0px;
-    border-bottom: 1px solid rgba(68, 68, 68, .15);
+    border-bottom: 1px solid rgba(227, 227, 227, 1);
 }
 .work-divider {
-    border-bottom: 1px solid rgba(68, 68, 68, .15);
+    border-bottom: 1px solid rgba(227, 227, 227, 1);
     position: relative;
     margin-top: -176px;
 }
 .about-divider {
-    border-bottom: 1px solid rgba(68, 68, 68, .15);
+    border-bottom: 1px solid rgba(227, 227, 227, 1);
     position: relative;
 }
 .see-more {
@@ -599,22 +735,29 @@ header {
 }
 .footer {
     text-align: center;
-    height: 300px;
     background-color: #FBFBFB;
     position: relative;
 }
 .touch-me {
     font-size: 22px;
-    color: rgba(68, 68, 68, 0.5);
+    margin-top: 32px;
+    color: rgba(68,68,68,0.87);
 }
 .social {
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 .social a {
-    color: rgba(68, 68, 68, 0.5);
+    color: rgba(68, 68, 68, 0.87);
     margin-right: 40px;
+    font-size: 14px;
 }
+
+.copyright {
+	margin-bottom: 32px;
+	font-size: 12px;
+}
+
 .social a:hover {
     color: rgba(68, 68, 68, 1);
 }
@@ -625,13 +768,15 @@ header {
     margin-top: 60px;
 }
 .abouttitle {
+	transform: translateY(-5px);
+    font-family: "Ak-BoldItalic";
     font-size: 22px;
-    font-family: "Lato-Bold";
+    color: rgba(68, 68, 68, 1);
     line-height: 2.0em;
 }
 .aboutword {
-    font-size: 22px;
-    color: rgba(68, 68, 68, 0.6);
+    font-size: 18px;
+    color: rgba(68, 68, 68, .87);
     line-height: 2.0em;
 }
 .aboutrow {
@@ -643,32 +788,33 @@ header {
     margin-bottom: 80px;
 }
 .expline1 {
-    font-size: 22px;
-    color: rgba(68, 68, 68, 1.0);
+	font-size: 18px;
+    color: rgba(68, 68, 68, .87);
     line-height: 2.0em;
 }
 
 .expline2 {
-    font-size: 22px;
+	font-size: 16px;
     color: rgba(68, 68, 68, 0.8);
     line-height: 2.0em;
 }
 .expline2 a {
-    font-size: 22px;
+    font-size: 16px;
     color: rgba(68, 68, 68, 0.8);
     line-height: 2.0em;
     transition: all 0.3s;
 
 }
 .expline2 a:hover {
-    font-size: 22px;
+	font-family: "Ak-Bold";
+    font-size: 16px;
     color: rgba(52, 152, 219, 0.8);
     line-height: 2.0em;
 }
 
 
 .expline3 {
-    font-size: 22px;
+    font-size: 14px;
     color: rgba(68, 68, 68, 0.6);
     line-height: 2.0em;
 }
@@ -833,6 +979,8 @@ header {
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     opacity: 0;
+
+    margin-top: -57px;
 }
 
 
@@ -876,6 +1024,21 @@ header {
   }
 }
 
+.intro1{
+    font-size: 60px;
+    font-family: Ak-Light;
+    text-align: center;
+    color: #fff;
+}
+
+.intro2{
+    font-size: 32px;
+    font-family: DIN-LightItalic;
+    text-align: center;
+    margin-top: 24px;
+    color: #fff;
+}
+
 a.hamburger-icon {
   width: 20px;
   height: 14px;
@@ -889,7 +1052,7 @@ a.hamburger-icon .line-1, a.hamburger-icon .line-2, a.hamburger-icon .line-3 {
   display: block;
   background: #444;
   width: 20px;
-  height: 3px;
+  height: 1px;
   position: absolute;
   left: 0;
   border-radius: 3px;
@@ -897,6 +1060,11 @@ a.hamburger-icon .line-1, a.hamburger-icon .line-2, a.hamburger-icon .line-3 {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
+
+a.hamburger-icon .indexline{
+	background: #FFF;
+}
+
 a.hamburger-icon .line-1 {
   top: 0;
 }
@@ -1060,12 +1228,18 @@ a.hamburger-icon.active .line-3 {
   }
 
   .footer {
-    height: 175px;
+    /*height: 175px;*/
   }
 
   .touch-me {
-    margin-top: 0px;
+    margin-top: 20px;
     font-size: 16px;
+  }
+
+
+  .copyright {
+    margin-bottom: 20px;
+    font-size: 12px;
   }
 
   .aboutword{
@@ -1086,10 +1260,6 @@ a.hamburger-icon.active .line-3 {
 
   }
 
-  .copyright {
-    margin-top: 30px;
-    font-size: 14px;
-  }
 
   .socialfont{
     padding-left: 10px;
@@ -1105,8 +1275,8 @@ a.hamburger-icon.active .line-3 {
   .socialiconfont {
     display: block;
     font-size: 24px;
-    margin-bottom: -9px;
-    margin-top: 24px;
+	margin-bottom: 24px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1122,6 +1292,7 @@ a.hamburger-icon.active .line-3 {
   .btnmobile{
     margin-bottom: -70px;
   }
+
 
   .section {
     padding-left: 20px;
@@ -1170,6 +1341,10 @@ a.hamburger-icon.active .line-3 {
   display: none;
   }
 
+  .index-inner{
+  	background: rgba(50,55,59,0);
+  }
+
   .divider3 {
     width: auto;
     border-bottom: 1px solid rgba(68, 68, 68, .15);
@@ -1216,21 +1391,33 @@ a.hamburger-icon.active .line-3 {
     display: block;
     float: none;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Ak-Light';
+    color: rgba(255, 255, 255, 1);
+    opacity: 0.7;
     transition: all 0.4s;
   }
 
-  .main-nav-list-item:hover, .main-nav-list-link:hover {
-    color: rgba(255, 255, 255, 1);
+  .main-nav-list-item .main-nav-list-link:hover, .main-nav-list-link:hover .main-nav-list-link a:hover {
+  	color: rgba(255, 255, 255, 1);
+    opacity: 1;
+  }
+
+
+  .secondimpression .intro1{
+  	margin-top: 0px;
+    font-size: 36px;
+  }
+  .secondimpression .intro2{
+  	font-size: 16px;
   }
 
   .info-section p {
-    font-size: 18px;
     width: auto;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 50px;
+    margin-top: 16px;
   }
+
   .sub-title {
     font-size: 24px;
     margin-top: 33px;
@@ -1276,5 +1463,7 @@ a.hamburger-icon.active .line-3 {
   .cl-effect-4 a:focus::after, .cl-effect-4 a:hover, .cl-effect-4 a::after{
     font-size: 14px;
   }
+
+
 
 }
