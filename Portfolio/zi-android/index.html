@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>zi-android</title>
+  <link rel="shortcut icon" href="../fav.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="../public/css/global.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/flex-layout-attribute.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/posts.css">
+	<script type='text/javascript' src='../public/js/jquery-2.1.0.min.js'></script>
+	<script type='text/javascript' src='../public/js/global.js'></script>
+	<script type='text/javascript' src="../public/js/jquery.mixitup.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  
+  
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  padding: 25px;
+  font: 'San Francisco', -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  /*background: #42acdf;*/
+  /*A high perspective to give the UL an isometric look*/
+  perspective: 3000;
+}
+
+h1 {
+  margin: 0 0 25px;
+  font-size: 30px;
+}
+
+.grid {
+  position: absolute;
+  top: 50px;
+  left: -150px;
+  width: 600px;   
+  height:100%;  
+/*  width: 100%;
+  height:100%;*/
+  /*3D Transform*/
+  transform: rotateX(50deg) rotateZ(-50deg);
+  /*Preserve 3D style for children*/
+  transform-style: preserve-3d;
+}
+
+.grid li {
+  height: 400px;
+  width: 225px;
+  float: left;
+  margin: 20px;
+  list-style-type: none;
+  /*Hide the lighting gradient from the front face*/
+  background-size: 0, cover;
+  /*Preserve 3D style for children(pseudo elements)*/
+  transform-style: preserve-3d;
+}
+
+/*Left and Bottom Sides*/
+.grid li:before,
+.grid li:after {
+  content: '';
+  position: absolute;
+  /*100% height and width*/
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  background-size: cover;
+}
+
+/*Left Side*/
+.grid li:before {
+  transform-origin: left center;
+  transform: rotateY(90deg);
+  /*Reducing the width of the left side for a flat feel*/
+  width: 2px;
+}
+
+/*Bottom Side*/
+.grid li:after {
+  transform-origin: bottom center;
+  transform: rotateX(90deg);
+  /*Reducing the height*/
+  height: 2px;
+  top: auto;
+  bottom: 0;
+  /*Background fix - start the background from the bottom*/
+  background-position: bottom center;
+}
+.zi-android-slideshow .mover-1 .grid {
+  animation: moveSlideshow 60s linear infinite;
+}
+
+@keyframes moveSlideshow {
+  100% { 
+/*    -ms-transform: translateY(-100%) translateY(5rem);
+    -webkit-transform:  translateY(-100%) translateY(5rem);
+    -moz-transform:  translateY(-100%) translateY(5rem);*/
+    transform: rotateX(50deg) rotateZ(-50deg) translateY(-302.5rem);
+  }
+}
+
+/*Shadow time - sadly all pseudo elements are used so we will have to add an HTML element in each LI*/
+.s {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px 35px rgba(0, 0, 0, 0.49);
+    transform: translateZ(-25px);
+}
+
+/*We will add a light gradient to the sides to give some lighting effect*/
+.img-01 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/01.jpg");
+}
+.img-02 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/02.jpg");
+}
+
+.img-03 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/03.jpg");
+}
+
+.img-04 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/04.jpg");
+}
+.img-05 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/05.jpg");
+}
+
+.img-06 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/06.jpg");
+}
+
+.img-07 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/07.jpg");
+}
+
+.img-08 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/08.jpg");
+}
+.img-09 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/09.jpg");
+}
+.img-10 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/10.jpg");
+}
+
+.img-11 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/11.jpg");
+}
+
+.img-12 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/12.jpg");
+}
+.img-13 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/13.jpg");
+}
+
+.img-14 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/14.jpg");
+}
+
+.img-15 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/15.jpg");
+}
+
+.img-16 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/16.jpg");
+}
+.img-17 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/17.jpg");
+}
+
+.img-18 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/18.jpg");
+}
+
+.img-19 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/19.jpg");
+}
+
+.img-20 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/20.jpg");
+}
+.img-21 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/21.jpg");
+}
+.img-22 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/22.jpg");
+}
+.img-23 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/01.jpg");
+}
+.img-24 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/02.jpg");
+}
+.img-25 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/03.jpg");
+}
+.img-26 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/04.jpg");
+}
+.img-27 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/05.jpg");
+}
+.img-28 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/06.jpg");
+}
+.img-29 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/07.jpg");
+}
+.img-30 {
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.5)), url("./asset/08.jpg");
+}
+
+.perimg{
+  transition:all 0.3s;
+}
+
+.icon-container{
+  position: absolute;
+  top: 100px;
+  right: 300px; 
+  z-index:1000;
+  margin-top: 30px;
+
+}
+
+.icon{
+    background: url(./asset/icon.svg);
+    width: 200px;
+    height: 200px;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+
+.icon-container h1 a{
+    color: #404040;
+    font-weight: 400;
+    margin-left: 16px;
+    margin-top: -16px;
+    text-decoration: none;
+}
+
+.icon-container h1{
+    margin-top: -16px;
+}
+
+.icon-container h3{
+    color: #404040;
+    font-weight: 400;
+    margin-left: 27px;
+    margin-top: -8px;
+    font-size: 14px;
+}
+
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+  <h1>
+
+</h1>
+
+<div id="nav" layout="row top-left" style="left:0px;">
+    <div self="left">
+      <a href="../index.html">
+        <div id="logo" class="logo logo-isNotVisIfMobile">
+            <svg class="logo-canvas" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="33"  xml:space="preserve" id="canvas1">
+              <!-- Generated by PaintCode (www.paintcodeapp.com) -->
+              <g id="canvas1-page1">
+                <g id="canvas1-artboard">
+                    <path id="canvas1-combinedShape" stroke="rgb(0, 0, 0)" stroke-linecap="round" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="4" fill="none" d="M 21.65,19.33 L 27.37,7 38.29,32.17 26.99,32.17 21.65,19.54 16.3,32.17 5,32.17 15.92,7 21.65,19.33 Z M 21.65,19.33" />									
+                </g>
+              </g>
+            </svg>
+            <span id="logo-span" class="logo-span" style="
+            transition: all 0.2s;
+            width: 100px;
+            position: absolute;
+            transform: translateX(40px) translateY(-52px);">| Portfolio</span>
+        </div>
+      </a>
+      <a href="../index.html" style="display:none"><div id="logo" class="logo logo-isVisIfMobile">
+        
+      
+      </div></a>
+    </div>
+  
+    <div class="nav-isVisIfMobile">
+        <a href="../index.html">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="33"  xml:space="preserve" id="canvas1" style="transform: scale(0.8);margin-top: 13px;float: left;">
+          <!-- Generated by PaintCode (www.paintcodeapp.com) -->
+          <g id="canvas1-page1">
+            <g id="canvas1-artboard">
+                <path id="canvas1-combinedShape" stroke="rgb(0, 0, 0)" stroke-linecap="round" stroke-width="1" stroke-linejoin="round" stroke-miterlimit="4" fill="none" d="M 21.65,19.33 L 27.37,7 38.29,32.17 26.99,32.17 21.65,19.54 16.3,32.17 5,32.17 15.92,7 21.65,19.33 Z M 21.65,19.33" />									
+            </g>
+          </g>
+        </svg>
+        <div style="position: relative;float: left;margin-top: 23px;">
+          <span style="font-weight: 300;color: black;">| Portfolio</span>
+        </div>
+
+        </a>
+    </div>
+  
+  </div>
+
+<div class="zi-android-slideshow">
+  <div class="icon-container">
+    <div class="icon"></div>
+    <h1><a href='./spec-android/index.html'>字里行间</a></h1>
+    <h3>发现创作的乐趣</h3>
+  </div>
+  <div class="mover-1">
+    <ul class="grid">
+    	  <li class="perimg img-01"><span class="s"></span></li>
+    	  <li class="perimg img-02"><span class="s"></span></li>
+    	  <li class="perimg img-03"><span class="s"></span></li>
+    	  <li class="perimg img-04"><span class="s"></span></li>
+        <li class="perimg img-05"><span class="s"></span></li>
+        <li class="perimg img-06"><span class="s"></span></li>
+        <li class="perimg img-07"><span class="s"></span></li>
+        <li class="perimg img-08"><span class="s"></span></li>
+        <li class="perimg img-09"><span class="s"></span></li>
+        <li class="perimg img-10"><span class="s"></span></li>
+        <li class="perimg img-11"><span class="s"></span></li>
+        <li class="perimg img-12"><span class="s"></span></li>
+        <li class="perimg img-13"><span class="s"></span></li>
+        <li class="perimg img-14"><span class="s"></span></li>
+        <li class="perimg img-15"><span class="s"></span></li>
+        <li class="perimg img-16"><span class="s"></span></li>
+        <li class="perimg img-17"><span class="s"></span></li>
+        <li class="perimg img-18"><span class="s"></span></li>
+        <li class="perimg img-19"><span class="s"></span></li>
+        <li class="perimg img-20"><span class="s"></span></li>
+        <li class="perimg img-21"><span class="s"></span></li>
+        <li class="perimg img-22"><span class="s"></span></li>
+        <li class="perimg img-23"><span class="s"></span></li>
+        <li class="perimg img-24"><span class="s"></span></li>
+        <li class="perimg img-25"><span class="s"></span></li>
+        <li class="perimg img-26"><span class="s"></span></li>
+        <li class="perimg img-27"><span class="s"></span></li>
+        <li class="perimg img-28"><span class="s"></span></li>
+        <li class="perimg img-29"><span class="s"></span></li>
+        <li class="perimg img-30"><span class="s"></span></li>
+    </ul>
+  </div>
+</div>
+  
+    <script  src="js/index.js"></script>
+
+</body>
+</html>
