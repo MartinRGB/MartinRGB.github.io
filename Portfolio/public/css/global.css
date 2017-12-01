@@ -314,6 +314,7 @@ body #nav {
   text-align: left;
   height: 480px;
   border-radius: 16px;
+  overflow: hidden;
   margin:20px;
   box-shadow: 0 20px 20px rgba(0,0,0,.08);
 	white-space: normal;
@@ -351,10 +352,25 @@ body #nav {
     position: relative;
     clear: both;
     float: left;
-    overflow: auto;
+	overflow: auto;
+	border-radius: 16px 16px 0px 0px;	
     width: 100%;
-    padding: 20px;
-    border-radius: 16px 16px 0px 0px;
+	padding: 20px;
+	transition: all 0.25s;
+}
+
+.card:hover .card-hero{
+	transform:scale(1.05);
+}
+
+
+
+
+
+.card-hero-container{
+	width: 355px;
+	height:296px;
+	overflow: hidden;
 }
 
 .card-image{
@@ -397,7 +413,12 @@ body #nav {
 	padding-right: 20px;
 	padding-top: 20px;
 	z-index: 2;
-	border-radius: 16px;
+	/* border-radius: 16px; */
+	transition:all 0.25s;
+}
+
+.no-touch .card:hover .card-body--video{
+	transform:scale(1.05);
 }
 
 .card-body--video{
@@ -507,6 +528,8 @@ body #nav {
 	position:absolute;
 	padding-bottom: 17px;
 	width: 307px;
+	left: 20px;
+    z-index: 1000;
 }
 
 .card-title {
