@@ -583,13 +583,3 @@ html[xmlns] .cf {
 * html .cf {
 	height: 1%;
 }
-
-@font-face {
-    font-family: 'DIN-Light';
-    src: url('../asset/DIN-Light.otf');
-}
-
-@font-face {
-    font-family: 'DIN-Regular';
-    src: url('../asset/DIN-Regular.otf');
-}
