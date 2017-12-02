@@ -1,6 +1,52 @@
 @import url('flex.css');
 
+.path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  animation-fill-mode: both;
+  animation: dash 0.8s linear;
+  animation-direction: alternate-reverse;
+}
 
+@keyframes dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+
+#navTop a:hover{
+	cursor: pointer;
+}
+
+a:hover .logo .logo-canvas .path{
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation-fill-mode: both;
+  animation: dash-reverse 0.8s linear;
+  animation-direction: alternate-reverse;
+
+}
+
+a:hover .logo .logo-canvas .path{
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  animation-fill-mode: both;
+  animation: dash-reverse 0.8s linear;
+  animation-direction: alternate-reverse;
+
+}
+
+@keyframes dash-reverse {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}
 
 body #navTop {
 	position: fixed;
