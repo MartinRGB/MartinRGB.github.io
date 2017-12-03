@@ -16,6 +16,7 @@ function removeChatScene(){
 
 
 var cleanBubble = function(){
+  $('body')[0].style.overflow = 'scroll'; 
 	hasRemoveBubble = true;
 	$('#messages').addClass('scrolled-message');
 	$('#mask').removeClass('scrolled-mask');
@@ -235,6 +236,7 @@ $(document).ready(function(){
 				$("#mask")[0].style.display = 'block'; 
 				$("#messages")[0].style.display = 'block'; 
 				hasBubble = true;
+        $('body')[0].style.overflow = 'hidden'; 
 				setTimeout('addChatScene()', 1000);
 
 			}
@@ -251,6 +253,7 @@ $(document).ready(function(){
 				$("#mask")[0].style.display = 'block'; 
 				$("#messages")[0].style.display = 'block'; 
 				hasBubble = true;
+        $('body')[0].style.overflow = 'hidden'; 
 				setTimeout('addChatScene()', 1000);
 
 			}
