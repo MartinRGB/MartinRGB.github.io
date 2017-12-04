@@ -205,7 +205,8 @@ var addBubble = function() {
     '你好！ 🎉 ',
     '我是 Martin',
     '如果你看完了这些项目，<br>对我的业余项目仍感兴趣的话',
-    '欢迎来我的 👉<a href="http://www.martinrgb.com/" target="blank">旧站</a>👈 参观 <br> 或者 <a id="continue" href="javascript:void(0)" onclick="removeChatScene()"> 继续 </a>浏览 ',
+    '欢迎来我的 👉<a href="http://www.martinrgb.com/" target="blank">旧站</a>👈 参观',
+    '或者 <a id="continue" href="javascript:void(0)" onclick="removeChatScene()"> 继续 </a>浏览 ',
   ]
 
   var getFontSize = function() {

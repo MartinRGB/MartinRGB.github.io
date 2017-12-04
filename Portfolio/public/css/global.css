@@ -1128,8 +1128,20 @@ keyframes inf-bounce {
 	}
 }
 
+.mobile-container{
+    display:none;
+}
+
 @media only screen and (max-width: 500px) {
-	.container--header {
+
+    .desktop-container{
+        display: none;
+    }
+
+    .mobile-container{
+        display: block;
+    }
+	/* .container--header {
 		padding:0;
 		width: 300px;
 		margin-bottom: 12px;
@@ -1221,7 +1233,7 @@ keyframes inf-bounce {
 	#nav div.item {
 		margin: 0px 19px 0 0;
 		display:inline-block;
-	}
+	} */
 }
 
 @media only screen and (max-width: 363px) {
@@ -1339,3 +1351,103 @@ body {
 }
 
 
+
+
+/* Mobile */
+body{
+	margin: 0;
+}
+
+.scene {
+    position: absolute;
+    /* mix-blend-mode: luminosity; */
+	/* left: calc(50% - 200px); */
+}
+
+.scene--full {
+	width: 100%;
+	height: 100vh;
+}
+
+.content__inner {
+	grid-area: 1 / 1 / 1 / 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+}
+
+
+.demo-3 {
+	--color-text: #fff;
+	/* --color-bg: #A9E7DA; */
+	--color-bg: #fff;
+	--color-link: #523bdc;
+	--color-link-hover: #fff;
+	--color-title: #fff;
+}
+
+main {
+	position: relative;
+	width: 100%;
+}
+
+
+.content{
+	position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
+    /* background: #a9e7da; */
+    background: #fcfcfc;
+    /* background: linear-gradient(to bottom, rgba(189, 229, 255, 0.9), rgba(126, 112, 220, 0.9)); */
+	/* min-height: 400px; */
+}
+
+.content__title {
+	font-family: 'Poppins', sans-serif;
+	letter-spacing: -0.025em;
+	font-size: 7vw;
+	color: white;
+	line-height: 1;
+	margin: 0;
+	position: relative;
+    text-shadow: 0 10px 20px rgba(0,0,0,.12);
+    font-weight: 800;
+}
+
+.content__title::before,
+.content__title::after {
+	content: '';
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	background: url(../img/dot.png);
+	background-size: 25px;
+    opacity: 0.4;
+}
+
+.content__title::before {
+	top: 150%;
+	right: 81%;
+}
+
+.content__title::after {
+	bottom: 150%;
+	left: 81%;
+}
+
+@media screen and (max-width: 55em) {
+	.content__title::before,
+	.content__title::after {
+		width: 50px;
+		height: 100px;
+		background-size: 12px;
+	}
+}
