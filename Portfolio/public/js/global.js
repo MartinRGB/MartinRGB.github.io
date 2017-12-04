@@ -202,41 +202,49 @@ var addBubble = function() {
 var hasBubble,hasRemoveBubble = false;
 var mIndex = 0;
 var scrollTop = 0;
+var initialScrollEvent = true;
 
 // ######  on Ready
 $(document).ready(function(){
     removeChatScene()
+    $(window).scrollTop(0);
 
 
+    
 	// ######  on Scroll
 	$(window).scroll(function(){
-    scrollTop = $(window).scrollTop();
-    
-		$('.counter').html(scrollTop);
-		console.log(scrollTop)
-		if (scrollTop >= 100) {
-			$('#nav').addClass('scrolled-nav');
-			$('#logo').addClass('scrolled-logo');
-			$('#logo-span').addClass('scrolled-span');
-			$('#logo-colorful').addClass('scrolled-color');
-			$('#olsite').addClass('scrolled-olsite');
-		} else if (scrollTop < 100) {
-			$('#nav').removeClass('scrolled-nav');
-			$('#logo').removeClass('scrolled-logo');
-			$('#logo-span').removeClass('scrolled-span');
-			$('#logo-colorful').removeClass('scrolled-color');
-			$('#olsite').removeClass('scrolled-olsite');
 
-    } 
-    
-    if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
-      $("#mask")[0].style.display = 'block'; 
-      $("#messages")[0].style.display = 'block'; 
-      hasBubble = true;
-      $('body')[0].style.overflow = 'hidden'; 
-      setTimeout('addChatScene()', 1000);
-
+    if (!initialScrollEvent) {
+      scrollTop = $(window).scrollTop();
+      
+      $('.counter').html(scrollTop);
+      console.log(scrollTop)
+      if (scrollTop >= 100) {
+        $('#nav').addClass('scrolled-nav');
+        $('#logo').addClass('scrolled-logo');
+        $('#logo-span').addClass('scrolled-span');
+        $('#logo-colorful').addClass('scrolled-color');
+        $('#olsite').addClass('scrolled-olsite');
+      } else if (scrollTop < 100) {
+        $('#nav').removeClass('scrolled-nav');
+        $('#logo').removeClass('scrolled-logo');
+        $('#logo-span').removeClass('scrolled-span');
+        $('#logo-colorful').removeClass('scrolled-color');
+        $('#olsite').removeClass('scrolled-olsite');
+  
+      } 
+      
+      if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
+        $("#mask")[0].style.display = 'block'; 
+        $("#messages")[0].style.display = 'block'; 
+        hasBubble = true;
+        $('body')[0].style.overflow = 'hidden'; 
+        setTimeout('addChatScene()', 1000);
+  
+      }
     }
+    initialScrollEvent = false;
+    
 
 		// if($(window).width() > 1225){
 
