@@ -3,27 +3,176 @@ if (!("ontouchstart" in document.documentElement)) {
 }
 
 
+var hasBubble,hasRemoveBubble = false;
+
+var initialScrollEvent = true;
+
+var canHideNotif,hasOpenNotif = false;
+
+var mIndex = 0;
+var scrollTop = 0;
+
+// ######  on Ready
+$(document).ready(function(){
+    noDisplayChatScene()
+    $(window).scrollTop(0);
+
+    
+    var notificationAnimation = anime({
+      targets: '#notification',
+      opacity: 1,
+      scale:[.0, 1],
+      duration: 800,
+      easing: 'easeOutElastic',
+      elasticity: 700,
+      delay:600
+    });
+    notificationAnimation.pause()
+
+    var notificationAnimation2 = anime({
+      targets: '#notification',
+      opacity: 0,
+      scale:0,
+      duration: 200,
+      easing: 'easeOutElastic'
+    });
+    notificationAnimation2.pause()
+    
+	// ######  on Scroll
+	$(window).scroll(function(){
+
+    if (!initialScrollEvent) {
+      scrollTop = $(window).scrollTop();
+      
+      $('.counter').html(scrollTop);
+      console.log(scrollTop)
+      if (scrollTop >= 100) {
+        $('#nav').addClass('scrolled-nav');
+        $('#logo').addClass('scrolled-logo');
+        $('#logo-span').addClass('scrolled-span');
+        $('#logo-colorful').addClass('scrolled-color');
+        $('#olsite').addClass('scrolled-olsite');
+
+        //Add Bubble
+        if(!canHideNotif && !hasOpenNotif){
+
+          notificationAnimation.restart();
+          notificationAnimation2.pause();
+          canHideNotif = true;
+
+          $('#desktopNav').off('click');
+          $("#desktopNav").on('click', function () {		
+            addChatScene()
+
+            location.href = "javascript:void(0)";
+  
+            var notificationAnimation = anime({
+              targets: '#notification',
+              opacity: 1,
+              scale:[1., 0.],
+              duration: 500,
+              easing: 'easeInOutQuart',
+              delay:0
+            });
+            hasOpenNotif = true;
+          }); 
+        }
+
+
+      } else if (scrollTop < 100) {
+        $('#nav').removeClass('scrolled-nav');
+        $('#logo').removeClass('scrolled-logo');
+        $('#logo-span').removeClass('scrolled-span');
+        $('#logo-colorful').removeClass('scrolled-color');
+        $('#olsite').removeClass('scrolled-olsite');
+        
+        //Clean Bubble
+        if(canHideNotif){
+
+          notificationAnimation.pause();
+          notificationAnimation2.restart();
+          canHideNotif = false;
+
+          $('#desktopNav').off('click');
+          $("#desktopNav").on('click', function () {		
+            location.href = "index.html";
+          }); 
+          
+        }
+      } 
+      
+      if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
+        hasBubble = true;
+
+        //Add Bubble
+        if(!canHideNotif){
+
+
+          notificationAnimation.restart();
+          notificationAnimation2.pause();
+          canHideNotif = true;
+
+          $('#desktopNav').off('click');
+          $("#desktopNav").on('click', function () {		
+            addChatScene()
+
+            location.href = "javascript:void(0)";
+  
+            var notificationAnimation = anime({
+              targets: '#notification',
+              opacity: 1,
+              scale:[1., 0.],
+              duration: 500,
+              easing: 'easeInOutQuart',
+              delay:0
+            });
+            hasOpenNotif = true;
+          }); 
+
+        }
+
+
+
+  
+      }
+    }
+    initialScrollEvent = false;
+    
+		
+	}); 
+
+});
+
+
 // ######  add bubble event
 function addChatScene(){
+  $("#mask")[0].style.display = 'block'; 
+  $("#messages")[0].style.display = 'block'; 
+  $('body')[0].style.overflowY = 'hidden'; 
+  $('body')[0].style.overflowX = 'scroll';
 	addBubble();
-	$('#mask').addClass('scrolled-mask');
+  $('#mask').addClass('scrolled-mask');
 }
 
-function removeChatScene(){
+function noDisplayChatScene(){
 	$("#mask")[0].style.display = 'none'; 
 	$("#messages")[0].style.display = 'none'; 
 }
 
 
-var cleanBubble = function(){
+var removeChatScene = function(){
   $('body')[0].style.overflow = 'scroll'; 
 	hasRemoveBubble = true;
 	$('#messages').addClass('scrolled-message');
 	$('#mask').removeClass('scrolled-mask');
 	$('#olsite')[0].style.display = 'block'
-	setTimeout('removeChatScene()', 1000);
-}
+  setTimeout('removeChatScene()', 1000);
 
+  $('#desktopNav').off('click');
+  $("#desktopNav").on('click', function () {		
+    location.href = "index.html";
+  }); 
+}
 
 
 // ######  add bubble function
@@ -34,25 +183,12 @@ var addBubble = function() {
   var loadingText = '<b>•</b><b>•</b><b>•</b>';
   var messageIndex = 0;
 
-  // var getCurrentTime = function() {
-  //   var date = new Date();
-  //   var hours =  date.getHours();
-  //   var minutes =  date.getMinutes();
-  //   var current = hours + (minutes * .01);
-  //   if (current >= 5 && current < 19) return 'Have a nice day';
-  //   if (current >= 19 && current < 22) return 'Have a nice evening';
-  //   if (current >= 22 || current < 5) return 'Have a good night';
-  // }
 
   var messages = [
     '你好！ 🎉 ',
     '我是 Martin',
     '如果你看完了这些项目，<br>对我的业余项目仍感兴趣的话',
-    '欢迎来我的 👉<a href="http://www.martinrgb.com/" target="blank">旧站</a>👈 参观 <br> 或者 <a id="continue" href="javascript:void(0)" onclick="cleanBubble()"> 继续 </a>浏览 ',
-    // 'I\'m currently accepting freelance work.<br> You can contact me at <a href="mailto:hello@julian.gr">hello@julian.gr</a>',
-    // '<a target="_blank" href="https://twitter.com/juliangarnier">twitter.com/juliangarnier</a><br><a target="_blank" href="https://codepen.io/juliangarnier">codepen.io/juliangarnier</a><br><a target="_blank" href="https://github.com/juliangarnier">github.com/juliangarnier</a>',
-    // getCurrentTime(),
-    // '👀 J.'
+    '欢迎来我的 👉<a href="http://www.martinrgb.com/" target="blank">旧站</a>👈 参观 <br> 或者 <a id="continue" href="javascript:void(0)" onclick="removeChatScene()"> 继续 </a>浏览 ',
   ]
 
   var getFontSize = function() {
@@ -197,93 +333,3 @@ var addBubble = function() {
   sendMessages();
 
 }
-
-
-var hasBubble,hasRemoveBubble = false;
-var mIndex = 0;
-var scrollTop = 0;
-var initialScrollEvent = true;
-
-// ######  on Ready
-$(document).ready(function(){
-    removeChatScene()
-    $(window).scrollTop(0);
-
-
-    
-	// ######  on Scroll
-	$(window).scroll(function(){
-
-    if (!initialScrollEvent) {
-      scrollTop = $(window).scrollTop();
-      
-      $('.counter').html(scrollTop);
-      console.log(scrollTop)
-      if (scrollTop >= 100) {
-        $('#nav').addClass('scrolled-nav');
-        $('#logo').addClass('scrolled-logo');
-        $('#logo-span').addClass('scrolled-span');
-        $('#logo-colorful').addClass('scrolled-color');
-        $('#olsite').addClass('scrolled-olsite');
-      } else if (scrollTop < 100) {
-        $('#nav').removeClass('scrolled-nav');
-        $('#logo').removeClass('scrolled-logo');
-        $('#logo-span').removeClass('scrolled-span');
-        $('#logo-colorful').removeClass('scrolled-color');
-        $('#olsite').removeClass('scrolled-olsite');
-  
-      } 
-      
-      if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
-        $("#mask")[0].style.display = 'block'; 
-        $("#messages")[0].style.display = 'block'; 
-        hasBubble = true;
-        $('body')[0].style.overflow = 'hidden'; 
-        setTimeout('addChatScene()', 1000);
-  
-      }
-    }
-    initialScrollEvent = false;
-    
-
-		// if($(window).width() > 1225){
-
-		// 	if(scrollTop >= 450 && !hasBubble){
-
-		// 		$("#mask")[0].style.display = 'block'; 
-		// 		$("#messages")[0].style.display = 'block'; 
-		// 		hasBubble = true;
-    //     $('body')[0].style.overflow = 'hidden'; 
-		// 		setTimeout('addChatScene()', 1000);
-
-		// 	}
-
-		// 	if(mIndex == 4 && scrollTop < 450 && !hasRemoveBubble){
-		// 		cleanBubble();
-		// 	}
-
-		// }
-
-		// else if($(window).width() > 790){
-		// 	if(scrollTop >= 1060 && !hasBubble){
-
-		// 		$("#mask")[0].style.display = 'block'; 
-		// 		$("#messages")[0].style.display = 'block'; 
-		// 		hasBubble = true;
-    //     $('body')[0].style.overflow = 'hidden'; 
-		// 		setTimeout('addChatScene()', 1000);
-
-		// 	}
-
-		// 	if(mIndex == 4 && scrollTop < 1060 && !hasRemoveBubble){
-		// 		cleanBubble();
-		// 	}
-		// }
-
-		
-	}); 
-
-});
-
-
-

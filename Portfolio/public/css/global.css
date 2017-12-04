@@ -136,6 +136,23 @@ body #nav {
 	transition:all 0.5s;
 }
 
+#notification{
+    position: fixed;
+    left: 88px;
+    top: 31px;
+    z-index: 100000;
+    opacity:0;
+}
+
+#notification .el{
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 100px;
+    box-shadow: 0 2px 2px rgba(255, 0, 0, 0.2), 0 4px 4px rgba(255, 0, 0, 0.2), 0 8px 8px rgba(255, 0, 0, 0.05);
+    transition:all 0.3s;
+}
+
 .mask{
     min-height: 100vh;
     min-width: 100vw;
