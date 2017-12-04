@@ -103,7 +103,7 @@ var addBubble = function() {
   }
 
   var sendMessage = function(message, position) {
-    var loadingDuration = (message.replace(/<(?:.|\n)*?>/gm, '').length * typingSpeed) + 500;
+    var loadingDuration = (message.replace(/<(?:.|\n)*?>/gm, '').length * typingSpeed) + 300;
     var elements = createBubbleElements(message, position);
     messagesEl.appendChild(elements.bubble);
     messagesEl.appendChild(document.createElement('br'));
@@ -205,15 +205,15 @@ var scrollTop = 0;
 
 // ######  on Ready
 $(document).ready(function(){
-	  removeChatScene()
-
+    removeChatScene()
 
 
 	// ######  on Scroll
 	$(window).scroll(function(){
-		scrollTop = $(window).scrollTop();
+    scrollTop = $(window).scrollTop();
+    
 		$('.counter').html(scrollTop);
-		
+		console.log(scrollTop)
 		if (scrollTop >= 100) {
 			$('#nav').addClass('scrolled-nav');
 			$('#logo').addClass('scrolled-logo');
@@ -227,41 +227,50 @@ $(document).ready(function(){
 			$('#logo-colorful').removeClass('scrolled-color');
 			$('#olsite').removeClass('scrolled-olsite');
 
-		} 
+    } 
+    
+    if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
+      $("#mask")[0].style.display = 'block'; 
+      $("#messages")[0].style.display = 'block'; 
+      hasBubble = true;
+      $('body')[0].style.overflow = 'hidden'; 
+      setTimeout('addChatScene()', 1000);
 
-		if($(window).width() > 1225){
+    }
 
-			if(scrollTop >= 450 && !hasBubble){
+		// if($(window).width() > 1225){
 
-				$("#mask")[0].style.display = 'block'; 
-				$("#messages")[0].style.display = 'block'; 
-				hasBubble = true;
-        $('body')[0].style.overflow = 'hidden'; 
-				setTimeout('addChatScene()', 1000);
+		// 	if(scrollTop >= 450 && !hasBubble){
 
-			}
+		// 		$("#mask")[0].style.display = 'block'; 
+		// 		$("#messages")[0].style.display = 'block'; 
+		// 		hasBubble = true;
+    //     $('body')[0].style.overflow = 'hidden'; 
+		// 		setTimeout('addChatScene()', 1000);
 
-			if(mIndex == 4 && scrollTop < 450 && !hasRemoveBubble){
-				cleanBubble();
-			}
+		// 	}
 
-		}
+		// 	if(mIndex == 4 && scrollTop < 450 && !hasRemoveBubble){
+		// 		cleanBubble();
+		// 	}
 
-		else if($(window).width() > 790){
-			if(scrollTop >= 1060 && !hasBubble){
+		// }
 
-				$("#mask")[0].style.display = 'block'; 
-				$("#messages")[0].style.display = 'block'; 
-				hasBubble = true;
-        $('body')[0].style.overflow = 'hidden'; 
-				setTimeout('addChatScene()', 1000);
+		// else if($(window).width() > 790){
+		// 	if(scrollTop >= 1060 && !hasBubble){
 
-			}
+		// 		$("#mask")[0].style.display = 'block'; 
+		// 		$("#messages")[0].style.display = 'block'; 
+		// 		hasBubble = true;
+    //     $('body')[0].style.overflow = 'hidden'; 
+		// 		setTimeout('addChatScene()', 1000);
 
-			if(mIndex == 4 && scrollTop < 1060 && !hasRemoveBubble){
-				cleanBubble();
-			}
-		}
+		// 	}
+
+		// 	if(mIndex == 4 && scrollTop < 1060 && !hasRemoveBubble){
+		// 		cleanBubble();
+		// 	}
+		// }
 
 		
 	}); 
