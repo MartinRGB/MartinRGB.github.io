@@ -1410,8 +1410,25 @@ main {
 	/* min-height: 400px; */
 }
 
+@font-face {
+    font-family: 'HYQY';
+    src: url("../hyqy.ttf");
+}
+
+.mobile-mask{
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #090070;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.08;
+    transition: all 0.4s ease;
+}
+
+
 .content__title {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'HYQY', sans-serif;
 	letter-spacing: -0.025em;
 	font-size: 7vw;
 	color: white;
@@ -1419,7 +1436,6 @@ main {
 	margin: 0;
 	position: relative;
     text-shadow: 0 10px 20px rgba(0,0,0,.12);
-    font-weight: 800;
 }
 
 .content__title::before,
@@ -1431,6 +1447,7 @@ main {
 	background: url(../img/dot.png);
 	background-size: 25px;
     opacity: 0.4;
+    transform: scale(0.5);
 }
 
 .content__title::before {

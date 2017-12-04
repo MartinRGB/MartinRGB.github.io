@@ -18,7 +18,7 @@ $(document).ready(function(){
     $(window).scrollTop(0);
     $('#desktopNav').off('click');
     $("#desktopNav").on('click', function () {		
-      location.href = "index.html";
+      location.href = "http://www.martinrgb.com/Portfolio/";
     }); 
 
     

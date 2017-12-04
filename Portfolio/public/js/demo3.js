@@ -19,14 +19,14 @@ camera.position.set(0, 0, 220);
 
 
 // Glow & Shadow
-var light0 = new THREE.HemisphereLight(0x275EA8, 0xDF36A6, 0.4);
+var light0 = new THREE.HemisphereLight(0xA85F27, 0x36DF9D, 0.4);
 light0.color.setHSL( 0.6, 1, 0.6 );
 light0.groundColor.setHSL( 0.095, 1, 0.75 );
 light0.position.set( -50, -50, 0 );
 scene.add(light0);
 
 // Color Trending
-var light1 = new THREE.DirectionalLight(0x68C9DA, 0.5);
+var light1 = new THREE.DirectionalLight(0x278B9D, 0.5);
 light1.position.set(200, 300, -200); 
 scene.add(light1);
 var light2 = light1.clone();
@@ -35,16 +35,20 @@ scene.add(light2);
 
 
 
-var geometry = new THREE.IcosahedronGeometry(120, 4);
+var geometry = new THREE.IcosahedronGeometry(120, 3);
 for(var i = 0; i < geometry.vertices.length; i++) {
     var vector = geometry.vertices[i];
     vector._o = vector.clone();  
 }
 var material = new THREE.MeshPhongMaterial({
     emissive: 0xDF36A6, 
+    bumpScale:1,
     emissiveIntensity: 0.4,
-    shininess: 0
+    flatShading:true,
+    shininess: 100
 });
+
+
 var shape = new THREE.Mesh(geometry, material);
 scene.add(shape);
 
