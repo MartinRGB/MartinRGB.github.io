@@ -16,6 +16,10 @@ var scrollTop = 0;
 $(document).ready(function(){
     noDisplayChatScene()
     $(window).scrollTop(0);
+    $('#desktopNav').off('click');
+    $("#desktopNav").on('click', function () {		
+      location.href = "index.html";
+    }); 
 
     
     var notificationAnimation = anime({
@@ -62,19 +66,24 @@ $(document).ready(function(){
 
           $('#desktopNav').off('click');
           $("#desktopNav").on('click', function () {		
-            addChatScene()
 
-            location.href = "javascript:void(0)";
-  
-            var notificationAnimation = anime({
-              targets: '#notification',
-              opacity: 1,
-              scale:[1., 0.],
-              duration: 500,
-              easing: 'easeInOutQuart',
-              delay:0
-            });
+            if(!hasOpenNotif){
+              addChatScene()
+
+              location.href = "javascript:void(0)";
+    
+              var notificationAnimation = anime({
+                targets: '#notification',
+                opacity: 1,
+                scale:[1., 0.],
+                duration: 500,
+                easing: 'easeInOutQuart',
+                delay:0
+              });
+              hasOpenNotif = true;
+            }
             hasOpenNotif = true;
+            $('#desktopNav').off('click');
           }); 
         }
 
@@ -95,7 +104,7 @@ $(document).ready(function(){
 
           $('#desktopNav').off('click');
           $("#desktopNav").on('click', function () {		
-            location.href = "index.html";
+            location.href = "http://www.martinrgb.com/Portfolio/";
           }); 
           
         }
@@ -112,24 +121,31 @@ $(document).ready(function(){
           notificationAnimation2.pause();
           canHideNotif = true;
 
-          $('#desktopNav').off('click');
-          $("#desktopNav").on('click', function () {		
-            addChatScene()
+            $('#desktopNav').off('click');
+            $("#desktopNav").on('click', function () {		
 
-            location.href = "javascript:void(0)";
-  
-            var notificationAnimation = anime({
-              targets: '#notification',
-              opacity: 1,
-              scale:[1., 0.],
-              duration: 500,
-              easing: 'easeInOutQuart',
-              delay:0
-            });
-            hasOpenNotif = true;
-          }); 
+                if(!hasOpenNotif){
 
-        }
+                      addChatScene()
+          
+                      location.href = "javascript:void(0)";
+            
+                      var notificationAnimation = anime({
+                        targets: '#notification',
+                        opacity: 1,
+                        scale:[1., 0.],
+                        duration: 500,
+                        easing: 'easeInOutQuart',
+                        delay:0
+                      });
+
+              }
+
+              hasOpenNotif = true;
+              $('#desktopNav').off('click');
+            }); 
+          }
+
 
 
 
@@ -165,12 +181,13 @@ var removeChatScene = function(){
 	hasRemoveBubble = true;
 	$('#messages').addClass('scrolled-message');
 	$('#mask').removeClass('scrolled-mask');
-	$('#olsite')[0].style.display = 'block'
-  setTimeout('removeChatScene()', 1000);
+  $('#olsite')[0].style.display = 'block'
+  $('#notification')[0].style.display = 'none'
+  setTimeout('noDisplayChatScene()', 1000);
 
   $('#desktopNav').off('click');
   $("#desktopNav").on('click', function () {		
-    location.href = "index.html";
+    location.href = "http://www.martinrgb.com/Portfolio/";
   }); 
 }
 
