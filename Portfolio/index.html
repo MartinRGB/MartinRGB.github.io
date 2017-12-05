@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<div class="desktop-container">
+<div id="desktop-container" class="desktop-container">
 	<div id="olsite" class="item" style="width: 100px;
     display: none;
     transition: opacity 0.4s,transform 0.6s;
@@ -337,14 +337,14 @@
 	</div>
 </div>
 
-<div class="mobile-container">
+<div id="mobile-container" class="mobile-container">
 		<main>
 				<div class="content" id="gradient">
 					<canvas class="scene scene--full" id="scene"></canvas>
 					<div class="noise"></div>
 					<div class="mobile-mask"></div>
 					<div class="content__inner">
-						<p class="content__title">请在 PC 端预览</p>
+						<p id="content__title" class="content__title">请在 PC 端预览</p>
 					</div>
 				</div>
 			</main>

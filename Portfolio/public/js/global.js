@@ -14,120 +14,71 @@ var scrollTop = 0;
 
 // ######  on Ready
 $(document).ready(function(){
-    noDisplayChatScene()
-    $(window).scrollTop(0);
-    $('#desktopNav').off('click');
-    $("#desktopNav").on('click', function () {		
-      location.href = "http://www.martinrgb.com/Portfolio/";
-    }); 
 
-    
-    var notificationAnimation = anime({
-      targets: '#notification',
-      opacity: 1,
-      scale:[.0, 1],
-      duration: 800,
-      easing: 'easeOutElastic',
-      elasticity: 700,
-      delay:600
-    });
-    notificationAnimation.pause()
 
-    var notificationAnimation2 = anime({
-      targets: '#notification',
-      opacity: 0,
-      scale:0,
-      duration: 200,
-      easing: 'easeOutElastic'
-    });
-    notificationAnimation2.pause()
-    
-	// ######  on Scroll
-	$(window).scroll(function(){
+    var ua = navigator.userAgent.toLowerCase(); 
+    if (ua.indexOf('safari') != -1) { 
+      if (ua.indexOf('chrome') > -1) {
+        //alert("1") // Chrome
 
-    if (!initialScrollEvent) {
-      scrollTop = $(window).scrollTop();
-      
-      $('.counter').html(scrollTop);
-      console.log(scrollTop)
-      if (scrollTop >= 100) {
-        $('#nav').addClass('scrolled-nav');
-        $('#logo').addClass('scrolled-logo');
-        $('#logo-span').addClass('scrolled-span');
-        $('#logo-colorful').addClass('scrolled-color');
-        $('#olsite').addClass('scrolled-olsite');
-
-        //Add Bubble
-        if(!canHideNotif && !hasOpenNotif){
-
-          notificationAnimation.restart();
-          notificationAnimation2.pause();
-          canHideNotif = true;
-
-          $('#desktopNav').off('click');
-          $("#desktopNav").on('click', function () {		
-
-            if(!hasOpenNotif){
-              addChatScene()
-
-              location.href = "javascript:void(0)";
-    
-              var notificationAnimation = anime({
-                targets: '#notification',
-                opacity: 1,
-                scale:[1., 0.],
-                duration: 500,
-                easing: 'easeInOutQuart',
-                delay:0
-              });
-              hasOpenNotif = true;
-            }
-            hasOpenNotif = true;
+            noDisplayChatScene()
+            $(window).scrollTop(0);
             $('#desktopNav').off('click');
-          }); 
-        }
+            $("#desktopNav").on('click', function () {    
+              location.href = "http://www.martinrgb.com/Portfolio/";
+            }); 
 
 
-      } else if (scrollTop < 100) {
-        $('#nav').removeClass('scrolled-nav');
-        $('#logo').removeClass('scrolled-logo');
-        $('#logo-span').removeClass('scrolled-span');
-        $('#logo-colorful').removeClass('scrolled-color');
-        $('#olsite').removeClass('scrolled-olsite');
-        
-        //Clean Bubble
-        if(canHideNotif){
 
-          notificationAnimation.pause();
-          notificationAnimation2.restart();
-          canHideNotif = false;
+            
+            var notificationAnimation = anime({
+              targets: '#notification',
+              opacity: 1,
+              scale:[.0, 1],
+              duration: 800,
+              easing: 'easeOutElastic',
+              elasticity: 700,
+              delay:600
+            });
+            notificationAnimation.pause()
 
-          $('#desktopNav').off('click');
-          $("#desktopNav").on('click', function () {		
-            location.href = "http://www.martinrgb.com/Portfolio/";
-          }); 
-          
-        }
-      } 
-      
-      if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
-        hasBubble = true;
+            var notificationAnimation2 = anime({
+              targets: '#notification',
+              opacity: 0,
+              scale:0,
+              duration: 200,
+              easing: 'easeOutElastic'
+            });
+            notificationAnimation2.pause()
+            
+          // ######  on Scroll
+          $(window).scroll(function(){
 
-        //Add Bubble
-        if(!canHideNotif){
+            if (!initialScrollEvent) {
+              scrollTop = $(window).scrollTop();
+              
+              $('.counter').html(scrollTop);
+              // console.log(scrollTop)
+              if (scrollTop >= 100) {
+                $('#nav').addClass('scrolled-nav');
+                $('#logo').addClass('scrolled-logo');
+                $('#logo-span').addClass('scrolled-span');
+                $('#logo-colorful').addClass('scrolled-color');
+                $('#olsite').addClass('scrolled-olsite');
 
+                //Add Bubble
+                if(!canHideNotif && !hasOpenNotif){
 
-          notificationAnimation.restart();
-          notificationAnimation2.pause();
-          canHideNotif = true;
+                  notificationAnimation.restart();
+                  notificationAnimation2.pause();
+                  canHideNotif = true;
 
-            $('#desktopNav').off('click');
-            $("#desktopNav").on('click', function () {		
+                  $('#desktopNav').off('click');
+                  $("#desktopNav").on('click', function () {    
 
-                if(!hasOpenNotif){
-
+                    if(!hasOpenNotif){
                       addChatScene()
-          
+
                       location.href = "javascript:void(0)";
             
                       var notificationAnimation = anime({
@@ -138,24 +89,94 @@ $(document).ready(function(){
                         easing: 'easeInOutQuart',
                         delay:0
                       });
+                      hasOpenNotif = true;
+                    }
+                    hasOpenNotif = true;
+                    $('#desktopNav').off('click');
+                  }); 
+                }
 
+
+              } else if (scrollTop < 100) {
+                $('#nav').removeClass('scrolled-nav');
+                $('#logo').removeClass('scrolled-logo');
+                $('#logo-span').removeClass('scrolled-span');
+                $('#logo-colorful').removeClass('scrolled-color');
+                $('#olsite').removeClass('scrolled-olsite');
+                
+                //Clean Bubble
+                if(canHideNotif){
+
+                  notificationAnimation.pause();
+                  notificationAnimation2.restart();
+                  canHideNotif = false;
+
+                  $('#desktopNav').off('click');
+                  $("#desktopNav").on('click', function () {    
+                    location.href = "http://www.martinrgb.com/Portfolio/";
+                  }); 
+                  
+                }
+              } 
+              
+              if(scrollTop + $(window).height() > ($(document).height() - 50) && !hasBubble)  {
+                hasBubble = true;
+
+                //Add Bubble
+                if(!canHideNotif){
+
+
+                  notificationAnimation.restart();
+                  notificationAnimation2.pause();
+                  canHideNotif = true;
+
+                    $('#desktopNav').off('click');
+                    $("#desktopNav").on('click', function () {    
+
+                        if(!hasOpenNotif){
+
+                              addChatScene()
+                  
+                              location.href = "javascript:void(0)";
+                    
+                              var notificationAnimation = anime({
+                                targets: '#notification',
+                                opacity: 1,
+                                scale:[1., 0.],
+                                duration: 500,
+                                easing: 'easeInOutQuart',
+                                delay:0
+                              });
+
+                      }
+
+                      hasOpenNotif = true;
+                      $('#desktopNav').off('click');
+                    }); 
+                  }
+
+
+
+
+          
               }
-
-              hasOpenNotif = true;
-              $('#desktopNav').off('click');
-            }); 
-          }
+            }
+            initialScrollEvent = false;
+          }); 
 
 
-
-
-  
+      } else {
+        //alert("2") // Safari
+        $('#desktop-container')[0].style.display = 'none';
+        $('#mobile-container')[0].style.display = 'block';
+        $('#content__title')[0].innerHTML = '请在 Chrome 预览';
+        $('#content__title')[0].style.fontFamily = "'PingFang SC',sans-serif"
       }
     }
-    initialScrollEvent = false;
-    
-		
-	}); 
+
+
+
+
 
 });
 

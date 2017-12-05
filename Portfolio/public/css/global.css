@@ -163,6 +163,7 @@ body #nav {
     top: 0;
     opacity:0;
     transition: all 0.4s ease;
+    z-index: 300;
 }
 
 .scrolled-mask{
@@ -454,6 +455,7 @@ a:hover .logo .logo-canvas .path{
   transition: all 0.5s;
 
   border-radius: 10px;
+  z-index:200;
 }
 
 
@@ -471,6 +473,7 @@ a:hover .logo .logo-canvas .path{
 
 .card-title{
   transition: all 0.25s;
+  z-index:200;
 }
 
 .image-shadow:hover .card-title{
@@ -478,7 +481,25 @@ a:hover .logo .logo-canvas .path{
   opacity: 0;
 }
 
-
+.card-description {
+    display: block;
+    display: -webkit-box;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 24px;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    color: #ffffff;
+    position: absolute;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    bottom: 0;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    transition:all 0.25s;
+    z-index:200;
+}
 
 
 
@@ -755,24 +776,6 @@ p.card-type{
 	line-height: 18px;
 }
 
-.card-description {
-    display: block;
-    display: -webkit-box;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 24px;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    color: #ffffff;
-    position: absolute;
-    text-align: left;
-    padding-top: 20px;
-    padding-left: 24px;
-    padding-right: 24px;
-    bottom: 0;
-    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    transition:all 0.25s;
-}
 
 .card-description.card-description--video{
 	color:white;

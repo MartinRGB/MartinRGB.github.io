@@ -60,6 +60,9 @@ h1 span {
           transform: rotateX(0) rotateY(0);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  transform-origin:50% 50% -10px;
+  -webkit-transform-origin:50% 50% -10px;
+  z-index:200;
 }
 
 
