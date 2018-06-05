@@ -46543,7 +46543,7 @@ var TitleObject = function () {
       var _this = this;
 
       var loader = new THREE.TextureLoader();
-      loader.load('../images/index/tex_title.png', function (texture) {
+      loader.load('images/index/tex_title.png', function (texture) {
         texture.magFilter = THREE.NearestFilter;
         texture.minFilter = THREE.NearestFilter;
         _this.uniforms.texture.value = texture;
