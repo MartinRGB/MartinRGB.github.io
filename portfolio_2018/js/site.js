@@ -115,7 +115,6 @@ var site = {};
 
                         if (addMe.nodeName == "VIDEO") {
 
-
                             if(addMe.parentNode.className == "plyr__video-wrapper"){
 
                                 spinner = addSpinnerToNode(addMe.parentNode.parentNode.parentNode, true);
@@ -549,8 +548,6 @@ var site = {};
 
             }
         });
-
-
 
 
     }
