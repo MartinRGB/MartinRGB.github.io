@@ -39,10 +39,13 @@ body {
 }
 video {
     max-width: 100%;
-    width: 100% !important;
+    /* width: 100% !important; */
     max-height: 100%;
     text-decoration: none;
     border: none;
+
+    box-shadow: 0 0 2px 1px rgba(0,0,0,.05), 30px 40px 60px rgba(0,0,0,.05), 5px 5px 20px rgba(0,0,0,.05);
+    border-radius: 12px;
 }
 
 .col-md-4 video{
@@ -251,6 +254,14 @@ h3 {
     color: #754523;
 }
 
+.video-tilt-right{
+    transform: perspective(980px) rotateY(-31deg) rotateX(3deg);
+}
+
+.video-tilt-left{
+    transform: perspective(980px) rotateY(31deg) rotateX(3deg);
+}
+
 .experimentsContainer h3 {
     color: #565656;
 }
@@ -436,7 +447,7 @@ hr {
 .underline, .underlineLight {
     
     margin-bottom: 15px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .underline h4, .underlineLight h4 {
     margin:20px 0px 0px 0px;
