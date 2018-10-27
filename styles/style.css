@@ -234,41 +234,41 @@ body {
 }
 @font-face {
     font-family: 'Lato';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Lato-Regular.ttf');
+    src: url('../fonts/Lato-Regular.ttf');
 }
 @font-face {
     font-family: 'Lato-Bold';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Lato-Bold.ttf');
+    src: url('../fonts/Lato-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Ak-Regular';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat.ttf');
+    src: url('../fonts/Akkurat.ttf');
 }
 
 @font-face {
     font-family: 'Ak-Bold';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-Bold.ttf');
+    src: url('../fonts/Akkurat-Bold.ttf');
 }
 
 @font-face {
     font-family: 'Ak-BoldItalic';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-BoldItalic.ttf');
+    src: url('../fonts/Akkurat-BoldItalic.ttf');
 }
 
 @font-face {
     font-family: 'Ak-Light';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-Light.ttf');
+    src: url('../fonts/Akkurat-Light.ttf');
 }
 
 @font-face {
     font-family: 'DIN-LightItalic';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/DIN-LightItalic.otf');
+    src: url('../fonts/DIN-LightItalic.otf');
 }
 
 @font-face {
     font-family: 'Ak-Italic';
-    src: url('http://7xqdw6.com1.z0.glb.clouddn.com/Akkurat-Italic.ttf');
+    src: url('../fonts/Akkurat-Italic.ttf');
 }
 
 
@@ -572,7 +572,7 @@ height: 100%;
     z-index: -100;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    b/*ackground: url(//demosthenes.info/assets/images/polina.jpg) cover;*/
+    /*background: url(//demosthenes.info/assets/images/polina.jpg) cover;*/
     -webkit-transition: 1s opacity;
     transition: 1s opacity;
 }
@@ -610,7 +610,7 @@ height: 100%;
     /*width: 560px;*/
 }
 .godown {
-    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/GoDown.png');
+    background: url('../images/GoDown.png');
     width: 39px;
     height: 21px;
     position: absolute;
@@ -631,21 +631,21 @@ height: 100%;
 }
 .icon-pen {
     display: inline-block;
-    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon1.png');
+    background: url('../images/tinyicon1.png');
     width: 33px;
     height: 46px;
     background-size: contain;
 }
 .icon-terminal {
     display: inline-block;
-    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon2.png');
+    background: url('../images/tinyicon2.png');
     width: 40px;
     height: 40px;
     background-size: contain;
 }
 .icon-notebook {
     display: inline-block;
-    background: url('http://7xqdw6.com1.z0.glb.clouddn.com/tinyicon3.png');
+    background: url('../images/tinyicon3.png');
     width: 24px;
     height: 37px;
     background-size: contain;
