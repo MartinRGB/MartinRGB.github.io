@@ -46857,7 +46857,7 @@ exports.default = function () {
     titleObject.loadTexture(function () {
       sceneBack.add(titleObject.obj);
 
-      sceneBack.add(beam.obj);
+      //sceneBack.add(beam.obj);
       sceneBack.add(floatPoints.obj);
       transitionOnload();
     });
