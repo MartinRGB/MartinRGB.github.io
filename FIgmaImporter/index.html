@@ -9,6 +9,13 @@
     <title>FIGMA IMPORTER</title>
 </head>
 <script type="text/javascript">
+	
+// https://www.figma.com/oauth?client_id=4wwauiegIxJMBlGhAm7ACf&redirect_uri=https://www.martinrgb.com/FIgmaImporter/index.html&scope=file_read&state=2&response_type=code
+// "https://www.figma.com/oauth?client_id={0}&redirect_uri={1}&scope=file_read&state={2}&response_type=code";
+// 0 - app id
+// 1 - weburi
+// 2 - random
+	
 	function FigmaCallBack(name) {
 		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
 		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
