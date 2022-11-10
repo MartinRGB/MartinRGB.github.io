@@ -1,29 +1,3 @@
-// const thisSiteUrl = "https://127.0.0.1:8885/index.html";
-// const thisStateInt = Math.floor(Math.random() * 256);
-// const thisClientId = "YENq6dEgFXG1BJdhEEyobg";
-// const thisSecretId = "azhgHwFqtRNP3bkCQunJC2PcPlfM5o";
-
-// const OARequestUrl = (clientId,siteUrl,stateInt) =>{
-//     return (
-//     `https://www.figma.com/oauth?` + 
-//     `client_id=${clientId}&` + 
-//     `redirect_uri=${siteUrl}&` + 
-//     `scope=file_read&` + 
-//     `state=${stateInt}&` + 
-//     `response_type=code`)
-// }
-
-// const TokenRequestUrl = (clientId,secretId,siteUrl,clientCode) =>{
-//     return(
-//     `https://www.figma.com/api/oauth/token?` + 
-//     `client_id=${clientId}&`+ 
-//     `client_secret=${secretId}&`+
-//     `redirect_uri=${siteUrl}&` + 
-//     `code=${clientCode}&` + 
-//     `grant_type=authorization_code`)
-// }
-
-
 function FigmaCallBack(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -38,16 +12,14 @@ function fillParameters(code,state,token){
 }
 
 function getToken(){
-    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-    httpRequest.open('POST', TokenRequestUrl(thisClientId,thisSecretId,thisSiteUrl,FigmaCallBack("code")), true); //第二步：打开连接
-    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-    httpRequest.send('name=teswe&ee=ef');//发送请求 将情头体写在send中
-    /**
-     * 获取数据后的处理程序
-     */
-    httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
-        if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
-            var json = JSON.parse(httpRequest.responseText);//获取到服务端返回的数据
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('POST', TokenRequestUrl(thisClientId,thisSecretId,thisSiteUrl,FigmaCallBack("code")), true); 
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    httpRequest.send('name=teswe&ee=ef');
+
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = JSON.parse(httpRequest.responseText);
             var accessToken = json.access_token;
             fillParameters(FigmaCallBack("code"),FigmaCallBack("state"),accessToken);
             document.getElementById('token_snippet').style.display = 'initial';
@@ -70,40 +42,51 @@ function CopyToClipboard(id)
 }
 
 function getJSON(){
-    // var figUrl = document.getElementById('file_textarea').value;
-    // console.log(`figma file url is: ` + figUrl);
-    
-    // var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-    // httpRequest.open('GET', figUrl, false); //第二步：打开连接
-    // const token = document.getElementById("Token").innerHTML
-    // console.log('personal access token is: ' + token)
-    // //Bearer
-    // httpRequest.setRequestHeader("Authorization",`Bearer ${token}`);//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-    // httpRequest.send(null);//发送请求 将情头体写在send中
-    // /**
-    //  * 获取数据后的处理程序
-    //  */
-    // httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
-    //     console.log(httpRequest)
-    //     if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
-    //         var json = JSON.parse(httpRequest.responseText);//获取到服务端返回的数据
-    //         console.log(httpRequest.responseText);
-    //     }
-    // };
 
+    // parse figUrl to apiUrl
     const figUrl = document.getElementById('file_textarea').value;
     const token = document.getElementById("Token").innerHTML
-    fetch(`${figUrl}`,
-        {
-            headers:{
-                'Authorization': `'Bearer ${token}'`
-            }
-        }
-        
-    )
-    .then(res => res.json())
-    .then(data => console.log(data))
-}
+    var substrings = figUrl.split('/');
+    var length = substrings.length;
+    var isNodeUrl = substrings[length - 1].includes("node-id");
+    var _fileName = substrings[length - 2];
+    var apiUrl;
+    if (!isNodeUrl)
+    {
+        apiUrl = `https://api.figma.com/v1/files/${_fileName}`;
+    }
 
+    var _nodeId = substrings[length - 1].split(`?node-id=`)[1];
+    apiUrl = `https://api.figma.com/v1/files/${_fileName}/nodes?ids=${_nodeId}`
+
+
+    // request get json
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', apiUrl, true); 
+    //Bearer
+    httpRequest.setRequestHeader("Authorization",`Bearer ${token}`);
+    httpRequest.send();
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = JSON.parse(httpRequest.responseText);
+            var jsonStringify = JSON.stringify(json,null,0);
+            document.getElementById('json-textarea').innerHTML = jsonStringify
+            console.log(json);
+            var idNodes = [];
+            const firstNodeValue = Object.values(json.nodes)[0]
+            const firstNodeKey = Object.keys(json.nodes)[0]
+
+            idNodes.push(firstNodeKey);
+            for(var i =0;i< firstNodeValue.document.children.length;i++){
+                idNodes.push(firstNodeValue.document.children[i].id)
+                if(i === firstNodeValue.document.children.length-1){
+                    console.log(idNodes);
+                }
+            }
+
+
+        }
+    };
+}
 
 getToken();
