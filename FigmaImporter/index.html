@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FIGMA IMPORTER</title>
+</head>
+<script type="text/javascript">
+	
+// "https://www.figma.com/oauth?client_id={0}&redirect_uri={1}&scope=file_read&state={2}&response_type=code";
+// 0 - app id
+// 1 - weburi
+// 2 - random
+// 
+// https://www.figma.com/oauth?client_id=4wwauiegIxJMBlGhAm7ACf&redirect_uri=https://www.martinrgb.com/FIgmaImporter/index.html&scope=file_read&state=2&response_type=code
+  
+	function FigmaCallBack(name) {
+		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+		return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	function fillParameters(){
+		document.getElementById("ClientCode").innerHTML = FigmaCallBack("code");
+		document.getElementById("State").innerHTML = FigmaCallBack("state");
+	}
+</script>
+  <body onload = "fillParameters()">
+	Your ClientCode is: <strong id = "ClientCode"></strong><br>
+	Your State is: <strong id = "State"></strong><br>
+	Copy them into the fields in Unity's figma importer window. And press "GetToken" button.
+  </body>
+</html>
