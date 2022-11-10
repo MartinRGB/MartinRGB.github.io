@@ -91,7 +91,7 @@ function getJSON(){
     //     }
     // };
 
-    //const figUrl = document.getElementById('file_textarea').value;
+    const figUrl = document.getElementById('file_textarea').value;
     const token = document.getElementById("Token").innerHTML
     fetch(`${figUrl}`,
         {
