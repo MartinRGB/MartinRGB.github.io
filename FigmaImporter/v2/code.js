@@ -69,4 +69,41 @@ function CopyToClipboard(id)
     alert("Copied the token: " + r);
 }
 
+function getJSON(){
+    // var figUrl = document.getElementById('file_textarea').value;
+    // console.log(`figma file url is: ` + figUrl);
+    
+    // var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    // httpRequest.open('GET', figUrl, false); //第二步：打开连接
+    // const token = document.getElementById("Token").innerHTML
+    // console.log('personal access token is: ' + token)
+    // //Bearer
+    // httpRequest.setRequestHeader("Authorization",`Bearer ${token}`);//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    // httpRequest.send(null);//发送请求 将情头体写在send中
+    // /**
+    //  * 获取数据后的处理程序
+    //  */
+    // httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+    //     console.log(httpRequest)
+    //     if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+    //         var json = JSON.parse(httpRequest.responseText);//获取到服务端返回的数据
+    //         console.log(httpRequest.responseText);
+    //     }
+    // };
+
+    //const figUrl = document.getElementById('file_textarea').value;
+    const token = document.getElementById("Token").innerHTML
+    fetch(`${figUrl}`,
+        {
+            headers:{
+                'Authorization': `'Bearer ${token}'`
+            }
+        }
+        
+    )
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
+
+
 getToken();
