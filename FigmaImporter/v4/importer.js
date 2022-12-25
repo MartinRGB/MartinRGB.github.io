@@ -20,7 +20,7 @@
   height: 100vh;
   width: 100vw;
   position: absolute;
-  z-index: 10000;
+  z-index: 10001;
   left: 0;
   top: 0;
   display: grid;
